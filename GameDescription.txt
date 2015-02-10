@@ -1,0 +1,15 @@
+TANKS
+
+Description:
+In Tanks, the player takes control of a tank. He is able to move around a map, interact with the environment and shoot.
+
+Goal:
+Destroy all enemy tanks and/or bunkers.
+
+Gameplay:
+The game can be played in single-player or multi-player mode. The map is rectangular and is divided into equally sized square cells. 
+The tank and all moving enemies move either horizontally or vertically. There are obstacles like walls and rocks. Some prevent movement in the given direction, others also block visibility.
+There are different types of enemies, some stationary and others moving. They are all able to shoot at the player. There are different classes of enemies with different abilities and properties.
+The player can collect bonuses in the form of temporary upgrades, health or money. Money can be used to purchase permanent upgrades like - better armor, stronger weapons, single-use items like mines, etc.
+
+Basic class structure:
