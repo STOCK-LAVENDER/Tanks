@@ -13,3 +13,37 @@ There are different types of enemies, some stationary and others moving. They ar
 The player can collect bonuses in the form of temporary upgrades, health or money. Money can be used to purchase permanent upgrades like - better armor, stronger weapons, single-use items like mines, etc.
 
 Basic class structure:
+
+Interfaces: IMoveable, IDestroyable, IAttack, ITimeoutable
+
+GameObject - abstract class for all game objects; has position and size
+
+Vehicle - abstract class for all vehicles; initially tanks, but we may add other types later; holds speed and size
+
+Tank - abstract class for all types of tanks; holds health and armor (if armor isn't separated into a class within TankPart)
+BasicTank - the basic unit
+FasterTank
+HeavyArmoredTank
+HeavyAmmunitionTank
+
+TankPart - abstract class for all changeable parts of the tanks, initially the cannon
+Cannon - abstract class for cannons; holds damage
+BasicCannon - the default cannon
+FastCannon - shoots faster, but with low damage
+HeavyCannon - slower, but stronger cannon
+SpecialCannon - more exotic types of cannon may go here
+
+Obstacle - abstract class for all obstacles
+Wall - abstract class for all walls; block both movement and visibility
+BasicWall - holds strength; can be destroyed; different
+HardWall - can be destroyed with more shots
+SteelWall - indestructible
+Barricade - abstract class for all obstacles that block movement, but not visibility, indestructible
+SimpleBarricade
+AggressiveBarricade - deals damage to the player if adjacent
+Cover - objects that block visibility, but not movement (e.g. shrubs)
+
+Mines (define proper abstraction) - can be placed, explode, deal damage.
+
+
+
