@@ -18,6 +18,7 @@ namespace TestGame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        private string canYouSeeMe;
 
         public Game1()
             : base()
