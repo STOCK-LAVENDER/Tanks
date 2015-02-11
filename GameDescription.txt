@@ -14,7 +14,7 @@ The player can collect bonuses in the form of temporary upgrades, health or mone
 In the beginning, a welcome screen and main menu. Choose between SP and MP, choose level. Level generator. Sound on/off. Restart level. Pause. Shop - to purchase upgrades and equip available armaments and items.
 
 Basic class structure:
-
+GameEngine - Update(), Draw()
 Interfaces: IMoveable, IDestroyable, IAttack, ITimeoutable
 
 GameObject - abstract class for all game objects; has position and size
@@ -27,7 +27,7 @@ FasterTank
 HeavyArmoredTank
 HeavyAmmunitionTank
 
-HealthBar - 
+HealthBar - for main character and enemies
 
 TankPart - abstract class for all changeable parts of the tanks, initially the cannon
 Cannon - abstract class for cannons; holds damage
