@@ -27,6 +27,8 @@ FasterTank
 HeavyArmoredTank
 HeavyAmmunitionTank
 
+HealthBar - 
+
 TankPart - abstract class for all changeable parts of the tanks, initially the cannon
 Cannon - abstract class for cannons; holds damage
 BasicCannon - the default cannon
