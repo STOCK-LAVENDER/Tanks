@@ -48,6 +48,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Sound\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Graphics\time.jpg">
+      <Name>time</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--

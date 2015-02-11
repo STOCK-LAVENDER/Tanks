@@ -8,9 +8,10 @@ Destroy all enemy tanks and/or bunkers.
 
 Gameplay:
 The game can be played in single-player or multi-player mode. The map is rectangular and is divided into equally sized square cells. 
-The tank and all moving enemies move either horizontally or vertically. There are obstacles like walls and rocks. Some prevent movement in the given direction, others also block visibility.
+The tank and all moving enemies move either horizontally or vertically. There are obstacles like walls and rocks. Some prevent movement in the given direction, others also block visibility. Obstacles can be destroyed or indestructible.
 There are different types of enemies, some stationary and others moving. They are all able to shoot at the player. There are different classes of enemies with different abilities and properties.
 The player can collect bonuses in the form of temporary upgrades, health or money. Money can be used to purchase permanent upgrades like - better armor, stronger weapons, single-use items like mines, etc.
+In the beginning, a welcome screen and main menu. Choose between SP and MP, choose level. Level generator. Sound on/off. Restart level. Pause. Shop - to purchase upgrades and equip available armaments and items.
 
 Basic class structure:
 
@@ -32,6 +33,7 @@ BasicCannon - the default cannon
 FastCannon - shoots faster, but with low damage
 HeavyCannon - slower, but stronger cannon
 SpecialCannon - more exotic types of cannon may go here
+MachineGun - shoots bullets at fast speed
 
 Obstacle - abstract class for all obstacles
 Wall - abstract class for all walls; block both movement and visibility
@@ -45,5 +47,18 @@ Cover - objects that block visibility, but not movement (e.g. shrubs)
 
 Mines (define proper abstraction) - can be placed, explode, deal damage.
 
+PowerUp - abstract class for all power-ups, temporary effects
+SpeedPowerUp - increases speed
+DamagePowerUp - increased damage
+ArmorPowerUp - increases armor
+Shield - places a protective shield around the player's tank for a limited time that cannot be penetrated
 
+Collectibles
+Money - to purchase upgrades in the shop
+Health
+Ammunition
 
+Ammunition - abstract class for all types of ammunition
+Bullet - fast shooting speed, very low damage, ineffective against heavy tanks and hard walls
+TankAmmunition - regular ammunition for the tank
+HeatSeekingMissile - destroys the closest enemy unit in its path

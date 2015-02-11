@@ -47,6 +47,7 @@ namespace TestGame
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            Texture2D image = Content.Load<Texture2D>("Graphics/time");
 
             // TODO: use this.Content to load your game content here
         }
