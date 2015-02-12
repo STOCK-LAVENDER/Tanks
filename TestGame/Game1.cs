@@ -1,6 +1,7 @@
 ﻿#region Using Statements
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -16,11 +17,14 @@ namespace TestGame
     /// <summary>
     /// This is the main type for your game
     /// </summary>
+    
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         private string canYouSeeMe;
+        public static int windowWidth = 1200;
+        public static int windowHeight = 1000;
 
         private Texture2D background;
         private Texture2D shuttle;
@@ -28,12 +32,22 @@ namespace TestGame
         private SpriteFont font;
         private int score = 0;
         private AnimatedSprite animatedSprite;
+        private Texture2D arrow;
+        private float angle = 0;
+        
 
         public Game1()
             : base()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            graphics.PreferredBackBufferWidth = windowWidth;
+            graphics.PreferredBackBufferHeight = windowHeight;
+
+             
+            graphics.ApplyChanges();
+            
+            this.IsMouseVisible = true;
         }
 
         /// <summary>
@@ -53,6 +67,7 @@ namespace TestGame
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
         /// </summary>
+        
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
@@ -63,6 +78,7 @@ namespace TestGame
             font = Content.Load<SpriteFont>("Graphics/SpriteFont1");
             Texture2D texture = Content.Load<Texture2D>("Graphics/SmileyWalk");
             animatedSprite = new AnimatedSprite(texture, 4, 4);
+            arrow = Content.Load<Texture2D>("Graphics/arrow");
 
             // TODO: use this.Content to load your game content here
         }
@@ -87,6 +103,7 @@ namespace TestGame
                 Exit();
 
             score++;
+            angle += 0.01f;
             // TODO: Add your update logic here
             animatedSprite.Update();
             base.Update(gameTime);
@@ -96,6 +113,7 @@ namespace TestGame
         /// This is called when the game should draw itself.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
@@ -103,14 +121,19 @@ namespace TestGame
             
             spriteBatch.Begin();
 
-            spriteBatch.Draw(background, new Rectangle(0, 0, 800, 480), Color.White);
+            spriteBatch.Draw(background, new Rectangle(0, 0, windowWidth, windowHeight), Color.White);
             spriteBatch.Draw(earth, new Vector2(400, 240), Color.White);
             spriteBatch.Draw(shuttle, new Vector2(450, 240), Color.White);
 
             spriteBatch.DrawString(font, "Score: " + score, new Vector2(100, 100), Color.Wheat);
+            Vector2 location = new Vector2(400, 240);
+            Rectangle sourceRectangle = new Rectangle(0, 0, arrow.Width, arrow.Height);
+            Vector2 origin = new Vector2(arrow.Width / 2, arrow.Height);
+
+            spriteBatch.Draw(arrow, location, sourceRectangle, Color.White, angle, origin, 1.0f, SpriteEffects.None, 1);
 
             spriteBatch.End();
-            animatedSprite.Draw(spriteBatch, new Vector2(400, 200));
+            animatedSprite.Draw(spriteBatch);
             
 
             // TODO: Add your drawing code here
