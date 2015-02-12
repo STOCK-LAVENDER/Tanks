@@ -11,6 +11,8 @@ using Microsoft.Xna.Framework.GamerServices;
 
 namespace TestGame
 {
+    using TextureAtlas;
+
     /// <summary>
     /// This is the main type for your game
     /// </summary>
@@ -19,6 +21,13 @@ namespace TestGame
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         private string canYouSeeMe;
+
+        private Texture2D background;
+        private Texture2D shuttle;
+        private Texture2D earth;
+        private SpriteFont font;
+        private int score = 0;
+        private AnimatedSprite animatedSprite;
 
         public Game1()
             : base()
@@ -48,7 +57,12 @@ namespace TestGame
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            Texture2D image = Content.Load<Texture2D>("Graphics/time");
+            background = Content.Load<Texture2D>("Graphics/stars"); // change these names to the names of your images
+            shuttle = Content.Load<Texture2D>("Graphics/shuttle");  // if you are using your own images.
+            earth = Content.Load<Texture2D>("Graphics/earth");
+            font = Content.Load<SpriteFont>("Graphics/SpriteFont1");
+            Texture2D texture = Content.Load<Texture2D>("Graphics/SmileyWalk");
+            animatedSprite = new AnimatedSprite(texture, 4, 4);
 
             // TODO: use this.Content to load your game content here
         }
@@ -72,8 +86,9 @@ namespace TestGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            score++;
             // TODO: Add your update logic here
-
+            animatedSprite.Update();
             base.Update(gameTime);
         }
 
@@ -84,6 +99,19 @@ namespace TestGame
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+           
+            
+            spriteBatch.Begin();
+
+            spriteBatch.Draw(background, new Rectangle(0, 0, 800, 480), Color.White);
+            spriteBatch.Draw(earth, new Vector2(400, 240), Color.White);
+            spriteBatch.Draw(shuttle, new Vector2(450, 240), Color.White);
+
+            spriteBatch.DrawString(font, "Score: " + score, new Vector2(100, 100), Color.Wheat);
+
+            spriteBatch.End();
+            animatedSprite.Draw(spriteBatch, new Vector2(400, 200));
+            
 
             // TODO: Add your drawing code here
 

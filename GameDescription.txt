@@ -28,6 +28,7 @@ HeavyArmoredTank
 HeavyAmmunitionTank
 
 HealthBar - for main character and enemies
+Name of the player's tank - to add a storyline of some sort.
 
 TankPart - abstract class for all changeable parts of the tanks, initially the cannon
 Cannon - abstract class for cannons; holds damage

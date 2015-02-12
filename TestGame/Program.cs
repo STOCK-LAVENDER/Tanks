@@ -6,6 +6,8 @@ using System.Linq;
 
 namespace TestGame
 {
+    using TextureAtlas;
+
 #if WINDOWS || LINUX
     /// <summary>
     /// The main class.
