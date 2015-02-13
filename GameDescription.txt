@@ -58,6 +58,7 @@ SpeedPowerUp - increases speed
 DamagePowerUp - increased damage
 ArmorPowerUp - increases armor
 Shield - places a protective shield around the player's tank for a limited time that cannot be penetrated
+Teleport - using the mouse, the player can teleport his tank to another location on the map (empty cell).
 
 Collectibles
 Money - to purchase upgrades in the shop
