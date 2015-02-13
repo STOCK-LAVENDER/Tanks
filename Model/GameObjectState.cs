@@ -1,4 +1,4 @@
-﻿namespace UltimateTankClash
+﻿namespace UltimateTankClash.Model
 {
     public enum GameObjectState
     {

@@ -1,4 +1,4 @@
-﻿namespace UltimateTankClash.Model.Ammunition
+﻿namespace UltimateTankClash.Model.AmmunitionItems
 {
     public class TankAmmunition : Ammunition
     {

@@ -2,7 +2,7 @@
 {
     using Interfaces;
 
-    public abstract class CollectibleItem : UltimateTankClash.Engine.GameObject, ICollectible
+    public abstract class CollectibleItem : GameObject, ICollectible
     {
     }
 }

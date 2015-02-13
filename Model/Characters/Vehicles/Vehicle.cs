@@ -1,7 +1,6 @@
-﻿namespace UltimateTankClash.Model
+﻿namespace UltimateTankClash.Model.Characters.Vehicles
 {
     using System;
-    using Engine;
     using Interfaces;
 
     public abstract class Vehicle : Character, IMoveable

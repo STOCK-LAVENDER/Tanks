@@ -1,6 +1,5 @@
-namespace UltimateTankClash.Model
+namespace UltimateTankClash.Model.Characters
 {
-    using Engine;
     using Interfaces;
 
     public abstract class Character : GameObject, IAttack, IDestroyable

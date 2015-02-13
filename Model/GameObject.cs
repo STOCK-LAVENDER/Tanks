@@ -1,4 +1,4 @@
-﻿namespace UltimateTankClash.Engine
+﻿namespace UltimateTankClash.Model
 {
     public abstract class GameObject
     {

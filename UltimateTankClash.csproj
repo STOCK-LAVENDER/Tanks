@@ -36,36 +36,36 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Model\CollectibleItems\CollectibleItem.cs" />
-    <Compile Include="Model\GameObstacles\Barricade.cs" />
-    <Compile Include="GameObjectState.cs" />
+    <Compile Include="Model\GameObstacles\Barricades\Barricade.cs" />
+    <Compile Include="Model\GameObjectState.cs" />
     <Compile Include="Model\CollectibleItems\Consumables\Health.cs" />
     <Compile Include="Model\CollectibleItems\Consumables\Consumable.cs" />
-    <Compile Include="Model\Bunker.cs" />
-    <Compile Include="Model\Character.cs" />
+    <Compile Include="Model\Characters\Bunkers\Bunker.cs" />
+    <Compile Include="Model\Characters\Character.cs" />
     <Compile Include="Model\CollectibleItems\PowerUpEffects\ArmorPowerUp.cs" />
-    <Compile Include="Model\Ammunition\Ammunition.cs" />
+    <Compile Include="Model\AmmunitionItems\Ammunition.cs" />
     <Compile Include="Interfaces\ICollectible.cs" />
-    <Compile Include="Model\GameObstacles\BasicWall.cs" />
-    <Compile Include="Model\GameObstacles\Wall.cs" />
+    <Compile Include="Model\GameObstacles\Walls\BasicWall.cs" />
+    <Compile Include="Model\GameObstacles\Walls\Wall.cs" />
     <Compile Include="Model\TankParts\BasicCannon.cs" />
     <Compile Include="Model\TankParts\Cannon.cs" />
-    <Compile Include="Model\BasicTank.cs" />
-    <Compile Include="Model\Tank.cs" />
+    <Compile Include="Model\Characters\Vehicles\BasicTank.cs" />
+    <Compile Include="Model\Characters\Vehicles\Tank.cs" />
     <Compile Include="Engine\GameEngine.cs" />
-    <Compile Include="Engine\GameObject.cs" />
+    <Compile Include="Model\GameObject.cs" />
     <Compile Include="Interfaces\IAttack.cs" />
     <Compile Include="Interfaces\IDestroyable.cs" />
     <Compile Include="Interfaces\IMoveable.cs" />
     <Compile Include="Interfaces\ITimeoutable.cs" />
     <Compile Include="Model\TankParts\TankPart.cs" />
     <Compile Include="Model\GameObstacles\Obstacle.cs" />
-    <Compile Include="Model\GameObstacles\StellBarricade.cs" />
-    <Compile Include="Model\Ammunition\TankAmmunition.cs" />
+    <Compile Include="Model\GameObstacles\Barricades\SteelBarricade.cs" />
+    <Compile Include="Model\AmmunitionItems\TankAmmunition.cs" />
     <Compile Include="Model\CollectibleItems\PowerUpEffects\SpeedPowerUp.cs" />
     <Compile Include="Model\CollectibleItems\PowerUpEffects\PowerUp.cs" />
     <Compile Include="UltimateTankClashApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Model\Vehicle.cs" />
+    <Compile Include="Model\Characters\Vehicles\Vehicle.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -80,10 +80,6 @@
   <ItemGroup>
     <Folder Include="Content\" />
     <Folder Include="Engine\Factories\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram2.cd" />
-    <None Include="UltimateTankClasClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
