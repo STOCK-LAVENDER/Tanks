@@ -1,7 +1,8 @@
 ﻿namespace UltimateTankClash.Engine
 {
     #region Using Statements
-
+    using System;
+    using System.IO;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
@@ -62,12 +63,9 @@
             basicTankTexture = Content.Load<Texture2D>("Graphics/Sprites/basicTank");
             basicTank = new BasicTank(basicTankTexture, 30, 30, basicTankTexture.Width, basicTankTexture.Height,spriteBatch);
             basicWallTexture = Content.Load<Texture2D>("Graphics/Sprites/basicWall");
-            basicWall = new BasicWall(basicWallTexture, 300, 265, basicWallTexture.Width, basicWallTexture.Height,spriteBatch);
-            basicWall2 = new BasicWall(basicWallTexture, 300, 400, basicWallTexture.Width, basicWallTexture.Height, spriteBatch);
-
-            gameObjects.Add(basicWall);
-            gameObjects.Add(basicWall2);
-
+            
+            this.gameObjects = MapLoader.LoadMap(basicWallTexture, spriteBatch);
+           
             CollissionHandler.Initialize(gameObjects,
                 GraphicsDevice.Viewport.Bounds.Right,
                 GraphicsDevice.Viewport.Bounds.Bottom);
