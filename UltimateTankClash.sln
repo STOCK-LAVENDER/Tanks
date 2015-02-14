@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UltimateTankClash", "Ultima
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TanksContent", "TanksContent\TanksContent\TanksContent.csproj", "{6AA6841E-A3B5-404D-B290-A729FDE0EB3F}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "TanksContentContent", "TanksContent\TanksContentContent\TanksContentContent.contentproj", "{A903BFAE-05FB-4010-ACBF-2E02F93FB5EC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TanksContentContent", "TanksContent\TanksContentContent\TanksContentContent.contentproj", "{A903BFAE-05FB-4010-ACBF-2E02F93FB5EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,6 +95,7 @@ Global
 		{6AA6841E-A3B5-404D-B290-A729FDE0EB3F}.Debug|Mixed Platforms.ActiveCfg = PSM|Any CPU
 		{6AA6841E-A3B5-404D-B290-A729FDE0EB3F}.Debug|Mixed Platforms.Build.0 = PSM|Any CPU
 		{6AA6841E-A3B5-404D-B290-A729FDE0EB3F}.Debug|x86.ActiveCfg = PSM|Any CPU
+		{6AA6841E-A3B5-404D-B290-A729FDE0EB3F}.Debug|x86.Build.0 = PSM|Any CPU
 		{6AA6841E-A3B5-404D-B290-A729FDE0EB3F}.iOS|Any CPU.ActiveCfg = iOS|Any CPU
 		{6AA6841E-A3B5-404D-B290-A729FDE0EB3F}.iOS|Any CPU.Build.0 = iOS|Any CPU
 		{6AA6841E-A3B5-404D-B290-A729FDE0EB3F}.iOS|Mixed Platforms.ActiveCfg = iOS|Any CPU
