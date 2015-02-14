@@ -14,9 +14,14 @@
         private float rotationAngle = 0f;
         private SpriteBatch spriteBatch;
 
-        public BasicTank(Texture2D objTexture, double positionX, double positionY, 
-            double width, double height, SpriteBatch spriteBatch)
-            :base(objTexture,positionX,positionY,width,height,spriteBatch)
+        public BasicTank(
+            Texture2D objTexture,
+            double positionX,
+            double positionY,
+            double width,
+            double height,
+            SpriteBatch spriteBatch)
+            : base(objTexture, positionX, positionY, width, height, spriteBatch)
         {
             this.spriteBatch = spriteBatch;
         }
@@ -54,10 +59,17 @@
 
         public void Draw()
         {
-            spriteBatch.Draw(this.objTexture, null, this.rect, null,
+            spriteBatch.Draw(
+                this.objTexture,
+                null,
+                this.rect,
+                null,
                 new Vector2(this.objTexture.Width / 2, this.objTexture.Width / 2),
-                    rotationAngle, Vector2.Zero, Color.White, SpriteEffects.None, 0f);
-            
+                rotationAngle, 
+                Vector2.Zero, 
+                Color.White, 
+                SpriteEffects.None, 
+                0f);
         }
 
 
@@ -65,7 +77,7 @@
         {
             foreach (var gameObj in UltimateTankClash.Engine.GameEngine.GameObjects)
             {
-                if (this.rect.X - (this.objTexture.Width)/2 < gameObj.rect.X + gameObj.rect.Width &&
+                if (this.rect.X - (this.objTexture.Width) / 2 < gameObj.rect.X + gameObj.rect.Width &&
                    this.rect.X + this.rect.Width - (this.objTexture.Width) / 2 > gameObj.rect.X &&
                    this.rect.Y - (this.objTexture.Width) / 2 < gameObj.rect.Y + gameObj.rect.Height &&
                    this.rect.Height + this.rect.Y - (this.objTexture.Width) / 2 > gameObj.rect.Y)

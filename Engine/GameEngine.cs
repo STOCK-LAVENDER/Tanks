@@ -56,9 +56,9 @@
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            basicTankTexture = Content.Load<Texture2D>("basicTank");
+            basicTankTexture = Content.Load<Texture2D>("Graphics/Sprites/basicTank");
             basicTank = new BasicTank(basicTankTexture, 30, 30, basicTankTexture.Width, basicTankTexture.Height,spriteBatch);
-            basicWallTexture = Content.Load<Texture2D>("basicWall");
+            basicWallTexture = Content.Load<Texture2D>("Graphics/Sprites/basicWall");
             basicWall = new BasicWall(basicWallTexture, 300, 300, basicWallTexture.Width, basicWallTexture.Height,spriteBatch);
 
             GameObjects.Add(basicWall);

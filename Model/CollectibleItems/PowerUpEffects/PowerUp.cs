@@ -11,9 +11,14 @@
 
     public abstract class PowerUp : CollectibleItem, ITimeoutable
     {
-        public PowerUp(Texture2D objTexture, double positionX, double positionY, 
-            double width, double height, SpriteBatch spriteBatch)
-            :base(objTexture,positionX,positionY,width,height, spriteBatch)
+        protected PowerUp(
+            Texture2D objTexture,
+            double positionX,
+            double positionY,
+            double width,
+            double height,
+            SpriteBatch spriteBatch)
+            : base(objTexture, positionX, positionY, width, height, spriteBatch)
         {
         }
     }

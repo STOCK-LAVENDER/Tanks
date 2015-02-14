@@ -11,16 +11,21 @@
     {
         private SpriteBatch spriteBatch;
 
-         public BasicWall(Texture2D objTexture, double positionX, double positionY, 
-             double width, double height, SpriteBatch spriteBatch)
-            :base(objTexture,positionX,positionY,width,height,spriteBatch)
+        public BasicWall(
+            Texture2D objTexture,
+            double positionX,
+            double positionY,
+            double width,
+            double height,
+            SpriteBatch spriteBatch)
+            : base(objTexture, positionX, positionY, width, height, spriteBatch)
         {
-             this.spriteBatch = spriteBatch;
+            this.spriteBatch = spriteBatch;
         }
 
-         public void Draw()
-         {
-            spriteBatch.Draw(this.objTexture,this.rect,Color.White);
-         }
+        public void Draw()
+        {
+            spriteBatch.Draw(this.objTexture, this.rect, Color.White);
+        }
     }
 }

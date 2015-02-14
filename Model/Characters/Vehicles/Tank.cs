@@ -9,9 +9,14 @@
 
     public abstract class Tank : Vehicle
     {
-        public Tank(Texture2D objTexture, double positionX, double positionY, 
-            double width, double height, SpriteBatch spriteBatch)
-            :base(objTexture,positionX,positionY,width,height, spriteBatch)
+        protected Tank(
+            Texture2D objTexture,
+            double positionX,
+            double positionY,
+            double width,
+            double height,
+            SpriteBatch spriteBatch)
+            : base(objTexture, positionX, positionY, width, height, spriteBatch)
         {
         }
     }

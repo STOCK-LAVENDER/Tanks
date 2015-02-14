@@ -10,9 +10,14 @@
 
     public abstract class Ammunition : GameObject
     {
-        public Ammunition(Texture2D objTexture, double positionX, double positionY, 
-            double width, double height, SpriteBatch spriteBatch)
-            :base(objTexture,positionX,positionY,width,height,spriteBatch)
+        protected Ammunition(
+            Texture2D objTexture,
+            double positionX,
+            double positionY,
+            double width,
+            double height,
+            SpriteBatch spriteBatch)
+            : base(objTexture, positionX, positionY, width, height, spriteBatch)
         {
         }
     }

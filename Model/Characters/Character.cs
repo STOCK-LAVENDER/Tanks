@@ -11,11 +11,16 @@ namespace UltimateTankClash.Model.Characters
 
     public abstract class Character : GameObject, IAttack, IDestroyable
     {
-        public Character(Texture2D objTexture, double positionX, double positionY, 
-            double width, double height, SpriteBatch spriteBatch)
-            :base(objTexture,positionX,positionY,width,height, spriteBatch)
+        protected Character(
+            Texture2D objTexture,
+            double positionX,
+            double positionY,
+            double width,
+            double height,
+            SpriteBatch spriteBatch)
+            : base(objTexture, positionX, positionY, width, height, spriteBatch)
         {
-            
+
         }
     }
 }

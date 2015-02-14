@@ -6,6 +6,7 @@
     using Engine;
 
     #endregion
+
 #if WINDOWS || LINUX
     /// <summary>
     /// The main class.

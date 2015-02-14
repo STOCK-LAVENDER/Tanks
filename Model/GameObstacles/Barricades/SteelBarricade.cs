@@ -9,9 +9,14 @@
 
     public class SteelBarricade : Barricade
     {
-        public SteelBarricade(Texture2D objTexture, double positionX, double positionY, 
-            double width, double height, SpriteBatch spriteBatch)
-            :base(objTexture,positionX,positionY,width,height,spriteBatch)
+        public SteelBarricade(
+            Texture2D objTexture,
+            double positionX,
+            double positionY,
+            double width,
+            double height,
+            SpriteBatch spriteBatch)
+            : base(objTexture, positionX, positionY, width, height, spriteBatch)
         {
         }
     }
