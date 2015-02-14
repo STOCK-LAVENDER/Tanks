@@ -5,7 +5,10 @@
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
-
+    using System.Collections.Generic;
+    using UltimateTankClash.Model;
+    using UltimateTankClash.Model.Characters.Vehicles;
+    using UltimateTankClash.Model.GameObstacles.Walls;
     #endregion
 
     /// <summary>
@@ -16,6 +19,13 @@
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        public static List<GameObject> GameObjects = new List<GameObject>();
+        Texture2D basicTankTexture;
+        BasicTank basicTank;
+
+        Texture2D basicWallTexture;
+        BasicWall basicWall;
+       
         public GameEngine()
             : base()
         {
@@ -46,6 +56,12 @@
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            basicTankTexture = Content.Load<Texture2D>("basicTank");
+            basicTank = new BasicTank(basicTankTexture, 30, 30, basicTankTexture.Width, basicTankTexture.Height,spriteBatch);
+            basicWallTexture = Content.Load<Texture2D>("basicWall");
+            basicWall = new BasicWall(basicWallTexture, 300, 300, basicWallTexture.Width, basicWallTexture.Height,spriteBatch);
+
+            GameObjects.Add(basicWall);
         }
 
         /// <summary>
@@ -68,6 +84,7 @@
                 Exit();
 
             // TODO: Add your update logic here
+            basicTank.Update();
 
             base.Update(gameTime);
         }
@@ -81,6 +98,10 @@
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            spriteBatch.Begin();
+            basicWall.Draw();
+            basicTank.Draw();
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
