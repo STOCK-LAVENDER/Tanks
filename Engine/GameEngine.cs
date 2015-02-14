@@ -10,6 +10,7 @@
     using Menus;
     using Menus.Buttons;
     using UltimateTankClash.Model;
+    using UltimateTankClash.Model.GameObstacles;
     using UltimateTankClash.Model.Characters.Vehicles;
     using UltimateTankClash.Model.GameObstacles.Walls;
     #endregion
@@ -80,19 +81,13 @@
             basicTankTexture = Content.Load<Texture2D>("Graphics/Sprites/basicTank");
             basicTank = new BasicTank(basicTankTexture, 30, 30, basicTankTexture.Width, basicTankTexture.Height, spriteBatch);
             basicWallTexture = Content.Load<Texture2D>("Graphics/Sprites/basicWall");
-<<<<<<< HEAD
             
             this.gameObjects = MapLoader.LoadMap(basicWallTexture, spriteBatch);
            
+            
             CollissionHandler.Initialize(gameObjects,
-                GraphicsDevice.Viewport.Bounds.Right,
-                GraphicsDevice.Viewport.Bounds.Bottom);
-=======
-            basicWall = new BasicWall(basicWallTexture, 300, 300, basicWallTexture.Width, basicWallTexture.Height, spriteBatch);
-
-            gameObjects.Add(basicWall);
-            CollissionHandler.Initlialize(gameObjects);
->>>>>>> origin/master
+                            GraphicsDevice.Viewport.Bounds.Right,
+                            GraphicsDevice.Viewport.Bounds.Bottom);
         }
 
         /// <summary>
@@ -150,8 +145,13 @@
             switch (currentGameState)
             {
                 case GameState.Running:
-                    basicWall.Draw();
                     basicTank.Draw();
+                    
+                    foreach (GameObject obstacle in gameObjects)
+                    {
+                        obstacle.Draw();
+                    }
+
                     break;
                 case GameState.MainMenu:
                     butt.Draw(spriteBatch);
