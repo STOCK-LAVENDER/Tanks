@@ -67,7 +67,8 @@
 
             gameObjects.Add(basicWall);
             gameObjects.Add(basicWall2);
-            CollissionHandler.Initlialize(gameObjects);
+            CollissionHandler.Initlialize(gameObjects,GraphicsDevice.Viewport.Bounds.Right,
+                GraphicsDevice.Viewport.Bounds.Bottom);
         }
 
         /// <summary>
