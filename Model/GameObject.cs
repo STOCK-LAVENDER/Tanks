@@ -7,7 +7,7 @@
     using Microsoft.Xna.Framework.Storage;
     using Microsoft.Xna.Framework.GamerServices;
 
-    public abstract class GameObject 
+    public abstract class GameObject
     {
         public Rectangle rect;
         public Texture2D objTexture;
@@ -16,8 +16,13 @@
         private double width;
         private double height;
 
-        public GameObject(Texture2D objTexture,double positionX, double positionY, 
-            double width, double height, SpriteBatch spriteBatch)
+        protected GameObject(
+            Texture2D objTexture,
+            double positionX,
+            double positionY,
+            double width,
+            double height,
+            SpriteBatch spriteBatch)
         {
             this.objTexture = objTexture;
             this.PositionX = positionX;
@@ -26,7 +31,7 @@
             this.Height = height;
             this.rect = new Rectangle((int)positionX, (int)positionY, objTexture.Width, objTexture.Height);
         }
-        
+
         public virtual double PositionX
         {
             get

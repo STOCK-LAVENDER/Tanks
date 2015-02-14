@@ -36,7 +36,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Engine\CollissionHandler.cs" />
+<<<<<<< HEAD
     <Compile Include="Engine\MapLoader.cs" />
+=======
+    <Compile Include="Engine\GameState.cs" />
+    <Compile Include="Exceptions\ObjectOutOfBoundsException.cs" />
+    <Compile Include="Interfaces\IMenuItem.cs" />
+    <Compile Include="Menus\Buttons\Button.cs" />
+    <Compile Include="Menus\MainMenu.cs" />
+    <Compile Include="Menus\Menu.cs" />
+    <Compile Include="Menus\MousePointer.cs" />
+>>>>>>> origin/master
     <Compile Include="Model\Characters\Vehicles\Direction.cs" />
     <Compile Include="Model\CollectibleItems\CollectibleItem.cs" />
     <Compile Include="Model\GameObstacles\Barricades\Barricade.cs" />
