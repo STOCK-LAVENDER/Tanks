@@ -25,6 +25,6 @@
         {
         }
 
-        public double Speed { get; protected set; }
+        public int Speed { get; protected set; }
     }
 }

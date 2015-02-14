@@ -80,7 +80,12 @@
             {
                 this.height = value;
             }
-
+            
         }
+
+        public virtual void Update() { }
+
+        public virtual void Draw() { }
+        
     }
 }

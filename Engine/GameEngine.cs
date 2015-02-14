@@ -26,6 +26,8 @@
 
         Texture2D basicWallTexture;
         BasicWall basicWall;
+        BasicWall basicWall2;
+
        
         public GameEngine()
             : base()
@@ -60,9 +62,11 @@
             basicTankTexture = Content.Load<Texture2D>("Graphics/Sprites/basicTank");
             basicTank = new BasicTank(basicTankTexture, 30, 30, basicTankTexture.Width, basicTankTexture.Height,spriteBatch);
             basicWallTexture = Content.Load<Texture2D>("Graphics/Sprites/basicWall");
-            basicWall = new BasicWall(basicWallTexture, 300, 300, basicWallTexture.Width, basicWallTexture.Height,spriteBatch);
+            basicWall = new BasicWall(basicWallTexture, 300, 265, basicWallTexture.Width, basicWallTexture.Height,spriteBatch);
+            basicWall2 = new BasicWall(basicWallTexture, 300, 400, basicWallTexture.Width, basicWallTexture.Height, spriteBatch);
 
             gameObjects.Add(basicWall);
+            gameObjects.Add(basicWall2);
             CollissionHandler.Initlialize(gameObjects);
         }
 
@@ -101,8 +105,14 @@
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
-            basicWall.Draw();
+            
             basicTank.Draw();
+
+            foreach (GameObject obstacle in gameObjects) // draw all of the created obstacles
+            {
+                obstacle.Draw();
+            }
+
             spriteBatch.End();
             
             base.Draw(gameTime);

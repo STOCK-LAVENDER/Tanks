@@ -23,7 +23,7 @@
             this.spriteBatch = spriteBatch;
         }
 
-        public void Draw()
+        public override void Draw()
         {
             spriteBatch.Draw(this.objTexture, this.rect, Color.White);
         }

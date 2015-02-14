@@ -17,21 +17,21 @@ namespace UltimateTankClash.Engine
             }
         }
 
-        public static void  CollisionDetector(GameObject sender, Direction direction)
+        public static void  MovementCollisionDetector(Vehicle vehicle, Direction direction)
         {
-            foreach (var gameObj in collidingObjects)
+            foreach (GameObject obstacle in collidingObjects)
             {
-                if (sender.rect.X - (sender.objTexture.Width) / 2 < gameObj.rect.X + gameObj.rect.Width &&
-                   sender.rect.X + sender.rect.Width - (sender.objTexture.Width) / 2 > gameObj.rect.X &&
-                   sender.rect.Y - (sender.objTexture.Width) / 2 < gameObj.rect.Y + gameObj.rect.Height &&
-                   sender.rect.Height + sender.rect.Y - (sender.objTexture.Width) / 2 > gameObj.rect.Y)
+                if (vehicle.rect.X - (vehicle.objTexture.Width) / 2 < obstacle.rect.X + obstacle.rect.Width &&
+                   vehicle.rect.X + vehicle.rect.Width - (vehicle.objTexture.Width) / 2 > obstacle.rect.X &&
+                   vehicle.rect.Y - (vehicle.objTexture.Width) / 2 < obstacle.rect.Y + obstacle.rect.Height &&
+                   vehicle.rect.Height + vehicle.rect.Y - (vehicle.objTexture.Width) / 2 > obstacle.rect.Y)
                 {
                     switch (direction)
                     {
-                        case Direction.Up: sender.rect.Y += 5; break;
-                        case Direction.Down: sender.rect.Y -= 5; break;
-                        case Direction.Left: sender.rect.X += 5; break;
-                        case Direction.Right: sender.rect.X -= 5; break;
+                        case Direction.Up: vehicle.rect.Y += vehicle.Speed; ; break;
+                        case Direction.Down: vehicle.rect.Y -= vehicle.Speed; break;
+                        case Direction.Left: vehicle.rect.X += vehicle.Speed; break;
+                        case Direction.Right: vehicle.rect.X -= vehicle.Speed; break;
                     }
                 }
             }
