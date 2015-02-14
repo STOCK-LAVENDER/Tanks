@@ -9,7 +9,7 @@
 
     public abstract class Obstacle : GameObject
     {
-        public Obstacle(Texture2D objTexture, double positionX, double positionY, 
+        protected Obstacle(Texture2D objTexture, double positionX, double positionY, 
             double width, double height, SpriteBatch spriteBatch)
             :base(objTexture,positionX,positionY,width,height, spriteBatch)
         {

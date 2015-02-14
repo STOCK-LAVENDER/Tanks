@@ -10,13 +10,14 @@
 
     public class BasicTank : Tank
     {
-
+        private const int PhysicalAttack = 50;
+        private const int PhysicalDefense = 100;
         private float rotationAngle = 0f;
         private SpriteBatch spriteBatch;
 
         public BasicTank(Texture2D objTexture, double positionX, double positionY, 
             double width, double height, SpriteBatch spriteBatch)
-            :base(objTexture,positionX,positionY,width,height,spriteBatch)
+            :base(objTexture,positionX,positionY,width,height,spriteBatch, PhysicalAttack, PhysicalDefense)
         {
             this.spriteBatch = spriteBatch;
         }
