@@ -21,5 +21,9 @@
             : base(objTexture, positionX, positionY, width, height, spriteBatch)
         {
         }
+
+        public int HealthPoints { get; protected set; }
+
+        public int PhysicalDefense { get; protected set; }
     }
 }

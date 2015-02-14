@@ -25,5 +25,7 @@ namespace UltimateTankClash.Model.Characters
         public int PhysicalAttack { get; protected set; }
 
         public int PhysicalDefense { get; protected set; }
+
+        public int HealthPoints { get; protected set; }
     }
 }
