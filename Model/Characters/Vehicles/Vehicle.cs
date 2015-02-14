@@ -18,8 +18,10 @@
             double positionY,
             double width,
             double height,
-            SpriteBatch spriteBatch)
-            : base(objTexture, positionX, positionY, width, height, spriteBatch)
+            SpriteBatch spriteBatch,
+            int physicalAttack,
+            int physicalDefense)
+            : base(objTexture, positionX, positionY, width, height, spriteBatch, physicalAttack, physicalDefense)
         {
         }
 

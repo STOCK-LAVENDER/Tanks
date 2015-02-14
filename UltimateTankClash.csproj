@@ -86,8 +86,8 @@
     <None Include="ClassDiagram2.cd" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TanksContent\TanksContent\TanksContent.csproj">
-      <Project>{d9ba2783-c18c-4211-86f5-8293b2485f86}</Project>
+    <ProjectReference Include="TanksContent\TanksContent\TanksContent.csproj">
+      <Project>{6aa6841e-a3b5-404d-b290-a729fde0eb3f}</Project>
       <Name>TanksContent</Name>
     </ProjectReference>
   </ItemGroup>

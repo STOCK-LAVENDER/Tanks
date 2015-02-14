@@ -9,8 +9,15 @@
 
     public abstract class Tank : Vehicle
     {
-        protected Tank(Texture2D objTexture, double positionX, double positionY, double width, double height,
-                    SpriteBatch spriteBatch, int physicalAttack, int physicalDefense)
+        protected Tank(
+            Texture2D objTexture,
+            double positionX,
+            double positionY,
+            double width,
+            double height,
+            SpriteBatch spriteBatch, 
+            int physicalAttack, 
+            int physicalDefense)
             : base(objTexture, positionX, positionY, width, height, spriteBatch, physicalAttack, physicalDefense)
         {
         }

@@ -7,9 +7,16 @@ namespace UltimateTankClash.Model.Characters
 
     public abstract class Character : GameObject, IAttack, IDestroyable
     {
-        protected Character(Texture2D objTexture, double positionX, double positionY,
-            double width, double height, SpriteBatch spriteBatch, int physicalAttack, int physicalDefense)
-            :base(objTexture,positionX,positionY,width,height, spriteBatch)
+        protected Character(
+            Texture2D objTexture,
+            double positionX,
+            double positionY,
+            double width,
+            double height,
+            SpriteBatch spriteBatch,
+            int physicalAttack,
+            int physicalDefense)
+            : base(objTexture, positionX, positionY, width, height, spriteBatch)
         {
             this.PhysicalAttack = physicalAttack;
             this.PhysicalDefense = physicalDefense;
