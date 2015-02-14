@@ -35,6 +35,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Engine\CollissionHandler.cs" />
     <Compile Include="Model\Characters\Vehicles\Direction.cs" />
     <Compile Include="Model\CollectibleItems\CollectibleItem.cs" />
     <Compile Include="Model\GameObstacles\Barricades\Barricade.cs" />

@@ -19,7 +19,8 @@
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        public static List<GameObject> GameObjects = new List<GameObject>();
+        private List<GameObject> gameObjects = new List<GameObject>();
+
         Texture2D basicTankTexture;
         BasicTank basicTank;
 
@@ -61,7 +62,8 @@
             basicWallTexture = Content.Load<Texture2D>("Graphics/Sprites/basicWall");
             basicWall = new BasicWall(basicWallTexture, 300, 300, basicWallTexture.Width, basicWallTexture.Height,spriteBatch);
 
-            GameObjects.Add(basicWall);
+            gameObjects.Add(basicWall);
+            CollissionHandler.Initlialize(gameObjects);
         }
 
         /// <summary>
@@ -102,7 +104,7 @@
             basicWall.Draw();
             basicTank.Draw();
             spriteBatch.End();
-
+            
             base.Draw(gameTime);
         }
     }
