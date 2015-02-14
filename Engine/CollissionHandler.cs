@@ -12,7 +12,7 @@ namespace UltimateTankClash.Engine
         private static int screenW;
         private static int screenH;
 
-        public static void Initlialize(List<GameObject> gameObjects, int screenWidth, int screenHeight)
+        public static void Initialize(List<GameObject> gameObjects, int screenWidth, int screenHeight)
         {
             foreach (GameObject obj in gameObjects)
             {

@@ -13,6 +13,11 @@
         private const int PhysicalAttack = 50;
         private const int PhysicalDefense = 100;
         private float rotationAngle = 0f;
+        private float angleUp = 0f;
+        private float angleDown = (float)Math.PI;
+        private float angleRight = (float)Math.PI / 2;
+        private float angleLeft = (float)Math.PI + (float)Math.PI / 2;
+
         private SpriteBatch spriteBatch;
 
         public BasicTank(
@@ -40,19 +45,19 @@
             }
             else if (state.IsKeyDown(Keys.Down))
             {
-                this.rotationAngle = (float)Math.PI;
+                this.rotationAngle = angleDown;
                 this.rect.Y += this.Speed;
                 Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Down);
             }
             else if (state.IsKeyDown(Keys.Left) && this.rect.X - this.objTexture.Width / 2 > 0)
             {
-                this.rotationAngle = (float)Math.PI + (float)Math.PI / 2;
+                this.rotationAngle = angleLeft;
                 this.rect.X -= this.Speed;
                 Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Left);
             }
             else if (state.IsKeyDown(Keys.Right))
             {
-                this.rotationAngle = (float)Math.PI / 2;
+                this.rotationAngle = angleRight;
                 this.rect.X += this.Speed;
                 Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Right);
             }
