@@ -2,6 +2,6 @@
 {
     public interface IMoveable
     {
-        double Speed { get; }
+        int Speed { get; }
     }
 }

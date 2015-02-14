@@ -13,6 +13,11 @@
         private const int PhysicalAttack = 50;
         private const int PhysicalDefense = 100;
         private float rotationAngle = 0f;
+        private float angleUp = 0f;
+        private float angleDown = (float)Math.PI;
+        private float angleRight = (float)Math.PI / 2;
+        private float angleLeft = (float)Math.PI + (float)Math.PI / 2;
+
         private SpriteBatch spriteBatch;
 
         public BasicTank(
@@ -25,39 +30,40 @@
             : base(objTexture, positionX, positionY, width, height, spriteBatch, PhysicalAttack, PhysicalDefense)
         {
             this.spriteBatch = spriteBatch;
+            this.Speed = 3;
         }
 
-        public void Update()
+        public override void Update()
         {
             KeyboardState state = Keyboard.GetState();
 
             if (state.IsKeyDown(Keys.Up) && this.rect.Y - this.rect.Width / 2 > 0)
             {
-                this.rect.Y -= 5;
                 this.rotationAngle = 0f;
-                Engine.CollissionHandler.CollisionDetector(this, Direction.Up);
+                this.rect.Y -= this.Speed;
+                Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Up);
             }
             else if (state.IsKeyDown(Keys.Down))
             {
-                this.rect.Y += 5;
-                this.rotationAngle = (float)Math.PI;
-                Engine.CollissionHandler.CollisionDetector(this, Direction.Down);
+                this.rotationAngle = angleDown;
+                this.rect.Y += this.Speed;
+                Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Down);
             }
             else if (state.IsKeyDown(Keys.Left) && this.rect.X - this.objTexture.Width / 2 > 0)
             {
-                this.rect.X -= 5;
-                this.rotationAngle = (float)Math.PI + (float)Math.PI / 2;
-                Engine.CollissionHandler.CollisionDetector(this, Direction.Left);
+                this.rotationAngle = angleLeft;
+                this.rect.X -= this.Speed;
+                Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Left);
             }
             else if (state.IsKeyDown(Keys.Right))
             {
-                this.rect.X += 5;
-                this.rotationAngle = (float)Math.PI / 2;
-                Engine.CollissionHandler.CollisionDetector(this, Direction.Right);
+                this.rotationAngle = angleRight;
+                this.rect.X += this.Speed;
+                Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Right);
             }
         }
 
-        public void Draw()
+        public override void Draw()
         {
             spriteBatch.Draw(
                 this.objTexture,
