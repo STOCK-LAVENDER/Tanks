@@ -25,9 +25,6 @@
         {
         }
 
-        public double Speed
-        {
-            get { throw new NotImplementedException(); }
-        }
+        public double Speed { get; protected set; }
     }
 }

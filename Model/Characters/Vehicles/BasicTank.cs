@@ -15,9 +15,14 @@
         private float rotationAngle = 0f;
         private SpriteBatch spriteBatch;
 
-        public BasicTank(Texture2D objTexture, double positionX, double positionY, 
-            double width, double height, SpriteBatch spriteBatch)
-            :base(objTexture,positionX,positionY,width,height,spriteBatch, PhysicalAttack, PhysicalDefense)
+        public BasicTank(
+            Texture2D objTexture,
+            double positionX,
+            double positionY,
+            double width,
+            double height,
+            SpriteBatch spriteBatch)
+            : base(objTexture, positionX, positionY, width, height, spriteBatch, PhysicalAttack, PhysicalDefense)
         {
             this.spriteBatch = spriteBatch;
         }
@@ -30,7 +35,7 @@
             {
                 this.rect.Y -= 5;
                 this.rotationAngle = 0f;
-                Engine.CollissionHandler.CollisionDetector(this,Direction.Up);
+                Engine.CollissionHandler.CollisionDetector(this, Direction.Up);
             }
             else if (state.IsKeyDown(Keys.Down))
             {
@@ -41,25 +46,30 @@
             else if (state.IsKeyDown(Keys.Left) && this.rect.X - this.objTexture.Width / 2 > 0)
             {
                 this.rect.X -= 5;
-                this.rotationAngle = (float)Math.PI + (float)Math.PI/2;
+                this.rotationAngle = (float)Math.PI + (float)Math.PI / 2;
                 Engine.CollissionHandler.CollisionDetector(this, Direction.Left);
             }
             else if (state.IsKeyDown(Keys.Right))
             {
                 this.rect.X += 5;
-                this.rotationAngle = (float)Math.PI/2;
+                this.rotationAngle = (float)Math.PI / 2;
                 Engine.CollissionHandler.CollisionDetector(this, Direction.Right);
             }
-
         }
 
         public void Draw()
         {
-            spriteBatch.Draw(this.objTexture, null, this.rect, null,
+            spriteBatch.Draw(
+                this.objTexture,
+                null,
+                this.rect,
+                null,
                 new Vector2(this.objTexture.Width / 2, this.objTexture.Width / 2),
-                    rotationAngle, Vector2.Zero, Color.White, SpriteEffects.None, 0f);
-            
+                rotationAngle,
+                Vector2.Zero,
+                Color.White,
+                SpriteEffects.None,
+                0f);
         }
-
     }
 }
