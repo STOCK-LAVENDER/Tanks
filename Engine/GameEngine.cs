@@ -7,7 +7,6 @@
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
     using System.Collections.Generic;
-    using Menus;
     using UltimateTankClash.Model;
     using UltimateTankClash.Model.GameObstacles;
     using UltimateTankClash.Model.Characters.Vehicles;
@@ -22,7 +21,6 @@
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        private GameState currentGameState;
 
         private List<GameObject> gameObjects = new List<GameObject>();
 
@@ -30,24 +28,14 @@
         private BasicTank basicTank;
 
         private Texture2D basicWallTexture;
-        private BasicWall basicWall;
 
         private Texture2D basicBushTexture;
-        private BasicBush basicBush;
-
-        private Texture2D cursorImage;
-        private MousePointer cursor;
-
-        private SpriteFont font;
-
-        private Button butt;
 
         public GameEngine()
             : base()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            this.currentGameState = GameState.MainMenu;
         }
 
         /// <summary>
@@ -75,12 +63,6 @@
             graphics.PreferredBackBufferWidth = 800;
             graphics.PreferredBackBufferHeight = 600;
             graphics.ApplyChanges();
-
-            font = Content.Load<SpriteFont>("Graphics/Fonts/ArialFont");
-            cursorImage = Content.Load<Texture2D>("Graphics/Sprites/cursor");
-            cursor = new MousePointer(cursorImage);
-
-            butt = new Button(new Vector2(150, 100), Content.Load<Texture2D>("Graphics/Sprites/button-pic"), Color.White, font, graphics.GraphicsDevice);
 
             basicTankTexture = Content.Load<Texture2D>("Graphics/Sprites/basicTank");
             basicTank = new BasicTank(basicTankTexture, 30, 30, basicTankTexture.Width, basicTankTexture.Height, spriteBatch);
@@ -117,24 +99,7 @@
             {
                 Exit();
             }
-
-            switch (currentGameState)
-            {
-                case GameState.Running:
-                    basicTank.Update();
-                    break;
-                case GameState.MainMenu:
-                    butt.Update();
-                    cursor.Update();
-                    break;
-
-            }
-
-            if (this.butt.isClicked)
-            {
-                this.currentGameState = GameState.Running;
-            }
-
+            basicTank.Update();
             base.Update(gameTime);
         }
 
@@ -148,22 +113,12 @@
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
 
-            switch (currentGameState)
-            {
-                case GameState.Running:
-                    basicTank.Draw();
+                basicTank.Draw();
                     
-                    foreach (GameObject obstacle in gameObjects)
-                    {
-                        obstacle.Draw();
-                    }
-
-                    break;
-                case GameState.MainMenu:
-                    butt.Draw(spriteBatch);
-                    cursor.Draw(spriteBatch);
-                    break;
-            }
+                foreach (GameObject obstacle in gameObjects)
+                {
+                    obstacle.Draw();
+                }
 
             spriteBatch.End();
 

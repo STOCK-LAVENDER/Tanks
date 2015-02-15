@@ -36,10 +36,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Engine\CollissionHandler.cs" />
-    <Compile Include="Engine\MainMenu.cs">
+    <Compile Include="MenuItems\MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Engine\MainMenu.Designer.cs">
+    <Compile Include="MenuItems\MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Engine\MapLoader.cs" />
@@ -48,10 +48,6 @@
     <Compile Include="Exceptions\ObjectOutOfBoundsException.cs" />
     <Compile Include="Interfaces\ICollect.cs" />
     <Compile Include="Interfaces\IMenuItem.cs" />
-    <Compile Include="MenuItems\Button.cs" />
-    <Compile Include="MenuItems\MainMenu.cs" />
-    <Compile Include="MenuItems\Menu.cs" />
-    <Compile Include="MenuItems\MousePointer.cs" />
     <Compile Include="Model\Characters\Vehicles\Direction.cs" />
     <Compile Include="Model\Characters\Vehicles\Player.cs" />
     <Compile Include="Model\CollectibleItems\CollectibleItem.cs" />
@@ -112,7 +108,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Engine\MainMenu.resx">
+    <EmbeddedResource Include="MenuItems\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

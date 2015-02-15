@@ -1,24 +1,33 @@
-﻿namespace UltimateTankClash.Menus
+﻿using System;
+using System.Threading;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace UltimateTankClash.Engine
 {
-    using System.Collections.Generic;
-    using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Graphics;
-
-    class MainMenu : Menu
+    public partial class MainMenu : Form
     {
-        private bool down;
-        private bool isClicked;
-        private List<Button> buttons; 
-
-        public MainMenu(Texture2D texture, GraphicsDevice graphics)
-            : base(texture, graphics)
+        public MainMenu()
         {
-            this.Texture = texture;
-            this.Size = new Vector2(graphics.Viewport.Width / 4, graphics.Viewport.Height / 10);
+            InitializeComponent();
         }
 
-        public void Update()
+        private void startGame_Click(object sender, EventArgs e)
         {
+            Thread theThread = new Thread(StartGame);
+            this.Close();
+            theThread.Start();
+        }
+
+        public void StartGame()
+        {
+            GameEngine game = new GameEngine();
+            game.Run();
         }
     }
 }

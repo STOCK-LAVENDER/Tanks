@@ -41,7 +41,7 @@
 
             if (state.IsKeyDown(Keys.Up) )
             {
-                this.rotationAngle = 0f;
+                this.rotationAngle = angleUp;
                 this.rect.Y -= this.Speed;
                 Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Up);
             }
