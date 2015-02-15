@@ -13,3 +13,4 @@
 - Find suitble sprites for items and enemies.
 - Find sutable sound for background music and sound effects; background music may play a random song
 - Create shop to purchase upgrades
+- Add storyline (Filip)
