@@ -2,5 +2,6 @@
 {
     public interface ITimeoutable
     {
+        int Timeout { get; }
     }
 }

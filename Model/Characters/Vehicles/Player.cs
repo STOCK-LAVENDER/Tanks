@@ -1,33 +1,37 @@
 ﻿namespace UltimateTankClash.Model.Characters.Vehicles
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using CollectibleItems;
+    using Interfaces;
     using Microsoft.Xna.Framework;
-    using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
-    using Microsoft.Xna.Framework.Storage;
-    using Microsoft.Xna.Framework.GamerServices;
 
-    public class BasicTank : Tank
+    class Player : Tank, ICollect
     {
-        private const int PhysicalAttack = 50;
-        private const int PhysicalDefense = 100;
+        private const int DefaultPhysicalAttack = 50;
+        private const int DefaultPhysicalDefense = 100;
+        private const int DefaultHealthPoints = 200;
+
         private float rotationAngle = 0f;
         private float angleUp = 0f;
         private float angleDown = (float)Math.PI;
         private float angleRight = (float)Math.PI / 2;
         private float angleLeft = (float)Math.PI + (float)Math.PI / 2;
+        private List<ICollectible> inventory = new List<ICollectible>();
 
         private SpriteBatch spriteBatch;
 
-        public BasicTank(
+        public Player(
             Texture2D objTexture,
             double positionX,
             double positionY,
             double width,
             double height,
             SpriteBatch spriteBatch)
-            : base(objTexture, positionX, positionY, width, height, spriteBatch, PhysicalAttack, PhysicalDefense)
+            : base(objTexture, positionX, positionY, width, height, spriteBatch, DefaultPhysicalAttack, DefaultPhysicalDefense, DefaultHealthPoints)
         {
             this.spriteBatch = spriteBatch;
             this.Speed = 3;
@@ -37,7 +41,7 @@
         {
             KeyboardState state = Keyboard.GetState();
 
-            if (state.IsKeyDown(Keys.Up) )
+            if (state.IsKeyDown(Keys.Up) && this.rect.Y - this.rect.Width / 2 > 0)
             {
                 this.rotationAngle = 0f;
                 this.rect.Y -= this.Speed;
@@ -49,7 +53,7 @@
                 this.rect.Y += this.Speed;
                 Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Down);
             }
-            else if (state.IsKeyDown(Keys.Left))
+            else if (state.IsKeyDown(Keys.Left) && this.rect.X - this.objTexture.Width / 2 > 0)
             {
                 this.rotationAngle = angleLeft;
                 this.rect.X -= this.Speed;
@@ -76,6 +80,24 @@
                 Color.White,
                 SpriteEffects.None,
                 0f);
+        }
+
+        public void AddItemToInventory(ICollectible item)
+        {
+            this.inventory.Add(item);
+        }
+
+        public void ApplyItemEffects()
+        {
+            var activeItems = this.inventory.Where(item => item.State == CollectibleItemState.Active);
+
+            foreach (var item in activeItems)
+            {
+                this.HealthPoints += item.HealthEffect;
+                this.PhysicalDefense += item.Defenseffect;
+                this.PhysicalAttack += item.DamageEffect;
+                this.Speed += item.SpeedEffet;
+            }
         }
     }
 }

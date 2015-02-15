@@ -17,8 +17,9 @@
             double height,
             SpriteBatch spriteBatch, 
             int physicalAttack, 
-            int physicalDefense)
-            : base(objTexture, positionX, positionY, width, height, spriteBatch, physicalAttack, physicalDefense)
+            int physicalDefense,
+            int healthPoints)
+            : base(objTexture, positionX, positionY, width, height, spriteBatch, physicalAttack, physicalDefense, healthPoints)
         {
         }
     }

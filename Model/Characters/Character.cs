@@ -15,11 +15,13 @@ namespace UltimateTankClash.Model.Characters
             double height,
             SpriteBatch spriteBatch,
             int physicalAttack,
-            int physicalDefense)
+            int physicalDefense,
+            int healthPoints)
             : base(objTexture, positionX, positionY, width, height, spriteBatch)
         {
             this.PhysicalAttack = physicalAttack;
             this.PhysicalDefense = physicalDefense;
+            this.HealthPoints = healthPoints;
         }
 
         public int PhysicalAttack { get; protected set; }

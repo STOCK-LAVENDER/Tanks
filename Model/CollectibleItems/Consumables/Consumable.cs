@@ -18,6 +18,7 @@
             SpriteBatch spriteBatch)
             : base(objTexture, positionX, positionY, width, height, spriteBatch)
         {
+            this.State = CollectibleItemState.Available;
         }
     }
 }
