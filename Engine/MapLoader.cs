@@ -10,11 +10,12 @@ namespace UltimateTankClash.Engine
     using UltimateTankClash.Model;
     using UltimateTankClash.Model.Characters.Vehicles;
     using UltimateTankClash.Model.GameObstacles.Walls;
+    using UltimateTankClash.Model.GameObstacles.Bushes;
     using UltimateTankClash.Exceptions;
    
     static class MapLoader
     {
-        public static List<GameObject> LoadMap(Texture2D texture, SpriteBatch spriteBatch)
+        public static List<GameObject> LoadMap(SpriteBatch spriteBatch, params Texture2D[] textures)
         {
             List<GameObject> gameObjects = new List<GameObject>();
 
@@ -32,16 +33,23 @@ namespace UltimateTankClash.Engine
                         if (ch == 'W')
                         {
                             gameObjects.Add(
-                                new BasicWall(texture, positionX, positionY,
-                                    texture.Width, texture.Height
+                                new BasicWall(textures[0], positionX, positionY,
+                                    textures[0].Width, textures[0].Height
+                                    , spriteBatch));
+                        }
+                        if (ch == 'B')
+                        {
+                            gameObjects.Add(
+                                new BasicBush(textures[1], positionX, positionY,
+                                    textures[1].Width, textures[1].Height
                                     , spriteBatch));
                         }
                         if (ch.Equals('\n'))
                         {
-                            positionY += texture.Height;
-                            positionX = 0-texture.Width;
+                            positionY += textures[0].Height;
+                            positionX = 0 - textures[0].Width;
                         }
-                        positionX += texture.Width;
+                        positionX += textures[0].Width;
                     }
                 }
                 return gameObjects;

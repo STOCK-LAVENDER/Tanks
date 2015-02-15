@@ -12,6 +12,7 @@
     using UltimateTankClash.Model.GameObstacles;
     using UltimateTankClash.Model.Characters.Vehicles;
     using UltimateTankClash.Model.GameObstacles.Walls;
+    using UltimateTankClash.Model.GameObstacles.Bushes;
     #endregion
 
     /// <summary>
@@ -25,11 +26,15 @@
 
         private List<GameObject> gameObjects = new List<GameObject>();
 
-        Texture2D basicTankTexture;
-        BasicTank basicTank;
+        private Texture2D basicTankTexture;
+        private BasicTank basicTank;
 
-        Texture2D basicWallTexture;
-        BasicWall basicWall;
+        private Texture2D basicWallTexture;
+        private BasicWall basicWall;
+
+        private Texture2D basicBushTexture;
+        private BasicBush basicBush;
+
         private Texture2D cursorImage;
         private MousePointer cursor;
 
@@ -81,8 +86,9 @@
             basicTank = new BasicTank(basicTankTexture, 30, 30, basicTankTexture.Width, basicTankTexture.Height, spriteBatch);
             
             basicWallTexture = Content.Load<Texture2D>("Graphics/Sprites/basicWall");
-            
-            this.gameObjects = MapLoader.LoadMap(basicWallTexture, spriteBatch);
+            basicBushTexture = Content.Load<Texture2D>("Graphics/Sprites/basicBush");
+
+            this.gameObjects = MapLoader.LoadMap(spriteBatch, basicWallTexture ,basicBushTexture);
            
             
             CollissionHandler.Initialize(gameObjects,

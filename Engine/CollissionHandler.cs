@@ -5,6 +5,8 @@ namespace UltimateTankClash.Engine
     using UltimateTankClash.Model;
     using UltimateTankClash.Model.Characters.Vehicles;
     using UltimateTankClash.Model.GameObstacles;
+    using UltimateTankClash.Model.GameObstacles.Bushes;
+
 
     public static class CollissionHandler
     {
@@ -16,7 +18,7 @@ namespace UltimateTankClash.Engine
         {
             foreach (GameObject obj in gameObjects)
             {
-                if (obj is Obstacle)
+                if (obj is Obstacle && obj is BasicBush == false)
                 {
                     collidingObjects.Add(obj);
                 }
