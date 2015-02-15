@@ -39,7 +39,7 @@
         {
             KeyboardState state = Keyboard.GetState();
 
-            if (state.IsKeyDown(Keys.Up) && this.rect.Y - this.rect.Width / 2 > 0)
+            if (state.IsKeyDown(Keys.Up) )
             {
                 this.rotationAngle = 0f;
                 this.rect.Y -= this.Speed;
@@ -51,7 +51,7 @@
                 this.rect.Y += this.Speed;
                 Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Down);
             }
-            else if (state.IsKeyDown(Keys.Left) && this.rect.X - this.objTexture.Width / 2 > 0)
+            else if (state.IsKeyDown(Keys.Left))
             {
                 this.rotationAngle = angleLeft;
                 this.rect.X -= this.Speed;

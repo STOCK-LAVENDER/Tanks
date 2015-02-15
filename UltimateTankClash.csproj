@@ -38,6 +38,7 @@
     <Compile Include="Engine\CollissionHandler.cs" />
     <Compile Include="Engine\MapLoader.cs" />
     <Compile Include="Engine\GameState.cs" />
+    <Compile Include="Exceptions\MapNotFoundException.cs" />
     <Compile Include="Exceptions\ObjectOutOfBoundsException.cs" />
     <Compile Include="Interfaces\ICollect.cs" />
     <Compile Include="Interfaces\IMenuItem.cs" />

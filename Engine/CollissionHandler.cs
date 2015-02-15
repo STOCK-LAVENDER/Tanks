@@ -35,7 +35,6 @@ namespace UltimateTankClash.Engine
                    vehicle.rect.Height + vehicle.rect.Y - (vehicle.objTexture.Width) / 2 > obstacle.rect.Y ||
                    vehicle.rect.X > screenW - vehicle.rect.Width/2 ||
                    vehicle.rect.Y > screenH - vehicle.rect.Width/2)
-
                 {
                     switch (direction)
                     {
