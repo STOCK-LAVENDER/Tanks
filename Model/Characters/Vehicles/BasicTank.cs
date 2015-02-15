@@ -12,6 +12,9 @@
     {
         private const int PhysicalAttack = 50;
         private const int PhysicalDefense = 100;
+        private const int DefaultHealthPoints = 200;
+        private const int DefaultSpeed = 3;
+
         private float rotationAngle = 0f;
         private float angleUp = 0f;
         private float angleDown = (float)Math.PI;
@@ -27,10 +30,9 @@
             double width,
             double height,
             SpriteBatch spriteBatch)
-            : base(objTexture, positionX, positionY, width, height, spriteBatch, PhysicalAttack, PhysicalDefense)
+            : base(objTexture, positionX, positionY, width, height, spriteBatch, PhysicalAttack, PhysicalDefense, DefaultHealthPoints, DefaultSpeed)
         {
             this.spriteBatch = spriteBatch;
-            this.Speed = 3;
         }
 
         public override void Update()

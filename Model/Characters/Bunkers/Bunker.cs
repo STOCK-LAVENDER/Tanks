@@ -15,8 +15,11 @@
             double positionY,
             double width,
             double height,
-            SpriteBatch spriteBatch)
-            : base(objTexture, positionX, positionY, width, height, spriteBatch, 0, 0)
+            SpriteBatch spriteBatch,
+            int damage,
+            int defense,
+            int health)
+            : base(objTexture, positionX, positionY, width, height, spriteBatch, damage, defense, health)
         {
         }
     }

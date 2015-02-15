@@ -21,9 +21,11 @@
             SpriteBatch spriteBatch,
             int physicalAttack,
             int physicalDefense,
-            int healthPoints)
+            int healthPoints,
+            int speed)
             : base(objTexture, positionX, positionY, width, height, spriteBatch, physicalAttack, physicalDefense, healthPoints)
         {
+            this.Speed = speed;
         }
 
         public int Speed { get; protected set; }
