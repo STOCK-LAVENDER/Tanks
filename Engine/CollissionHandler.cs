@@ -5,7 +5,7 @@ namespace UltimateTankClash.Engine
     using UltimateTankClash.Model;
     using UltimateTankClash.Model.Characters.Vehicles;
     using UltimateTankClash.Model.GameObstacles;
-    
+
     public static class CollissionHandler
     {
         private static List<GameObject> collidingObjects = new List<GameObject>();
@@ -25,7 +25,7 @@ namespace UltimateTankClash.Engine
             screenH = screenHeight;
         }
 
-        public static void  MovementCollisionDetector(Vehicle vehicle, Direction direction)
+        public static void MovementCollisionDetector(Vehicle vehicle, Direction direction)
         {
             foreach (GameObject obstacle in collidingObjects)
             {
@@ -33,8 +33,11 @@ namespace UltimateTankClash.Engine
                    vehicle.rect.X + vehicle.rect.Width - (vehicle.objTexture.Width) / 2 > obstacle.rect.X &&
                    vehicle.rect.Y - (vehicle.objTexture.Width) / 2 < obstacle.rect.Y + obstacle.rect.Height &&
                    vehicle.rect.Height + vehicle.rect.Y - (vehicle.objTexture.Width) / 2 > obstacle.rect.Y ||
-                   vehicle.rect.X > screenW - vehicle.rect.Width/2 ||
-                   vehicle.rect.Y > screenH - vehicle.rect.Width/2)
+                   vehicle.rect.X > screenW - vehicle.rect.Width / 2 ||
+                   vehicle.rect.Y > screenH - vehicle.rect.Width / 2 ||
+                    (vehicle.rect.Y - vehicle.rect.Width / 2) < 0 ||
+                    (vehicle.rect.X - vehicle.objTexture.Width / 2) < 0
+)
                 {
                     switch (direction)
                     {
