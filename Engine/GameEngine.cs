@@ -8,7 +8,6 @@
     using Microsoft.Xna.Framework.Input;
     using System.Collections.Generic;
     using Menus;
-    using Menus.Buttons;
     using UltimateTankClash.Model;
     using UltimateTankClash.Model.GameObstacles;
     using UltimateTankClash.Model.Characters.Vehicles;

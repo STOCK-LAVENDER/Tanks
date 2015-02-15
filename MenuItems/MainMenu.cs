@@ -1,5 +1,6 @@
 ﻿namespace UltimateTankClash.Menus
 {
+    using System.Collections.Generic;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
 
@@ -7,6 +8,7 @@
     {
         private bool down;
         private bool isClicked;
+        private List<Button> buttons; 
 
         public MainMenu(Texture2D texture, GraphicsDevice graphics)
             : base(texture, graphics)
@@ -17,7 +19,6 @@
 
         public void Update()
         {
-            
         }
     }
 }

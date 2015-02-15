@@ -1,39 +1,29 @@
-﻿namespace UltimateTankClash.Menus.Buttons
+﻿namespace UltimateTankClash.Menus
 {
     using System;
+    using System.Collections.Generic;
     using Exceptions;
     using Interfaces;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
-    using Microsoft.Xna.Framework.Input;
 
-    class Button : IMenuItem
+    abstract class Menu : IMenuItem
     {
         private Vector2 position;
         private Vector2 size;
+        private List<Button> buttons;
         private Texture2D texture;
         private Color colour;
-        private Color initialColour;
-        public bool isClicked;
         private SpriteFont spriteFont;
-        private GraphicsDevice graphics;
 
-
-        public Button(Vector2 position, Texture2D texture, Color colour, SpriteFont font, GraphicsDevice graphics)
+        protected Menu(Texture2D texture, GraphicsDevice graphics)
         {
-            this.Position = position;
             this.Texture = texture;
-            this.Colour = colour;
-            this.initialColour = this.Colour;
-            this.spriteFont = font;
-            this.Size = new Vector2(50, 50);
             this.Rectangle = new Rectangle(
-                (int)this.Position.X, 
-                (int)this.Position.Y, 
-                (int)this.Size.X, 
+                (int)this.Position.X,
+                (int)this.Position.Y,
+                (int)this.Size.X,
                 (int)this.Size.Y);
-
-            this.graphics = graphics;
         }
 
         public Vector2 Position
@@ -82,34 +72,6 @@
         public Color Colour { get; protected set; }
 
         public Rectangle Rectangle { get; protected set; }
-
-        public void Update()
-        {
-            MouseState mouse = Mouse.GetState();
-
-            Rectangle mouseRectangle = new Rectangle(mouse.X, mouse.Y, 1, 1);
-
-            if (mouseRectangle.Intersects(this.Rectangle))
-            {
-                this.Colour = Color.Red;
-
-                if (mouse.LeftButton == ButtonState.Pressed)
-                {
-                    this.isClicked = true;
-                    this.Colour = Color.Yellow;
-                }
-            }
-            else
-            {
-                this.Colour = this.initialColour;
-            }
-        }
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(this.Texture, this.Rectangle, this.Colour);
-            spriteBatch.DrawString(spriteFont, "Click me!", new Vector2(100, 100), Color.Wheat);
-        }
 
 
         public SpriteFont SpriteFont { get; protected set; }
