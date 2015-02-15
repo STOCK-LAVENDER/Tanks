@@ -80,6 +80,7 @@
 
             basicTankTexture = Content.Load<Texture2D>("Graphics/Sprites/basicTank");
             basicTank = new BasicTank(basicTankTexture, 30, 30, basicTankTexture.Width, basicTankTexture.Height, spriteBatch);
+            
             basicWallTexture = Content.Load<Texture2D>("Graphics/Sprites/basicWall");
             
             this.gameObjects = MapLoader.LoadMap(basicWallTexture, spriteBatch);
