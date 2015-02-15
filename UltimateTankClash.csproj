@@ -36,6 +36,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Engine\CollissionHandler.cs" />
+    <Compile Include="Engine\MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Engine\MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Engine\MapLoader.cs" />
     <Compile Include="Engine\GameState.cs" />
     <Compile Include="Exceptions\MapNotFoundException.cs" />
@@ -86,6 +92,9 @@
       <HintPath>$(MSBuildExtensionsPath)\..\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -102,6 +111,11 @@
       <Project>{6aa6841e-a3b5-404d-b290-a729fde0eb3f}</Project>
       <Name>TanksContent</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Engine\MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
