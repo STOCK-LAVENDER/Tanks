@@ -37,7 +37,7 @@
             // startGame
             // 
             this.startGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.startGame.Location = new System.Drawing.Point(95, 188);
+            this.startGame.Location = new System.Drawing.Point(134, 215);
             this.startGame.Name = "startGame";
             this.startGame.Size = new System.Drawing.Size(75, 23);
             this.startGame.TabIndex = 0;
@@ -49,7 +49,7 @@
             // 
             this.gameName.AutoSize = true;
             this.gameName.Font = new System.Drawing.Font("Andy", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gameName.Location = new System.Drawing.Point(25, 37);
+            this.gameName.Location = new System.Drawing.Point(64, 64);
             this.gameName.Name = "gameName";
             this.gameName.Size = new System.Drawing.Size(235, 33);
             this.gameName.TabIndex = 1;
@@ -57,7 +57,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(85, 116);
+            this.textBox1.Location = new System.Drawing.Point(124, 143);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 2;
@@ -65,7 +65,7 @@
             // name
             // 
             this.name.AutoSize = true;
-            this.name.Location = new System.Drawing.Point(82, 89);
+            this.name.Location = new System.Drawing.Point(121, 116);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(91, 13);
             this.name.TabIndex = 3;
@@ -75,11 +75,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(368, 312);
             this.Controls.Add(this.name);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.gameName);
             this.Controls.Add(this.startGame);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "MainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainMenu";
