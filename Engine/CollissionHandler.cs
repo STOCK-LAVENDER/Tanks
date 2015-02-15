@@ -29,20 +29,30 @@ namespace UltimateTankClash.Engine
         {
             foreach (GameObject obstacle in collidingObjects)
             {
-                if (vehicle.rect.X - (vehicle.objTexture.Width) / 2 < obstacle.rect.X + obstacle.rect.Width &&
-                   vehicle.rect.X + vehicle.rect.Width - (vehicle.objTexture.Width) / 2 > obstacle.rect.X &&
-                   vehicle.rect.Y - (vehicle.objTexture.Width) / 2 < obstacle.rect.Y + obstacle.rect.Height &&
-                   vehicle.rect.Height + vehicle.rect.Y - (vehicle.objTexture.Width) / 2 > obstacle.rect.Y ||
-                   vehicle.rect.X > screenW - vehicle.rect.Width/2 ||
-                   vehicle.rect.Y > screenH - vehicle.rect.Width/2)
+                if (vehicle.rect.X - (vehicle.objTexture.Width)/2 < obstacle.rect.X + obstacle.rect.Width &&
+                    vehicle.rect.X + vehicle.rect.Width - (vehicle.objTexture.Width)/2 > obstacle.rect.X &&
+                    vehicle.rect.Y - (vehicle.objTexture.Width)/2 < obstacle.rect.Y + obstacle.rect.Height &&
+                    vehicle.rect.Height + vehicle.rect.Y - (vehicle.objTexture.Width)/2 > obstacle.rect.Y ||
+                    vehicle.rect.X > screenW - vehicle.rect.Width/2 ||
+                    vehicle.rect.Y > screenH - vehicle.rect.Width/2 ||
+                    (vehicle.rect.Y - vehicle.rect.Width / 2) < 0  ||
+                    (vehicle.rect.X - vehicle.objTexture.Width / 2) < 0)
 
                 {
                     switch (direction)
                     {
-                        case Direction.Up: vehicle.rect.Y += vehicle.Speed; ; break;
-                        case Direction.Down: vehicle.rect.Y -= vehicle.Speed; break;
-                        case Direction.Left: vehicle.rect.X += vehicle.Speed; break;
-                        case Direction.Right: vehicle.rect.X -= vehicle.Speed; break;
+                        case Direction.Up:
+                            vehicle.rect.Y += vehicle.Speed;
+                            break;
+                        case Direction.Down:
+                            vehicle.rect.Y -= vehicle.Speed;
+                            break;
+                        case Direction.Left:
+                            vehicle.rect.X += vehicle.Speed;
+                            break;
+                        case Direction.Right:
+                            vehicle.rect.X -= vehicle.Speed;
+                            break;
                     }
                 }
             }
