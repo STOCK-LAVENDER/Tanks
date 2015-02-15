@@ -67,8 +67,6 @@
     <Compile Include="Interfaces\ICollectible.cs" />
     <Compile Include="Model\GameObstacles\Walls\BasicWall.cs" />
     <Compile Include="Model\GameObstacles\Walls\Wall.cs" />
-    <Compile Include="Model\TankParts\BasicCannon.cs" />
-    <Compile Include="Model\TankParts\Cannon.cs" />
     <Compile Include="Model\Characters\Vehicles\BasicTank.cs" />
     <Compile Include="Model\Characters\Vehicles\Tank.cs" />
     <Compile Include="Engine\GameEngine.cs" />
@@ -77,7 +75,6 @@
     <Compile Include="Interfaces\IDestroyable.cs" />
     <Compile Include="Interfaces\IMoveable.cs" />
     <Compile Include="Interfaces\ITimeoutable.cs" />
-    <Compile Include="Model\TankParts\TankPart.cs" />
     <Compile Include="Model\GameObstacles\Obstacle.cs" />
     <Compile Include="Model\GameObstacles\Barricades\SteelBarricade.cs" />
     <Compile Include="Model\AmmunitionItems\TankAmmunition.cs" />
