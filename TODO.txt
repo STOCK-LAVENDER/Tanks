@@ -10,3 +10,5 @@
 - Create different obstacles that speed up or slow down tanks
 - Create enemy tanks and basic AI
 - Add button for sound off, visible during play
+- Find suitble sprites for items and enemies.
+- Find sutable sound for background music and sound effects; background music may play a random song
