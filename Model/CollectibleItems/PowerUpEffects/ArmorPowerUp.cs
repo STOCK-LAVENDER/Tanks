@@ -9,6 +9,11 @@
 
     public class ArmorPowerUp : PowerUp
     {
+        private const int DefaultDefenseEffect = 100;
+        private const int DefaultHealthEffect = 0;
+        private const int DefaultDamageEffect = 0;
+        private const int DefaultSpeedEffect = 0;
+
         public ArmorPowerUp(
             Texture2D objTexture,
             double positionX,
@@ -18,6 +23,10 @@
             SpriteBatch spriteBatch)
             : base(objTexture, positionX, positionY, width, height, spriteBatch)
         {
+            this.DamageEffect = DefaultDamageEffect;
+            this.Defenseffect = DefaultDefenseEffect;
+            this.HealthEffect = DefaultHealthEffect;
+            this.SpeedEffet = DefaultSpeedEffect;
         }
     }
 }

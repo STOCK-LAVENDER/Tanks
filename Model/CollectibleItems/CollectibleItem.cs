@@ -21,5 +21,15 @@
             : base(objTexture, positionX, positionY, width, height, spriteBatch)
         {
         }
+
+        public CollectibleItemState State { get; set; }
+
+        public int DamageEffect { get; protected set; }
+
+        public int Defenseffect { get; protected set; }
+
+        public int HealthEffect { get; protected set; }
+
+        public int SpeedEffet { get; protected set; }
     }
 }
