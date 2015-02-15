@@ -1,1 +1,15 @@
-Cleanup mess
+- Implement shooting (Filip)
+- Implement logic for item production and collection on collision
+- Create a main menu with the following submenus:
+-- Level selection and start game
+-- Volume adjustment
+-- Creators - info about the team
+-- Credits fo all used assets
+-- How to play - basic controls
+-- Help - info on units and power-ups
+- Create different obstacles that speed up or slow down tanks
+- Create enemy tanks and basic AI
+- Add button for sound off, visible during play
+- Find suitble sprites for items and enemies.
+- Find sutable sound for background music and sound effects; background music may play a random song
+- Create shop to purchase upgrades
