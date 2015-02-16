@@ -1,6 +1,8 @@
 ﻿namespace UltimateTankClash.Model.Characters.Vehicles
 {
     using System;
+    using System.Threading;
+    using Engine;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
@@ -63,7 +65,10 @@
                 this.rect.X += this.Speed;
                 Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Right);
             }
+            
         }
+
+        
 
         public override void Draw()
         {

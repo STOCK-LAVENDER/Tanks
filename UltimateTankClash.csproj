@@ -63,6 +63,7 @@
     <Compile Include="Interfaces\ICollectible.cs" />
     <Compile Include="Model\GameObstacles\Bushes\BasicBush.cs" />
     <Compile Include="Model\GameObstacles\Bushes\Bush.cs" />
+    <Compile Include="Model\GameObstacles\SpeedUpObstacles\IceLake.cs" />
     <Compile Include="Model\GameObstacles\Walls\BasicWall.cs" />
     <Compile Include="Model\GameObstacles\Walls\Wall.cs" />
     <Compile Include="Model\Characters\Vehicles\BasicTank.cs" />

@@ -7,6 +7,7 @@ namespace UltimateTankClash.Engine
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
     using System.Collections.Generic;
+    using Model.GameObstacles.SpeedUpObstacles;
     using UltimateTankClash.Model;
     using UltimateTankClash.Model.Characters.Vehicles;
     using UltimateTankClash.Model.GameObstacles.Walls;
@@ -44,6 +45,14 @@ namespace UltimateTankClash.Engine
                                     textures[1].Width, textures[1].Height
                                     , spriteBatch));
                         }
+                        if (ch == 'I')
+                        {
+                            gameObjects.Add(
+                                    new IceLake(textures[2], positionX, positionY,
+                                        textures[2].Width, textures[2].Height,
+                                        spriteBatch));
+                        }
+
                         if (ch.Equals('\n'))
                         {
                             positionY += textures[0].Height;

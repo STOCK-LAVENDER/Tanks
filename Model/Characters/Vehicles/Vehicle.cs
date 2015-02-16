@@ -28,6 +28,6 @@
             this.Speed = speed;
         }
 
-        public int Speed { get; protected set; }
+        public int Speed { get; set; }
     }
 }

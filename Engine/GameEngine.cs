@@ -31,6 +31,7 @@
 
         private Texture2D basicBushTexture;
 
+        private Texture2D basicIceLakeTexture;
         public GameEngine()
             : base()
         {
@@ -69,8 +70,9 @@
             
             basicWallTexture = Content.Load<Texture2D>("Graphics/Sprites/basicWall");
             basicBushTexture = Content.Load<Texture2D>("Graphics/Sprites/basicBush");
-
-            this.gameObjects = MapLoader.LoadMap(spriteBatch, basicWallTexture ,basicBushTexture);
+            basicIceLakeTexture = Content.Load<Texture2D>("Graphics/Sprites/icelake");
+            
+            this.gameObjects = MapLoader.LoadMap(spriteBatch, basicWallTexture ,basicBushTexture, basicIceLakeTexture);
            
             
             CollissionHandler.Initialize(gameObjects,
@@ -112,14 +114,14 @@
 
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-
-                basicTank.Draw();
+                
+                
                     
                 foreach (GameObject obstacle in gameObjects)
                 {
                     obstacle.Draw();
                 }
-
+                basicTank.Draw();
             spriteBatch.End();
 
             base.Draw(gameTime);
