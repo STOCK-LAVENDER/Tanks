@@ -24,7 +24,7 @@
         {
             foreach (GameObject obj in gameObjects)
             {
-                if (obj is Obstacle && obj is Bush == false)
+                if (obj is Obstacle && obj is Bush == false && obj is IceLake == false)
                 {
                     IsCollisionEffectOn = true;
                     collidingObjects.Add(obj);
@@ -59,44 +59,16 @@
                     switch (direction)
                     {
                         case Direction.Up:
-                            if (obstacle is IceLake)
-                            {
-                                vehicle.rect.Y += vehicle.Speed - 7;
-                            }
-                            else
-                            {
-                                vehicle.rect.Y += vehicle.Speed;
-                            }
+                            vehicle.rect.Y += vehicle.Speed;
                             break;
                         case Direction.Down:
-                            if (obstacle is IceLake)
-                            {
-                                vehicle.rect.Y -= vehicle.Speed - 7;
-                            }
-                            else
-                            {
-                                vehicle.rect.Y -= vehicle.Speed;
-                            }
+                            vehicle.rect.Y -= vehicle.Speed;
                             break;
                         case Direction.Left:
-                            if (obstacle is IceLake)
-                            {
-                                vehicle.rect.X += vehicle.Speed - 7;
-                            }
-                            else
-                            {
-                                vehicle.rect.X += vehicle.Speed;
-                            }
+                            vehicle.rect.X += vehicle.Speed;
                             break;
                         case Direction.Right:
-                            if (obstacle is IceLake)
-                            {
-                                vehicle.rect.X -= vehicle.Speed - 7;
-                            }
-                            else
-                            {
-                                vehicle.rect.X -= vehicle.Speed;
-                            }
+                            vehicle.rect.X -= vehicle.Speed;
                             break;
                     }
                 }

@@ -16,7 +16,7 @@
         private const int PhysicalAttack = 50;
         private const int PhysicalDefense = 100;
         private const int DefaultHealthPoints = 200;
-        private const int DefaultSpeed = 2;
+        private const int DefaultSpeed = 3;
 
         private float rotationAngle = 0f;
         private float angleUp = 0f;
