@@ -1,4 +1,4 @@
-﻿namespace UltimateTankClash.Engine
+﻿namespace UltimateTankClash.MenuItems
 {
     partial class MainMenu
     {

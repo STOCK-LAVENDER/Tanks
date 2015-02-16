@@ -1,4 +1,5 @@
 ﻿using System;
+using UltimateTankClash.Engine;
 using System.Threading;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace UltimateTankClash.Engine
+namespace UltimateTankClash.MenuItems
 {
     public partial class MainMenu : Form
     {
