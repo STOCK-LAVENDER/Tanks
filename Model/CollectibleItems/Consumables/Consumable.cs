@@ -16,7 +16,7 @@
             double width,
             double height,
             SpriteBatch spriteBatch)
-            : base(objTexture, positionX, positionY, width, height, spriteBatch)
+            : base(objTexture, positionX, positionY, width, height, spriteBatch, exists:true)
         {
             this.State = CollectibleItemState.Available;
         }

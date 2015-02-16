@@ -1,6 +1,8 @@
 ﻿namespace UltimateTankClash.Model.Characters.Vehicles
 {
     using System;
+    using CollectibleItems;
+    using CollectibleItems.PowerUpEffects;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
@@ -29,5 +31,23 @@
         }
 
         public int Speed { get; set; }
+
+        protected override void ApplyItemEffects(CollectibleItem item)
+        {
+            base.ApplyItemEffects(item);
+
+            this.Speed += item.SpeedEffet;
+        }
+
+        protected override void RemoveItemEffects(CollectibleItem item)
+        {
+            base.RemoveItemEffects(item);
+
+            this.Speed -= item.SpeedEffet;
+            if (item is SpeedPowerUp)
+            {
+                item.State = CollectibleItemState.Expired;
+            }
+        }
     }
 }

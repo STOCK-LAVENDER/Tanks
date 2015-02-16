@@ -2,6 +2,7 @@
 {
     using System;
     using System.Threading;
+    using CollectibleItems;
     using Engine;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
@@ -15,7 +16,7 @@
         private const int PhysicalAttack = 50;
         private const int PhysicalDefense = 100;
         private const int DefaultHealthPoints = 200;
-        private const int DefaultSpeed = 3;
+        private const int DefaultSpeed = 2;
 
         private float rotationAngle = 0f;
         private float angleUp = 0f;
@@ -68,8 +69,6 @@
             
         }
 
-        
-
         public override void Draw()
         {
             spriteBatch.Draw(
@@ -83,6 +82,21 @@
                 Color.White,
                 SpriteEffects.None,
                 0f);
+        }
+
+        public override void AddToInventory(CollectibleItem item)
+        {
+            this.Inventory.Add(item);
+            this.ApplyItemEffects(item);
+        }
+
+        public override void RemoveFromInventory(CollectibleItem item)
+        {
+            if (this.Inventory.Contains(item))
+            {
+                this.Inventory.Remove(item);
+            }
+            this.RemoveItemEffects(item);
         }
     }
 }

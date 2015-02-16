@@ -12,7 +12,9 @@
         private const int DefaultHealthEffect = 0;
         private const int DefaultDamageEffect = 0;
         private const int DefaultDefenseEffect = 0;
-        private const int DefaultSpeedEffect = 5;
+        private const int DefaultSpeedEffect = 1;
+
+        private SpriteBatch spriteBatch;
 
         public SpeedPowerUp(
             Texture2D objTexture,
@@ -27,6 +29,14 @@
             this.DamageEffect = DefaultDamageEffect;
             this.Defenseffect = DefaultDefenseEffect;
             this.SpeedEffet = DefaultSpeedEffect;
+            this.spriteBatch = spriteBatch;
+        }
+
+        
+
+        public override void Draw()
+        {
+            spriteBatch.Draw(this.objTexture, this.rect, Color.White);
         }
     }
 }

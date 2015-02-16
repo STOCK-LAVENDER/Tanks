@@ -17,10 +17,14 @@
             double positionY,
             double width,
             double height,
-            SpriteBatch spriteBatch)
+            SpriteBatch spriteBatch,
+            bool exists)
             : base(objTexture, positionX, positionY, width, height, spriteBatch)
         {
+            this.Exists = exists;
         }
+
+        public bool Exists { get; set; }
 
         public CollectibleItemState State { get; set; }
 

@@ -7,6 +7,7 @@ namespace UltimateTankClash.Engine
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
     using System.Collections.Generic;
+    using Model.CollectibleItems.PowerUpEffects;
     using Model.GameObstacles.SpeedUpObstacles;
     using UltimateTankClash.Model;
     using UltimateTankClash.Model.Characters.Vehicles;

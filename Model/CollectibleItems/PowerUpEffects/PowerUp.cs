@@ -11,7 +11,7 @@
 
     public abstract class PowerUp : CollectibleItem, ITimeoutable
     {
-        private const int DefaultItemEffectDuration = 10;
+        private const int DefaultItemEffectDuration = 68;
 
         protected PowerUp(
             Texture2D objTexture,
@@ -20,13 +20,13 @@
             double width,
             double height,
             SpriteBatch spriteBatch)
-            : base(objTexture, positionX, positionY, width, height, spriteBatch)
+            : base(objTexture, positionX, positionY, width, height, spriteBatch, exists:true)
         {
             this.State = CollectibleItemState.Available;
             this.Timeout = DefaultItemEffectDuration;
         }
 
-        public int Timeout { get; protected set; }
+        public int Timeout { get; set; }
 
         public override void Update()
         {

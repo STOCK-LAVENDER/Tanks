@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram3.cd" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="TanksContent\TanksContent\TanksContent.csproj">

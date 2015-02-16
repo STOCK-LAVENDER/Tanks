@@ -7,6 +7,9 @@
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
     using System.Collections.Generic;
+    using System.Linq;
+    using Model.CollectibleItems;
+    using Model.CollectibleItems.PowerUpEffects;
     using UltimateTankClash.Model;
     using UltimateTankClash.Model.GameObstacles;
     using UltimateTankClash.Model.Characters.Vehicles;
@@ -32,6 +35,12 @@
         private Texture2D basicBushTexture;
 
         private Texture2D basicIceLakeTexture;
+
+        private Texture2D speedUpEffectTexture;
+        private SpeedPowerUp speedPowerUp;
+
+        //Temporary variables
+
         public GameEngine()
             : base()
         {
@@ -67,14 +76,16 @@
 
             basicTankTexture = Content.Load<Texture2D>("Graphics/Sprites/basicTank");
             basicTank = new BasicTank(basicTankTexture, 30, 30, basicTankTexture.Width, basicTankTexture.Height, spriteBatch);
-            
+
             basicWallTexture = Content.Load<Texture2D>("Graphics/Sprites/basicWall");
             basicBushTexture = Content.Load<Texture2D>("Graphics/Sprites/basicBush");
             basicIceLakeTexture = Content.Load<Texture2D>("Graphics/Sprites/icelake");
+            speedUpEffectTexture = Content.Load<Texture2D>("Graphics/Sprites/speedUp");
+            speedPowerUp = new SpeedPowerUp(speedUpEffectTexture, 20, 140, speedUpEffectTexture.Width, speedUpEffectTexture.Height, spriteBatch);
             
-            this.gameObjects = MapLoader.LoadMap(spriteBatch, basicWallTexture ,basicBushTexture, basicIceLakeTexture);
-           
-            
+            this.gameObjects = MapLoader.LoadMap(spriteBatch, basicWallTexture, basicBushTexture, basicIceLakeTexture);
+
+            this.gameObjects.Add(speedPowerUp);
             CollissionHandler.Initialize(gameObjects,
                             GraphicsDevice.Viewport.Bounds.Right,
                             GraphicsDevice.Viewport.Bounds.Bottom);
@@ -101,6 +112,7 @@
             {
                 Exit();
             }
+            speedPowerUp.Update();
             basicTank.Update();
             base.Update(gameTime);
         }
@@ -111,17 +123,17 @@
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-
+            
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-                
-                
-                    
-                foreach (GameObject obstacle in gameObjects)
-                {
-                    obstacle.Draw();
-                }
-                basicTank.Draw();
+
+            foreach (GameObject obstacle in gameObjects)
+            {
+                obstacle.Draw();
+            }
+            basicTank.Draw();
+
+            speedPowerUp.Draw();
             spriteBatch.End();
 
             base.Draw(gameTime);

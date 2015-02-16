@@ -3,6 +3,8 @@
     using System.Collections.Generic;
     using System.Runtime.CompilerServices;
     using System.Threading;
+    using Model.CollectibleItems;
+    using Model.CollectibleItems.PowerUpEffects;
     using Model.GameObstacles.SpeedUpObstacles;
     using Model.GameObstacles.Walls;
     using UltimateTankClash.Model;
@@ -16,12 +18,19 @@
         private static List<GameObject> collidingObjects = new List<GameObject>();
         private static int screenW;
         private static int screenH;
-        
+        private static bool IsCollisionEffectOn;
+
         public static void Initialize(List<GameObject> gameObjects, int screenWidth, int screenHeight)
         {
             foreach (GameObject obj in gameObjects)
             {
                 if (obj is Obstacle && obj is Bush == false && obj is IceLake == false)
+                {
+                    IsCollisionEffectOn = true;
+                    collidingObjects.Add(obj);
+                }
+
+                if (obj is SpeedPowerUp)
                 {
                     collidingObjects.Add(obj);
                 }
@@ -34,7 +43,11 @@
         {
             foreach (GameObject obstacle in collidingObjects)
             {
-                if (vehicle.rect.X - (vehicle.objTexture.Width) / 2 < obstacle.rect.X + obstacle.rect.Width &&
+                CheckForUncollidableObjects(vehicle, obstacle);
+                CheckForPowerEffects(vehicle, obstacle);
+                
+                if (IsCollisionEffectOn &&
+                    vehicle.rect.X - (vehicle.objTexture.Width) / 2 < obstacle.rect.X + obstacle.rect.Width &&
                     vehicle.rect.X + vehicle.rect.Width - (vehicle.objTexture.Width) / 2 > obstacle.rect.X &&
                     vehicle.rect.Y - (vehicle.objTexture.Width) / 2 < obstacle.rect.Y + obstacle.rect.Height &&
                     vehicle.rect.Height + vehicle.rect.Y - (vehicle.objTexture.Width) / 2 > obstacle.rect.Y ||
@@ -60,6 +73,30 @@
                             break;
                     }
                 }
+            }
+        }
+
+        private static void CheckForPowerEffects(Vehicle vehicle, GameObject obstacle)
+        {
+            if (vehicle.rect.Intersects(obstacle.rect) && obstacle is PowerUp)
+            {
+                PowerUp effect = obstacle as SpeedPowerUp;
+                if (effect != null)
+                {
+                    vehicle.AddToInventory(effect);    
+                }
+            }
+        }
+
+        private static void CheckForUncollidableObjects(Vehicle vehicle, GameObject gameObject)
+        {
+            if (gameObject is PowerUp)
+            {
+                IsCollisionEffectOn = false;
+            }
+            else
+            {
+                IsCollisionEffectOn = true;
             }
         }
     }

@@ -85,6 +85,7 @@
         public void AddItemToInventory(ICollectible item)
         {
             this.inventory.Add(item);
+            
         }
 
         public void ApplyItemEffects()
@@ -98,6 +99,21 @@
                 this.PhysicalAttack += item.DamageEffect;
                 this.Speed += item.SpeedEffet;
             }
+        }
+
+        public override void AddToInventory(CollectibleItem item)
+        {
+            this.Inventory.Add(item);
+            this.ApplyItemEffects();
+        }
+
+        public override void RemoveFromInventory(CollectibleItem item)
+        {
+            if (this.Inventory.Contains(item))
+            {
+                this.Inventory.Remove(item);
+            }
+            this.RemoveItemEffects(item);
         }
     }
 }
