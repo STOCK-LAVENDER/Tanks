@@ -14,7 +14,7 @@
         private const int DefaultPhysicalAttack = 50;
         private const int DefaultPhysicalDefense = 100;
         private const int DefaultHealthPoints = 200;
-        private const int DefaultSpeed = 3;
+        private const double DefaultSpeed = 3;
 
         private float rotationAngle = 0f;
         private float angleUp = 0f;
@@ -44,25 +44,25 @@
             if (state.IsKeyDown(Keys.Up) && this.rect.Y - this.rect.Width / 2 > 0)
             {
                 this.rotationAngle = angleUp;
-                this.rect.Y -= this.Speed;
+                this.rect.Y -= (int)this.Speed;
                 Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Up);
             }
             else if (state.IsKeyDown(Keys.Down))
             {
                 this.rotationAngle = angleDown;
-                this.rect.Y += this.Speed;
+                this.rect.Y += (int)this.Speed;
                 Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Down);
             }
             else if (state.IsKeyDown(Keys.Left) && this.rect.X - this.objTexture.Width / 2 > 0)
             {
                 this.rotationAngle = angleLeft;
-                this.rect.X -= this.Speed;
+                this.rect.X -= (int)this.Speed;
                 Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Left);
             }
             else if (state.IsKeyDown(Keys.Right))
             {
                 this.rotationAngle = angleRight;
-                this.rect.X += this.Speed;
+                this.rect.X += (int)this.Speed;
                 Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Right);
             }
         }
@@ -97,7 +97,7 @@
                 this.HealthPoints += item.HealthEffect;
                 this.PhysicalDefense += item.Defenseffect;
                 this.PhysicalAttack += item.DamageEffect;
-                this.Speed += item.SpeedEffet;
+                this.Speed += item.SpeedEffect;
             }
         }
 

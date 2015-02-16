@@ -45,25 +45,25 @@
             if (state.IsKeyDown(Keys.Up) )
             {
                 this.rotationAngle = angleUp;
-                this.rect.Y -= this.Speed;
+                this.rect.Y -= (int)this.Speed;
                 Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Up);
             }
             else if (state.IsKeyDown(Keys.Down))
             {
                 this.rotationAngle = angleDown;
-                this.rect.Y += this.Speed;
+                this.rect.Y += (int)this.Speed;
                 Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Down);
             }
             else if (state.IsKeyDown(Keys.Left))
             {
                 this.rotationAngle = angleLeft;
-                this.rect.X -= this.Speed;
+                this.rect.X -= (int)this.Speed;
                 Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Left);
             }
             else if (state.IsKeyDown(Keys.Right))
             {
                 this.rotationAngle = angleRight;
-                this.rect.X += this.Speed;
+                this.rect.X += (int)this.Speed;
                 Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Right);
             }
             

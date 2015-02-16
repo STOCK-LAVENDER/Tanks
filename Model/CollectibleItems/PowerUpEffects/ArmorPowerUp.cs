@@ -26,7 +26,7 @@
             this.DamageEffect = DefaultDamageEffect;
             this.Defenseffect = DefaultDefenseEffect;
             this.HealthEffect = DefaultHealthEffect;
-            this.SpeedEffet = DefaultSpeedEffect;
+            this.SpeedEffect = DefaultSpeedEffect;
         }
     }
 }

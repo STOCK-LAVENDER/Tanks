@@ -81,7 +81,7 @@
             basicBushTexture = Content.Load<Texture2D>("Graphics/Sprites/basicBush");
             basicIceLakeTexture = Content.Load<Texture2D>("Graphics/Sprites/icelake");
             speedUpEffectTexture = Content.Load<Texture2D>("Graphics/Sprites/speedUp");
-            speedPowerUp = new SpeedPowerUp(speedUpEffectTexture, 20, 140, speedUpEffectTexture.Width, speedUpEffectTexture.Height, spriteBatch);
+            speedPowerUp = new SpeedPowerUp(speedUpEffectTexture, 20, 160, speedUpEffectTexture.Width, speedUpEffectTexture.Height, spriteBatch);
             
             this.gameObjects = MapLoader.LoadMap(spriteBatch, basicWallTexture, basicBushTexture, basicIceLakeTexture);
 

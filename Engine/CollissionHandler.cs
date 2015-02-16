@@ -59,16 +59,16 @@
                     switch (direction)
                     {
                         case Direction.Up:
-                            vehicle.rect.Y += vehicle.Speed;
+                            vehicle.rect.Y += (int)vehicle.Speed;
                             break;
                         case Direction.Down:
-                            vehicle.rect.Y -= vehicle.Speed;
+                            vehicle.rect.Y -= (int)vehicle.Speed;
                             break;
                         case Direction.Left:
-                            vehicle.rect.X += vehicle.Speed;
+                            vehicle.rect.X += (int)vehicle.Speed;
                             break;
                         case Direction.Right:
-                            vehicle.rect.X -= vehicle.Speed;
+                            vehicle.rect.X -= (int)vehicle.Speed;
                             break;
                     }
                 }

@@ -34,6 +34,6 @@
 
         public int HealthEffect { get; protected set; }
 
-        public int SpeedEffet { get; protected set; }
+        public double SpeedEffect { get; protected set; }
     }
 }

@@ -12,6 +12,6 @@
 
         int HealthEffect { get; }
 
-        int SpeedEffet { get; }
+        double SpeedEffect { get; }
     }
 }

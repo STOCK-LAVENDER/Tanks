@@ -19,7 +19,7 @@
             int physicalAttack, 
             int physicalDefense,
             int healthPoints,
-            int speed)
+            double speed)
             : base(objTexture, positionX, positionY, width, height, spriteBatch, physicalAttack, physicalDefense, healthPoints, speed)
         {
         }
