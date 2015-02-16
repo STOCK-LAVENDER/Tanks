@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="UltimateTankClash.Engine.CollissionHandler" Collapsed="true">
+    <Position X="25.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAiAAAAAAAAAAQAAAAAABQAACAAABAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Engine\CollissionHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UltimateTankClash.Engine.GameEngine" Collapsed="true">
+    <Position X="27.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQAEEAAAAAABwAAQAAAAAAgAAAQAAqAAAAAAIAAAAQ=</HashCode>
+      <FileName>Engine\GameEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UltimateTankClash.Engine.MapLoader" Collapsed="true">
+    <Position X="25.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Engine\MapLoader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UltimateTankClash.Engine.MainMenu" Collapsed="true">
+    <Position X="29" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAACCAACAiAAAEACAAEAAAAAAAAAA=</HashCode>
+      <FileName>MenuItems\MainMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UltimateTankClash.Exceptions.MapNotFoundException" Collapsed="true">
+    <Position X="27.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\MapNotFoundException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UltimateTankClash.Exceptions.ObjectOutOfBoundsException" Collapsed="true">
+    <Position X="29" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\ObjectOutOfBoundsException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UltimateTankClash.Model.AmmunitionItems.Ammunition" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\AmmunitionItems\Ammunition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UltimateTankClash.Model.AmmunitionItems.TankAmmunition" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\AmmunitionItems\TankAmmunition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UltimateTankClash.Model.Characters.Bunkers.Bunker" Collapsed="true">
+    <Position X="23" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Characters\Bunkers\Bunker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UltimateTankClash.Model.Characters.Character" Collapsed="true">
+    <Position X="20.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAgAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Characters\Character.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UltimateTankClash.Model.Characters.Vehicles.BasicTank" Collapsed="true">
+    <Position X="18.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQESEAAAAAAAgAAAAAAAAwAAAAACAAgAQAAAAAAABA=</HashCode>
+      <FileName>Model\Characters\Vehicles\BasicTank.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UltimateTankClash.Model.Characters.Vehicles.Player" Collapsed="true">
+    <Position X="20.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQESEQAAAAAAiAAAAAEAAQAAAAACAACAQBAAAAAABA=</HashCode>
+      <FileName>Model\Characters\Vehicles\Player.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UltimateTankClash.Model.Characters.Vehicles.Tank" Collapsed="true">
+    <Position X="19.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Characters\Vehicles\Tank.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UltimateTankClash.Model.Characters.Vehicles.Vehicle" Collapsed="true">
+    <Position X="19.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Characters\Vehicles\Vehicle.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UltimateTankClash.Model.CollectibleItems.CollectibleItem" Collapsed="true">
+    <Position X="14" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABABAAAAAAAAAAAAAAAAAAAAQBAEAAAg=</HashCode>
+      <FileName>Model\CollectibleItems\CollectibleItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UltimateTankClash.Model.CollectibleItems.Consumables.Consumable" Collapsed="true">
+    <Position X="16.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\CollectibleItems\Consumables\Consumable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UltimateTankClash.Model.CollectibleItems.Consumables.Health" Collapsed="true">
+    <Position X="16.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIABAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Model\CollectibleItems\Consumables\Health.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UltimateTankClash.Model.CollectibleItems.PowerUpEffects.ArmorPowerUp" Collapsed="true">
+    <Position X="14" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIABAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Model\CollectibleItems\PowerUpEffects\ArmorPowerUp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UltimateTankClash.Model.CollectibleItems.PowerUpEffects.PowerUp" Collapsed="true">
+    <Position X="13" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAIAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\CollectibleItems\PowerUpEffects\PowerUp.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UltimateTankClash.Model.CollectibleItems.PowerUpEffects.SpeedPowerUp" Collapsed="true">
+    <Position X="11.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAFAAAAAEAgAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Model\CollectibleItems\PowerUpEffects\SpeedPowerUp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UltimateTankClash.Model.GameObject" Collapsed="true">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAABAAAAgQgQAAAIEAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Model\GameObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UltimateTankClash.Model.GameObstacles.Barricades.Barricade" Collapsed="true">
+    <Position X="7.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\GameObstacles\Barricades\Barricade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UltimateTankClash.Model.GameObstacles.Barricades.SteelBarricade" Collapsed="true">
+    <Position X="7.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\GameObstacles\Barricades\SteelBarricade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UltimateTankClash.Model.GameObstacles.Bushes.BasicBush" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\GameObstacles\Bushes\BasicBush.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UltimateTankClash.Model.GameObstacles.Bushes.Bush" Collapsed="true">
+    <Position X="2.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\GameObstacles\Bushes\Bush.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UltimateTankClash.Model.GameObstacles.Obstacle" Collapsed="true">
+    <Position X="6.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\GameObstacles\Obstacle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UltimateTankClash.Model.GameObstacles.SpeedUpObstacles.IceLake" Collapsed="true">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Model\GameObstacles\SpeedUpObstacles\IceLake.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UltimateTankClash.Model.GameObstacles.Walls.BasicWall" Collapsed="true">
+    <Position X="9.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\GameObstacles\Walls\BasicWall.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UltimateTankClash.Model.GameObstacles.Walls.Wall" Collapsed="true">
+    <Position X="9.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\GameObstacles\Walls\Wall.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UltimateTankClash.UltimateTankClashApp" Collapsed="true">
+    <Position X="25.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>UltimateTankClashApp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="UltimateTankClash.Interfaces.IAttack" Collapsed="true">
+    <Position X="25.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IAttack.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="UltimateTankClash.Interfaces.ICollect" Collapsed="true">
+    <Position X="27.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ICollect.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="UltimateTankClash.Interfaces.ICollectible" Collapsed="true">
+    <Position X="29" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABABAAAAAAAAAAAAAAAAAAAAQBAAAAAg=</HashCode>
+      <FileName>Interfaces\ICollectible.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="UltimateTankClash.Interfaces.IDestroyable" Collapsed="true">
+    <Position X="25.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IDestroyable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="UltimateTankClash.Interfaces.IMenuItem" Collapsed="true">
+    <Position X="27.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAgAAAAAAAAAAAgAAAAACAAABAAAAA=</HashCode>
+      <FileName>Interfaces\IMenuItem.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="UltimateTankClash.Interfaces.IMoveable" Collapsed="true">
+    <Position X="29" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IMoveable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="UltimateTankClash.Interfaces.ITimeoutable" Collapsed="true">
+    <Position X="25.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ITimeoutable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="UltimateTankClash.Engine.GameState" Collapsed="true">
+    <Position X="25.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAgAAAAAAAIAAAAIAAAAAAQAAAAAAAIgAAAAAAAAAA=</HashCode>
+      <FileName>Engine\GameState.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="UltimateTankClash.Model.Characters.Vehicles.Direction" Collapsed="true">
+    <Position X="27.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAI=</HashCode>
+      <FileName>Model\Characters\Vehicles\Direction.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="UltimateTankClash.Model.CollectibleItems.CollectibleItemState" Collapsed="true">
+    <Position X="25.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAAAAAAhAAAAAAAAAAA=</HashCode>
+      <FileName>Model\CollectibleItems\CollectibleItemState.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="UltimateTankClash.Model.GameObjectState" Collapsed="true">
+    <Position X="29" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAIAAAAAIA=</HashCode>
+      <FileName>Model\GameObjectState.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
