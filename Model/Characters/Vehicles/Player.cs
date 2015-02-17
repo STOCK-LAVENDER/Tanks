@@ -82,17 +82,9 @@
                 0f);
         }
 
-        public void ApplyItemEffects()
+        public override void ApplyItemEffects()
         {
-            var activeItems = this.inventory.Where(item => item.State == CollectibleItemState.Active);
-
-            foreach (var item in activeItems)
-            {
-                this.HealthPoints += item.HealthEffect;
-                this.PhysicalDefense += item.Defenseffect;
-                this.PhysicalAttack += item.DamageEffect;
-                this.Speed += item.SpeedEffect;
-            }
+            base.ApplyItemEffects();
         }
 
         public override void AddItemToInventory(CollectibleItem item)

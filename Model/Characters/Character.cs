@@ -51,12 +51,8 @@ namespace UltimateTankClash.Model.Characters
 
         public abstract void RemoveFromInventory(CollectibleItem item);
 
-        public virtual void ApplyItemEffects(CollectibleItem item)
-        {
-            this.PhysicalAttack += item.DamageEffect;
-            this.HealthPoints += item.HealthEffect;
-            this.PhysicalDefense += item.Defenseffect;
-        }
+        public abstract void ApplyItemEffects();
+
 
         protected virtual void RemoveItemEffects(CollectibleItem item)
         {

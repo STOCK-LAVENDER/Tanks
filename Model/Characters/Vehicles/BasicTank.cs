@@ -87,8 +87,9 @@
 
         public override void AddItemToInventory(CollectibleItem item)
         {
+            base.AddItemToInventory(item);
             this.Inventory.Add(item);
-            this.ApplyItemEffects(item);
+            this.ApplyItemEffects();
         }
 
         public override void RemoveFromInventory(CollectibleItem item)

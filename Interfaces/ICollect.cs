@@ -6,6 +6,6 @@
     {
         void AddItemToInventory(CollectibleItem item);
 
-        void ApplyItemEffects(CollectibleItem item);
+        void ApplyItemEffects();
     }
 }

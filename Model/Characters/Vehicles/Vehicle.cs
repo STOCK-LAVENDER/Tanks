@@ -1,6 +1,7 @@
 ﻿namespace UltimateTankClash.Model.Characters.Vehicles
 {
     using System;
+    using System.Linq;
     using CollectibleItems;
     using CollectibleItems.PowerUpEffects;
     using Microsoft.Xna.Framework;
@@ -48,11 +49,14 @@
             }
         }
 
-        public override void ApplyItemEffects(CollectibleItem item)
+        public override void AddItemToInventory(CollectibleItem item)
         {
-            base.ApplyItemEffects(item);
+            this.Inventory.Add(item);
+        }
 
-            this.Speed += 0.22;
+        public override void RemoveFromInventory(CollectibleItem item)
+        {
+            this.Inventory.Remove(item);
         }
 
         protected override void RemoveItemEffects(CollectibleItem item)
