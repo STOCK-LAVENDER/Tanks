@@ -12,7 +12,7 @@
         private const int DefaultHealthEffect = 0;
         private const int DefaultDamageEffect = 0;
         private const int DefaultDefenseEffect = 0;
-        private const int DefaultSpeedEffect = 1;
+        private const double DefaultSpeedEffect = 0.22;
 
         private SpriteBatch spriteBatch;
 
@@ -25,6 +25,7 @@
             SpriteBatch spriteBatch)
             : base(objTexture, positionX, positionY, width, height, spriteBatch)
         {
+            this.State = CollectibleItemState.Active;
             this.HealthEffect = DefaultHealthEffect;
             this.DamageEffect = DefaultDamageEffect;
             this.Defenseffect = DefaultDefenseEffect;
@@ -36,7 +37,7 @@
 
         public override void Draw()
         {
-            spriteBatch.Draw(this.objTexture, this.rect, Color.White);
+            this.spriteBatch.Draw(this.objTexture, this.rect, Color.White);
         }
     }
 }
