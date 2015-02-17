@@ -16,6 +16,7 @@
     public abstract class Vehicle : Character, IMoveable
     {
         private double speed;
+        public const int DefaultSpeed = 3;
         protected Vehicle(
             Texture2D objTexture,
             double positionX,
@@ -49,21 +50,19 @@
             }
         }
 
-        public override void AddItemToInventory(CollectibleItem item)
-        {
-            this.Inventory.Add(item);
-        }
+        
 
         public override void RemoveFromInventory(CollectibleItem item)
         {
             this.Inventory.Remove(item);
+            this.RemoveItemEffects(item);
         }
 
         protected override void RemoveItemEffects(CollectibleItem item)
         {
             base.RemoveItemEffects(item);
 
-            this.Speed -= item.SpeedEffect;
+            this.Speed = DefaultSpeed;
             if (item is SpeedPowerUp)
             {
                 item.State = CollectibleItemState.Expired;

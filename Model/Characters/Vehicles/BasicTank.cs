@@ -17,7 +17,6 @@
         private const int PhysicalAttack = 50;
         private const int PhysicalDefense = 100;
         private const int DefaultHealthPoints = 200;
-        private const int DefaultSpeed = 3;
 
         private float rotationAngle = 0f;
         private float angleUp = 0f;
@@ -67,7 +66,6 @@
                 this.rect.X += (int)this.Speed;
                 Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Right);
             }
-            
         }
 
         public override void Draw()
@@ -87,7 +85,6 @@
 
         public override void AddItemToInventory(CollectibleItem item)
         {
-            base.AddItemToInventory(item);
             this.Inventory.Add(item);
             this.ApplyItemEffects();
         }

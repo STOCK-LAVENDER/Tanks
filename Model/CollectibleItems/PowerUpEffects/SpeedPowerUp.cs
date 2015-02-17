@@ -12,7 +12,7 @@
         private const int DefaultHealthEffect = 0;
         private const int DefaultDamageEffect = 0;
         private const int DefaultDefenseEffect = 0;
-        private const double DefaultSpeedEffect = 0.22;
+        private const double DefaultSpeedEffect = 0.010;
 
         private SpriteBatch spriteBatch;
 
@@ -32,8 +32,6 @@
             this.SpeedEffect = DefaultSpeedEffect;
             this.spriteBatch = spriteBatch;
         }
-
-        
 
         public override void Draw()
         {

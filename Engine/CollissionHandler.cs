@@ -45,7 +45,7 @@
             {
                 CheckForUncollidableObjects(vehicle, obstacle);
                 CheckForPowerEffects(vehicle, obstacle);
-                
+
                 if (IsCollisionEffectOn &&
                     vehicle.rect.X - (vehicle.objTexture.Width) / 2 < obstacle.rect.X + obstacle.rect.Width &&
                     vehicle.rect.X + vehicle.rect.Width - (vehicle.objTexture.Width) / 2 > obstacle.rect.X &&
@@ -77,12 +77,20 @@
 
         private static void CheckForPowerEffects(Vehicle vehicle, GameObject obstacle)
         {
+            PowerUp effect = obstacle as SpeedPowerUp;
             if (vehicle.rect.Intersects(obstacle.rect) && obstacle is PowerUp)
             {
-                PowerUp effect = obstacle as SpeedPowerUp;
+
                 if (effect != null)
                 {
-                    vehicle.AddItemToInventory(effect);    
+                    vehicle.AddItemToInventory(effect);
+                }
+            }
+            if (effect != null)
+            {
+                if (effect.State == CollectibleItemState.Expired)
+                {
+                    vehicle.RemoveFromInventory(effect);
                 }
             }
         }

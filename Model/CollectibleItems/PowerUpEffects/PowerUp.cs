@@ -11,7 +11,7 @@
 
     public abstract class PowerUp : CollectibleItem, ITimeoutable
     {
-        private const int DefaultItemEffectDuration = 68;
+        private const int DefaultItemEffectDuration = 500;
 
         protected PowerUp(
             Texture2D objTexture,

@@ -38,7 +38,6 @@ namespace UltimateTankClash.Model.Characters
             {
                 this.inventory = value;
             }
-
         }
 
         public int PhysicalAttack { get; protected set; }
@@ -52,7 +51,6 @@ namespace UltimateTankClash.Model.Characters
         public abstract void RemoveFromInventory(CollectibleItem item);
 
         public abstract void ApplyItemEffects();
-
 
         protected virtual void RemoveItemEffects(CollectibleItem item)
         {
