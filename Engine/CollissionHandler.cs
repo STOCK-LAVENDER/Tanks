@@ -1,5 +1,6 @@
 ﻿namespace UltimateTankClash.Engine
 {
+    using System;
     using System.Collections.Generic;
     using System.Runtime.CompilerServices;
     using System.Threading;
@@ -39,7 +40,7 @@
             screenH = screenHeight;
         }
 
-        public static void MovementCollisionDetector(Vehicle vehicle, Direction direction)
+        public static Direction MovementCollisionDetector(Vehicle vehicle, Direction direction)
         {
             foreach (GameObject obstacle in collidingObjects)
             {
@@ -56,23 +57,32 @@
                     (vehicle.rect.Y - vehicle.rect.Width / 2) < 0 ||
                     (vehicle.rect.X - vehicle.objTexture.Width / 2) < 0)
                 {
+                    Array values = Enum.GetValues(typeof(Direction));
+                    Random random = new Random();
+                    Direction randomDirection = (Direction)values.GetValue(random.Next(values.Length));
+
                     switch (direction)
                     {
                         case Direction.Up:
                             vehicle.rect.Y += (int)vehicle.Speed;
-                            break;
+                            return randomDirection;
+                            //break;
                         case Direction.Down:
                             vehicle.rect.Y -= (int)vehicle.Speed;
-                            break;
+                            return randomDirection;
+                            //break;
                         case Direction.Left:
                             vehicle.rect.X += (int)vehicle.Speed;
-                            break;
+                            return randomDirection;
+                            //break;
                         case Direction.Right:
                             vehicle.rect.X -= (int)vehicle.Speed;
-                            break;
+                            return randomDirection;
+                            //break;
                     }
                 }
             }
+            return direction;
         }
 
         private static void CheckForPowerEffects(Vehicle vehicle, GameObject obstacle)

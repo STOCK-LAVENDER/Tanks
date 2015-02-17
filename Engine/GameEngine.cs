@@ -29,6 +29,7 @@
 
         private Texture2D basicTankTexture;
         private BasicTank basicTank;
+        private Enemy enemyTank;
 
         private Texture2D basicWallTexture;
 
@@ -76,6 +77,7 @@
 
             basicTankTexture = Content.Load<Texture2D>("Graphics/Sprites/basicTank");
             basicTank = new BasicTank(basicTankTexture, 30, 30, basicTankTexture.Width, basicTankTexture.Height, spriteBatch);
+            enemyTank = new Enemy(basicTankTexture, 500, 400, basicTankTexture.Width, basicTankTexture.Height, spriteBatch);
 
             basicWallTexture = Content.Load<Texture2D>("Graphics/Sprites/basicWall");
             basicBushTexture = Content.Load<Texture2D>("Graphics/Sprites/basicBush");
@@ -114,6 +116,8 @@
             }
             speedPowerUp.Update();
             basicTank.Update();
+            enemyTank.Update();
+
             base.Update(gameTime);
         }
 
@@ -132,7 +136,7 @@
                 obstacle.Draw();
             }
             basicTank.Draw();
-
+            enemyTank.Draw();
             speedPowerUp.Draw();
             spriteBatch.End();
 
