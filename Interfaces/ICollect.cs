@@ -1,9 +1,11 @@
 ﻿namespace UltimateTankClash.Interfaces
 {
-    interface ICollect
-    {
-        void AddItemToInventory(ICollectible item);
+    using Model.CollectibleItems;
 
-        void ApplyItemEffects();
+    public interface ICollect
+    {
+        void AddItemToInventory(CollectibleItem item);
+
+        void ApplyItemEffects(CollectibleItem item);
     }
 }

@@ -82,7 +82,7 @@
                 PowerUp effect = obstacle as SpeedPowerUp;
                 if (effect != null)
                 {
-                    vehicle.AddToInventory(effect);    
+                    vehicle.AddItemToInventory(effect);    
                 }
             }
         }

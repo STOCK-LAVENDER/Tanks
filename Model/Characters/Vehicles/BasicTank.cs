@@ -4,6 +4,7 @@
     using System.Threading;
     using CollectibleItems;
     using Engine;
+    using Interfaces;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
@@ -84,7 +85,7 @@
                 0f);
         }
 
-        public override void AddToInventory(CollectibleItem item)
+        public override void AddItemToInventory(CollectibleItem item)
         {
             this.Inventory.Add(item);
             this.ApplyItemEffects(item);

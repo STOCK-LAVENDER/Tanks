@@ -9,7 +9,7 @@
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
 
-    class Player : Tank, ICollect
+    class Player : Tank
     {
         private const int DefaultPhysicalAttack = 50;
         private const int DefaultPhysicalDefense = 100;
@@ -82,12 +82,6 @@
                 0f);
         }
 
-        public void AddItemToInventory(ICollectible item)
-        {
-            this.inventory.Add(item);
-            
-        }
-
         public void ApplyItemEffects()
         {
             var activeItems = this.inventory.Where(item => item.State == CollectibleItemState.Active);
@@ -101,7 +95,7 @@
             }
         }
 
-        public override void AddToInventory(CollectibleItem item)
+        public override void AddItemToInventory(CollectibleItem item)
         {
             this.Inventory.Add(item);
             this.ApplyItemEffects();
@@ -115,5 +109,6 @@
             }
             this.RemoveItemEffects(item);
         }
+
     }
 }

@@ -7,7 +7,7 @@ namespace UltimateTankClash.Model.Characters
     using Microsoft.Xna.Framework.Graphics;
     using Interfaces;
 
-    public abstract class Character : GameObject, IAttack, IDestroyable
+    public abstract class Character : GameObject, IAttack, IDestroyable, ICollect
     {
         private List<CollectibleItem> inventory = new List<CollectibleItem>(); 
         protected Character(
@@ -47,11 +47,11 @@ namespace UltimateTankClash.Model.Characters
 
         public int HealthPoints { get; protected set; }
 
-        public abstract void AddToInventory(CollectibleItem item);
+        public abstract void AddItemToInventory(CollectibleItem item);
 
         public abstract void RemoveFromInventory(CollectibleItem item);
 
-        protected virtual void ApplyItemEffects(CollectibleItem item)
+        public virtual void ApplyItemEffects(CollectibleItem item)
         {
             this.PhysicalAttack += item.DamageEffect;
             this.HealthPoints += item.HealthEffect;

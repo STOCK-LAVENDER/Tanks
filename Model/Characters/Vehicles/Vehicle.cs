@@ -48,7 +48,7 @@
             }
         }
 
-        protected override void ApplyItemEffects(CollectibleItem item)
+        public override void ApplyItemEffects(CollectibleItem item)
         {
             base.ApplyItemEffects(item);
 
