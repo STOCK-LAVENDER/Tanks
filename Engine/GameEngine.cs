@@ -8,13 +8,11 @@
     using Microsoft.Xna.Framework.Input;
     using System.Collections.Generic;
     using System.Linq;
-    using Model.Characters.Tanks;
-    using UltimateTankClash.Model.CollectibleItems;
-    using UltimateTankClash.Model.CollectibleItems.PowerUpEffects;
-    using UltimateTankClash.Model;
-    using UltimateTankClash.Model.GameObstacles;
-    using UltimateTankClash.Model.GameObstacles.Walls;
-    using UltimateTankClash.Model.GameObstacles.Bushes;
+    using Models;
+    using Models.Characters.Tanks;
+    using Models.CollectibleItems;
+    using Models.CollectibleItems.PowerUpEffects;
+
     #endregion
 
     /// <summary>
@@ -25,12 +23,12 @@
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        private List<GameObject> gameObjects = new List<GameObject>();
+        public static List<GameObject> GameObjects = new List<GameObject>();
 
         private Texture2D basicTankTexture;
         private Player player;
         private BasicTank enemyTank;
-
+        public static SpriteFont font;
         private Texture2D basicWallTexture;
 
         private Texture2D basicBushTexture;
@@ -39,6 +37,9 @@
 
         private Texture2D speedUpEffectTexture;
         private SpeedPowerUp speedPowerUp;
+
+        public const int WindowWidth = 1024;
+        public const int WindowHeight = 720;
 
         //Temporary variables
 
@@ -71,13 +72,14 @@
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            graphics.PreferredBackBufferWidth = 1200;
-            graphics.PreferredBackBufferHeight = 720;
+            graphics.PreferredBackBufferWidth = WindowWidth;
+            graphics.PreferredBackBufferHeight = WindowHeight;
             graphics.ApplyChanges();
+            font = Content.Load<SpriteFont>("Graphics/Fonts/ArialFont");
 
             basicTankTexture = Content.Load<Texture2D>("Graphics/Sprites/basicTank");
-            player = new Player(basicTankTexture, new Vector2(30, 30), new Vector2(basicTankTexture.Width, basicTankTexture.Height));
-            enemyTank = new BasicTank(basicTankTexture, new Vector2(500, 400), new Vector2(basicTankTexture.Width, basicTankTexture.Height));
+            player = new Player(basicTankTexture, new Vector2(30, 30), new Vector2(basicTankTexture.Width - 5, basicTankTexture.Height -5));
+            enemyTank = new BasicTank(basicTankTexture, new Vector2(500, 400), new Vector2(basicTankTexture.Width - 5, basicTankTexture.Height - 5));
 
             basicWallTexture = Content.Load<Texture2D>("Graphics/Sprites/basicWall");
             basicBushTexture = Content.Load<Texture2D>("Graphics/Sprites/basicBush");
@@ -85,12 +87,9 @@
             speedUpEffectTexture = Content.Load<Texture2D>("Graphics/Sprites/speedy");
             speedPowerUp = new SpeedPowerUp(speedUpEffectTexture, new Vector2(20, 160), new Vector2(speedUpEffectTexture.Width, speedUpEffectTexture.Height));
 
-            this.gameObjects = MapLoader.LoadMap(spriteBatch, basicWallTexture, basicBushTexture, basicIceLakeTexture);
+            GameObjects = MapLoader.LoadMap(spriteBatch, basicWallTexture, basicBushTexture, basicIceLakeTexture);
 
-            this.gameObjects.Add(speedPowerUp);
-            CollissionHandler.Initialize(gameObjects,
-                            GraphicsDevice.Viewport.Bounds.Right,
-                            GraphicsDevice.Viewport.Bounds.Bottom);
+            GameObjects.Add(speedPowerUp);
         }
 
         /// <summary>
@@ -114,6 +113,7 @@
             {
                 Exit();
             }
+
             speedPowerUp.Update();
             player.Update();
             enemyTank.Update();
@@ -131,7 +131,7 @@
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
 
-            foreach (GameObject obstacle in gameObjects)
+            foreach (GameObject obstacle in GameObjects)
             {
                 PowerUp effectItem = obstacle as PowerUp;
                 if (effectItem != null && effectItem.State == CollectibleItemState.Active)

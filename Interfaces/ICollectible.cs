@@ -1,6 +1,6 @@
 ﻿namespace UltimateTankClash.Interfaces
 {
-    using Model.CollectibleItems;
+    using Models.CollectibleItems;
 
     public interface ICollectible
     {

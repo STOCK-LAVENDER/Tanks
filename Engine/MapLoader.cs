@@ -7,11 +7,10 @@ namespace UltimateTankClash.Engine
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
     using System.Collections.Generic;
-    using UltimateTankClash.Model.CollectibleItems.PowerUpEffects;
-    using UltimateTankClash.Model.GameObstacles.SpeedUpObstacles;
-    using UltimateTankClash.Model;
-    using UltimateTankClash.Model.GameObstacles.Walls;
-    using UltimateTankClash.Model.GameObstacles.Bushes;
+    using Models;
+    using Models.CollectibleItems.PowerUpEffects;
+    using Models.GameObstacles.Bushes;
+    using Models.GameObstacles.Walls;
     using UltimateTankClash.Exceptions;
 
     static class MapLoader
@@ -42,7 +41,7 @@ namespace UltimateTankClash.Engine
                         if (ch == 'B')
                         {
                             gameObjects.Add(
-                                new BasicWall(
+                                new BasicBush(
                                     textures[1],
                                     new Vector2(positionX, positionY),
                                     new Vector2(textures[1].Width, textures[1].Height)));
@@ -50,7 +49,7 @@ namespace UltimateTankClash.Engine
                         if (ch == 'I')
                         {
                             gameObjects.Add(
-                                new BasicWall(
+                                new SpeedPowerUp(
                                     textures[2],
                                     new Vector2(positionX, positionY),
                                     new Vector2(textures[2].Width, textures[2].Height)));

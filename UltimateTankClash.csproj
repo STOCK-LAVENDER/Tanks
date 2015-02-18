@@ -35,8 +35,9 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Engine\CollissionHandler.cs" />
+    <Compile Include="Engine\CollisionHandler.cs" />
     <Compile Include="Exceptions\InvalidObjectParameterException.cs" />
+    <Compile Include="Interfaces\ICollidable.cs" />
     <Compile Include="MenuItems\AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,35 +73,35 @@
     <Compile Include="MenuItems\OptionsForm.Designer.cs">
       <DependentUpon>OptionsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Characters\Tanks\Direction.cs" />
-    <Compile Include="Model\Characters\Tanks\Player.cs" />
-    <Compile Include="Model\CollectibleItems\CollectibleItem.cs" />
-    <Compile Include="Model\CollectibleItems\CollectibleItemState.cs" />
-    <Compile Include="Model\GameObstacles\Barricades\Barricade.cs" />
-    <Compile Include="Model\GameObjectState.cs" />
-    <Compile Include="Model\CollectibleItems\Consumables\Health.cs" />
-    <Compile Include="Model\CollectibleItems\Consumables\Consumable.cs" />
-    <Compile Include="Model\Characters\Bunkers\Bunker.cs" />
-    <Compile Include="Model\Characters\Character.cs" />
-    <Compile Include="Model\CollectibleItems\PowerUpEffects\ArmorPowerUp.cs" />
-    <Compile Include="Model\AmmunitionItems\Ammunition.cs" />
+    <Compile Include="Models\Characters\Tanks\Direction.cs" />
+    <Compile Include="Models\Characters\Tanks\Player.cs" />
+    <Compile Include="Models\CollectibleItems\CollectibleItem.cs" />
+    <Compile Include="Models\CollectibleItems\CollectibleItemState.cs" />
+    <Compile Include="Models\GameObstacles\Barricades\Barricade.cs" />
+    <Compile Include="Models\GameObjectState.cs" />
+    <Compile Include="Models\CollectibleItems\Consumables\Health.cs" />
+    <Compile Include="Models\CollectibleItems\Consumables\Consumable.cs" />
+    <Compile Include="Models\Characters\Bunkers\Bunker.cs" />
+    <Compile Include="Models\Characters\Character.cs" />
+    <Compile Include="Models\CollectibleItems\PowerUpEffects\ArmorPowerUp.cs" />
+    <Compile Include="Models\AmmunitionItems\Ammunition.cs" />
     <Compile Include="Interfaces\ICollectible.cs" />
-    <Compile Include="Model\GameObstacles\Bushes\BasicBush.cs" />
-    <Compile Include="Model\GameObstacles\Bushes\Bush.cs" />
-    <Compile Include="Model\GameObstacles\SpeedUpObstacles\IceLake.cs" />
-    <Compile Include="Model\GameObstacles\Walls\BasicWall.cs" />
-    <Compile Include="Model\GameObstacles\Walls\Wall.cs" />
-    <Compile Include="Model\Characters\Tanks\BasicTank.cs" />
+    <Compile Include="Models\GameObstacles\Bushes\BasicBush.cs" />
+    <Compile Include="Models\GameObstacles\Bushes\Bush.cs" />
+    <Compile Include="Models\GameObstacles\SpeedUpObstacles\IceLake.cs" />
+    <Compile Include="Models\GameObstacles\Walls\BasicWall.cs" />
+    <Compile Include="Models\GameObstacles\Walls\Wall.cs" />
+    <Compile Include="Models\Characters\Tanks\BasicTank.cs" />
     <Compile Include="Engine\GameEngine.cs" />
-    <Compile Include="Model\GameObject.cs" />
+    <Compile Include="Models\GameObject.cs" />
     <Compile Include="Interfaces\IAttack.cs" />
     <Compile Include="Interfaces\IDestroyable.cs" />
     <Compile Include="Interfaces\IMoveable.cs" />
     <Compile Include="Interfaces\ITimeoutable.cs" />
-    <Compile Include="Model\GameObstacles\Obstacle.cs" />
-    <Compile Include="Model\GameObstacles\Barricades\SteelBarricade.cs" />
-    <Compile Include="Model\CollectibleItems\PowerUpEffects\SpeedPowerUp.cs" />
-    <Compile Include="Model\CollectibleItems\PowerUpEffects\PowerUp.cs" />
+    <Compile Include="Models\GameObstacles\Obstacle.cs" />
+    <Compile Include="Models\GameObstacles\Barricades\SteelBarricade.cs" />
+    <Compile Include="Models\CollectibleItems\PowerUpEffects\SpeedPowerUp.cs" />
+    <Compile Include="Models\CollectibleItems\PowerUpEffects\PowerUp.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -108,7 +109,7 @@
     </Compile>
     <Compile Include="UltimateTankClashApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Model\Characters\Tanks\Tank.cs" />
+    <Compile Include="Models\Characters\Tanks\Tank.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

@@ -1,7 +1,6 @@
 ﻿namespace UltimateTankClash.Exceptions
 {
     using System;
-    using Model;
 
     class ObjectOutOfBoundsException : ArgumentOutOfRangeException
     {
