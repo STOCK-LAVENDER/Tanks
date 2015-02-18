@@ -4,10 +4,13 @@
     using System.Collections.Generic;
     using System.Runtime.CompilerServices;
     using System.Threading;
-    using Model.CollectibleItems;
-    using Model.CollectibleItems.PowerUpEffects;
-    using Model.GameObstacles.SpeedUpObstacles;
-    using Model.GameObstacles.Walls;
+    using Microsoft.Xna.Framework;
+    using Microsoft.Xna.Framework.Graphics;
+    using Microsoft.Xna.Framework.Input;
+    using UltimateTankClash.Model.CollectibleItems;
+    using UltimateTankClash.Model.CollectibleItems.PowerUpEffects;
+    using UltimateTankClash.Model.GameObstacles.SpeedUpObstacles;
+    using UltimateTankClash.Model.GameObstacles.Walls;
     using UltimateTankClash.Model;
     using UltimateTankClash.Model.Characters.Vehicles;
     using UltimateTankClash.Model.GameObstacles;
@@ -40,8 +43,11 @@
             screenH = screenHeight;
         }
 
+
+
         public static Direction MovementCollisionDetector(Vehicle vehicle, Direction direction)
         {
+         
             foreach (GameObject obstacle in collidingObjects)
             {
                 CheckForUncollidableObjects(vehicle, obstacle);
@@ -65,21 +71,18 @@
                     {
                         case Direction.Up:
                             vehicle.rect.Y += (int)vehicle.Speed;
-                            return randomDirection;
-                            //break;
+                            break;
                         case Direction.Down:
                             vehicle.rect.Y -= (int)vehicle.Speed;
-                            return randomDirection;
-                            //break;
+                            break;
                         case Direction.Left:
                             vehicle.rect.X += (int)vehicle.Speed;
-                            return randomDirection;
-                            //break;
+                            break;
                         case Direction.Right:
                             vehicle.rect.X -= (int)vehicle.Speed;
-                            return randomDirection;
-                            //break;
+                            break;
                     }
+                    return randomDirection;
                 }
             }
             return direction;

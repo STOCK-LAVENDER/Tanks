@@ -23,7 +23,10 @@
         private float angleDown = (float)Math.PI;
         private float angleRight = (float)Math.PI / 2;
         private float angleLeft = (float)Math.PI + (float)Math.PI / 2;
-        private Direction direction = Direction.Up;
+        private Direction currentDirection = Direction.Up;
+        private Array values = Enum.GetValues(typeof(Direction));
+
+        private int timeToNewDirection = 0;
 
         private SpriteBatch spriteBatch;
 
@@ -41,31 +44,67 @@
 
         public override void Update()
         {
-            if (this.direction == Direction.Up)
+            // change direction on certain time
+            timeToNewDirection++;
+            if (timeToNewDirection == 150)
             {
-                this.rotationAngle = angleUp;
-                this.rect.Y -= (int)this.Speed;
-                this.direction = Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Up);
+                Random rnd = new Random();
+
+                Direction randomDirection = (Direction)values.GetValue(rnd.Next(values.Length));
+
+                while (randomDirection == GetOpposite(currentDirection))
+                {
+                    randomDirection = (Direction)values.GetValue(rnd.Next(values.Length));
+                }
+                this.currentDirection = randomDirection;
+                this.timeToNewDirection = 0;
             }
-            else if (this.direction == Direction.Down)
+            else
             {
-                this.rotationAngle = angleDown;
-                this.rect.Y += (int)this.Speed;
-                this.direction = Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Down);
+                switch (currentDirection)
+                {
+                    case (Direction.Up):
+                        {
+                            this.rotationAngle = angleUp;
+                            this.rect.Y -= (int)this.Speed;
+                            this.currentDirection = Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Up);
+                            break;
+                        }
+                    case (Direction.Down):
+                        {
+                            this.rotationAngle = angleDown;
+                            this.rect.Y += (int)this.Speed;
+                            this.currentDirection = Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Down);
+                            break;
+                        }
+                    case (Direction.Left):
+                        {
+                            this.rotationAngle = angleLeft;
+                            this.rect.X -= (int)this.Speed;
+                            this.currentDirection = Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Left);
+                            break;
+                        }
+                    case (Direction.Right):
+                        {
+                            this.rotationAngle = angleRight;
+                            this.rect.X += (int)this.Speed;
+                            this.currentDirection = Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Right);
+                            break;
+                        }
+                }
             }
-            else if (this.direction == Direction.Left)
+        }
+
+        private Direction GetOpposite(Direction direction)
+        {
+            switch (direction)
             {
-                this.rotationAngle = angleLeft;
-                this.rect.X -= (int)this.Speed;
-                this.direction = Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Left);
+                case Direction.Up: return Direction.Down;
+                case Direction.Down: return Direction.Up;
+                case Direction.Left: return Direction.Right;
+                case Direction.Right: return Direction.Left;
+                default: return Direction.Up;
             }
-            else if (this.direction == Direction.Right)
-            {
-                this.rotationAngle = angleRight;
-                this.rect.X += (int)this.Speed;
-                this.direction = Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Right);
-            }
-            
         }
 
         public override void Draw()

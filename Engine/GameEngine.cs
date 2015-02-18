@@ -8,8 +8,8 @@
     using Microsoft.Xna.Framework.Input;
     using System.Collections.Generic;
     using System.Linq;
-    using Model.CollectibleItems;
-    using Model.CollectibleItems.PowerUpEffects;
+    using UltimateTankClash.Model.CollectibleItems;
+    using UltimateTankClash.Model.CollectibleItems.PowerUpEffects;
     using UltimateTankClash.Model;
     using UltimateTankClash.Model.GameObstacles;
     using UltimateTankClash.Model.Characters.Vehicles;
@@ -26,7 +26,7 @@
         SpriteBatch spriteBatch;
 
         private List<GameObject> gameObjects = new List<GameObject>();
-
+        
         private Texture2D basicTankTexture;
         private BasicTank basicTank;
         private Enemy enemyTank;
@@ -36,7 +36,7 @@
         private Texture2D basicBushTexture;
 
         private Texture2D basicIceLakeTexture;
-
+        
         private Texture2D speedUpEffectTexture;
         private SpeedPowerUp speedPowerUp;
 
