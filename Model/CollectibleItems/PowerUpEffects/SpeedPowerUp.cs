@@ -25,7 +25,6 @@
             SpriteBatch spriteBatch)
             : base(objTexture, positionX, positionY, width, height, spriteBatch)
         {
-            this.State = CollectibleItemState.Active;
             this.HealthEffect = DefaultHealthEffect;
             this.DamageEffect = DefaultDamageEffect;
             this.Defenseffect = DefaultDefenseEffect;

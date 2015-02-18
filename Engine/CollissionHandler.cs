@@ -94,6 +94,7 @@
                 if (effect != null)
                 {
                     vehicle.AddItemToInventory(effect);
+                    effect.State = CollectibleItemState.Active;
                 }
             }
             if (effect != null)
