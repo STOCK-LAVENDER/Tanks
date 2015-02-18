@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace UltimateTankClash.Model.Characters.Vehicles
+﻿namespace UltimateTankClash.Model.Characters.Vehicles
 {
     public enum Direction
     {

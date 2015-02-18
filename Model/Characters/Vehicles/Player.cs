@@ -9,8 +9,10 @@
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
 
-    class Player : Tank
+    class Player : Tank, ICollect
     {
+        private List<ICollectible> inventory = new List<ICollectible>();
+
         private const int DefaultPhysicalAttack = 50;
         private const int DefaultPhysicalDefense = 100;
         private const int DefaultHealthPoints = 200;
@@ -21,58 +23,84 @@
         private float angleDown = (float)Math.PI;
         private float angleRight = (float)Math.PI / 2;
         private float angleLeft = (float)Math.PI + (float)Math.PI / 2;
-        private List<ICollectible> inventory = new List<ICollectible>();
-
-        private SpriteBatch spriteBatch;
 
         public Player(
             Texture2D objTexture,
-            double positionX,
-            double positionY,
-            double width,
-            double height,
-            SpriteBatch spriteBatch)
-            : base(objTexture, positionX, positionY, width, height, spriteBatch, DefaultPhysicalAttack, DefaultPhysicalDefense, DefaultHealthPoints, DefaultSpeed)
+            Vector2 position,
+            Vector2 size)
+            : base(objTexture, position, size, DefaultPhysicalAttack, DefaultPhysicalDefense, DefaultHealthPoints, DefaultSpeed)
         {
-            this.spriteBatch = spriteBatch;
+        }
+
+        public List<ICollectible> Inventory
+        {
+            get
+            {
+                return this.inventory;
+            }
+
+            protected set
+            {
+                this.inventory = value;
+            }
         }
 
         public override void Update()
         {
             KeyboardState state = Keyboard.GetState();
 
-            if (state.IsKeyDown(Keys.Up) && this.rect.Y - this.rect.Width / 2 > 0)
+            if (state.IsKeyDown(Keys.Up) && this.Rectangle.Y - this.Rectangle.Width / 2 > 0)
             {
                 this.rotationAngle = angleUp;
-                this.rect.Y -= (int)this.Speed;
+                this.Rectangle = new Rectangle(
+                    (int)this.Position.X,
+                    (int)(this.Position.Y - this.Speed),
+                    (int)this.Size.X,
+                    (int)this.Size.Y);
+
                 Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Up);
             }
             else if (state.IsKeyDown(Keys.Down))
             {
                 this.rotationAngle = angleDown;
-                this.rect.Y += (int)this.Speed;
+                this.Rectangle = new Rectangle(
+                    (int)this.Position.X,
+                    (int)(this.Position.Y + this.Speed),
+                    (int)this.Size.X,
+                    (int)this.Size.Y);
+
                 Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Down);
             }
-            else if (state.IsKeyDown(Keys.Left) && this.rect.X - this.objTexture.Width / 2 > 0)
+            else if (state.IsKeyDown(Keys.Left) && this.Rectangle.X - this.objTexture.Width / 2 > 0)
             {
                 this.rotationAngle = angleLeft;
-                this.rect.X -= (int)this.Speed;
+                this.Rectangle = new Rectangle(
+                    (int)(this.Position.X - this.Speed),
+                    (int)this.Position.Y,
+                    (int)this.Size.X,
+                    (int)this.Size.Y);
+
                 Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Left);
             }
             else if (state.IsKeyDown(Keys.Right))
             {
                 this.rotationAngle = angleRight;
-                this.rect.X += (int)this.Speed;
+                this.Rectangle = new Rectangle(
+                    (int)(this.Position.X + this.Speed),
+                    (int)this.Position.Y,
+                    (int)this.Size.X,
+                    (int)this.Size.Y);
+
                 Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Right);
             }
         }
 
-        public override void Draw()
+        public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(
                 this.objTexture,
                 null,
-                this.rect,
+                this.Rectangle,
                 null,
                 new Vector2(this.objTexture.Width / 2, this.objTexture.Width / 2),
                 rotationAngle,
@@ -82,25 +110,44 @@
                 0f);
         }
 
-        public override void ApplyItemEffects()
+        public virtual void ApplyItemEffects()
         {
-            base.ApplyItemEffects();
+            foreach (var item in this.Inventory)
+            {
+                this.PhysicalAttack += item.DamageEffect;
+                this.HealthPoints += item.HealthEffect;
+                this.PhysicalDefense += item.Defenseffect;
+            }
         }
 
-        public override void AddItemToInventory(CollectibleItem item)
+        protected virtual void RemoveItemEffects()
+        {
+            foreach (var item in this.Inventory)
+            {
+                this.PhysicalAttack -= item.DamageEffect;
+                this.HealthPoints -= item.HealthEffect;
+                this.PhysicalDefense -= item.Defenseffect;
+            }
+
+            if (this.HealthPoints < 0)
+            {
+                this.HealthPoints = 1;
+            }
+        }
+        public void AddItemToInventory(CollectibleItem item)
         {
             this.Inventory.Add(item);
             this.ApplyItemEffects();
         }
 
-        public override void RemoveFromInventory(CollectibleItem item)
+        public void RemoveFromInventory(CollectibleItem item)
         {
             if (this.Inventory.Contains(item))
             {
                 this.Inventory.Remove(item);
             }
-            this.RemoveItemEffects(item);
-        }
 
+            this.RemoveItemEffects();
+        }
     }
 }

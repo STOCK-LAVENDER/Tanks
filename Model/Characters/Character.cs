@@ -7,37 +7,20 @@ namespace UltimateTankClash.Model.Characters
     using Microsoft.Xna.Framework.Graphics;
     using Interfaces;
 
-    public abstract class Character : GameObject, IAttack, IDestroyable, ICollect
+    public abstract class Character : GameObject, IAttack, IDestroyable
     {
-        private List<CollectibleItem> inventory = new List<CollectibleItem>(); 
         protected Character(
             Texture2D objTexture,
-            double positionX,
-            double positionY,
-            double width,
-            double height,
-            SpriteBatch spriteBatch,
+            Vector2 position,
+            Vector2 size,
             int physicalAttack,
             int physicalDefense,
             int healthPoints)
-            : base(objTexture, positionX, positionY, width, height, spriteBatch)
+            : base(objTexture, position, size)
         {
             this.PhysicalAttack = physicalAttack;
             this.PhysicalDefense = physicalDefense;
             this.HealthPoints = healthPoints;
-        }
-
-        public List<CollectibleItem> Inventory
-        {
-            get
-            {
-                return this.inventory;
-            }
-
-            protected set
-            {
-                this.inventory = value;
-            }
         }
 
         public int PhysicalAttack { get; protected set; }
@@ -45,22 +28,5 @@ namespace UltimateTankClash.Model.Characters
         public int PhysicalDefense { get; protected set; }
 
         public int HealthPoints { get; protected set; }
-
-        public abstract void AddItemToInventory(CollectibleItem item);
-
-        public abstract void RemoveFromInventory(CollectibleItem item);
-
-        public abstract void ApplyItemEffects();
-
-        protected virtual void RemoveItemEffects(CollectibleItem item)
-        {
-            this.PhysicalAttack -= item.DamageEffect;
-            this.HealthPoints -= item.HealthEffect;
-            this.PhysicalDefense -= item.Defenseffect;
-            if (this.HealthPoints < 0)
-            {
-                this.HealthPoints = 1;
-            }
-        }
     }
 }

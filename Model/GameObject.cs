@@ -1,5 +1,7 @@
 ﻿namespace UltimateTankClash.Model
 {
+    using System.Windows.Forms.VisualStyles;
+    using Exceptions;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
@@ -9,88 +11,75 @@
 
     public abstract class GameObject
     {
-        public Rectangle rect;
         public Texture2D objTexture;
-        private double positionX;
-        private double positionY;
-        private double width;
-        private double height;
+        private Vector2 position;
+        private Vector2 size;
+        private Rectangle rectangle;
 
         protected GameObject(
             Texture2D objTexture,
-            double positionX,
-            double positionY,
-            double width,
-            double height,
-            SpriteBatch spriteBatch)
+            Vector2 position,
+            Vector2 size)
         {
             this.objTexture = objTexture;
-            this.PositionX = positionX;
-            this.PositionY = positionY;
-            this.Width = width;
-            this.Height = height;
-            this.rect = new Rectangle((int)positionX, (int)positionY, objTexture.Width, objTexture.Height);
+            this.Position = position;
+            this.Size = size;
+            this.objTexture = objTexture;
         }
 
-        public virtual double PositionX
+        public Vector2 Position
         {
             get
             {
-                return this.positionX;
+                return this.position;
             }
 
             protected set
             {
-                this.positionX = value;
+                this.position = value;
             }
-
         }
 
-        public virtual double PositionY
+        public Vector2 Size
         {
             get
             {
-                return this.positionY;
+                return this.size;
             }
 
             protected set
             {
-                this.positionY = value;
+                if (value.X <= 0 || value.Y <= 0)
+                {
+                    throw new InvalidObjectParameterException(
+                        "size", 
+                        "the size of the object should be greater than zero on all dimensions.");
+                }
+
+                this.size = value;
             }
 
         }
 
-        public virtual double Width
+        public Rectangle Rectangle
         {
             get
             {
-                return this.width;
+                return new Rectangle(
+                    (int)this.Position.X,
+                    (int)this.Position.Y,
+                    (int)this.Size.X,
+                    (int)this.Size.Y);
             }
 
-            protected set
+            set
             {
-                this.width = value;
+                this.rectangle = value;
             }
-
         }
 
-        public virtual double Height
-        {
-            get
-            {
-                return this.height;
-            }
+        public abstract void Update();
 
-            protected set
-            {
-                this.height = value;
-            }
-            
-        }
-
-        public virtual void Update() { }
-
-        public virtual void Draw() { }
-        
+        public abstract void Draw(SpriteBatch spriteBatch);
     }
 }

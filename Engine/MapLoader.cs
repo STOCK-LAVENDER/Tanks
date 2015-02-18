@@ -14,7 +14,7 @@ namespace UltimateTankClash.Engine
     using UltimateTankClash.Model.GameObstacles.Walls;
     using UltimateTankClash.Model.GameObstacles.Bushes;
     using UltimateTankClash.Exceptions;
-   
+
     static class MapLoader
     {
         public static List<GameObject> LoadMap(SpriteBatch spriteBatch, params Texture2D[] textures)
@@ -35,23 +35,26 @@ namespace UltimateTankClash.Engine
                         if (ch == 'W')
                         {
                             gameObjects.Add(
-                                new BasicWall(textures[0], positionX, positionY,
-                                    textures[0].Width, textures[0].Height
-                                    , spriteBatch));
+                                new BasicWall(
+                                    textures[0],
+                                    new Vector2(positionX, positionY),
+                                    new Vector2(textures[0].Width, textures[0].Height)));
                         }
                         if (ch == 'B')
                         {
                             gameObjects.Add(
-                                new BasicBush(textures[1], positionX, positionY,
-                                    textures[1].Width, textures[1].Height
-                                    , spriteBatch));
+                                new BasicWall(
+                                    textures[1],
+                                    new Vector2(positionX, positionY),
+                                    new Vector2(textures[1].Width, textures[1].Height)));
                         }
                         if (ch == 'I')
                         {
                             gameObjects.Add(
-                                    new IceLake(textures[2], positionX, positionY,
-                                        textures[2].Width, textures[2].Height,
-                                        spriteBatch));
+                                new BasicWall(
+                                    textures[2],
+                                    new Vector2(positionX, positionY),
+                                    new Vector2(textures[2].Width, textures[2].Height)));
                         }
 
                         if (ch.Equals('\n'))

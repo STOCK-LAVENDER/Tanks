@@ -11,12 +11,9 @@
     {
         protected Barricade(
             Texture2D objTexture,
-            double positionX,
-            double positionY,
-            double width,
-            double height,
-            SpriteBatch spriteBatch)
-            : base(objTexture, positionX, positionY, width, height, spriteBatch)
+            Vector2 position,
+            Vector2 size)
+            : base(objTexture, position, size)
         {
         }
     }

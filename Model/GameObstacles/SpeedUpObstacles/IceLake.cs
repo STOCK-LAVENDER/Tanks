@@ -6,22 +6,23 @@
 
     public class IceLake : Obstacle
     {
-        private SpriteBatch iceLakeTexture;
-        
+
+
         public IceLake(Texture2D objTexture,
-                       double positionX,
-                       double positionY,
-                       double width,
-                       double height,
-                       SpriteBatch spriteBatch) 
-            : base(objTexture, positionX, positionY, width, height, spriteBatch)
+                       Vector2 position,
+                       Vector2 size)
+            : base(objTexture, position, size)
         {
-            this.iceLakeTexture = spriteBatch;
         }
 
-        public override void Draw()
+        public override void Draw(SpriteBatch spriteBatch)
         {
-            iceLakeTexture.Draw(this.objTexture, this.rect, Color.White);
+            spriteBatch.Draw(this.objTexture, this.Rectangle, Color.White);
+        }
+
+        public override void Update()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

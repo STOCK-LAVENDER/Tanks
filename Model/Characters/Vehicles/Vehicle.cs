@@ -4,6 +4,7 @@
     using System.Linq;
     using CollectibleItems;
     using CollectibleItems.PowerUpEffects;
+    using Exceptions;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Content;
     using Microsoft.Xna.Framework.Graphics;
@@ -16,19 +17,16 @@
     public abstract class Vehicle : Character, IMoveable
     {
         private double speed;
-        public const int DefaultSpeed = 3;
+        
         protected Vehicle(
             Texture2D objTexture,
-            double positionX,
-            double positionY,
-            double width,
-            double height,
-            SpriteBatch spriteBatch,
+            Vector2 position,
+            Vector2 size,
             int physicalAttack,
             int physicalDefense,
             int healthPoints,
             double speed)
-            : base(objTexture, positionX, positionY, width, height, spriteBatch, physicalAttack, physicalDefense, healthPoints)
+            : base(objTexture, position, size, physicalAttack, physicalDefense, healthPoints)
         {
             this.Speed = speed;
         }
@@ -42,30 +40,14 @@
 
             protected set
             {
-                if (value < 1)
+                if (value <= 0)
                 {
-                    throw new ArgumentOutOfRangeException("Speed cannot be negative or equal to 0.");
+                    throw new InvalidObjectParameterException(
+                        "speed",
+                        "Speed should be greater than 0.");
                 }
-                this.speed  = value;
-            }
-        }
 
-        
-
-        public override void RemoveFromInventory(CollectibleItem item)
-        {
-            this.Inventory.Remove(item);
-            this.RemoveItemEffects(item);
-        }
-
-        protected override void RemoveItemEffects(CollectibleItem item)
-        {
-            base.RemoveItemEffects(item);
-
-            this.Speed = DefaultSpeed;
-            if (item is SpeedPowerUp)
-            {
-                item.State = CollectibleItemState.Expired;
+                this.speed = value;
             }
         }
     }

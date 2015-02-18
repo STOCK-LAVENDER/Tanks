@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Engine\CollissionHandler.cs" />
+    <Compile Include="Exceptions\InvalidObjectParameterException.cs" />
     <Compile Include="MenuItems\AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,7 +102,6 @@
     <Compile Include="Interfaces\ITimeoutable.cs" />
     <Compile Include="Model\GameObstacles\Obstacle.cs" />
     <Compile Include="Model\GameObstacles\Barricades\SteelBarricade.cs" />
-    <Compile Include="Model\AmmunitionItems\TankAmmunition.cs" />
     <Compile Include="Model\CollectibleItems\PowerUpEffects\SpeedPowerUp.cs" />
     <Compile Include="Model\CollectibleItems\PowerUpEffects\PowerUp.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

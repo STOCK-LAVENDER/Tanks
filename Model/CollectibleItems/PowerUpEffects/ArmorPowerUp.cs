@@ -16,17 +16,19 @@
 
         public ArmorPowerUp(
             Texture2D objTexture,
-            double positionX,
-            double positionY,
-            double width,
-            double height,
-            SpriteBatch spriteBatch)
-            : base(objTexture, positionX, positionY, width, height, spriteBatch)
+            Vector2 position,
+            Vector2 size)
+            : base(objTexture, position, size)
         {
             this.DamageEffect = DefaultDamageEffect;
             this.Defenseffect = DefaultDefenseEffect;
             this.HealthEffect = DefaultHealthEffect;
             this.SpeedEffect = DefaultSpeedEffect;
+        }
+
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

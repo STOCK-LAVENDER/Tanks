@@ -12,11 +12,12 @@
     using Microsoft.Xna.Framework.Storage;
     using Microsoft.Xna.Framework.GamerServices;
 
-    public class Enemy : Tank
+    public class Enemy : BasicTank
     {
-        private const int PhysicalAttack = 50;
-        private const int PhysicalDefense = 100;
+        private const int DefaultPhysicalAttack = 50;
+        private const int DefaultPhysicalDefense = 100;
         private const int DefaultHealthPoints = 200;
+        private const int DefaultSpeed = 3;
 
         private float rotationAngle = 0f;
         private float angleUp = 0f;
@@ -28,18 +29,17 @@
 
         private int timeToNewDirection = 0;
 
-        private SpriteBatch spriteBatch;
-
         public Enemy(
             Texture2D objTexture,
-            double positionX,
-            double positionY,
-            double width,
-            double height,
-            SpriteBatch spriteBatch)
-            : base(objTexture, positionX, positionY, width, height, spriteBatch, PhysicalAttack, PhysicalDefense, DefaultHealthPoints, DefaultSpeed)
+            Vector2 position,
+            Vector2 size)
+            : base(objTexture, position, size)
         {
-            this.spriteBatch = spriteBatch;
+            this.PhysicalAttack = DefaultPhysicalAttack;
+            this.PhysicalDefense = DefaultPhysicalDefense;
+            this.HealthPoints = DefaultHealthPoints;
+            this.Speed = DefaultSpeed;
+
         }
 
         public override void Update()
@@ -66,29 +66,49 @@
                     case (Direction.Up):
                         {
                             this.rotationAngle = angleUp;
-                            this.rect.Y -= (int)this.Speed;
+                            this.Rectangle = new Rectangle(
+                                (int)this.Position.X,
+                                (int)(this.Position.Y - this.Speed),
+                                (int)this.Size.X,
+                                (int)this.Size.Y);
+
                             this.currentDirection = Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Up);
                             break;
                         }
                     case (Direction.Down):
                         {
                             this.rotationAngle = angleDown;
-                            this.rect.Y += (int)this.Speed;
-                            this.currentDirection = Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Down);
+                            this.Rectangle = new Rectangle(
+                                (int)this.Position.X,
+                                (int)(this.Position.Y + this.Speed),
+                                (int)this.Size.X,
+                                (int)this.Size.Y);
+
+                            this.currentDirection = CollissionHandler.MovementCollisionDetector(this, Direction.Down);
                             break;
                         }
                     case (Direction.Left):
                         {
                             this.rotationAngle = angleLeft;
-                            this.rect.X -= (int)this.Speed;
-                            this.currentDirection = Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Left);
+                            this.Rectangle = new Rectangle(
+                                (int)(this.Position.X - this.Speed),
+                                (int)this.Position.Y,
+                                (int)this.Size.X,
+                                (int)this.Size.Y);
+
+                            this.currentDirection = CollissionHandler.MovementCollisionDetector(this, Direction.Left);
                             break;
                         }
                     case (Direction.Right):
                         {
                             this.rotationAngle = angleRight;
-                            this.rect.X += (int)this.Speed;
-                            this.currentDirection = Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Right);
+                            this.Rectangle = new Rectangle(
+                                (int)(this.Position.X + this.Speed),
+                                (int)this.Position.Y,
+                                (int)this.Size.X,
+                                (int)this.Size.Y);
+
+                            this.currentDirection = CollissionHandler.MovementCollisionDetector(this, Direction.Right);
                             break;
                         }
                 }
@@ -107,12 +127,12 @@
             }
         }
 
-        public override void Draw()
+        public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(
                 this.objTexture,
                 null,
-                this.rect,
+                this.Rectangle,
                 null,
                 new Vector2(this.objTexture.Width / 2, this.objTexture.Width / 2),
                 rotationAngle,
@@ -120,21 +140,6 @@
                 Color.White,
                 SpriteEffects.None,
                 0f);
-        }
-
-        public override void AddItemToInventory(CollectibleItem item)
-        {
-            this.Inventory.Add(item);
-            this.ApplyItemEffects();
-        }
-
-        public override void RemoveFromInventory(CollectibleItem item)
-        {
-            if (this.Inventory.Contains(item))
-            {
-                this.Inventory.Remove(item);
-            }
-            this.RemoveItemEffects(item);
         }
     }
 }

@@ -26,7 +26,7 @@
         SpriteBatch spriteBatch;
 
         private List<GameObject> gameObjects = new List<GameObject>();
-        
+
         private Texture2D basicTankTexture;
         private BasicTank basicTank;
         private Enemy enemyTank;
@@ -36,7 +36,7 @@
         private Texture2D basicBushTexture;
 
         private Texture2D basicIceLakeTexture;
-        
+
         private Texture2D speedUpEffectTexture;
         private SpeedPowerUp speedPowerUp;
 
@@ -76,15 +76,15 @@
             graphics.ApplyChanges();
 
             basicTankTexture = Content.Load<Texture2D>("Graphics/Sprites/basicTank");
-            basicTank = new BasicTank(basicTankTexture, 30, 30, basicTankTexture.Width, basicTankTexture.Height, spriteBatch);
-            enemyTank = new Enemy(basicTankTexture, 500, 400, basicTankTexture.Width, basicTankTexture.Height, spriteBatch);
+            basicTank = new BasicTank(basicTankTexture, new Vector2(30, 30), new Vector2(basicTankTexture.Width, basicTankTexture.Height));
+            enemyTank = new Enemy(basicTankTexture, new Vector2(500, 400), new Vector2(basicTankTexture.Width, basicTankTexture.Height));
 
             basicWallTexture = Content.Load<Texture2D>("Graphics/Sprites/basicWall");
             basicBushTexture = Content.Load<Texture2D>("Graphics/Sprites/basicBush");
             basicIceLakeTexture = Content.Load<Texture2D>("Graphics/Sprites/icelake");
             speedUpEffectTexture = Content.Load<Texture2D>("Graphics/Sprites/speedy");
-            speedPowerUp = new SpeedPowerUp(speedUpEffectTexture, 20, 160, speedUpEffectTexture.Width, speedUpEffectTexture.Height, spriteBatch);
-            
+            speedPowerUp = new SpeedPowerUp(speedUpEffectTexture, new Vector2(20, 160), new Vector2(speedUpEffectTexture.Width, speedUpEffectTexture.Height));
+
             this.gameObjects = MapLoader.LoadMap(spriteBatch, basicWallTexture, basicBushTexture, basicIceLakeTexture);
 
             this.gameObjects.Add(speedPowerUp);
@@ -127,7 +127,7 @@
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            
+
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
 
@@ -140,12 +140,12 @@
                 }
                 else
                 {
-                    obstacle.Draw();
+                    obstacle.Draw(spriteBatch);
                 }
             }
-            basicTank.Draw();
-            enemyTank.Draw();
-            
+            basicTank.Draw(spriteBatch);
+            enemyTank.Draw(spriteBatch);
+
             spriteBatch.End();
 
             base.Draw(gameTime);

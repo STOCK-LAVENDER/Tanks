@@ -14,29 +14,21 @@
         private const int DefaultDefenseEffect = 0;
         private const double DefaultSpeedEffect = 0.010;
 
-        private SpriteBatch spriteBatch;
-
         public SpeedPowerUp(
             Texture2D objTexture,
-            double positionX,
-            double positionY,
-            double width,
-            double height,
-            SpriteBatch spriteBatch)
-            : base(objTexture, positionX, positionY, width, height, spriteBatch)
+            Vector2 position,
+            Vector2 size)
+            : base(objTexture, position, size)
         {
             this.HealthEffect = DefaultHealthEffect;
             this.DamageEffect = DefaultDamageEffect;
             this.Defenseffect = DefaultDefenseEffect;
             this.SpeedEffect = DefaultSpeedEffect;
-            this.spriteBatch = spriteBatch;
         }
 
-        
-
-        public override void Draw()
+        public override void Draw(SpriteBatch spriteBatch)
         {
-            this.spriteBatch.Draw(this.objTexture, this.rect, Color.White);
+            spriteBatch.Draw(this.objTexture, this.Rectangle, Color.White);
         }
     }
 }

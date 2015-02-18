@@ -13,15 +13,11 @@
     {
         protected CollectibleItem(
             Texture2D objTexture,
-            double positionX,
-            double positionY,
-            double width,
-            double height,
-            SpriteBatch spriteBatch,
-            bool exists)
-            : base(objTexture, positionX, positionY, width, height, spriteBatch)
+            Vector2 position,
+            Vector2 size)
+            : base(objTexture, position, size)
         {
-            this.Exists = exists;
+            this.Exists = true;
         }
 
         public bool Exists { get; set; }

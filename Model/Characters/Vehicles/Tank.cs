@@ -13,30 +13,14 @@
     {
         protected Tank(
             Texture2D objTexture,
-            double positionX,
-            double positionY,
-            double width,
-            double height,
-            SpriteBatch spriteBatch, 
-            int physicalAttack, 
+            Vector2 position,
+            Vector2 size,
+            int physicalAttack,
             int physicalDefense,
             int healthPoints,
             double speed)
-            : base(objTexture, positionX, positionY, width, height, spriteBatch, physicalAttack, physicalDefense, healthPoints, speed)
+            : base(objTexture, position, size, physicalAttack, physicalDefense, healthPoints, speed)
         {
-        }
-
-        public override void ApplyItemEffects()
-        {
-            var activeItems = this.Inventory.Where(item => item.State == CollectibleItemState.Active);
-
-            foreach (var item in activeItems)
-            {
-                this.HealthPoints += item.HealthEffect;
-                this.PhysicalDefense += item.Defenseffect;
-                this.PhysicalAttack += item.DamageEffect;
-                this.Speed += item.SpeedEffect;
-            }
         }
     }
 }

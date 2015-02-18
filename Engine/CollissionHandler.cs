@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Runtime.CompilerServices;
     using System.Threading;
+    using Interfaces;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
@@ -51,17 +52,16 @@
             foreach (GameObject obstacle in collidingObjects)
             {
                 CheckForUncollidableObjects(vehicle, obstacle);
-                CheckForPowerEffects(vehicle, obstacle);
 
                 if (IsCollisionEffectOn &&
-                    vehicle.rect.X - (vehicle.objTexture.Width) / 2 < obstacle.rect.X + obstacle.rect.Width &&
-                    vehicle.rect.X + vehicle.rect.Width - (vehicle.objTexture.Width) / 2 > obstacle.rect.X &&
-                    vehicle.rect.Y - (vehicle.objTexture.Width) / 2 < obstacle.rect.Y + obstacle.rect.Height &&
-                    vehicle.rect.Height + vehicle.rect.Y - (vehicle.objTexture.Width) / 2 > obstacle.rect.Y ||
-                    vehicle.rect.X > screenW - vehicle.rect.Width / 2 ||
-                    vehicle.rect.Y > screenH - vehicle.rect.Width / 2 ||
-                    (vehicle.rect.Y - vehicle.rect.Width / 2) < 0 ||
-                    (vehicle.rect.X - vehicle.objTexture.Width / 2) < 0)
+                    vehicle.Rectangle.X - (vehicle.objTexture.Width) / 2 < obstacle.Rectangle.X + obstacle.Rectangle.Width &&
+                    vehicle.Rectangle.X + vehicle.Rectangle.Width - (vehicle.objTexture.Width) / 2 > obstacle.Rectangle.X &&
+                    vehicle.Rectangle.Y - (vehicle.objTexture.Width) / 2 < obstacle.Rectangle.Y + obstacle.Rectangle.Height &&
+                    vehicle.Rectangle.Height + vehicle.Rectangle.Y - (vehicle.objTexture.Width) / 2 > obstacle.Rectangle.Y ||
+                    vehicle.Rectangle.X > screenW - vehicle.Rectangle.Width / 2 ||
+                    vehicle.Rectangle.Y > screenH - vehicle.Rectangle.Width / 2 ||
+                    (vehicle.Rectangle.Y - vehicle.Rectangle.Width / 2) < 0 ||
+                    (vehicle.Rectangle.X - vehicle.objTexture.Width / 2) < 0)
                 {
                     Array values = Enum.GetValues(typeof(Direction));
                     Random random = new Random();
@@ -70,16 +70,32 @@
                     switch (direction)
                     {
                         case Direction.Up:
-                            vehicle.rect.Y += (int)vehicle.Speed;
+                            vehicle.Rectangle = new Rectangle(
+                                (int)vehicle.Position.X, 
+                                (int)(vehicle.Position.Y - vehicle.Speed), 
+                                (int)vehicle.Size.X, 
+                                (int)vehicle.Size.Y);
                             break;
                         case Direction.Down:
-                            vehicle.rect.Y -= (int)vehicle.Speed;
+                            vehicle.Rectangle = new Rectangle(
+                                (int)vehicle.Position.X,
+                                (int)(vehicle.Position.Y + vehicle.Speed),
+                                (int)vehicle.Size.X,
+                                (int)vehicle.Size.Y);
                             break;
                         case Direction.Left:
-                            vehicle.rect.X += (int)vehicle.Speed;
+                            vehicle.Rectangle = new Rectangle(
+                                (int)(vehicle.Position.X - vehicle.Speed), 
+                                (int)vehicle.Position.Y, 
+                                (int)vehicle.Size.X, 
+                                (int)vehicle.Size.Y);
                             break;
                         case Direction.Right:
-                            vehicle.rect.X -= (int)vehicle.Speed;
+                            vehicle.Rectangle = new Rectangle(
+                                (int)(vehicle.Position.X + vehicle.Speed),
+                                (int)vehicle.Position.Y,
+                                (int)vehicle.Size.X,
+                                (int)vehicle.Size.Y);
                             break;
                     }
                     return randomDirection;
@@ -88,10 +104,10 @@
             return direction;
         }
 
-        private static void CheckForPowerEffects(Vehicle vehicle, GameObject obstacle)
+        private static void CheckForPowerEffects(Player vehicle, GameObject obstacle)
         {
             PowerUp effect = obstacle as SpeedPowerUp;
-            if (vehicle.rect.Intersects(obstacle.rect) && obstacle is PowerUp)
+            if (vehicle.Rectangle.Intersects(obstacle.Rectangle) && obstacle is PowerUp)
             {
                 if (effect != null)
                 {

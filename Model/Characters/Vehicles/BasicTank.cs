@@ -14,9 +14,10 @@
 
     public class BasicTank : Tank
     {
-        private const int PhysicalAttack = 50;
-        private const int PhysicalDefense = 100;
+        private const int DefaultPhysicalAttack = 50;
+        private const int DefaultPhysicalDefense = 100;
         private const int DefaultHealthPoints = 200;
+        private const int DefaultSpeed = 3;
 
         private float rotationAngle = 0f;
         private float angleUp = 0f;
@@ -24,56 +25,74 @@
         private float angleRight = (float)Math.PI / 2;
         private float angleLeft = (float)Math.PI + (float)Math.PI / 2;
 
-        private SpriteBatch spriteBatch;
-
         public BasicTank(
             Texture2D objTexture,
-            double positionX,
-            double positionY,
-            double width,
-            double height,
-            SpriteBatch spriteBatch)
-            : base(objTexture, positionX, positionY, width, height, spriteBatch, PhysicalAttack, PhysicalDefense, DefaultHealthPoints, DefaultSpeed)
+            Vector2 position,
+            Vector2 size)
+            : base(objTexture, position, size, DefaultPhysicalAttack, DefaultPhysicalDefense, DefaultHealthPoints, DefaultSpeed)
         {
-            this.spriteBatch = spriteBatch;
         }
 
         public override void Update()
         {
             KeyboardState state = Keyboard.GetState();
 
-            if (state.IsKeyDown(Keys.Up) )
+            if (state.IsKeyDown(Keys.Up))
             {
                 this.rotationAngle = angleUp;
-                this.rect.Y -= (int)this.Speed;
+                this.Position = new Vector2(this.Position.X, (int)(this.Position.Y - this.Speed));
+                this.Rectangle = new Rectangle(
+                                (int)this.Position.X,
+                                (int)(this.Position.Y - this.Speed),
+                                (int)this.Size.X,
+                                (int)this.Size.Y);
+
                 Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Up);
             }
             else if (state.IsKeyDown(Keys.Down))
             {
                 this.rotationAngle = angleDown;
-                this.rect.Y += (int)this.Speed;
+                this.Position = new Vector2(this.Position.X, (int)(this.Position.Y + this.Speed));
+                this.Rectangle = new Rectangle(
+                                (int)this.Position.X,
+                                (int)(this.Position.Y + this.Speed),
+                                (int)this.Size.X,
+                                (int)this.Size.Y);
+
                 Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Down);
             }
             else if (state.IsKeyDown(Keys.Left))
             {
                 this.rotationAngle = angleLeft;
-                this.rect.X -= (int)this.Speed;
+                this.Position = new Vector2((int)(this.Position.X - this.Speed), this.Position.Y);
+                this.Rectangle = new Rectangle(
+                                (int)(this.Position.X - this.Speed),
+                                (int)this.Position.Y,
+                                (int)this.Size.X,
+                                (int)this.Size.Y);
+
                 Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Left);
             }
             else if (state.IsKeyDown(Keys.Right))
             {
                 this.rotationAngle = angleRight;
-                this.rect.X += (int)this.Speed;
+                this.Position = new Vector2((int)(this.Position.X + this.Speed), this.Position.Y);
+                this.Rectangle = new Rectangle(
+                                (int)(this.Position.X + this.Speed),
+                                (int)this.Position.Y,
+                                (int)this.Size.X,
+                                (int)this.Size.Y);
+
                 Engine.CollissionHandler.MovementCollisionDetector(this, Direction.Right);
             }
         }
 
-        public override void Draw()
+        public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(
                 this.objTexture,
                 null,
-                this.rect,
+                this.Rectangle,
                 null,
                 new Vector2(this.objTexture.Width / 2, this.objTexture.Width / 2),
                 rotationAngle,
@@ -81,21 +100,6 @@
                 Color.White,
                 SpriteEffects.None,
                 0f);
-        }
-
-        public override void AddItemToInventory(CollectibleItem item)
-        {
-            this.Inventory.Add(item);
-            this.ApplyItemEffects();
-        }
-
-        public override void RemoveFromInventory(CollectibleItem item)
-        {
-            if (this.Inventory.Contains(item))
-            {
-                this.Inventory.Remove(item);
-            }
-            this.RemoveItemEffects(item);
         }
     }
 }
