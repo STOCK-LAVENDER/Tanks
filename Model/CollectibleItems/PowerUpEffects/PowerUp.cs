@@ -36,9 +36,10 @@
             }
 
             this.Timeout--;
-
+            
             if (this.Timeout == 0)
             {
+                
                 this.State = CollectibleItemState.Expired;
             }
         }

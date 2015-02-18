@@ -82,7 +82,7 @@
             basicWallTexture = Content.Load<Texture2D>("Graphics/Sprites/basicWall");
             basicBushTexture = Content.Load<Texture2D>("Graphics/Sprites/basicBush");
             basicIceLakeTexture = Content.Load<Texture2D>("Graphics/Sprites/icelake");
-            speedUpEffectTexture = Content.Load<Texture2D>("Graphics/Sprites/speedUp");
+            speedUpEffectTexture = Content.Load<Texture2D>("Graphics/Sprites/speedy");
             speedPowerUp = new SpeedPowerUp(speedUpEffectTexture, 20, 160, speedUpEffectTexture.Width, speedUpEffectTexture.Height, spriteBatch);
             
             this.gameObjects = MapLoader.LoadMap(spriteBatch, basicWallTexture, basicBushTexture, basicIceLakeTexture);
@@ -133,11 +133,19 @@
 
             foreach (GameObject obstacle in gameObjects)
             {
-                obstacle.Draw();
+                PowerUp effectItem = obstacle as PowerUp;
+                if (effectItem != null && effectItem.State == CollectibleItemState.Active)
+                {
+                    //Dont draw
+                }
+                else
+                {
+                    obstacle.Draw();
+                }
             }
             basicTank.Draw();
             enemyTank.Draw();
-            speedPowerUp.Draw();
+            
             spriteBatch.End();
 
             base.Draw(gameTime);

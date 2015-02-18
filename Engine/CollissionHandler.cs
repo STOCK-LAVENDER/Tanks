@@ -90,11 +90,11 @@
             PowerUp effect = obstacle as SpeedPowerUp;
             if (vehicle.rect.Intersects(obstacle.rect) && obstacle is PowerUp)
             {
-
                 if (effect != null)
                 {
                     vehicle.AddItemToInventory(effect);
                     effect.State = CollectibleItemState.Active;
+                    //This needs to be refactored later.
                 }
             }
             if (effect != null)

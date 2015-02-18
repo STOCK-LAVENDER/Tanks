@@ -4,6 +4,7 @@
     {
         Available,
         Active,
+        Collected,
         Expired
     }
 }
