@@ -8,19 +8,20 @@
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
+    using Model.Characters.Tanks;
     using UltimateTankClash.Model.CollectibleItems;
     using UltimateTankClash.Model.CollectibleItems.PowerUpEffects;
     using UltimateTankClash.Model.GameObstacles.SpeedUpObstacles;
     using UltimateTankClash.Model.GameObstacles.Walls;
     using UltimateTankClash.Model;
-    using UltimateTankClash.Model.Characters.Vehicles;
     using UltimateTankClash.Model.GameObstacles;
     using UltimateTankClash.Model.GameObstacles.Bushes;
 
 
     public static class CollissionHandler
     {
-        private static List<GameObject> collidingObjects = new List<GameObject>();
+        private static readonly List<GameObject> GameObjects = new List<GameObject>();
+
         private static int screenW;
         private static int screenH;
         private static bool IsCollisionEffectOn;
@@ -29,27 +30,28 @@
         {
             foreach (GameObject obj in gameObjects)
             {
-                if (obj is Obstacle && obj is Bush == false && obj is IceLake == false)
+                if (obj is Obstacle)
                 {
                     IsCollisionEffectOn = true;
-                    collidingObjects.Add(obj);
+                    GameObjects.Add(obj);
                 }
 
-                if (obj is SpeedPowerUp)
+                if (obj is CollectibleItem)
                 {
-                    collidingObjects.Add(obj);
+                    GameObjects.Add(obj);
                 }
             }
+
             screenW = screenWidth;
             screenH = screenHeight;
         }
 
 
 
-        public static Direction MovementCollisionDetector(Vehicle vehicle, Direction direction)
+        public static Direction MovementCollisionDetector(Tank vehicle, Direction direction)
         {
-         
-            foreach (GameObject obstacle in collidingObjects)
+
+            foreach (GameObject obstacle in GameObjects)
             {
                 CheckForUncollidableObjects(vehicle, obstacle);
 
@@ -71,9 +73,9 @@
                     {
                         case Direction.Up:
                             vehicle.Rectangle = new Rectangle(
-                                (int)vehicle.Position.X, 
-                                (int)(vehicle.Position.Y - vehicle.Speed), 
-                                (int)vehicle.Size.X, 
+                                (int)vehicle.Position.X,
+                                (int)(vehicle.Position.Y - vehicle.Speed),
+                                (int)vehicle.Size.X,
                                 (int)vehicle.Size.Y);
                             break;
                         case Direction.Down:
@@ -85,9 +87,9 @@
                             break;
                         case Direction.Left:
                             vehicle.Rectangle = new Rectangle(
-                                (int)(vehicle.Position.X - vehicle.Speed), 
-                                (int)vehicle.Position.Y, 
-                                (int)vehicle.Size.X, 
+                                (int)(vehicle.Position.X - vehicle.Speed),
+                                (int)vehicle.Position.Y,
+                                (int)vehicle.Size.X,
                                 (int)vehicle.Size.Y);
                             break;
                         case Direction.Right:
@@ -125,7 +127,7 @@
             }
         }
 
-        private static void CheckForUncollidableObjects(Vehicle vehicle, GameObject gameObject)
+        private static void CheckForUncollidableObjects(Tank vehicle, GameObject gameObject)
         {
             if (gameObject is PowerUp)
             {

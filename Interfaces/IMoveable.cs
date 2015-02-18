@@ -3,5 +3,7 @@
     public interface IMoveable
     {
         double Speed { get; }
+
+        void Move();
     }
 }

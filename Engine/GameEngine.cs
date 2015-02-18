@@ -8,11 +8,11 @@
     using Microsoft.Xna.Framework.Input;
     using System.Collections.Generic;
     using System.Linq;
+    using Model.Characters.Tanks;
     using UltimateTankClash.Model.CollectibleItems;
     using UltimateTankClash.Model.CollectibleItems.PowerUpEffects;
     using UltimateTankClash.Model;
     using UltimateTankClash.Model.GameObstacles;
-    using UltimateTankClash.Model.Characters.Vehicles;
     using UltimateTankClash.Model.GameObstacles.Walls;
     using UltimateTankClash.Model.GameObstacles.Bushes;
     #endregion
@@ -28,8 +28,8 @@
         private List<GameObject> gameObjects = new List<GameObject>();
 
         private Texture2D basicTankTexture;
-        private BasicTank basicTank;
-        private Enemy enemyTank;
+        private Player player;
+        private BasicTank enemyTank;
 
         private Texture2D basicWallTexture;
 
@@ -71,13 +71,13 @@
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            graphics.PreferredBackBufferWidth = 800;
-            graphics.PreferredBackBufferHeight = 600;
+            graphics.PreferredBackBufferWidth = 1200;
+            graphics.PreferredBackBufferHeight = 720;
             graphics.ApplyChanges();
 
             basicTankTexture = Content.Load<Texture2D>("Graphics/Sprites/basicTank");
-            basicTank = new BasicTank(basicTankTexture, new Vector2(30, 30), new Vector2(basicTankTexture.Width, basicTankTexture.Height));
-            enemyTank = new Enemy(basicTankTexture, new Vector2(500, 400), new Vector2(basicTankTexture.Width, basicTankTexture.Height));
+            player = new Player(basicTankTexture, new Vector2(30, 30), new Vector2(basicTankTexture.Width, basicTankTexture.Height));
+            enemyTank = new BasicTank(basicTankTexture, new Vector2(500, 400), new Vector2(basicTankTexture.Width, basicTankTexture.Height));
 
             basicWallTexture = Content.Load<Texture2D>("Graphics/Sprites/basicWall");
             basicBushTexture = Content.Load<Texture2D>("Graphics/Sprites/basicBush");
@@ -115,7 +115,7 @@
                 Exit();
             }
             speedPowerUp.Update();
-            basicTank.Update();
+            player.Update();
             enemyTank.Update();
 
             base.Update(gameTime);
@@ -143,7 +143,7 @@
                     obstacle.Draw(spriteBatch);
                 }
             }
-            basicTank.Draw(spriteBatch);
+            player.Draw(spriteBatch);
             enemyTank.Draw(spriteBatch);
 
             spriteBatch.End();

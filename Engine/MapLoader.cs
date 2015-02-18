@@ -10,7 +10,6 @@ namespace UltimateTankClash.Engine
     using UltimateTankClash.Model.CollectibleItems.PowerUpEffects;
     using UltimateTankClash.Model.GameObstacles.SpeedUpObstacles;
     using UltimateTankClash.Model;
-    using UltimateTankClash.Model.Characters.Vehicles;
     using UltimateTankClash.Model.GameObstacles.Walls;
     using UltimateTankClash.Model.GameObstacles.Bushes;
     using UltimateTankClash.Exceptions;
