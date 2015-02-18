@@ -5,11 +5,8 @@
 
     public class SteelBarricade : Barricade
     {
-        public SteelBarricade(
-            Texture2D objTexture,
-            Vector2 position,
-            Vector2 size)
-            : base(objTexture, position, size)
+        public SteelBarricade(Texture2D objTexture, Rectangle rectangle)
+            : base(objTexture, rectangle)
         {
         }
 

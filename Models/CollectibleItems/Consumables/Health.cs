@@ -10,11 +10,8 @@
         private const int DefaultHealthEffect = 100;
         private const int DefaultSpeedEffect = 0;
        
-        public Health(
-            Texture2D objTexture,
-            Vector2 position,
-            Vector2 size)
-            : base(objTexture, position, size)
+        public Health(Texture2D objTexture, Rectangle rectangle)
+            : base(objTexture, rectangle)
         {
             this.HealthEffect = DefaultHealthEffect;
             this.DamageEffect = DefaultDamageEffect;

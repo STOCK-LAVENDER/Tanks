@@ -16,11 +16,8 @@
         private Direction currentDirection = Direction.Up;
         private Array values = Enum.GetValues(typeof(Direction));
 
-        public BasicTank(
-            Texture2D objTexture,
-            Vector2 position,
-            Vector2 size)
-            : base(objTexture, position, size, DefaultPhysicalAttack, DefaultPhysicalDefense, DefaultHealthPoints, DefaultSpeed)
+        public BasicTank(Texture2D objTexture, Rectangle rectangle)
+            : base(objTexture, rectangle, DefaultPhysicalAttack, DefaultPhysicalDefense, DefaultHealthPoints, DefaultSpeed)
         {
         }
 
@@ -34,21 +31,6 @@
                 case Direction.Right: return Direction.Left;
                 default: return Direction.Up;
             }
-        }
-
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(
-                this.objTexture,
-                null,
-                this.Rectangle,
-                null,
-                new Vector2(this.objTexture.Width / 2, this.objTexture.Width / 2),
-                rotationAngle,
-                Vector2.Zero,
-                Color.White,
-                SpriteEffects.None,
-                0f);
         }
 
         public override void Move()

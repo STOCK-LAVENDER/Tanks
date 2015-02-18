@@ -5,11 +5,8 @@
 
     public abstract class Obstacle : GameObject
     {
-        protected Obstacle(
-            Texture2D objTexture,
-            Vector2 position,
-            Vector2 size)
-            : base(objTexture, position, size)
+        protected Obstacle(Texture2D objTexture, Rectangle rectangle)
+            : base(objTexture, rectangle)
         {
         }
     }

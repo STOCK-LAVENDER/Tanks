@@ -1,5 +1,6 @@
 ﻿namespace UltimateTankClash.Models
 {
+    using System.Windows.Forms.VisualStyles;
     using Engine;
     using Exceptions;
     using Interfaces;
@@ -9,75 +10,46 @@
     public abstract class GameObject : ICollidable
     {
         public Texture2D objTexture;
-        private Vector2 position;
-        private Vector2 size;
         private Rectangle rectangle;
 
         protected GameObject(
             Texture2D objTexture,
-            Vector2 position,
-            Vector2 size)
+            Rectangle rectangle)
         {
             this.objTexture = objTexture;
-            this.Position = position;
-            this.Size = size;
-            this.objTexture = objTexture;
-        }
 
-        public Vector2 Position
-        {
-            get
-            {
-                return this.position;
-            }
-
-            protected set
-            {
-                this.position = value;
-            }
-        }
-
-        public Vector2 Size
-        {
-            get
-            {
-                return this.size;
-            }
-
-            protected set
-            {
-                if (value.X <= 0 || value.Y <= 0)
-                {
-                    throw new InvalidObjectParameterException(
-                        "size", 
-                        "the size of the object should be greater than zero on all dimensions.");
-                }
-
-                this.size = value;
-            }
-
+            this.Rectangle = rectangle;
         }
 
         public Rectangle Rectangle
         {
             get
             {
-                return new Rectangle(
-                    (int)this.Position.X,
-                    (int)this.Position.Y,
-                    (int)this.Size.X,
-                    (int)this.Size.Y);
+                return this.rectangle;
             }
 
             set
             {
+                if (value.Width <= 0 || value.Height <= 0)
+                {
+                    throw new InvalidObjectParameterException(
+                        "size",
+                        "The object should have positive width and height.");
+                }
+
                 this.rectangle = value;
             }
         }
 
         public abstract void Update();
 
-        public abstract void Draw(SpriteBatch spriteBatch);
+        public virtual void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(
+                this.objTexture,
+                new Rectangle(this.Rectangle.X - 25, this.Rectangle.Y - 25, this.Rectangle.Width, this.Rectangle.Height),
+                Color.White);
+        }
 
         public abstract void RespondToCollision(GameObject hitObject);
     }

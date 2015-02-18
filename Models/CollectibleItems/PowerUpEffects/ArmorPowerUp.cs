@@ -10,11 +10,8 @@
         private const int DefaultDamageEffect = 0;
         private const int DefaultSpeedEffect = 0;
 
-        public ArmorPowerUp(
-            Texture2D objTexture,
-            Vector2 position,
-            Vector2 size)
-            : base(objTexture, position, size)
+        public ArmorPowerUp(Texture2D objTexture, Rectangle rectangle)
+            : base(objTexture, rectangle)
         {
             this.DamageEffect = DefaultDamageEffect;
             this.Defenseffect = DefaultDefenseEffect;
@@ -22,10 +19,7 @@
             this.SpeedEffect = DefaultSpeedEffect;
         }
 
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            throw new System.NotImplementedException();
-        }
+        
 
         public override void RespondToCollision(GameObject hitObject)
         {

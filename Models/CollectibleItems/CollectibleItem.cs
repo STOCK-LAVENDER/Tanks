@@ -6,11 +6,8 @@
 
     public abstract class CollectibleItem : GameObject, ICollectible
     {
-        protected CollectibleItem(
-            Texture2D objTexture,
-            Vector2 position,
-            Vector2 size)
-            : base(objTexture, position, size)
+        protected CollectibleItem(Texture2D objTexture, Rectangle rectangle)
+            : base(objTexture, rectangle)
         {
             this.Exists = true;
         }

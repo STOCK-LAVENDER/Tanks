@@ -5,18 +5,9 @@
 
     public class IceLake : Obstacle
     {
-
-
-        public IceLake(Texture2D objTexture,
-                       Vector2 position,
-                       Vector2 size)
-            : base(objTexture, position, size)
+        public IceLake(Texture2D objTexture, Rectangle rectangle)
+            : base(objTexture, rectangle)
         {
-        }
-
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(this.objTexture, this.Rectangle, Color.White);
         }
 
         public override void Update()

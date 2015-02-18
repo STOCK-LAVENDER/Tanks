@@ -21,11 +21,8 @@
         private const double DefaultSpeed = 3;
         private string info;
 
-        public Player(
-            Texture2D objTexture,
-            Vector2 position,
-            Vector2 size)
-            : base(objTexture, position, size, DefaultPhysicalAttack, DefaultPhysicalDefense, DefaultHealthPoints, DefaultSpeed)
+        public Player(Texture2D objTexture, Rectangle rectangle)
+            : base(objTexture, rectangle, DefaultPhysicalAttack, DefaultPhysicalDefense, DefaultHealthPoints, DefaultSpeed)
         {
             this.Direction = Direction.Down;
         }
@@ -45,24 +42,12 @@
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(
-                this.objTexture,
-                null,
-                this.Rectangle,
-                null,
-                new Vector2(this.objTexture.Width / 2, this.objTexture.Width / 2),
-                rotationAngle,
-                Vector2.Zero,
-                Color.White,
-                SpriteEffects.None,
-                0f);
+            base.Draw(spriteBatch);
 
             if (this.info != null)
             {
-                spriteBatch.DrawString(GameEngine.font, this.info, new Vector2(500, 200), Color.Red);
+                spriteBatch.DrawString(GameEngine.font, string.Format("{0}, UL: {1}, UR: {2}, LL: {3}, LR: {4}", this.info, this.Rectangle.X, this.Rectangle.Y, this.Rectangle.X + this.Rectangle.Width, this.Rectangle.Y + this.Rectangle.Height), new Vector2(500, 200), Color.Red);
             }
-           
-            
         }
 
         public virtual void ApplyItemEffects()
@@ -89,6 +74,7 @@
                 this.HealthPoints = 1;
             }
         }
+
         public void AddItemToInventory(ICollectible item)
         {
             this.Inventory.Add(item);
@@ -133,6 +119,7 @@
 
         public override void RespondToCollision(GameObject hitObject)
         {
+
             
             if (hitObject == null)
             {
@@ -140,7 +127,10 @@
                 return;
             }
 
-            
+            if (hitObject.Equals(this))
+            {
+                throw new Exception();
+            }
 
             this.info = hitObject.GetType().Name;
 
@@ -159,14 +149,13 @@
             }
             else
             {
-                this.Direction = Direction.Still;
+                
             }
-            
         }
 
         public override void Update()
         {
-            RespondToCollision(CollisionHandler.GetCollisionInfo(this));
+            this.RespondToCollision(CollisionHandler.GetCollisionInfo(this));
             base.Update();
         }
     }

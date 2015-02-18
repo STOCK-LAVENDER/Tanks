@@ -1,6 +1,7 @@
 ﻿namespace UltimateTankClash.Models.Characters.Tanks
 {
     using System;
+    using Engine;
     using Exceptions;
     using Interfaces;
     using Microsoft.Xna.Framework;
@@ -17,13 +18,12 @@
 
         protected Tank(
             Texture2D objTexture,
-            Vector2 position,
-            Vector2 size,
+            Rectangle rectangle,
             int physicalAttack,
             int physicalDefense,
             int healthPoints,
             double speed)
-            : base(objTexture, position, size, physicalAttack, physicalDefense, healthPoints)
+            : base(objTexture, rectangle, physicalAttack, physicalDefense, healthPoints)
         {
             this.Speed = speed;
         }
@@ -55,52 +55,83 @@
         public override void Update()
         {
             this.Move();
-            //this.RespondToCollision(this);
+            
 
             if (this.Direction == Direction.Up)
             {
                 this.rotationAngle = angleUp;
-                this.Position = new Vector2(this.Position.X, (int)(this.Position.Y - this.Speed));
+
                 this.Rectangle = new Rectangle(
-                    (int)this.Position.X,
-                    (int)(this.Position.Y - this.Speed),
-                    (int)this.Size.X,
-                    (int)this.Size.Y);
+                    this.Rectangle.X,
+                    (int)(this.Rectangle.Y - this.Speed),
+                    this.Rectangle.Width,
+                    this.Rectangle.Height);
             }
             else if (this.Direction == Direction.Down)
             {
                 this.rotationAngle = angleDown;
-                this.Position = new Vector2(this.Position.X, (int)(this.Position.Y + this.Speed));
+
                 this.Rectangle = new Rectangle(
-                    (int)this.Position.X,
-                    (int)(this.Position.Y + this.Speed),
-                    (int)this.Size.X,
-                    (int)this.Size.Y);
+                    this.Rectangle.X,
+                    (int)(this.Rectangle.Y + this.Speed),
+                    this.Rectangle.Width,
+                    this.Rectangle.Height);
             }
             else if (this.Direction == Direction.Left)
             {
                 this.rotationAngle = angleLeft;
-                this.Position = new Vector2((int)(this.Position.X - this.Speed), this.Position.Y);
+
                 this.Rectangle = new Rectangle(
-                    (int)(this.Position.X - this.Speed),
-                    (int)this.Position.Y,
-                    (int)this.Size.X,
-                    (int)this.Size.Y);
+                    (int)(this.Rectangle.X - this.Speed),
+                    this.Rectangle.Y,
+                    this.Rectangle.Width,
+                    this.Rectangle.Height);
             }
             else if (this.Direction == Direction.Right)
             {
                 this.rotationAngle = angleRight;
-                this.Position = new Vector2((int)(this.Position.X + this.Speed), this.Position.Y);
+
                 this.Rectangle = new Rectangle(
-                    (int)(this.Position.X + this.Speed),
-                    (int)this.Position.Y,
-                    (int)this.Size.X,
-                    (int)this.Size.Y);
+                    (int)(this.Rectangle.X + this.Speed),
+                    this.Rectangle.Y,
+                    this.Rectangle.Width,
+                    this.Rectangle.Height);
             }
 
+            if (this.Rectangle.X - this.objTexture.Width /2  < 0)
+            {
+                this.Rectangle = new Rectangle(this.objTexture.Width / 2, this.Rectangle.Y, this.Rectangle.Width, this.Rectangle.Height);
+            }
 
+            if (this.Rectangle.X + this.objTexture.Width / 2 > GameEngine.WindowWidth)
+            {
+                this.Rectangle = new Rectangle(GameEngine.WindowWidth - this.objTexture.Width / 2, this.Rectangle.Y, this.Rectangle.Width, this.Rectangle.Height);
+            }
 
-            //this.RespondToCollision(this);
+            if (this.Rectangle.Y - this.objTexture.Height / 2 < 0)
+            {
+                this.Rectangle = new Rectangle(this.Rectangle.X, this.objTexture.Height / 2, this.Rectangle.Width, this.Rectangle.Height);
+            }
+
+            if (this.Rectangle.Y + this.objTexture.Height / 2 > GameEngine.WindowHeight)
+            {
+                this.Rectangle = new Rectangle(this.Rectangle.X, GameEngine.WindowHeight - this.objTexture.Height / 2, this.Rectangle.Width, this.Rectangle.Height);
+            }
+        }
+
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(
+               this.objTexture,
+               null,
+               this.Rectangle,
+               null,
+               new Vector2(this.objTexture.Width / 2, this.objTexture.Width / 2),
+               rotationAngle,
+               Vector2.Zero,
+               Color.White,
+               SpriteEffects.None,
+               0f);
         }
     }
 }

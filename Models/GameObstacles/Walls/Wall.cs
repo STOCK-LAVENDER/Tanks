@@ -6,11 +6,8 @@
 
     public abstract class Wall : Obstacle, IDestroyable
     {
-        protected Wall(
-            Texture2D objTexture,
-            Vector2 position,
-            Vector2 size)
-            : base(objTexture, position, size)
+        protected Wall(Texture2D objTexture, Rectangle rectangle)
+            : base(objTexture, rectangle)
         {
         }
 

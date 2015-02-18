@@ -17,7 +17,7 @@
         public static GameObject GetCollisionInfo(GameObject obj)
         {
             var collidingObject = GameEngine.GameObjects
-                .FirstOrDefault(gameObject => !gameObject.Equals(obj) && gameObject.Rectangle.Intersects(obj.Rectangle));
+                .FirstOrDefault(gameObject => (!gameObject.Equals(obj) && gameObject.Rectangle.Intersects(obj.Rectangle)));
 
             return collidingObject;
         }

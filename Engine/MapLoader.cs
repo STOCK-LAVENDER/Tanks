@@ -1,5 +1,4 @@
-﻿
-namespace UltimateTankClash.Engine
+﻿namespace UltimateTankClash.Engine
 {
     using System;
     using System.IO;
@@ -23,8 +22,8 @@ namespace UltimateTankClash.Engine
             {
                 using (StreamReader sr = new StreamReader("Map.txt"))
                 {
-                    int positionY = 0;
-                    int positionX = 0;
+                    int positionY = 50;
+                    int positionX = 50;
                     String line = sr.ReadToEnd();
                     for (int i = 0; i < line.Length; i++)
                     {
@@ -32,37 +31,26 @@ namespace UltimateTankClash.Engine
 
                         if (ch == 'W')
                         {
-                            gameObjects.Add(
-                                new BasicWall(
-                                    textures[0],
-                                    new Vector2(positionX, positionY),
-                                    new Vector2(textures[0].Width, textures[0].Height)));
+                            gameObjects.Add(new BasicWall(textures[0], new Rectangle(positionX - 25, positionY - 25, 50, 50)));
                         }
                         if (ch == 'B')
                         {
-                            gameObjects.Add(
-                                new BasicBush(
-                                    textures[1],
-                                    new Vector2(positionX, positionY),
-                                    new Vector2(textures[1].Width, textures[1].Height)));
+                            gameObjects.Add(new BasicBush(textures[1], new Rectangle(positionX - 25, positionY - 25, 50, 50)));
                         }
                         if (ch == 'I')
                         {
-                            gameObjects.Add(
-                                new SpeedPowerUp(
-                                    textures[2],
-                                    new Vector2(positionX, positionY),
-                                    new Vector2(textures[2].Width, textures[2].Height)));
+                            gameObjects.Add(new SpeedPowerUp(textures[2], new Rectangle(positionX - 25, positionY - 25, 50, 50)));
                         }
 
                         if (ch.Equals('\n'))
                         {
-                            positionY += textures[0].Height;
-                            positionX = 0 - textures[0].Width;
+                            positionY += 50;
+                            positionX = 0 - 50;
                         }
-                        positionX += textures[0].Width;
+                        positionX += 50;
                     }
                 }
+
                 return gameObjects;
             }
             catch (Exception)

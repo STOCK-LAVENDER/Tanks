@@ -8,12 +8,11 @@ namespace UltimateTankClash.Models.Characters
     {
         protected Character(
             Texture2D objTexture,
-            Vector2 position,
-            Vector2 size,
+            Rectangle rectangle,
             int physicalAttack,
             int physicalDefense,
             int healthPoints)
-            : base(objTexture, position, size)
+            : base(objTexture, rectangle)
         {
             this.PhysicalAttack = physicalAttack;
             this.PhysicalDefense = physicalDefense;

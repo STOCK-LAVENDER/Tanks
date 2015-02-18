@@ -7,13 +7,11 @@
     {
         protected Bunker(
             Texture2D objTexture,
-            Vector2 position,
-            Vector2 size,
-            SpriteBatch spriteBatch,
+            Rectangle rectangle,
             int damage,
             int defense,
             int health)
-            : base(objTexture, position, size, damage, defense, health)
+            : base(objTexture, rectangle, damage, defense, health)
         {
         }
     }

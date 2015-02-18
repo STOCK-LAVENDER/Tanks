@@ -6,11 +6,8 @@
 
     public abstract class Ammunition : GameObject, IAttack
     {
-        protected Ammunition(
-            Texture2D objTexture,
-            Vector2 position,
-            Vector2 size)
-            : base(objTexture, position, size)
+        protected Ammunition(Texture2D objTexture, Rectangle rectangle)
+            : base(objTexture, rectangle)
         {
         }
 

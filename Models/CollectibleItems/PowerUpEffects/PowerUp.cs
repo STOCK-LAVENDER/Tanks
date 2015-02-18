@@ -8,11 +8,8 @@
     {
         private const int DefaultItemEffectDuration = 500;
 
-        protected PowerUp(
-            Texture2D objTexture,
-            Vector2 position,
-            Vector2 size)
-            : base(objTexture, position, size)
+        protected PowerUp(Texture2D objTexture, Rectangle rectangle)
+            : base(objTexture, rectangle)
         {
             this.State = CollectibleItemState.Available;
             this.Timeout = DefaultItemEffectDuration;

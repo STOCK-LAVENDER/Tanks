@@ -78,14 +78,14 @@
             font = Content.Load<SpriteFont>("Graphics/Fonts/ArialFont");
 
             basicTankTexture = Content.Load<Texture2D>("Graphics/Sprites/basicTank");
-            player = new Player(basicTankTexture, new Vector2(30, 30), new Vector2(basicTankTexture.Width - 5, basicTankTexture.Height -5));
-            enemyTank = new BasicTank(basicTankTexture, new Vector2(500, 400), new Vector2(basicTankTexture.Width - 5, basicTankTexture.Height - 5));
+            player = new Player(basicTankTexture, new Rectangle(25, 25, 50, 50));
+            enemyTank = new BasicTank(basicTankTexture, new Rectangle(500, 400, 50, 50));
 
             basicWallTexture = Content.Load<Texture2D>("Graphics/Sprites/basicWall");
             basicBushTexture = Content.Load<Texture2D>("Graphics/Sprites/basicBush");
             basicIceLakeTexture = Content.Load<Texture2D>("Graphics/Sprites/icelake");
             speedUpEffectTexture = Content.Load<Texture2D>("Graphics/Sprites/speedy");
-            speedPowerUp = new SpeedPowerUp(speedUpEffectTexture, new Vector2(20, 160), new Vector2(speedUpEffectTexture.Width, speedUpEffectTexture.Height));
+            speedPowerUp = new SpeedPowerUp(speedUpEffectTexture, new Rectangle(20, 160, 50, 50));
 
             GameObjects = MapLoader.LoadMap(spriteBatch, basicWallTexture, basicBushTexture, basicIceLakeTexture);
 

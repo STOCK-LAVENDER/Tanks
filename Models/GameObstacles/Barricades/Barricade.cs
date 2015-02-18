@@ -7,9 +7,8 @@
     {
         protected Barricade(
             Texture2D objTexture,
-            Vector2 position,
-            Vector2 size)
-            : base(objTexture, position, size)
+            Rectangle rectangle)
+            : base(objTexture, rectangle)
         {
         }
     }
