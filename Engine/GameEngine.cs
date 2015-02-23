@@ -80,7 +80,7 @@
 
             //Sounds
             this.soundTankShootingEffect =
-                this.Content.Load<SoundEffect>("Sound/SoundFX/MP5_SMG-GunGuru-703432894");
+                this.Content.Load<SoundEffect>("Sound/SoundFX/Gun_Shot-Marvin-1140816320 1");
             this.soundInstance = soundTankShootingEffect.CreateInstance();
             this.basicTankTexture = Content.Load<Texture2D>("Graphics/Sprites/basicTank");
             this.player = new Player(this.basicTankTexture, new Rectangle(25, 25, 50, 50), this.soundInstance);
