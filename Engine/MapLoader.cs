@@ -8,8 +8,8 @@
     using System.Collections.Generic;
     using Models;
     using Models.CollectibleItems.PowerUpEffects;
-    using Models.GameObstacles.Bushes;
     using Models.GameObstacles.Walls;
+    using Models.Hideouts.Bushes;
     using UltimateTankClash.Exceptions;
 
     static class MapLoader
@@ -35,7 +35,7 @@
                         }
                         if (ch == 'B')
                         {
-                            gameObjects.Add(new BasicBush(textures[1], new Rectangle(positionX - 25, positionY - 25, 50, 50)));
+                            gameObjects.Add(new Bush(textures[1], new Rectangle(positionX - 25, positionY - 25, 50, 50)));
                         }
                         if (ch == 'I')
                         {

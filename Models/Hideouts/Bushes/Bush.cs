@@ -1,23 +1,22 @@
-﻿namespace UltimateTankClash.Models.GameObstacles.SpeedUpObstacles
+﻿namespace UltimateTankClash.Models.Hideouts.Bushes
 {
+    using Hideouts;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
 
-    public class IceLake : Obstacle
+    public class Bush : Hideout
     {
-        public IceLake(Texture2D objTexture, Rectangle rectangle)
+        public Bush(Texture2D objTexture, Rectangle rectangle)
             : base(objTexture, rectangle)
         {
         }
 
         public override void Update()
         {
-            throw new System.NotImplementedException();
         }
 
         public override void RespondToCollision(GameObject hitObject)
         {
-            throw new System.NotImplementedException();
         }
     }
 }

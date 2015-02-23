@@ -1,8 +1,10 @@
 ﻿namespace UltimateTankClash.Models.Characters.Tanks
 {
     using System;
+    using AmmunitionItems;
     using Engine;
     using Exceptions;
+    using GameObstacles;
     using Interfaces;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
@@ -50,12 +52,14 @@
 
         public Direction Direction { get; set; }
 
+        private Vector2 PreviousPosition { get; set; }
+
         public abstract void Move();
 
         public override void Update()
         {
+            this.PreviousPosition = new Vector2(this.Rectangle.X, this.Rectangle.Y);
             this.Move();
-            
 
             if (this.Direction == Direction.Up)
             {
@@ -98,24 +102,42 @@
                     this.Rectangle.Height);
             }
 
-            if (this.Rectangle.X - this.objTexture.Width /2  < 0)
+            this.CheckBorderCollision();
+            this.RespondToCollision(CollisionHandler.GetCollisionInfo(this));
+
+        }
+
+        public void CheckBorderCollision()
+        {
+            bool isOnLeftBorder = this.Rectangle.X - this.objTexture.Width/2 < 0;
+            bool isOnRightBorder = this.Rectangle.X + this.objTexture.Width/2 > GameEngine.WindowWidth;
+            bool isOnTopBorder = this.Rectangle.Y - this.objTexture.Height/2 < 0;
+            bool isOnBottomBorder = this.Rectangle.Y + this.objTexture.Height/2 > GameEngine.WindowHeight;
+
+            if (isOnLeftBorder)
             {
                 this.Rectangle = new Rectangle(this.objTexture.Width / 2, this.Rectangle.Y, this.Rectangle.Width, this.Rectangle.Height);
             }
-
-            if (this.Rectangle.X + this.objTexture.Width / 2 > GameEngine.WindowWidth)
+            else if (isOnRightBorder)
             {
                 this.Rectangle = new Rectangle(GameEngine.WindowWidth - this.objTexture.Width / 2, this.Rectangle.Y, this.Rectangle.Width, this.Rectangle.Height);
             }
-
-            if (this.Rectangle.Y - this.objTexture.Height / 2 < 0)
-            {
-                this.Rectangle = new Rectangle(this.Rectangle.X, this.objTexture.Height / 2, this.Rectangle.Width, this.Rectangle.Height);
-            }
-
-            if (this.Rectangle.Y + this.objTexture.Height / 2 > GameEngine.WindowHeight)
+            else if (isOnBottomBorder)
             {
                 this.Rectangle = new Rectangle(this.Rectangle.X, GameEngine.WindowHeight - this.objTexture.Height / 2, this.Rectangle.Width, this.Rectangle.Height);
+            }
+            else if (isOnTopBorder)
+            {
+                this.Rectangle = new Rectangle(this.Rectangle.X, this.objTexture.Height/2, this.Rectangle.Width, this.Rectangle.Height);
+            }
+        }
+
+        public override void RespondToCollision(GameObject hitObject)
+        {
+            
+            if (hitObject is Character || hitObject is Obstacle || hitObject is Ammunition)
+            {
+                this.Rectangle = new Rectangle((int)this.PreviousPosition.X, (int)this.PreviousPosition.Y, this.Rectangle.Width, this.Rectangle.Height);
             }
         }
 

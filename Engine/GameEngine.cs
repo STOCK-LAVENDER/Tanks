@@ -88,6 +88,8 @@
             speedPowerUp = new SpeedPowerUp(speedUpEffectTexture, new Rectangle(20, 160, 50, 50));
 
             GameObjects = MapLoader.LoadMap(spriteBatch, basicWallTexture, basicBushTexture, basicIceLakeTexture);
+            GameObjects.Add(player);
+            GameObjects.Add(enemyTank);
 
             GameObjects.Add(speedPowerUp);
         }

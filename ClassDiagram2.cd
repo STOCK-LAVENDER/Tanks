@@ -10,7 +10,7 @@
   <Class Name="UltimateTankClash.Engine.GameEngine" Collapsed="true">
     <Position X="28" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEQAkEAEAAACAwAAQAEAAAAgAAAAAAqBAAAAAIAAAAQ=</HashCode>
+      <HashCode>AEYAkEAEAAACAwAAQAEAAAAgAAAAAAqBAAAAAIAAAAQ=</HashCode>
       <FileName>Engine\GameEngine.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -103,14 +103,14 @@
   <Class Name="UltimateTankClash.Models.Characters.Tanks.BasicTank" Collapsed="true">
     <Position X="1.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAEAAAAAIAAAgAAAAAUAgAAAAAABCAAAQBAAAAAAAA=</HashCode>
+      <HashCode>AAAEAAAAAIAAAAAAAAAEAgAIACAEACAAAQBAAAAAAAA=</HashCode>
       <FileName>Models\Characters\Tanks\BasicTank.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UltimateTankClash.Models.Characters.Tanks.Player" Collapsed="true">
     <Position X="3.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAEAAQAAIAAAiAAAAgEIAAAAAAAAAACAQBAAgAAAAA=</HashCode>
+      <HashCode>AAQEAAQAAIAAAiAAAAgEIAAAAAAAAAACQQBAAgAAAAA=</HashCode>
       <FileName>Models\Characters\Tanks\Player.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -118,7 +118,7 @@
   <Class Name="UltimateTankClash.Models.Characters.Tanks.Tank" Collapsed="true">
     <Position X="2.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQASAAAAIAAAAAAACAAAAQBAAAACQAAAAAAAAAAABA=</HashCode>
+      <HashCode>AAQASIAAAIAAAgAAACAAAAQBAAAACQAAAABAAAAAABA=</HashCode>
       <FileName>Models\Characters\Tanks\Tank.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -148,7 +148,7 @@
   <Class Name="UltimateTankClash.Models.CollectibleItems.PowerUpEffects.ArmorPowerUp" Collapsed="true">
     <Position X="21.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAIABAAAIAEAgAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <HashCode>AAAIABAAAIAEAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Models\CollectibleItems\PowerUpEffects\ArmorPowerUp.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -163,75 +163,67 @@
   <Class Name="UltimateTankClash.Models.CollectibleItems.PowerUpEffects.SpeedPowerUp" Collapsed="true">
     <Position X="23.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAIABAAAIAEAgAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <HashCode>AAAIABAAAIAEAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Models\CollectibleItems\PowerUpEffects\SpeedPowerUp.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UltimateTankClash.Models.GameObject" Collapsed="true">
     <Position X="12.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAIAAggAgAIAAICAAAAAgAAAABAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAIAAAgAAAAAAACAAAAAgAAAABAAAAAAAAAA=</HashCode>
       <FileName>Models\GameObject.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="UltimateTankClash.Models.GameObstacles.Barricades.Barricade" Collapsed="true">
-    <Position X="8" Y="3.25" Width="1.5" />
+    <Position X="10.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\GameObstacles\Barricades\Barricade.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UltimateTankClash.Models.GameObstacles.Barricades.SteelBarricade" Collapsed="true">
-    <Position X="8" Y="4.75" Width="1.5" />
+    <Position X="10.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAIAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\GameObstacles\Barricades\SteelBarricade.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="UltimateTankClash.Models.GameObstacles.Bushes.BasicBush" Collapsed="true">
-    <Position X="12.5" Y="4.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAIAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\GameObstacles\Bushes\BasicBush.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="UltimateTankClash.Models.GameObstacles.Bushes.Bush" Collapsed="true">
-    <Position X="12.5" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAQAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\GameObstacles\Bushes\Bush.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
   <Class Name="UltimateTankClash.Models.GameObstacles.Obstacle" Collapsed="true">
-    <Position X="11.5" Y="1.75" Width="1.5" />
+    <Position X="12.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\GameObstacles\Obstacle.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="UltimateTankClash.Models.GameObstacles.SpeedUpObstacles.IceLake" Collapsed="true">
-    <Position X="14.75" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAIAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\GameObstacles\SpeedUpObstacles\IceLake.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="UltimateTankClash.Models.GameObstacles.Walls.BasicWall" Collapsed="true">
-    <Position X="10.25" Y="4.75" Width="1.5" />
+    <Position X="14.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAIAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\GameObstacles\Walls\BasicWall.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UltimateTankClash.Models.GameObstacles.Walls.Wall" Collapsed="true">
-    <Position X="10.25" Y="3.25" Width="1.5" />
+    <Position X="14.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAQAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\GameObstacles\Walls\Wall.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UltimateTankClash.Models.Hideouts.Bushes.Bush" Collapsed="true">
+    <Position X="8" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Hideouts\Bushes\Bush.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UltimateTankClash.Models.Hideouts.Hideout" Collapsed="true">
+    <Position X="8" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Hideouts\Hideout.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Class Name="UltimateTankClash.Properties.Resources" Collapsed="true">
     <Position X="26.25" Y="2.5" Width="1.5" />

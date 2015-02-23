@@ -1,11 +1,7 @@
 ﻿namespace UltimateTankClash.Models.Characters.Tanks
 {
-    using System;
     using System.Collections.Generic;
-    using CollectibleItems;
     using Engine;
-    using GameObstacles.Bushes;
-    using GameObstacles.SpeedUpObstacles;
     using Interfaces;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
@@ -46,7 +42,17 @@
 
             if (this.info != null)
             {
-                spriteBatch.DrawString(GameEngine.font, string.Format("{0}, UL: {1}, UR: {2}, LL: {3}, LR: {4}", this.info, this.Rectangle.X, this.Rectangle.Y, this.Rectangle.X + this.Rectangle.Width, this.Rectangle.Y + this.Rectangle.Height), new Vector2(500, 200), Color.Red);
+                spriteBatch.DrawString(
+                    GameEngine.font, 
+                    string.Format(
+                        "{0}, UL: {1}, UR: {2}, LL: {3}, LR: {4}", 
+                        this.info, 
+                        this.Rectangle.X, 
+                        this.Rectangle.Y, 
+                        this.Rectangle.X + this.Rectangle.Width, 
+                        this.Rectangle.Y + this.Rectangle.Height), 
+                    new Vector2(500, 200), 
+                    Color.Red);
             }
         }
 
@@ -119,43 +125,17 @@
 
         public override void RespondToCollision(GameObject hitObject)
         {
-
-            
-            if (hitObject == null)
-            {
-                this.info = "None";
-                return;
-            }
-
-            if (hitObject.Equals(this))
-            {
-                throw new Exception();
-            }
-
-            this.info = hitObject.GetType().Name;
-
-            if (hitObject is ICollectible)
-            {
-                AddItemToInventory((CollectibleItem)hitObject);
-             
-            }
-            else if (hitObject is IceLake)
-            {
-
-            }
-            else if (hitObject is Bush)
-            {
-                
-            }
-            else
-            {
-                
-            }
+            base.RespondToCollision(hitObject);
+            this.info = hitObject == null ? "None" : hitObject.GetType().Name;
         }
 
         public override void Update()
         {
-            this.RespondToCollision(CollisionHandler.GetCollisionInfo(this));
+            if (CollisionHandler.GetCollisionInfo(this) != null)
+            {
+                this.info = CollisionHandler.GetCollisionInfo(this).GetType().Name;
+            }
+
             base.Update();
         }
     }
