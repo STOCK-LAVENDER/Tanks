@@ -128,9 +128,15 @@
             base.Update();
 
             KeyboardState state = Keyboard.GetState();
-            if (state.IsKeyDown(Keys.Space))
+
+            if (state.IsKeyDown(Keys.Space) && !this.HasShot)
             {
                 this.Shoot(this.Direction);
+                this.HasShot = true;
+            }
+            else if (state.IsKeyUp(Keys.Space))
+            {
+                this.HasShot = false;
             }
         }
 

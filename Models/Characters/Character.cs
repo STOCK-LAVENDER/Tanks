@@ -32,6 +32,8 @@ namespace UltimateTankClash.Models.Characters
 
         public int HealthPoints { get; protected set; }
 
+        public bool HasShot { get; protected set; }
+
         protected Vector2 PreviousPosition { get; set; }
 
         public override void RespondToCollision(GameObject hitObject)

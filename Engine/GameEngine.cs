@@ -22,8 +22,8 @@
     /// </summary>
     public class GameEngine : Game
     {
-        public const int WindowWidth = 1024;
-        public const int WindowHeight = 720;
+        public const int WindowWidth = 800;
+        public const int WindowHeight = 600;
 
         public static List<GameObject> GameObjects = new List<GameObject>();
         public static SpriteFont Font;
