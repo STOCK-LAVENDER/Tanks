@@ -117,4 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="textBox2.Text" xml:space="preserve">
+    <value>
+You're about to set foot into a world full of epic tank battles, furious skirmishes, and lots of fun. 
+
+  Your armored beast isn't just a tin can on tracks. It’s an evolving machine that should be treated accordingly.
+  Research your battlefield for available item bonuses to enhance it's performance on the battlefield.
+ 
+  There’s only one simple rule to follow: Be a hero ! Move out and defeat your enemy before they defeat you!</value>
+  </data>
 </root>
