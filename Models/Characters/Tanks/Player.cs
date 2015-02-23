@@ -41,6 +41,8 @@
 
         public SoundEffectInstance SoundEffectInstance { get; private set; }
 
+        public bool HasShot { get; set; }
+
         public override void Draw(SpriteBatch spriteBatch)
         {
             base.Draw(spriteBatch);
@@ -133,14 +135,15 @@
             base.Update();
 
             KeyboardState state = Keyboard.GetState();
-            if (state.IsKeyDown(Keys.Space))
+            if (state.IsKeyDown(Keys.Space) && !this.HasShot)
             {
                 this.Shoot(this.Direction);
                 this.SoundEffectInstance.Play();
+                this.HasShot = true;
             }
-            else if (state.IsKeyUp(Keys.Space) && this.SoundEffectInstance.State == SoundState.Playing)
+            else if (state.IsKeyUp(Keys.Space))
             {
-                this.SoundEffectInstance.Pause();
+                this.HasShot = false;
             }
         }
 
