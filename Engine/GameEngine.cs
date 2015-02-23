@@ -5,6 +5,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using Microsoft.Xna.Framework;
+    using Microsoft.Xna.Framework.Audio;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
     using Models;
@@ -40,6 +41,9 @@
         private Texture2D speedUpEffectTexture;
         private SpeedPowerUp speedPowerUp;
 
+        //Sound fields
+        private SoundEffect soundTankShootingEffect;
+        private SoundEffectInstance soundInstance;
         public GameEngine()
             : base()
         {
@@ -72,8 +76,12 @@
             this.graphics.ApplyChanges();
             Font = Content.Load<SpriteFont>("Graphics/Fonts/ArialFont");
 
+            //Sounds
+            this.soundTankShootingEffect =
+                this.Content.Load<SoundEffect>("Sound/SoundFX/MP5_SMG-GunGuru-703432894");
+            this.soundInstance = soundTankShootingEffect.CreateInstance();
             this.basicTankTexture = Content.Load<Texture2D>("Graphics/Sprites/basicTank");
-            this.player = new Player(this.basicTankTexture, new Rectangle(25, 25, 50, 50));
+            this.player = new Player(this.basicTankTexture, new Rectangle(25, 25, 50, 50), this.soundInstance);
             this.enemyTank = new BasicTank(this.basicTankTexture, new Rectangle(500, 400, 50, 50));
 
             this.basicWallTexture = Content.Load<Texture2D>("Graphics/Sprites/basicWall");
@@ -111,7 +119,7 @@
             {
                 this.Exit();
             }
-            
+
             for (int i = 0; i < GameObjects.Count; i++)
             {
                 GameObjects[i].Update();
