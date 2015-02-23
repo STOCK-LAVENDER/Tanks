@@ -9,6 +9,7 @@
     using Microsoft.Xna.Framework.Audio;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
+    using Microsoft.Xna.Framework.Media;
     using Models;
     using Models.AmmunitionItems;
     using Models.Characters;
@@ -17,6 +18,7 @@
     using Models.GameObstacles;
     using Models.GameObstacles.Walls;
     using Models.Hideouts;
+    using Resources.Sounds;
 
     #endregion
 
@@ -45,7 +47,8 @@
 
         //Sound fields
         private SoundEffect soundTankShootingEffect;
-        private SoundEffectInstance soundInstance;
+        private SoundEffectInstance soundTankShootingInstance;
+        private Song backgroundSong;
         public GameEngine()
             : base()
         {
@@ -79,11 +82,13 @@
             Font = Content.Load<SpriteFont>("Graphics/Fonts/ArialFont");
 
             //Sounds
+            this.backgroundSong = this.Content.Load<Song>("Sound/SoundFX/Failing Defense");
+            SoundHandler.HandleBackgroundSoundEffect(this.backgroundSong);
             this.soundTankShootingEffect =
                 this.Content.Load<SoundEffect>("Sound/SoundFX/Gun_Shot-Marvin-1140816320 1");
-            this.soundInstance = soundTankShootingEffect.CreateInstance();
+            this.soundTankShootingInstance = soundTankShootingEffect.CreateInstance();
             this.basicTankTexture = Content.Load<Texture2D>("Graphics/Sprites/basicTank");
-            this.player = new Player(this.basicTankTexture, new Rectangle(25, 25, 50, 50), this.soundInstance);
+            this.player = new Player(this.basicTankTexture, new Rectangle(25, 25, 50, 50), this.soundTankShootingInstance);
             this.enemyTank = new BasicTank(this.basicTankTexture, new Rectangle(500, 400, 50, 50));
 
             this.basicWallTexture = Content.Load<Texture2D>("Graphics/Sprites/basicWall");
@@ -141,7 +146,7 @@
             }
 
             GameObjects.RemoveAll(x => x.State == GameObjectState.Destroyed);
-
+            
             base.Update(gameTime);
         }
 
@@ -151,7 +156,7 @@
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            this.GraphicsDevice.Clear(Color.CornflowerBlue);
             this.spriteBatch.Begin();
 
             var characters = GameObjects.Where(x => x is Character);
