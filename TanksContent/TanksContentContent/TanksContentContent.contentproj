@@ -62,7 +62,6 @@
   <ItemGroup>
     <Folder Include="Graphics\Backgrounds\" />
     <Folder Include="Sound\BackgroundMusic\" />
-    <Folder Include="Sound\SoundFX\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Graphics\Fonts\ArialFont.spritefont">
@@ -118,6 +117,13 @@
       <Name>bullet</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sound\SoundFX\MP5_SMG-GunGuru-703432894.wav">
+      <Name>MP5_SMG-GunGuru-703432894</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

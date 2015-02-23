@@ -4,6 +4,7 @@
     using Engine;
     using Interfaces;
     using Microsoft.Xna.Framework;
+    using Microsoft.Xna.Framework.Audio;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
 
@@ -16,11 +17,13 @@
 
         private List<ICollectible> inventory = new List<ICollectible>();
         private string info;
+        private SoundEffectInstance soundEffectInstance;
 
-        public Player(Texture2D objTexture, Rectangle rectangle)
+        public Player(Texture2D objTexture, Rectangle rectangle, SoundEffectInstance soundEffectInstance)
             : base(objTexture, rectangle, DefaultPhysicalAttack, DefaultPhysicalDefense, DefaultHealthPoints, DefaultSpeed)
         {
             this.Direction = Direction.Down;
+            this.SoundEffectInstance = soundEffectInstance;
         }
 
         public List<ICollectible> Inventory
@@ -35,6 +38,8 @@
                 this.inventory = value;
             }
         }
+
+        public SoundEffectInstance SoundEffectInstance { get; private set; }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
@@ -128,15 +133,14 @@
             base.Update();
 
             KeyboardState state = Keyboard.GetState();
-
-            if (state.IsKeyDown(Keys.Space) && !this.HasShot)
+            if (state.IsKeyDown(Keys.Space))
             {
                 this.Shoot(this.Direction);
-                this.HasShot = true;
+                this.SoundEffectInstance.Play();
             }
-            else if (state.IsKeyUp(Keys.Space))
+            else if (state.IsKeyUp(Keys.Space) && this.SoundEffectInstance.State == SoundState.Playing)
             {
-                this.HasShot = false;
+                this.SoundEffectInstance.Pause();
             }
         }
 
