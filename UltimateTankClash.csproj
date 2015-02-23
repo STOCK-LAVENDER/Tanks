@@ -123,6 +123,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
+    <None Include="Resources\img.jpg" />
+    <None Include="Resources\cover.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Engine\Factories\" />
