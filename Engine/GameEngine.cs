@@ -4,6 +4,7 @@
 
     using System.Collections.Generic;
     using System.Linq;
+    using System.Runtime.InteropServices.ComTypes;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Audio;
     using Microsoft.Xna.Framework.Graphics;
@@ -14,6 +15,7 @@
     using Models.Characters.Tanks;
     using Models.CollectibleItems.PowerUpEffects;
     using Models.GameObstacles;
+    using Models.GameObstacles.Walls;
     using Models.Hideouts;
 
     #endregion
@@ -120,10 +122,22 @@
                 this.Exit();
             }
 
+            var walls = GameObjects.Where(x => !(x is Ammunition)).ToList();
+            var ammo = GameObjects.Where(x => x is Ammunition).ToList();
+
             for (int i = 0; i < GameObjects.Count; i++)
             {
                 GameObjects[i].Update();
-                GameObjects[i].RespondToCollision(CollisionHandler.GetCollisionInfo(GameObjects[i]));
+            }
+
+            for (int i = 0; i < walls.Count; i++)
+            {
+                walls[i].RespondToCollision(CollisionHandler.GetCollisionInfo(walls[i]));
+            }
+
+            for (int i = 0; i < ammo.Count; i++)
+            {
+                ammo[i].RespondToCollision(CollisionHandler.GetCollisionInfo(ammo[i]));
             }
 
             GameObjects.RemoveAll(x => x.State == GameObjectState.Destroyed);
