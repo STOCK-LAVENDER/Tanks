@@ -1,28 +1,14 @@
-﻿using System;
-using UltimateTankClash.Engine;
-using System.Threading;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-
-namespace UltimateTankClash.MenuItems
+﻿namespace UltimateTankClash.MenuItems
 {
+    using System;
+    using System.Threading;
+    using Engine;
+
     public partial class MainMenu : BackgroundForm
     {
         public MainMenu()
         {
-            InitializeComponent();
-        }
-
-        private void startGame_Click(object sender, EventArgs e)
-        {
-            Thread theThread = new Thread(StartGame);
-            this.Close();
-            theThread.Start();
+            this.InitializeComponent();
         }
 
         public void StartGame()
@@ -36,6 +22,13 @@ namespace UltimateTankClash.MenuItems
             this.Hide();
             OptionsForm optionsForm = new OptionsForm();
             optionsForm.ShowDialog();
+        }
+
+        private void StartGameOnClick(object sender, EventArgs e)
+        {
+            Thread theThread = new Thread(this.StartGame);
+            this.Close();
+            theThread.Start();
         }
 
         private void Instructions_Click(object sender, EventArgs e)

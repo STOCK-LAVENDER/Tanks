@@ -1,5 +1,6 @@
 ﻿namespace UltimateTankClash.Models.CollectibleItems.PowerUpEffects
 {
+    using System;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
 
@@ -19,11 +20,9 @@
             this.SpeedEffect = DefaultSpeedEffect;
         }
 
-        
-
         public override void RespondToCollision(GameObject hitObject)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

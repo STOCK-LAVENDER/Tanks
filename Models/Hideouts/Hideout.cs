@@ -9,5 +9,13 @@
             : base(objTexture, rectangle)
         {
         }
+
+        public override void Update()
+        {
+        }
+
+        public override void RespondToCollision(GameObject hitObject)
+        {
+        }
     }
 }

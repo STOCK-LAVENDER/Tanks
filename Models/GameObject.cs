@@ -1,7 +1,5 @@
 ﻿namespace UltimateTankClash.Models
 {
-    using System.Windows.Forms.VisualStyles;
-    using Engine;
     using Exceptions;
     using Interfaces;
     using Microsoft.Xna.Framework;
@@ -17,7 +15,7 @@
             Rectangle rectangle)
         {
             this.objTexture = objTexture;
-
+            this.State = GameObjectState.Intact;
             this.Rectangle = rectangle;
         }
 
@@ -40,6 +38,8 @@
                 this.rectangle = value;
             }
         }
+
+        public GameObjectState State { get; set; }
 
         public abstract void Update();
 

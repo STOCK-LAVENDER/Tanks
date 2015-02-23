@@ -8,7 +8,7 @@
         protected Consumable(Texture2D objTexture, Rectangle rectangle)
             : base(objTexture, rectangle)
         {
-            this.State = CollectibleItemState.Available;
+            this.ItemState = CollectibleItemState.Available;
         }
     }
 }

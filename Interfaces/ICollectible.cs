@@ -4,7 +4,7 @@
 
     public interface ICollectible
     {
-        CollectibleItemState State { get; }
+        CollectibleItemState ItemState { get; }
 
         int DamageEffect { get; }
 

@@ -1,6 +1,6 @@
 ﻿namespace UltimateTankClash.Engine
 {
-    enum GameState
+    public enum GameState
     {
         Running,
         Paused,

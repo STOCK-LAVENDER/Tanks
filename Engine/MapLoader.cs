@@ -1,18 +1,17 @@
 ﻿namespace UltimateTankClash.Engine
 {
     using System;
+    using System.Collections.Generic;
     using System.IO;
+    using Exceptions;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
-    using Microsoft.Xna.Framework.Input;
-    using System.Collections.Generic;
     using Models;
     using Models.CollectibleItems.PowerUpEffects;
     using Models.GameObstacles.Walls;
     using Models.Hideouts.Bushes;
-    using UltimateTankClash.Exceptions;
 
-    static class MapLoader
+    public static class MapLoader
     {
         public static List<GameObject> LoadMap(SpriteBatch spriteBatch, params Texture2D[] textures)
         {
@@ -24,7 +23,7 @@
                 {
                     int positionY = 50;
                     int positionX = 50;
-                    String line = sr.ReadToEnd();
+                    string line = sr.ReadToEnd();
                     for (int i = 0; i < line.Length; i++)
                     {
                         char ch = line[i];
@@ -33,10 +32,12 @@
                         {
                             gameObjects.Add(new BasicWall(textures[0], new Rectangle(positionX - 25, positionY - 25, 50, 50)));
                         }
+
                         if (ch == 'B')
                         {
                             gameObjects.Add(new Bush(textures[1], new Rectangle(positionX - 25, positionY - 25, 50, 50)));
                         }
+
                         if (ch == 'I')
                         {
                             gameObjects.Add(new SpeedPowerUp(textures[2], new Rectangle(positionX - 25, positionY - 25, 50, 50)));
@@ -47,6 +48,7 @@
                             positionY += 50;
                             positionX = 0 - 50;
                         }
+
                         positionX += 50;
                     }
                 }

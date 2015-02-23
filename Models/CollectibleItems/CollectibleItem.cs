@@ -14,7 +14,7 @@
 
         public bool Exists { get; set; }
 
-        public CollectibleItemState State { get; set; }
+        public CollectibleItemState ItemState { get; set; }
 
         public int DamageEffect { get; protected set; }
 

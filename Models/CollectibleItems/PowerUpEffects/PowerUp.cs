@@ -11,7 +11,7 @@
         protected PowerUp(Texture2D objTexture, Rectangle rectangle)
             : base(objTexture, rectangle)
         {
-            this.State = CollectibleItemState.Available;
+            this.ItemState = CollectibleItemState.Available;
             this.Timeout = DefaultItemEffectDuration;
         }
 
@@ -19,7 +19,7 @@
 
         public override void Update()
         {
-            if (this.State != CollectibleItemState.Active)
+            if (this.ItemState != CollectibleItemState.Active)
             {
                 return;
             }
@@ -28,8 +28,7 @@
             
             if (this.Timeout == 0)
             {
-                
-                this.State = CollectibleItemState.Expired;
+                this.ItemState = CollectibleItemState.Expired;
             }
         }
     }

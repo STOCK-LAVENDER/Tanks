@@ -73,6 +73,7 @@
     <Compile Include="MenuItems\OptionsForm.Designer.cs">
       <DependentUpon>OptionsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\AmmunitionItems\Bullet.cs" />
     <Compile Include="Models\Characters\Tanks\Direction.cs" />
     <Compile Include="Models\Characters\Tanks\Player.cs" />
     <Compile Include="Models\CollectibleItems\CollectibleItem.cs" />

@@ -1,17 +1,19 @@
 ﻿namespace UltimateTankClash.Engine
 {
     #region Using Statements
-    using System;
-    using System.IO;
+
+    using System.Collections.Generic;
+    using System.Linq;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
-    using System.Collections.Generic;
-    using System.Linq;
     using Models;
+    using Models.AmmunitionItems;
+    using Models.Characters;
     using Models.Characters.Tanks;
-    using Models.CollectibleItems;
     using Models.CollectibleItems.PowerUpEffects;
+    using Models.GameObstacles;
+    using Models.Hideouts;
 
     #endregion
 
@@ -20,33 +22,28 @@
     /// </summary>
     public class GameEngine : Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        public const int WindowWidth = 1024;
+        public const int WindowHeight = 720;
 
         public static List<GameObject> GameObjects = new List<GameObject>();
+        public static SpriteFont Font;
+        public static Texture2D BulletTexture;
 
         private Texture2D basicTankTexture;
         private Player player;
         private BasicTank enemyTank;
-        public static SpriteFont font;
         private Texture2D basicWallTexture;
-
+        private GraphicsDeviceManager graphics;
+        private SpriteBatch spriteBatch;
         private Texture2D basicBushTexture;
-
         private Texture2D basicIceLakeTexture;
-
         private Texture2D speedUpEffectTexture;
         private SpeedPowerUp speedPowerUp;
-
-        public const int WindowWidth = 1024;
-        public const int WindowHeight = 720;
-
-        //Temporary variables
 
         public GameEngine()
             : base()
         {
-            graphics = new GraphicsDeviceManager(this);
+            this.graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
 
@@ -58,8 +55,6 @@
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
             base.Initialize();
         }
 
@@ -70,28 +65,29 @@
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+            this.spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            graphics.PreferredBackBufferWidth = WindowWidth;
-            graphics.PreferredBackBufferHeight = WindowHeight;
-            graphics.ApplyChanges();
-            font = Content.Load<SpriteFont>("Graphics/Fonts/ArialFont");
+            this.graphics.PreferredBackBufferWidth = WindowWidth;
+            this.graphics.PreferredBackBufferHeight = WindowHeight;
+            this.graphics.ApplyChanges();
+            Font = Content.Load<SpriteFont>("Graphics/Fonts/ArialFont");
 
-            basicTankTexture = Content.Load<Texture2D>("Graphics/Sprites/basicTank");
-            player = new Player(basicTankTexture, new Rectangle(25, 25, 50, 50));
-            enemyTank = new BasicTank(basicTankTexture, new Rectangle(500, 400, 50, 50));
+            this.basicTankTexture = Content.Load<Texture2D>("Graphics/Sprites/basicTank");
+            this.player = new Player(this.basicTankTexture, new Rectangle(25, 25, 50, 50));
+            this.enemyTank = new BasicTank(this.basicTankTexture, new Rectangle(500, 400, 50, 50));
 
-            basicWallTexture = Content.Load<Texture2D>("Graphics/Sprites/basicWall");
-            basicBushTexture = Content.Load<Texture2D>("Graphics/Sprites/basicBush");
-            basicIceLakeTexture = Content.Load<Texture2D>("Graphics/Sprites/icelake");
-            speedUpEffectTexture = Content.Load<Texture2D>("Graphics/Sprites/speedy");
-            speedPowerUp = new SpeedPowerUp(speedUpEffectTexture, new Rectangle(20, 160, 50, 50));
+            this.basicWallTexture = Content.Load<Texture2D>("Graphics/Sprites/basicWall");
+            this.basicBushTexture = Content.Load<Texture2D>("Graphics/Sprites/basicBush");
+            this.basicIceLakeTexture = Content.Load<Texture2D>("Graphics/Sprites/icelake");
+            this.speedUpEffectTexture = Content.Load<Texture2D>("Graphics/Sprites/speedy");
+            BulletTexture = Content.Load<Texture2D>("Graphics/Sprites/bullet");
+            this.speedPowerUp = new SpeedPowerUp(this.speedUpEffectTexture, new Rectangle(20, 160, 50, 50));
 
-            GameObjects = MapLoader.LoadMap(spriteBatch, basicWallTexture, basicBushTexture, basicIceLakeTexture);
-            GameObjects.Add(player);
-            GameObjects.Add(enemyTank);
+            GameObjects = MapLoader.LoadMap(this.spriteBatch, this.basicWallTexture, this.basicBushTexture, this.basicIceLakeTexture);
+            GameObjects.Add(this.player);
+            GameObjects.Add(this.enemyTank);
 
-            GameObjects.Add(speedPowerUp);
+            GameObjects.Add(this.speedPowerUp);
         }
 
         /// <summary>
@@ -113,12 +109,16 @@
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
                 Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
-                Exit();
+                this.Exit();
+            }
+            
+            for (int i = 0; i < GameObjects.Count; i++)
+            {
+                GameObjects[i].Update();
+                GameObjects[i].RespondToCollision(CollisionHandler.GetCollisionInfo(GameObjects[i]));
             }
 
-            speedPowerUp.Update();
-            player.Update();
-            enemyTank.Update();
+            GameObjects.RemoveAll(x => x.State == GameObjectState.Destroyed);
 
             base.Update(gameTime);
         }
@@ -129,26 +129,29 @@
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            spriteBatch.Begin();
+            this.spriteBatch.Begin();
 
-            foreach (GameObject obstacle in GameObjects)
+            var characters = GameObjects.Where(x => x is Character);
+            var obstacles = GameObjects.Where(x => x is Obstacle || x is Hideout);
+            var bullets = GameObjects.Where(x => x is Ammunition);
+
+            foreach (var character in characters)
             {
-                PowerUp effectItem = obstacle as PowerUp;
-                if (effectItem != null && effectItem.State == CollectibleItemState.Active)
-                {
-                    //Dont draw
-                }
-                else
-                {
-                    obstacle.Draw(spriteBatch);
-                }
+                character.Draw(this.spriteBatch);
             }
-            player.Draw(spriteBatch);
-            enemyTank.Draw(spriteBatch);
 
-            spriteBatch.End();
+            foreach (var character in obstacles)
+            {
+                character.Draw(this.spriteBatch);
+            }
+
+            foreach (var character in bullets)
+            {
+                character.Draw(this.spriteBatch);
+            }
+
+            this.spriteBatch.End();
 
             base.Draw(gameTime);
         }

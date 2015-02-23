@@ -2,7 +2,7 @@
 {
     using Models;
 
-    interface ICollidable
+    public interface ICollidable
     {
         void RespondToCollision(GameObject hitObject);
     }

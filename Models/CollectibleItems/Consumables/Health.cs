@@ -1,5 +1,6 @@
 ﻿namespace UltimateTankClash.Models.CollectibleItems.Consumables
 {
+    using System;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
 
@@ -21,17 +22,17 @@
 
         public override void Update()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public override void RespondToCollision(GameObject hitObject)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

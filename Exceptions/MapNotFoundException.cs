@@ -1,8 +1,7 @@
-﻿using System;
-using System.IO;
-
-namespace UltimateTankClash.Exceptions
+﻿namespace UltimateTankClash.Exceptions
 {
+    using System.IO;
+
     public class MapNotFoundException : IOException
     {
         public MapNotFoundException(string message)

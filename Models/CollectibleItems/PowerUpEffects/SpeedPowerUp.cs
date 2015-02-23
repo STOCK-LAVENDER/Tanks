@@ -18,11 +18,9 @@
             this.Defenseffect = DefaultDefenseEffect;
             this.SpeedEffect = DefaultSpeedEffect;
         }
-
         
         public override void RespondToCollision(GameObject hitObject)
         {
-            throw new System.NotImplementedException();
         }
     }
 }

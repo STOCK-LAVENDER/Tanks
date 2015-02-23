@@ -3,8 +3,7 @@
     #region Using Statements
 
     using System;
-    using Engine;
-    using UltimateTankClash.MenuItems;
+    using MenuItems;
 
     #endregion
 
@@ -18,10 +17,10 @@
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        public static void Main()
         {
-            //using (var game = new GameEngine())
-            //    game.Run();
+            // using (var game = new GameEngine())
+            // game.Run();
             MainMenu menu = new MainMenu();
             menu.ShowDialog();
         }

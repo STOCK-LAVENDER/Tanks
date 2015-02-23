@@ -1,19 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-
-namespace UltimateTankClash.MenuItems
+﻿namespace UltimateTankClash.MenuItems
 {
+    using System.Windows.Forms;
+
     public partial class BackgroundForm : Form
     {
         public BackgroundForm()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }

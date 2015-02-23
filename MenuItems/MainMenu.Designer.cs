@@ -1,11 +1,22 @@
 ﻿namespace UltimateTankClash.MenuItems
 {
-    partial class MainMenu
+    using System.ComponentModel;
+    using System.Windows.Forms;
+
+    public partial class MainMenu
     {
+        private Button startGame;
+        private Label gameName;
+        private Button multiPlayerStart;
+        private Button options;
+        private Button instructions;
+        private Button about;
+        private Button exitButton;
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -13,10 +24,11 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
+            if (disposing && (this.components != null))
             {
-                components.Dispose();
+                this.components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -30,11 +42,11 @@
         {
             this.startGame = new System.Windows.Forms.Button();
             this.gameName = new System.Windows.Forms.Label();
-            this.MultiPlayerStart = new System.Windows.Forms.Button();
-            this.Options = new System.Windows.Forms.Button();
-            this.Instructions = new System.Windows.Forms.Button();
-            this.About = new System.Windows.Forms.Button();
-            this.ExitButton = new System.Windows.Forms.Button();
+            this.multiPlayerStart = new System.Windows.Forms.Button();
+            this.options = new System.Windows.Forms.Button();
+            this.instructions = new System.Windows.Forms.Button();
+            this.about = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // startGame
@@ -49,7 +61,7 @@
             this.startGame.TabIndex = 1;
             this.startGame.Text = "Single Player";
             this.startGame.UseVisualStyleBackColor = false;
-            this.startGame.Click += new System.EventHandler(this.startGame_Click);
+            this.startGame.Click += new System.EventHandler(this.StartGameOnClick);
             // 
             // gameName
             // 
@@ -63,85 +75,85 @@
             this.gameName.TabIndex = 0;
             this.gameName.Text = "Ultimate Tank Clash";
             // 
-            // MultiPlayerStart
+            // multiPlayerStart
             // 
-            this.MultiPlayerStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.MultiPlayerStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MultiPlayerStart.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MultiPlayerStart.ForeColor = System.Drawing.Color.LightGray;
-            this.MultiPlayerStart.Location = new System.Drawing.Point(265, 169);
-            this.MultiPlayerStart.Name = "MultiPlayerStart";
-            this.MultiPlayerStart.Size = new System.Drawing.Size(107, 30);
-            this.MultiPlayerStart.TabIndex = 2;
-            this.MultiPlayerStart.Text = "Multiplayer";
-            this.MultiPlayerStart.UseVisualStyleBackColor = false;
+            this.multiPlayerStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.multiPlayerStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.multiPlayerStart.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.multiPlayerStart.ForeColor = System.Drawing.Color.LightGray;
+            this.multiPlayerStart.Location = new System.Drawing.Point(265, 169);
+            this.multiPlayerStart.Name = "multiPlayerStart";
+            this.multiPlayerStart.Size = new System.Drawing.Size(107, 30);
+            this.multiPlayerStart.TabIndex = 2;
+            this.multiPlayerStart.Text = "Multiplayer";
+            this.multiPlayerStart.UseVisualStyleBackColor = false;
             // 
-            // Options
+            // options
             // 
-            this.Options.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.Options.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Options.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Options.ForeColor = System.Drawing.Color.LightGray;
-            this.Options.Location = new System.Drawing.Point(265, 205);
-            this.Options.Name = "Options";
-            this.Options.Size = new System.Drawing.Size(107, 30);
-            this.Options.TabIndex = 3;
-            this.Options.Text = "Options";
-            this.Options.UseVisualStyleBackColor = false;
-            this.Options.Click += new System.EventHandler(this.Options_Click);
+            this.options.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.options.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.options.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.options.ForeColor = System.Drawing.Color.LightGray;
+            this.options.Location = new System.Drawing.Point(265, 205);
+            this.options.Name = "options";
+            this.options.Size = new System.Drawing.Size(107, 30);
+            this.options.TabIndex = 3;
+            this.options.Text = "options";
+            this.options.UseVisualStyleBackColor = false;
+            this.options.Click += new System.EventHandler(this.Options_Click);
             // 
-            // Instructions
+            // instructions
             // 
-            this.Instructions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.Instructions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Instructions.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Instructions.ForeColor = System.Drawing.Color.LightGray;
-            this.Instructions.Location = new System.Drawing.Point(265, 241);
-            this.Instructions.Name = "Instructions";
-            this.Instructions.Size = new System.Drawing.Size(107, 30);
-            this.Instructions.TabIndex = 4;
-            this.Instructions.Text = "Instructions";
-            this.Instructions.UseVisualStyleBackColor = false;
-            this.Instructions.Click += new System.EventHandler(this.Instructions_Click);
+            this.instructions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.instructions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.instructions.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.instructions.ForeColor = System.Drawing.Color.LightGray;
+            this.instructions.Location = new System.Drawing.Point(265, 241);
+            this.instructions.Name = "instructions";
+            this.instructions.Size = new System.Drawing.Size(107, 30);
+            this.instructions.TabIndex = 4;
+            this.instructions.Text = "instructions";
+            this.instructions.UseVisualStyleBackColor = false;
+            this.instructions.Click += new System.EventHandler(this.Instructions_Click);
             // 
-            // About
+            // about
             // 
-            this.About.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.About.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.About.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.About.ForeColor = System.Drawing.Color.LightGray;
-            this.About.Location = new System.Drawing.Point(265, 279);
-            this.About.Name = "About";
-            this.About.Size = new System.Drawing.Size(107, 30);
-            this.About.TabIndex = 5;
-            this.About.Text = "About";
-            this.About.UseVisualStyleBackColor = false;
-            this.About.Click += new System.EventHandler(this.About_Click);
+            this.about.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.about.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.about.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.about.ForeColor = System.Drawing.Color.LightGray;
+            this.about.Location = new System.Drawing.Point(265, 279);
+            this.about.Name = "about";
+            this.about.Size = new System.Drawing.Size(107, 30);
+            this.about.TabIndex = 5;
+            this.about.Text = "about";
+            this.about.UseVisualStyleBackColor = false;
+            this.about.Click += new System.EventHandler(this.About_Click);
             // 
-            // ExitButton
+            // exitButton
             // 
-            this.ExitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ExitButton.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExitButton.ForeColor = System.Drawing.Color.LightGray;
-            this.ExitButton.Location = new System.Drawing.Point(265, 315);
-            this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(107, 30);
-            this.ExitButton.TabIndex = 6;
-            this.ExitButton.Text = "Exit";
-            this.ExitButton.UseVisualStyleBackColor = false;
-            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
+            this.exitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitButton.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitButton.ForeColor = System.Drawing.Color.LightGray;
+            this.exitButton.Location = new System.Drawing.Point(265, 315);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(107, 30);
+            this.exitButton.TabIndex = 6;
+            this.exitButton.Text = "Exit";
+            this.exitButton.UseVisualStyleBackColor = false;
+            this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 442);
-            this.Controls.Add(this.ExitButton);
-            this.Controls.Add(this.About);
-            this.Controls.Add(this.Instructions);
-            this.Controls.Add(this.Options);
-            this.Controls.Add(this.MultiPlayerStart);
+            this.Controls.Add(this.exitButton);
+            this.Controls.Add(this.about);
+            this.Controls.Add(this.instructions);
+            this.Controls.Add(this.options);
+            this.Controls.Add(this.multiPlayerStart);
             this.Controls.Add(this.gameName);
             this.Controls.Add(this.startGame);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -154,13 +166,5 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button startGame;
-        private System.Windows.Forms.Label gameName;
-        private System.Windows.Forms.Button MultiPlayerStart;
-        private System.Windows.Forms.Button Options;
-        private System.Windows.Forms.Button Instructions;
-        private System.Windows.Forms.Button About;
-        private System.Windows.Forms.Button ExitButton;
     }
 }

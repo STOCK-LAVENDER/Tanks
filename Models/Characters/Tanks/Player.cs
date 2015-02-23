@@ -7,14 +7,14 @@
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
 
-    class Player : Tank, ICollect
+    public class Player : Tank, ICollect
     {
-        private List<ICollectible> inventory = new List<ICollectible>();
-
         private const int DefaultPhysicalAttack = 50;
         private const int DefaultPhysicalDefense = 100;
         private const int DefaultHealthPoints = 200;
         private const double DefaultSpeed = 3;
+
+        private List<ICollectible> inventory = new List<ICollectible>();
         private string info;
 
         public Player(Texture2D objTexture, Rectangle rectangle)
@@ -43,7 +43,7 @@
             if (this.info != null)
             {
                 spriteBatch.DrawString(
-                    GameEngine.font, 
+                    GameEngine.Font, 
                     string.Format(
                         "{0}, UL: {1}, UR: {2}, LL: {3}, LR: {4}", 
                         this.info, 
@@ -63,21 +63,6 @@
                 this.PhysicalAttack += item.DamageEffect;
                 this.HealthPoints += item.HealthEffect;
                 this.PhysicalDefense += item.Defenseffect;
-            }
-        }
-
-        protected virtual void RemoveItemEffects()
-        {
-            foreach (var item in this.Inventory)
-            {
-                this.PhysicalAttack -= item.DamageEffect;
-                this.HealthPoints -= item.HealthEffect;
-                this.PhysicalDefense -= item.Defenseffect;
-            }
-
-            if (this.HealthPoints < 0)
-            {
-                this.HealthPoints = 1;
             }
         }
 
@@ -104,22 +89,26 @@
             if (state.IsKeyDown(Keys.Up))
             {
                 this.Direction = Direction.Up;
+                this.Speed = 3;
             }
             else if (state.IsKeyDown(Keys.Down))
             {
                 this.Direction = Direction.Down;
+                this.Speed = 3;
             }
             else if (state.IsKeyDown(Keys.Left))
             {
                 this.Direction = Direction.Left;
+                this.Speed = 3;
             }
             else if (state.IsKeyDown(Keys.Right))
             {
                 this.Direction = Direction.Right;
+                this.Speed = 3;
             }
             else
             {
-                this.Direction = Direction.Still;
+                this.Speed = 0;
             }
         }
 
@@ -137,6 +126,27 @@
             }
 
             base.Update();
+
+            KeyboardState state = Keyboard.GetState();
+            if (state.IsKeyDown(Keys.Space))
+            {
+                this.Shoot(this.Direction);
+            }
+        }
+
+        protected virtual void RemoveItemEffects()
+        {
+            foreach (var item in this.Inventory)
+            {
+                this.PhysicalAttack -= item.DamageEffect;
+                this.HealthPoints -= item.HealthEffect;
+                this.PhysicalDefense -= item.Defenseffect;
+            }
+
+            if (this.HealthPoints < 0)
+            {
+                this.HealthPoints = 1;
+            }
         }
     }
 }
