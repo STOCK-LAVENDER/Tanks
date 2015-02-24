@@ -59,39 +59,19 @@
             {
                 case Direction.Up:
                     this.rotationAngle = this.angleUp;
-
-                    this.Rectangle = new Rectangle(
-                        this.Rectangle.X,
-                        (int)(this.Rectangle.Y - this.Speed),
-                        this.Rectangle.Width,
-                        this.Rectangle.Height);
+                    this.rectangle.Y -= (int)this.Speed;
                     break;
                 case Direction.Down:
                     this.rotationAngle = this.angleDown;
-
-                    this.Rectangle = new Rectangle(
-                        this.Rectangle.X,
-                        (int)(this.Rectangle.Y + this.Speed),
-                        this.Rectangle.Width,
-                        this.Rectangle.Height);
+                    this.rectangle.Y += (int)this.Speed;
                     break;
                 case Direction.Left:
                     this.rotationAngle = this.angleLeft;
-
-                    this.Rectangle = new Rectangle(
-                        (int)(this.Rectangle.X - this.Speed),
-                        this.Rectangle.Y,
-                        this.Rectangle.Width,
-                        this.Rectangle.Height);
+                    this.rectangle.X -= (int)this.Speed;
                     break;
                 case Direction.Right:
                     this.rotationAngle = this.angleRight;
-
-                    this.Rectangle = new Rectangle(
-                        (int)(this.Rectangle.X + this.Speed),
-                        this.Rectangle.Y,
-                        this.Rectangle.Width,
-                        this.Rectangle.Height);
+                    this.rectangle.X += (int)this.Speed;
                     break;
             }
 
@@ -107,19 +87,19 @@
 
             if (isOnLeftBorder)
             {
-                this.Rectangle = new Rectangle(this.objTexture.Width / 2, this.Rectangle.Y, this.Rectangle.Width, this.Rectangle.Height);
+                this.rectangle.X = this.objTexture.Width/2;
             }
             else if (isOnRightBorder)
             {
-                this.Rectangle = new Rectangle(GameEngine.WindowWidth - (this.objTexture.Width / 2), this.Rectangle.Y, this.Rectangle.Width, this.Rectangle.Height);
+                this.rectangle.X = (GameEngine.WindowWidth - (this.objTexture.Width/2));
             }
             else if (isOnBottomBorder)
             {
-                this.Rectangle = new Rectangle(this.Rectangle.X, GameEngine.WindowHeight - (this.objTexture.Height / 2), this.Rectangle.Width, this.Rectangle.Height);
+                this.rectangle.Y = GameEngine.WindowHeight - (this.objTexture.Height/2);
             }
             else if (isOnTopBorder)
             {
-                this.Rectangle = new Rectangle(this.Rectangle.X, this.objTexture.Height / 2, this.Rectangle.Width, this.Rectangle.Height);
+                this.rectangle.Y = this.objTexture.Height/2;
             }
         }
 

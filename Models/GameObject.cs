@@ -7,8 +7,8 @@
 
     public abstract class GameObject : ICollidable
     {
-        public Texture2D objTexture;
-        private Rectangle rectangle;
+        protected Texture2D objTexture;
+        protected Rectangle rectangle;
 
         protected GameObject(
             Texture2D objTexture,
