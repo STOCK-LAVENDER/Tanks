@@ -53,7 +53,7 @@
             : base()
         {
             this.graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
+            this.Content.RootDirectory = "Content";
         }
 
         /// <summary>
@@ -74,28 +74,29 @@
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            this.spriteBatch = new SpriteBatch(GraphicsDevice);
+            this.spriteBatch = new SpriteBatch(this.GraphicsDevice);
 
             this.graphics.PreferredBackBufferWidth = WindowWidth;
             this.graphics.PreferredBackBufferHeight = WindowHeight;
             this.graphics.ApplyChanges();
-            Font = Content.Load<SpriteFont>("Graphics/Fonts/ArialFont");
+            Font = this.Content.Load<SpriteFont>("Graphics/Fonts/ArialFont");
 
             //Sounds
             this.backgroundSong = this.Content.Load<Song>("Sound/SoundFX/Failing Defense");
             SoundHandler.HandleBackgroundSoundEffect(this.backgroundSong);
             this.soundTankShootingEffect =
                 this.Content.Load<SoundEffect>("Sound/SoundFX/Gun_Shot-Marvin-1140816320 1");
-            this.soundTankShootingInstance = soundTankShootingEffect.CreateInstance();
-            this.basicTankTexture = Content.Load<Texture2D>("Graphics/Sprites/basicTank");
+            this.soundTankShootingInstance = this.soundTankShootingEffect.CreateInstance();
+            this.basicTankTexture = this.Content.Load<Texture2D>("Graphics/Sprites/basicTank");
             this.player = new Player(this.basicTankTexture, new Rectangle(25, 25, 50, 50), this.soundTankShootingInstance);
             this.enemyTank = new BasicTank(this.basicTankTexture, new Rectangle(500, 400, 50, 50));
 
-            this.basicWallTexture = Content.Load<Texture2D>("Graphics/Sprites/basicWall");
-            this.basicBushTexture = Content.Load<Texture2D>("Graphics/Sprites/basicBush");
-            this.basicIceLakeTexture = Content.Load<Texture2D>("Graphics/Sprites/icelake");
-            this.speedUpEffectTexture = Content.Load<Texture2D>("Graphics/Sprites/speedy");
-            BulletTexture = Content.Load<Texture2D>("Graphics/Sprites/bullet");
+            this.basicWallTexture = this.Content.Load<Texture2D>("Graphics/Sprites/basicWall");
+            this.basicBushTexture = this.Content.Load<Texture2D>("Graphics/Sprites/basicBush");
+            this.basicIceLakeTexture = this.Content.Load<Texture2D>("Graphics/Sprites/icelake");
+            this.speedUpEffectTexture = this.Content.Load<Texture2D>("Graphics/Sprites/speedy");
+            BulletTexture = this.Content.Load<Texture2D>("Graphics/Sprites/cannonBullet");
+            
             this.speedPowerUp = new SpeedPowerUp(this.speedUpEffectTexture, new Rectangle(20, 160, 50, 50));
 
             GameObjects = MapLoader.LoadMap(this.spriteBatch, this.basicWallTexture, this.basicBushTexture, this.basicIceLakeTexture);

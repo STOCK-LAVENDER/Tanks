@@ -58,20 +58,21 @@ namespace UltimateTankClash.Models.Characters
         public void Shoot(Direction direction)
         {
             Rectangle bulletPosition;
-
+            int rectangleBulletMinimizedWidth = this.Rectangle.Width / 3;
+            int rectangleBulletMinimizedHeight = this.Rectangle.Height / 3;
             switch (direction)
             {
                 case Direction.Down:
-                    bulletPosition = new Rectangle(this.Rectangle.X, this.Rectangle.Y + this.Rectangle.Height, this.Rectangle.Width, this.Rectangle.Height);
+                    bulletPosition = new Rectangle(this.Rectangle.X + (this.Rectangle.Width / 3), this.Rectangle.Y + this.Rectangle.Height, rectangleBulletMinimizedWidth, rectangleBulletMinimizedHeight);
                     break;
                 case Direction.Up:
-                    bulletPosition = new Rectangle(this.Rectangle.X, this.Rectangle.Y - this.Rectangle.Height, this.Rectangle.Width, this.Rectangle.Height);
+                    bulletPosition = new Rectangle(this.Rectangle.X + (this.Rectangle.Width / 3), this.Rectangle.Y - (this.Rectangle.Height / 2), rectangleBulletMinimizedWidth, rectangleBulletMinimizedHeight);
                     break;
                 case Direction.Left:
-                    bulletPosition = new Rectangle(this.Rectangle.X - this.Rectangle.Width, this.Rectangle.Y, this.Rectangle.Width, this.Rectangle.Height);
+                    bulletPosition = new Rectangle(this.Rectangle.X - (this.Rectangle.Width / 2), this.Rectangle.Y + (this.Rectangle.Height / 3), rectangleBulletMinimizedWidth, rectangleBulletMinimizedHeight);
                     break;
                 case Direction.Right:
-                    bulletPosition = new Rectangle(this.Rectangle.X + this.Rectangle.Width, this.Rectangle.Y, this.Rectangle.Width, this.Rectangle.Height);
+                    bulletPosition = new Rectangle(this.Rectangle.X + this.Rectangle.Width, this.Rectangle.Y + (this.Rectangle.Height / 3), rectangleBulletMinimizedWidth, rectangleBulletMinimizedHeight);
                     break;
                 default:
                     throw new Exception();

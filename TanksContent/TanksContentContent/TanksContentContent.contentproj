@@ -120,13 +120,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sound\SoundFX\MP5_SMG-GunGuru-703432894.wav">
-      <Name>MP5_SMG-GunGuru-703432894</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Sound\SoundFX\Gun_Shot-Marvin-1140816320 1.wav">
       <Name>Gun_Shot-Marvin-1140816320 1</Name>
       <Importer>WavImporter</Importer>
@@ -138,6 +131,13 @@
       <Name>Failing Defense</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Graphics\Sprites\cannonBullet.png">
+      <Name>cannonBullet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
