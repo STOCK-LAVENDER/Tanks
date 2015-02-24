@@ -63,6 +63,15 @@ namespace UltimateTankClash.Resources.Sounds {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Grenade_Explosion_SoundBible_com_2100581469_1 {
+            get {
+                return ResourceManager.GetStream("Grenade_Explosion_SoundBible_com_2100581469_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
         internal static System.IO.UnmanagedMemoryStream Volatile_Reaction {
             get {
                 return ResourceManager.GetStream("Volatile_Reaction", resourceCulture);

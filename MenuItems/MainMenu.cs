@@ -34,6 +34,7 @@
         private void InitializeMenuBackgroundMusic()
         {
             this.simpleSound = (new SoundPlayer(MenuBackgroundMusic.Volatile_Reaction));
+            MediaPlayer.Volume = 1f;
             this.simpleSound.Play();
         }
 

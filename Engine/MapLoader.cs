@@ -30,7 +30,7 @@
 
                         if (ch == 'W')
                         {
-                            gameObjects.Add(new BasicWall(textures[0], new Rectangle(positionX - 25, positionY - 25, 50, 50)));
+                            gameObjects.Add(new BasicWall(textures[0], new Rectangle(positionX + 20, positionY - 25, 70, 70)));
                         }
 
                         if (ch == 'B')

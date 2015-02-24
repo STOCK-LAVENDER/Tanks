@@ -27,8 +27,8 @@
     /// </summary>
     public class GameEngine : Game
     {
-        public const int WindowWidth = 800;
-        public const int WindowHeight = 600;
+        public const int WindowWidth = 1024;
+        public const int WindowHeight = 640;
 
         public static List<GameObject> GameObjects = new List<GameObject>();
         public static SpriteFont Font;
@@ -36,8 +36,11 @@
 
         private Texture2D basicTankTexture;
         private Player player;
+        private Texture2D playerTankTexture;
         private BasicTank enemyTank;
         private Texture2D basicWallTexture;
+        private Texture2D orangeEnemyTankTexture;
+
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
         private Texture2D basicBushTexture;
@@ -82,16 +85,18 @@
             Font = this.Content.Load<SpriteFont>("Graphics/Fonts/ArialFont");
 
             //Sounds
-            this.backgroundSong = this.Content.Load<Song>("Sound/SoundFX/Failing Defense");
+            this.backgroundSong = this.Content.Load<Song>("Sound/SoundFX/Failing Defense-1");
             SoundHandler.HandleBackgroundSoundEffect(this.backgroundSong);
             this.soundTankShootingEffect =
                 this.Content.Load<SoundEffect>("Sound/SoundFX/Gun_Shot-Marvin-1140816320 1");
             this.soundTankShootingInstance = this.soundTankShootingEffect.CreateInstance();
             this.basicTankTexture = this.Content.Load<Texture2D>("Graphics/Sprites/basicTank");
-            this.player = new Player(this.basicTankTexture, new Rectangle(25, 25, 50, 50), this.soundTankShootingInstance);
+            this.playerTankTexture = this.Content.Load<Texture2D>("Graphics/Sprites/23vnh8n");
+            this.player = new Player(this.playerTankTexture, new Rectangle(25, 25, this.playerTankTexture.Width, this.playerTankTexture.Height), this.soundTankShootingInstance);
             this.enemyTank = new BasicTank(this.basicTankTexture, new Rectangle(500, 400, 50, 50));
+            this.orangeEnemyTankTexture = this.Content.Load<Texture2D>("Graphics/Sprites/tank");
 
-            this.basicWallTexture = this.Content.Load<Texture2D>("Graphics/Sprites/basicWall");
+            this.basicWallTexture = this.Content.Load<Texture2D>("Graphics/Sprites/Bricks");
             this.basicBushTexture = this.Content.Load<Texture2D>("Graphics/Sprites/basicBush");
             this.basicIceLakeTexture = this.Content.Load<Texture2D>("Graphics/Sprites/icelake");
             this.speedUpEffectTexture = this.Content.Load<Texture2D>("Graphics/Sprites/speedy");
@@ -102,7 +107,8 @@
             GameObjects = MapLoader.LoadMap(this.spriteBatch, this.basicWallTexture, this.basicBushTexture, this.basicIceLakeTexture);
             GameObjects.Add(this.player);
             GameObjects.Add(this.enemyTank);
-
+            //Test adding second enemy tank. Delete this code before Production!
+            GameObjects.Add(new BasicTank(this.orangeEnemyTankTexture, new Rectangle(300, 400, this.orangeEnemyTankTexture.Width, this.orangeEnemyTankTexture.Height)));
             GameObjects.Add(this.speedPowerUp);
         }
 

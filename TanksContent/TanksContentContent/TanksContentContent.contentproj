@@ -127,15 +127,36 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sound\SoundFX\Failing Defense.mp3">
-      <Name>Failing Defense</Name>
+    <Compile Include="Graphics\Sprites\cannonBullet.png">
+      <Name>cannonBullet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sound\SoundFX\Failing Defense-1.mp3">
+      <Name>Failing Defense-1</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Graphics\Sprites\cannonBullet.png">
-      <Name>cannonBullet</Name>
+    <Compile Include="Graphics\Sprites\23vnh8n.png">
+      <Name>23vnh8n</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Graphics\Sprites\Bricks.png">
+      <Name>Bricks</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Graphics\Sprites\tank.png">
+      <Name>tank</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

@@ -69,10 +69,10 @@ namespace UltimateTankClash.Models.Characters
                     bulletPosition = new Rectangle(this.Rectangle.X + (this.Rectangle.Width / 3), this.Rectangle.Y - (this.Rectangle.Height / 2), rectangleBulletMinimizedWidth, rectangleBulletMinimizedHeight);
                     break;
                 case Direction.Left:
-                    bulletPosition = new Rectangle(this.Rectangle.X - (this.Rectangle.Width / 2), this.Rectangle.Y + (this.Rectangle.Height / 3), rectangleBulletMinimizedWidth, rectangleBulletMinimizedHeight);
+                    bulletPosition = new Rectangle(this.Rectangle.X - (this.Rectangle.Width / 2), this.Rectangle.Y + (this.Rectangle.Height / 4), rectangleBulletMinimizedWidth, rectangleBulletMinimizedHeight);
                     break;
                 case Direction.Right:
-                    bulletPosition = new Rectangle(this.Rectangle.X + this.Rectangle.Width, this.Rectangle.Y + (this.Rectangle.Height / 3), rectangleBulletMinimizedWidth, rectangleBulletMinimizedHeight);
+                    bulletPosition = new Rectangle(this.Rectangle.X + this.Rectangle.Width, this.Rectangle.Y + (this.Rectangle.Height / 4), rectangleBulletMinimizedWidth, rectangleBulletMinimizedHeight);
                     break;
                 default:
                     throw new Exception();

@@ -6,6 +6,7 @@
     using Interfaces;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
+    using Resources.Sounds;
 
     public abstract class Ammunition : GameObject, IAttack, IMoveable
     {
@@ -77,6 +78,7 @@
             if (hitObject is Character || hitObject is Obstacle)
             {
                 this.State = GameObjectState.Destroyed;
+                SoundHandler.HandleDestroyObjectSoundEffect();
             }
         }
     }
