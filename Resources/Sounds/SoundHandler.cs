@@ -1,5 +1,6 @@
 ﻿namespace UltimateTankClash.Resources.Sounds
 {
+    using System.Windows.Forms;
     using Microsoft.Xna.Framework.Media;
 
     public static class SoundHandler

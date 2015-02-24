@@ -10,6 +10,7 @@
 
     public partial class MainMenu : BackgroundForm
     {
+        private SoundPlayer simpleSound;
         public MainMenu()
         {
             this.InitializeMenuBackgroundMusic();
@@ -18,6 +19,7 @@
 
         public void StartGame()
         {
+            this.simpleSound.Stop();
             GameEngine game = new GameEngine();
             game.Run();
         }
@@ -31,8 +33,8 @@
 
         private void InitializeMenuBackgroundMusic()
         {
-            SoundPlayer simpleSound = (new SoundPlayer(MenuBackgroundMusic.Volatile_Reaction));
-            simpleSound.Play();
+            this.simpleSound = (new SoundPlayer(MenuBackgroundMusic.Volatile_Reaction));
+            this.simpleSound.Play();
         }
 
         private void StartGameOnClick(object sender, EventArgs e)
@@ -62,6 +64,11 @@
         }
 
         private void gameName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainMenu_Load(object sender, EventArgs e)
         {
 
         }
