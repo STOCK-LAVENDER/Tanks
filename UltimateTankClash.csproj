@@ -107,6 +107,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Sounds\MenuBackgroundMusic.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MenuBackgroundMusic.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Sounds\SoundHandler.cs" />
     <Compile Include="UltimateTankClashApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -124,6 +129,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
+    <None Include="Resources\Sounds\Volatile Reaction.wav" />
     <None Include="Resources\img.jpg" />
     <None Include="Resources\cover.jpg" />
   </ItemGroup>
@@ -155,6 +161,10 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Sounds\MenuBackgroundMusic.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MenuBackgroundMusic.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

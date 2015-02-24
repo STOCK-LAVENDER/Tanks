@@ -1,13 +1,18 @@
 ﻿namespace UltimateTankClash.MenuItems
 {
     using System;
+    using System.IO;
+    using System.Media;
     using System.Threading;
     using Engine;
+    using Microsoft.Xna.Framework.Media;
+    using Resources.Sounds;
 
     public partial class MainMenu : BackgroundForm
     {
         public MainMenu()
         {
+            this.InitializeMenuBackgroundMusic();
             this.InitializeComponent();
         }
 
@@ -22,6 +27,12 @@
             this.Hide();
             OptionsForm optionsForm = new OptionsForm();
             optionsForm.ShowDialog();
+        }
+
+        private void InitializeMenuBackgroundMusic()
+        {
+            SoundPlayer simpleSound = (new SoundPlayer(MenuBackgroundMusic.Volatile_Reaction));
+            simpleSound.Play();
         }
 
         private void StartGameOnClick(object sender, EventArgs e)
@@ -48,6 +59,11 @@
         private void ExitButton_Click(object sender, EventArgs e)
         {
             Environment.Exit(1);
+        }
+
+        private void gameName_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
