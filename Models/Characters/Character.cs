@@ -40,13 +40,17 @@ namespace UltimateTankClash.Models.Characters
         {
             if (hitObject is Character || hitObject is Obstacle || hitObject is Ammunition)
             {
-                this.Rectangle = new Rectangle((int)this.PreviousPosition.X, (int)this.PreviousPosition.Y, this.Rectangle.Width, this.Rectangle.Height);
+                this.Rectangle = new Rectangle(
+                    (int)this.PreviousPosition.X, 
+                    (int)this.PreviousPosition.Y, 
+                    this.Rectangle.Width, 
+                    this.Rectangle.Height);
             }
 
             if (hitObject is Ammunition)
             {
                 Ammunition ammunition = (Ammunition)hitObject;
-                this.HealthPoints -= ammunition.PhysicalAttack;
+                this.HealthPoints -= ammunition.PhysicalAttack - this.PhysicalDefense;
             }
 
             if (this.HealthPoints <= 0)
@@ -60,19 +64,36 @@ namespace UltimateTankClash.Models.Characters
             Rectangle bulletPosition;
             int rectangleBulletMinimizedWidth = this.Rectangle.Width / 3;
             int rectangleBulletMinimizedHeight = this.Rectangle.Height / 3;
+
             switch (direction)
             {
                 case Direction.Down:
-                    bulletPosition = new Rectangle(this.Rectangle.X + (this.Rectangle.Width / 3), this.Rectangle.Y + this.Rectangle.Height, rectangleBulletMinimizedWidth, rectangleBulletMinimizedHeight);
+                    bulletPosition = new Rectangle(
+                        this.Rectangle.X + (this.Rectangle.Width / 3), 
+                        this.Rectangle.Y + this.Rectangle.Height, 
+                        rectangleBulletMinimizedWidth, 
+                        rectangleBulletMinimizedHeight);
                     break;
                 case Direction.Up:
-                    bulletPosition = new Rectangle(this.Rectangle.X + (this.Rectangle.Width / 3), this.Rectangle.Y - (this.Rectangle.Height / 2), rectangleBulletMinimizedWidth, rectangleBulletMinimizedHeight);
+                    bulletPosition = new Rectangle(
+                        this.Rectangle.X + (this.Rectangle.Width / 3), 
+                        this.Rectangle.Y - (this.Rectangle.Height / 2), 
+                        rectangleBulletMinimizedWidth, 
+                        rectangleBulletMinimizedHeight);
                     break;
                 case Direction.Left:
-                    bulletPosition = new Rectangle(this.Rectangle.X - (this.Rectangle.Width / 2), this.Rectangle.Y + (this.Rectangle.Height / 4), rectangleBulletMinimizedWidth, rectangleBulletMinimizedHeight);
+                    bulletPosition = new Rectangle(
+                        this.Rectangle.X - (this.Rectangle.Width / 2), 
+                        this.Rectangle.Y + (this.Rectangle.Height / 4), 
+                        rectangleBulletMinimizedWidth, 
+                        rectangleBulletMinimizedHeight);
                     break;
                 case Direction.Right:
-                    bulletPosition = new Rectangle(this.Rectangle.X + this.Rectangle.Width, this.Rectangle.Y + (this.Rectangle.Height / 4), rectangleBulletMinimizedWidth, rectangleBulletMinimizedHeight);
+                    bulletPosition = new Rectangle(
+                        this.Rectangle.X + this.Rectangle.Width, 
+                        this.Rectangle.Y + (this.Rectangle.Height / 4), 
+                        rectangleBulletMinimizedWidth, 
+                        rectangleBulletMinimizedHeight);
                     break;
                 default:
                     throw new Exception();

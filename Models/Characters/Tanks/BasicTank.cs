@@ -1,6 +1,8 @@
 ﻿namespace UltimateTankClash.Models.Characters.Tanks
 {
     using System;
+    using System.Linq;
+    using Engine;
     using GameObstacles;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
@@ -8,15 +10,17 @@
     public class BasicTank : Tank
     {
         private const int DefaultPhysicalAttack = 50;
-        private const int DefaultPhysicalDefense = 100;
-        private const int DefaultHealthPoints = 1000;
-        private const int DefaultSpeed = 3;
-        private const int TimeBetweenDirectionSwitches = 50;
+        private const int DefaultPhysicalDefense = 10;
+        private const int DefaultHealthPoints = 750;
+        private const int DefaultSpeed = 2;
+        private const int TimeBetweenDirectionSwitches = 100;
+        private const int TimeBetweenShots = 50;
 
         private static readonly string[] Directions = Enum.GetNames(typeof(Direction));
         private static Random rnd = new Random();
 
         private int ticks = 0;
+        private int shotTimeout = TimeBetweenShots;
         private Direction currentDirection = Direction.Up;
 
         public BasicTank(Texture2D objTexture, Rectangle rectangle)
@@ -42,6 +46,12 @@
             }
         }
 
+        public override void Update()
+        {
+            base.Update();
+            this.CheckPlayerInSight();
+        }
+
         private void ChangeDirection()
         {
             string newDirection = this.currentDirection.ToString();
@@ -54,6 +64,45 @@
             this.currentDirection = (Direction)Enum.Parse(typeof(Direction), newDirection);
 
             this.Direction = this.currentDirection;
+        }
+
+        private void CheckPlayerInSight()
+        {
+            Rectangle leftView = new Rectangle(-25, this.Rectangle.Y, this.Rectangle.X, this.Rectangle.Height);
+            var inSight = GameEngine.GameObjects.FirstOrDefault(x => x is Player && x.Rectangle.Intersects(leftView));
+            OpenFiringSequence(inSight, Direction.Left);
+
+            Rectangle rightView = new Rectangle(this.Rectangle.X, this.Rectangle.Y, GameEngine.WindowWidth - this.Rectangle.X, this.Rectangle.Height);
+            inSight = GameEngine.GameObjects.FirstOrDefault(x => x is Player && x.Rectangle.Intersects(rightView));
+            OpenFiringSequence(inSight, Direction.Right);
+
+            Rectangle topView = new Rectangle(this.Rectangle.X, -25, this.Rectangle.Width, this.Rectangle.Y);
+            inSight = GameEngine.GameObjects.FirstOrDefault(x => x is Player && x.Rectangle.Intersects(topView));
+            OpenFiringSequence(inSight, Direction.Up);
+
+            Rectangle bottomView = new Rectangle(this.Rectangle.X, this.Rectangle.Y, this.Rectangle.Width, GameEngine.WindowHeight - this.Rectangle.Height);
+            inSight = GameEngine.GameObjects.FirstOrDefault(x => x is Player && x.Rectangle.Intersects(bottomView));
+            OpenFiringSequence(inSight, Direction.Down);
+        }
+
+        private void OpenFiringSequence(GameObject player, Direction direction)
+        {
+            if (player != null)
+            {
+                this.shotTimeout--;
+
+                if (this.shotTimeout <= 0)
+                {
+                    this.Speed = 0;
+                    this.Direction = direction;
+                    this.Shoot(direction);
+                    this.shotTimeout = TimeBetweenShots;
+                }
+            }
+            else
+            {
+                this.Speed = DefaultSpeed;
+            }
         }
     }
 }

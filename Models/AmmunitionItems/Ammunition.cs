@@ -2,6 +2,7 @@
 {
     using Characters;
     using Characters.Tanks;
+    using Engine;
     using GameObstacles;
     using Interfaces;
     using Microsoft.Xna.Framework;
@@ -10,7 +11,7 @@
 
     public abstract class Ammunition : GameObject, IAttack, IMoveable
     {
-        private const int DefaultSpeed = 4;
+        private const int DefaultSpeed = 6;
 
         protected Ammunition(Texture2D objTexture, Rectangle rectangle, int damage, Direction direction, double damageModifier)
             : base(objTexture, rectangle)
@@ -71,6 +72,7 @@
         public override void Update()
         {
             this.Move();
+            this.CheckOutOfBounds();
         }
 
         public override void RespondToCollision(GameObject hitObject)
@@ -79,6 +81,17 @@
             {
                 this.State = GameObjectState.Destroyed;
                 SoundHandler.HandleDestroyObjectSoundEffect();
+            }
+        }
+
+        private void CheckOutOfBounds()
+        {
+            if (this.Rectangle.X < -25 ||
+                this.Rectangle.X > GameEngine.WindowWidth + 25 ||
+                this.Rectangle.Y < -25 ||
+                this.Rectangle.Y > GameEngine.WindowHeight + 25)
+            {
+                this.State = GameObjectState.Destroyed;
             }
         }
     }

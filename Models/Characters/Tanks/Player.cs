@@ -1,7 +1,6 @@
 ﻿namespace UltimateTankClash.Models.Characters.Tanks
 {
     using System.Collections.Generic;
-    using Engine;
     using Interfaces;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Audio;
@@ -11,8 +10,8 @@
     public class Player : Tank, ICollect
     {
         private const int DefaultPhysicalAttack = 50;
-        private const int DefaultPhysicalDefense = 100;
-        private const int DefaultHealthPoints = 200;
+        private const int DefaultPhysicalDefense = 15;
+        private const int DefaultHealthPoints = 800;
         private const double DefaultSpeed = 3;
 
         private List<ICollectible> inventory = new List<ICollectible>();
@@ -40,28 +39,6 @@
         }
 
         public SoundEffectInstance SoundEffectInstance { get; private set; }
-
-        public bool HasShot { get; set; }
-
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            base.Draw(spriteBatch);
-
-            if (this.info != null)
-            {
-                spriteBatch.DrawString(
-                    GameEngine.Font, 
-                    string.Format(
-                        "{0}, UL: {1}, UR: {2}, LL: {3}, LR: {4}", 
-                        this.info, 
-                        this.Rectangle.X, 
-                        this.Rectangle.Y, 
-                        this.Rectangle.X + this.Rectangle.Width, 
-                        this.Rectangle.Y + this.Rectangle.Height), 
-                    new Vector2(500, 200), 
-                    Color.Red);
-            }
-        }
 
         public virtual void ApplyItemEffects()
         {
@@ -119,19 +96,8 @@
             }
         }
 
-        public override void RespondToCollision(GameObject hitObject)
-        {
-            base.RespondToCollision(hitObject);
-            this.info = hitObject == null ? "None" : hitObject.GetType().Name;
-        }
-
         public override void Update()
         {
-            if (CollisionHandler.GetCollisionInfo(this) != null)
-            {
-                this.info = CollisionHandler.GetCollisionInfo(this).GetType().Name;
-            }
-
             base.Update();
 
             KeyboardState state = Keyboard.GetState();
