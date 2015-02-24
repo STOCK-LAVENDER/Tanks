@@ -1,5 +1,6 @@
 - Implement shooting (Filip)
-- Implement logic for item production and collection on collision
+- Implement enemy shooting logic (Filip)
+- Implement logic for item production and collection on collision (Filip)
 - Create a main menu with the following submenus:
 -- Level selection and start game
 -- Volume adjustment
