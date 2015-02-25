@@ -152,7 +152,8 @@
 
             if (!this.isGamePaused)
             {
-                var walls = GameObjects.Where(x => !(x is Ammunition)).ToList();
+                var walls = GameObjects.Where(x => !(x is Ammunition) && !(x is CollectibleItem)).ToList();
+                var collectibles = GameObjects.Where(x => x is CollectibleItem).ToList();
                 var ammo = GameObjects.Where(x => x is Ammunition).ToList();
 
                 for (int i = 0; i < GameObjects.Count; i++)
@@ -163,6 +164,11 @@
                 for (int i = 0; i < walls.Count; i++)
                 {
                     walls[i].RespondToCollision(CollisionHandler.GetCollisionInfo(walls[i]));
+                }
+
+                for (int i = 0; i < collectibles.Count; i++)
+                {
+                    collectibles[i].RespondToCollision(CollisionHandler.GetCollisionInfo(collectibles[i]));
                 }
 
                 for (int i = 0; i < ammo.Count; i++)
@@ -190,9 +196,13 @@
             {
                 this.spriteBatch.DrawString(this.gamePauseFont, "Paused", new Vector2(WindowWidth / 3, WindowHeight / 3), Color.BlanchedAlmond);
             }
+            
 
             var characters = GameObjects.Where(x => x is Character);
-            var obstacles = GameObjects.Where(x => x is Obstacle || x is Hideout || x is CollectibleItem);
+            var obstacles = GameObjects.Where(x => x is Obstacle || x is Hideout);
+            var collectibles =
+                GameObjects.Where(
+                    x => x is CollectibleItem && ((CollectibleItem) x).ItemState == CollectibleItemState.Available);
             var bullets = GameObjects.Where(x => x is Ammunition);
 
             foreach (var character in characters)
@@ -203,6 +213,11 @@
             foreach (var character in obstacles)
             {
                 character.Draw(this.spriteBatch);
+            }
+
+            foreach (var item in collectibles)
+            {
+                item.Draw(this.spriteBatch);
             }
 
             foreach (var character in bullets)

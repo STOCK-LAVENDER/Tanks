@@ -16,7 +16,7 @@
         private const int DefaultHealthPoints = 800;
         private const double DefaultSpeed = 3;
 
-        private List<ICollectible> inventory = new List<ICollectible>();
+        private List<CollectibleItem> inventory = new List<CollectibleItem>();
         private string info;
         private SoundEffectInstance soundEffectInstance;
 
@@ -25,9 +25,10 @@
         {
             this.Direction = Direction.Down;
             this.SoundEffectInstance = soundEffectInstance;
+            this.BaseSpeed = DefaultSpeed;
         }
 
-        public List<ICollectible> Inventory
+        public List<CollectibleItem> Inventory
         {
             get
             {
@@ -42,19 +43,7 @@
 
         public SoundEffectInstance SoundEffectInstance { get; private set; }
 
-        public virtual void ApplyItemEffects(ICollectible item)
-        {
-            this.PhysicalAttack += item.DamageEffect;
-            this.HealthPoints += item.HealthEffect;
-            this.PhysicalDefense += item.Defenseffect;
-            this.Speed += item.SpeedEffect;
-        }
-
-        public void AddItemToInventory(ICollectible item)
-        {
-            this.Inventory.Add(item);
-            this.ApplyItemEffects(item);
-        }
+        public double BaseSpeed { get; set; }
 
         public override void Move()
         {
@@ -63,22 +52,22 @@
             if (state.IsKeyDown(Keys.Up))
             {
                 this.Direction = Direction.Up;
-                this.Speed = 3;
+                this.Speed = this.BaseSpeed;
             }
             else if (state.IsKeyDown(Keys.Down))
             {
                 this.Direction = Direction.Down;
-                this.Speed = 3;
+                this.Speed = this.BaseSpeed;
             }
             else if (state.IsKeyDown(Keys.Left))
             {
                 this.Direction = Direction.Left;
-                this.Speed = 3;
+                this.Speed = this.BaseSpeed;
             }
             else if (state.IsKeyDown(Keys.Right))
             {
                 this.Direction = Direction.Right;
-                this.Speed = 3;
+                this.Speed = this.BaseSpeed;
             }
             else
             {
@@ -111,10 +100,25 @@
         {
             base.RespondToCollision(hitObject);
 
-            if (hitObject is ICollectible)
+            if (hitObject is CollectibleItem)
             {
-                this.AddItemToInventory((ICollectible)hitObject);
+                this.AddItemToInventory((CollectibleItem)hitObject);
             }
+        }
+
+        public void AddItemToInventory(CollectibleItem item)
+        {
+            this.Inventory.Add(item);
+            this.ApplyItemEffects(item);
+        }
+
+        public void ApplyItemEffects(CollectibleItem item)
+        {
+            this.PhysicalAttack += item.DamageEffect;
+            this.HealthPoints += item.HealthEffect;
+            this.PhysicalDefense += item.DefenseEffect;
+            this.Speed += item.SpeedEffect;
+            this.BaseSpeed += item.SpeedEffect;
         }
 
         protected virtual void RemoveItemEffects()
@@ -123,8 +127,9 @@
             {
                 this.PhysicalAttack -= item.DamageEffect;
                 this.HealthPoints -= item.HealthEffect;
-                this.PhysicalDefense -= item.Defenseffect;
+                this.PhysicalDefense -= item.DefenseEffect;
                 this.Speed -= item.SpeedEffect;
+                this.BaseSpeed -= item.SpeedEffect;
             }
 
             if (this.HealthPoints < 0)

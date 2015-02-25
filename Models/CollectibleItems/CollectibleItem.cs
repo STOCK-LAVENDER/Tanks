@@ -15,7 +15,7 @@
             this.SpeedEffect = speedEffect;
         }
 
-        protected CollectibleItemState ItemState { get; set; }
+        public CollectibleItemState ItemState { get; set; }
 
         public int DamageEffect { get; set; }
 
@@ -30,6 +30,7 @@
             if (this.ItemState == CollectibleItemState.Collected)
             {
                 this.ItemState = CollectibleItemState.Active;
+                this.Rectangle = new Rectangle(-999, -999, 1, 1);
             }
         }
 
@@ -38,7 +39,6 @@
             if (hitObject is ICollect)
             {
                 this.ItemState = CollectibleItemState.Collected;
-                this.State = GameObjectState.Destroyed;
             }
         }
     }

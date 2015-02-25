@@ -15,7 +15,7 @@
         private const int TimeBetweenDirectionSwitches = 50;
         private const int TimeBetweenShots = 25;
 
-        private List<ICollectible> inventory = new List<ICollectible>();
+        private List<CollectibleItem> inventory = new List<CollectibleItem>();
 
         public BossTank(Texture2D objTexture, Rectangle rectangle)
             : base(objTexture, rectangle, DefaultPhysicalAttack, DefaultPhysicalDefense, DefaultHealthPoints, DefaultSpeed, TimeBetweenDirectionSwitches, TimeBetweenShots)
@@ -28,20 +28,20 @@
 
             if (hitObject is CollectibleItem)
             {
-                this.AddItemToInventory((ICollectible)hitObject);
+                this.AddItemToInventory((CollectibleItem)hitObject);
             }
         }
 
-        public void AddItemToInventory(ICollectible item)
+        public void AddItemToInventory(CollectibleItem item)
         {
             this.inventory.Add(item);
             this.ApplyItemEffects(item);
         }
 
-        public void ApplyItemEffects(ICollectible item)
+        public void ApplyItemEffects(CollectibleItem item)
         {
             this.HealthPoints += item.HealthEffect;
-            this.PhysicalDefense += item.Defenseffect;
+            this.PhysicalDefense += item.DefenseEffect;
             this.PhysicalAttack += item.DamageEffect;
             this.Speed += item.SpeedEffect;
         }
