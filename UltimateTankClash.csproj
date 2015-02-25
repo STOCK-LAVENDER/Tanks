@@ -36,10 +36,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Engine\CollisionHandler.cs" />
-    <Compile Include="Engine\KeyboardController.cs" />
     <Compile Include="Exceptions\InvalidObjectParameterException.cs" />
     <Compile Include="Interfaces\ICollidable.cs" />
-    <Compile Include="Interfaces\IController.cs" />
     <Compile Include="MenuItems\AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +77,11 @@
     <Compile Include="Models\Characters\Bunkers\BasicBunker.cs" />
     <Compile Include="Models\Characters\Bunkers\FortifiedBunker.cs" />
     <Compile Include="Models\Characters\Tanks\Direction.cs" />
+    <Compile Include="Models\Characters\Tanks\Enemies\BasicTank.cs" />
+    <Compile Include="Models\Characters\Tanks\Enemies\BossTank.cs" />
+    <Compile Include="Models\Characters\Tanks\Enemies\EnemyTank.cs" />
+    <Compile Include="Models\Characters\Tanks\Enemies\FastTank.cs" />
+    <Compile Include="Models\Characters\Tanks\Enemies\StrongTank.cs" />
     <Compile Include="Models\Characters\Tanks\Player.cs" />
     <Compile Include="Models\CollectibleItems\CollectibleItem.cs" />
     <Compile Include="Models\CollectibleItems\CollectibleItemState.cs" />
@@ -94,7 +97,6 @@
     <Compile Include="Models\Hideouts\Bushes\Bush.cs" />
     <Compile Include="Models\GameObstacles\Walls\BasicWall.cs" />
     <Compile Include="Models\GameObstacles\Walls\Wall.cs" />
-    <Compile Include="Models\Characters\Tanks\BasicTank.cs" />
     <Compile Include="Engine\GameEngine.cs" />
     <Compile Include="Models\GameObject.cs" />
     <Compile Include="Interfaces\IAttack.cs" />
@@ -133,6 +135,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
+    <Content Include="Resources\Maps\Map_TrainingFields.txt" />
     <None Include="Resources\Grenade Explosion-SoundBible.com-2100581469-1.wav" />
     <None Include="Resources\Depth Charge Shorter-SoundBible.com-1978501900.wav" />
     <None Include="Resources\Sounds\Volatile Reaction.wav" />
@@ -172,9 +175,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>MenuBackgroundMusic.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram2.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

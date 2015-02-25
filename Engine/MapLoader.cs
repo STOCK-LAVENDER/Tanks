@@ -73,10 +73,10 @@
                                 gameObjects.Add(new BossTank(GameEngine.FastTankTexture, new Rectangle(positionX - 25, positionY - 25, 50, 50)));
                                 break;
                             case 'U':
-                                 gameObjects.Add(new BasicBunker(GameEngine.BunkerTeture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
+                                 gameObjects.Add(new BasicBunker(GameEngine.BunkerTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
                                 break;
                             case 'R':
-                                gameObjects.Add(new FortifiedBunker(GameEngine.BunkerTeture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
+                                gameObjects.Add(new FortifiedBunker(GameEngine.BunkerTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
                                 break;
                             case '\n':
                                 positionY += 70;

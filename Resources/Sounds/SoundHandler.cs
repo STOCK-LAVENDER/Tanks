@@ -10,7 +10,7 @@
         {
             MediaPlayer.Play(song);
             
-            MediaPlayer.Volume = 0.3f;
+            MediaPlayer.Volume = 0.2f;
             MediaPlayer.IsRepeating = true;
         }
 
