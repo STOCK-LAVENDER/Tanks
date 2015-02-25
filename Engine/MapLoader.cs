@@ -10,6 +10,7 @@
     using Models.Characters.Bunkers;
     using Models.Characters.Tanks;
     using Models.Characters.Tanks.Enemies;
+    using Models.CollectibleItems;
     using Models.CollectibleItems.PowerUpEffects;
     using Models.GameObstacles.Walls;
     using Models.Hideouts.Bushes;
@@ -77,6 +78,15 @@
                                 break;
                             case 'R':
                                 gameObjects.Add(new FortifiedBunker(GameEngine.BunkerTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
+                                break;
+                            case 'H':
+                                gameObjects.Add(new ShieldPowerUp(GameEngine.BunkerTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70))); // change texture
+                                break;
+                            case 'A':
+                                gameObjects.Add(new ArmorConsumable(GameEngine.BunkerTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70))); // change
+                                break;
+                            case 'E':
+                                gameObjects.Add(new HealthConsumable(GameEngine.BunkerTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70))); // change
                                 break;
                             case '\n':
                                 positionY += 70;
