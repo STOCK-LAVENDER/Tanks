@@ -1,6 +1,8 @@
 ﻿namespace UltimateTankClash.Engine
 {
     using System;
+    using System.Threading;
+    using System.Windows.Forms.VisualStyles;
     using Interfaces;
     using Microsoft.Xna.Framework.Input;
 
@@ -18,6 +20,7 @@
                 if (this.Pause != null)
                 {
                     this.Pause(this, new EventArgs());
+                    Thread.Sleep(150);
                 }
             }
         }
