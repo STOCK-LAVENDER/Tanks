@@ -36,25 +36,25 @@
             if (player != null && player.IsVisible)
             {
                 Rectangle leftView = new Rectangle(-25, this.Rectangle.Y, this.Rectangle.X, this.Rectangle.Height);
-                if (player.Rectangle.Intersects(leftView))
+                if (player.Rectangle.Intersects(leftView) && !CollisionHandler.ObstaclesObstructingView(leftView))
                 {
                     this.OpenFiringSequence(player, Direction.Left);
                 }
 
                 Rectangle rightView = new Rectangle(this.Rectangle.X, this.Rectangle.Y, GameEngine.WindowWidth - this.Rectangle.X, this.Rectangle.Height);
-                if (player.Rectangle.Intersects(rightView))
+                if (player.Rectangle.Intersects(rightView) && !CollisionHandler.ObstaclesObstructingView(rightView))
                 {
                     this.OpenFiringSequence(player, Direction.Right);
                 }
 
                 Rectangle topView = new Rectangle(this.Rectangle.X, -25, this.Rectangle.Width, this.Rectangle.Y);
-                if (player.Rectangle.Intersects(topView))
+                if (player.Rectangle.Intersects(topView) && !CollisionHandler.ObstaclesObstructingView(topView))
                 {
                     this.OpenFiringSequence(player, Direction.Up);
                 }
 
                 Rectangle bottomView = new Rectangle(this.Rectangle.X, this.Rectangle.Y, this.Rectangle.Width, GameEngine.WindowHeight - this.Rectangle.Height);
-                if (player.Rectangle.Intersects(bottomView))
+                if (player.Rectangle.Intersects(bottomView) && !CollisionHandler.ObstaclesObstructingView(bottomView))
                 {
                     this.OpenFiringSequence(player, Direction.Down);
                 }

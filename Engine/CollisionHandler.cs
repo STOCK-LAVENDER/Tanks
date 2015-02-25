@@ -1,8 +1,13 @@
 ﻿namespace UltimateTankClash.Engine
 {
+    using System.Collections.Generic;
     using System.Linq;
+    using Microsoft.Xna.Framework;
     using Models;
     using Models.AmmunitionItems;
+    using Models.Characters.Bunkers;
+    using Models.Characters.Tanks.Enemies;
+    using Models.GameObstacles;
     using Models.GameObstacles.Walls;
 
     public static class CollisionHandler
@@ -19,5 +24,13 @@
 
             return collidingObject;
         }
+
+        public static bool ObstaclesObstructingView(Rectangle rect)
+        {
+            var obstacles = GameEngine.GameObjects.Where(
+                    x => (x is Obstacle || x is EnemyTank || x is Bunker) && x.Rectangle.Intersects(rect));
+
+            return obstacles.Any();
+        } 
     }
 }
