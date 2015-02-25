@@ -34,7 +34,7 @@
         public override void Move()
         {
             this.ticks++;
-            if (this.ticks % TimeBetweenDirectionChange == 0)
+            if (this.ticks % this.TimeBetweenDirectionChange == 0)
             {
                 this.ChangeDirection();
             }
@@ -78,32 +78,31 @@
                 Rectangle leftView = new Rectangle(-25, this.Rectangle.Y, this.Rectangle.X, this.Rectangle.Height);
                 if (player.Rectangle.Intersects(leftView))
                 {
-                    OpenFiringSequence(player, Direction.Left);
+                    this.OpenFiringSequence(player, Direction.Left);
                 }
 
                 Rectangle rightView = new Rectangle(this.Rectangle.X, this.Rectangle.Y, GameEngine.WindowWidth - this.Rectangle.X, this.Rectangle.Height);
                 if (player.Rectangle.Intersects(rightView))
                 {
-                    OpenFiringSequence(player, Direction.Right);
+                    this.OpenFiringSequence(player, Direction.Right);
                 }
 
                 Rectangle topView = new Rectangle(this.Rectangle.X, -25, this.Rectangle.Width, this.Rectangle.Y);
                 if (player.Rectangle.Intersects(topView))
                 {
-                    OpenFiringSequence(player, Direction.Up);
+                    this.OpenFiringSequence(player, Direction.Up);
                 }
 
                 Rectangle bottomView = new Rectangle(this.Rectangle.X, this.Rectangle.Y, this.Rectangle.Width, GameEngine.WindowHeight - this.Rectangle.Height);
                 if (player.Rectangle.Intersects(bottomView))
                 {
-                    OpenFiringSequence(player, Direction.Down);
+                    this.OpenFiringSequence(player, Direction.Down);
                 }
             }
         }
 
         private void OpenFiringSequence(GameObject player, Direction direction)
         {
-
             this.shotTimeout--;
 
             if (this.shotTimeout <= 0)

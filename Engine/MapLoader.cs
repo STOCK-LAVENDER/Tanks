@@ -46,7 +46,7 @@
                         switch (currentSymbol)
                         {
                             case 'W':
-                                gameObjects.Add(new BasicWall(GameEngine.BasicWallTexture, new Rectangle(positionX -25, positionY - 25, 70, 70)));
+                                gameObjects.Add(new BasicWall(GameEngine.BasicWallTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
                                 break;
                             case 'B':
                                 gameObjects.Add(new Bush(GameEngine.BasicBushTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
@@ -56,14 +56,14 @@
                                 break;
                             case 'P':
                                 gameObjects.Add(new Player(
-                                    GameEngine.PlayerTankTexture, 
-                                    new Rectangle(25, 25, GameEngine.PlayerTankTexture.Width, GameEngine.PlayerTankTexture.Height), 
+                                    GameEngine.PlayerTankTexture,
+                                    new Rectangle(25, 25, GameEngine.PlayerTankTexture.Width, GameEngine.PlayerTankTexture.Height),
                                     GameEngine.SoundTankShootingInstance));
                                 break;
                             case 'T':
                                 gameObjects.Add(new BasicTank(GameEngine.BasicTankTexture, new Rectangle(positionX - 25, positionY - 25, 50, 50)));
                                 break;
-                            case 'F': 
+                            case 'F':
                                 gameObjects.Add(new FastTank(GameEngine.FastTankTexture, new Rectangle(positionX - 25, positionY - 25, 50, 50)));
                                 break;
                             case 'S':
@@ -73,7 +73,7 @@
                                 gameObjects.Add(new BossTank(GameEngine.FastTankTexture, new Rectangle(positionX - 25, positionY - 25, 50, 50)));
                                 break;
                             case 'U':
-                                 gameObjects.Add(new BasicBunker(GameEngine.BunkerTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
+                                gameObjects.Add(new BasicBunker(GameEngine.BunkerTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
                                 break;
                             case 'R':
                                 gameObjects.Add(new FortifiedBunker(GameEngine.BunkerTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));

@@ -10,6 +10,7 @@
     public partial class MainMenu : BackgroundForm
     {
         private SoundPlayer simpleSound;
+
         public MainMenu()
         {
             this.InitializeMenuBackgroundMusic();
@@ -33,7 +34,7 @@
 
         private void InitializeMenuBackgroundMusic()
         {
-            this.simpleSound = (new SoundPlayer(MenuBackgroundMusic.Volatile_Reaction));
+            this.simpleSound = new SoundPlayer(MenuBackgroundMusic.Volatile_Reaction);
             MediaPlayer.Volume = 1f;
             this.simpleSound.Play();
         }
@@ -64,14 +65,12 @@
             Environment.Exit(1);
         }
 
-        private void gameName_Click(object sender, EventArgs e)
+        private void GameName_Click(object sender, EventArgs e)
         {
-
         }
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

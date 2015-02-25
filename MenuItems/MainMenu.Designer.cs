@@ -74,7 +74,7 @@
             this.gameName.Size = new System.Drawing.Size(550, 80);
             this.gameName.TabIndex = 0;
             this.gameName.Text = "Ultimate Tank Clash";
-            this.gameName.Click += new System.EventHandler(this.gameName_Click);
+            this.gameName.Click += new System.EventHandler(this.GameName_Click);
             // 
             // multiPlayerStart
             // 

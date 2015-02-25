@@ -40,30 +40,30 @@
             {
                 case Direction.Up:
                     this.Rectangle = new Rectangle(
-                        this.Rectangle.X, 
-                        (int)(this.Rectangle.Y - this.Speed), 
-                        this.Rectangle.Width, 
+                        this.Rectangle.X,
+                        (int)(this.Rectangle.Y - this.Speed),
+                        this.Rectangle.Width,
                         this.Rectangle.Height);
                     break;
                 case Direction.Down:
                     this.Rectangle = new Rectangle(
-                        this.Rectangle.X, 
-                        (int)(this.Rectangle.Y + this.Speed), 
-                        this.Rectangle.Width, 
+                        this.Rectangle.X,
+                        (int)(this.Rectangle.Y + this.Speed),
+                        this.Rectangle.Width,
                         this.Rectangle.Height);
                     break;
                 case Direction.Left:
                     this.Rectangle = new Rectangle(
-                        (int)(this.Rectangle.X - this.Speed), 
+                        (int)(this.Rectangle.X - this.Speed),
                         this.Rectangle.Y,
-                        this.Rectangle.Width, 
+                        this.Rectangle.Width,
                         this.Rectangle.Height);
                     break;
                 case Direction.Right:
                     this.Rectangle = new Rectangle(
-                        (int)(this.Rectangle.X + this.Speed), 
+                        (int)(this.Rectangle.X + this.Speed),
                         this.Rectangle.Y,
-                        this.Rectangle.Width, 
+                        this.Rectangle.Width,
                         this.Rectangle.Height);
                     break;
             }

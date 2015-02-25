@@ -11,12 +11,13 @@
 
     public abstract class Tank : Character, IMoveable
     {
-        protected float rotationAngle = 0f;
+        private const float AngleUp = 0f;
+        private const float AngleDown = (float)Math.PI;
+        private const float AngleRight = (float)Math.PI / 2;
+        private const float AngleLeft = (float)(Math.PI * 3 / 2);
+
+        private float rotationAngle = 0f;
         private double speed;
-        private float angleUp = 0f;
-        private float angleDown = (float)Math.PI;
-        private float angleRight = (float)Math.PI / 2;
-        private float angleLeft = (float)(Math.PI * 3 / 2);
 
         protected Tank(
             Texture2D objTexture,
@@ -60,19 +61,19 @@
             switch (this.Direction)
             {
                 case Direction.Up:
-                    this.rotationAngle = this.angleUp;
+                    this.rotationAngle = AngleUp;
                     this.rectangle.Y -= (int)this.Speed;
                     break;
                 case Direction.Down:
-                    this.rotationAngle = this.angleDown;
+                    this.rotationAngle = AngleDown;
                     this.rectangle.Y += (int)this.Speed;
                     break;
                 case Direction.Left:
-                    this.rotationAngle = this.angleLeft;
+                    this.rotationAngle = AngleLeft;
                     this.rectangle.X -= (int)this.Speed;
                     break;
                 case Direction.Right:
-                    this.rotationAngle = this.angleRight;
+                    this.rotationAngle = AngleRight;
                     this.rectangle.X += (int)this.Speed;
                     break;
             }
@@ -103,19 +104,19 @@
 
             if (isOnLeftBorder)
             {
-                this.rectangle.X = this.objTexture.Width/2;
+                this.rectangle.X = this.objTexture.Width / 2;
             }
             else if (isOnRightBorder)
             {
-                this.rectangle.X = (GameEngine.WindowWidth - (this.objTexture.Width/2));
+                this.rectangle.X = GameEngine.WindowWidth - (this.objTexture.Width / 2);
             }
             else if (isOnBottomBorder)
             {
-                this.rectangle.Y = GameEngine.WindowHeight - (this.objTexture.Height/2);
+                this.rectangle.Y = GameEngine.WindowHeight - (this.objTexture.Height / 2);
             }
             else if (isOnTopBorder)
             {
-                this.rectangle.Y = this.objTexture.Height/2;
+                this.rectangle.Y = this.objTexture.Height / 2;
             }
         }
 

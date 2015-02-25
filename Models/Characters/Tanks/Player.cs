@@ -18,9 +18,8 @@
         private const double DefaultSpeed = 3;
 
         private List<CollectibleItem> inventory = new List<CollectibleItem>();
-        private string info;
-        private SoundEffectInstance soundEffectInstance;
 
+        // private SoundEffectInstance soundEffectInstance;
         public Player(Texture2D objTexture, Rectangle rectangle, SoundEffectInstance soundEffectInstance)
             : base(objTexture, rectangle, DefaultPhysicalAttack, DefaultPhysicalDefense, DefaultHealthPoints, DefaultSpeed)
         {
@@ -147,9 +146,9 @@
                 }
                 else
                 {
-                    this.Speed -= item.SpeedEffect; 
+                    this.Speed -= item.SpeedEffect;
                 }
-                
+
                 this.BaseSpeed -= item.SpeedEffect;
             }
 

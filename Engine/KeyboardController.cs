@@ -6,8 +6,9 @@
 
     public class KeyboardController : IController
     {
-        public event EventHandler Pause;
         private KeyboardState keyboard;
+
+        public event EventHandler Pause;
 
         public void ProcessUserInput()
         {

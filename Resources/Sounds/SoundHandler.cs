@@ -15,7 +15,7 @@
 
         public static void HandleDestroyObjectSoundEffect()
         {
-            SoundPlayer soundPlayer = (new SoundPlayer(MenuBackgroundMusic.Grenade_Explosion_SoundBible_com_2100581469_1));
+            SoundPlayer soundPlayer = new SoundPlayer(MenuBackgroundMusic.Grenade_Explosion_SoundBible_com_2100581469_1);
             soundPlayer.Play();
         }
     }

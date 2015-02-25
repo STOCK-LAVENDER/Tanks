@@ -19,8 +19,6 @@
         [STAThread]
         public static void Main()
         {
-            // using (var game = new GameEngine())
-            // game.Run();
             MainMenu menu = new MainMenu();
             menu.ShowDialog();
         }

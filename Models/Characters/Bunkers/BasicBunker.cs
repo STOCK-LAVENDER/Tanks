@@ -3,7 +3,7 @@
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
 
-    class BasicBunker : Bunker
+    public class BasicBunker : Bunker
     {
         private const int DefaultPhysicalAttack = 120;
         private const int DefaultPhysicalDefense = 15;

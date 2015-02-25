@@ -3,7 +3,7 @@
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
 
-    class FortifiedBunker : Bunker
+    public class FortifiedBunker : Bunker
     {
         private const int DefaultPhysicalAttack = 200;
         private const int DefaultPhysicalDefense = 25;

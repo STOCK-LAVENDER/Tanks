@@ -60,30 +60,30 @@ namespace UltimateTankClash.Models.Characters
             {
                 case Direction.Down:
                     bulletPosition = new Rectangle(
-                        this.Rectangle.X + (this.Rectangle.Width / 3), 
-                        this.Rectangle.Y + this.Rectangle.Height, 
-                        rectangleBulletMinimizedWidth, 
+                        this.Rectangle.X + (this.Rectangle.Width / 3),
+                        this.Rectangle.Y + this.Rectangle.Height,
+                        rectangleBulletMinimizedWidth,
                         rectangleBulletMinimizedHeight);
                     break;
                 case Direction.Up:
                     bulletPosition = new Rectangle(
-                        this.Rectangle.X + (this.Rectangle.Width / 3), 
-                        this.Rectangle.Y - (this.Rectangle.Height / 2), 
-                        rectangleBulletMinimizedWidth, 
+                        this.Rectangle.X + (this.Rectangle.Width / 3),
+                        this.Rectangle.Y - (this.Rectangle.Height / 2),
+                        rectangleBulletMinimizedWidth,
                         rectangleBulletMinimizedHeight);
                     break;
                 case Direction.Left:
                     bulletPosition = new Rectangle(
-                        this.Rectangle.X - (this.Rectangle.Width / 2), 
-                        this.Rectangle.Y + (this.Rectangle.Height / 4), 
-                        rectangleBulletMinimizedWidth, 
+                        this.Rectangle.X - (this.Rectangle.Width / 2),
+                        this.Rectangle.Y + (this.Rectangle.Height / 4),
+                        rectangleBulletMinimizedWidth,
                         rectangleBulletMinimizedHeight);
                     break;
                 case Direction.Right:
                     bulletPosition = new Rectangle(
-                        this.Rectangle.X + this.Rectangle.Width, 
-                        this.Rectangle.Y + (this.Rectangle.Height / 4), 
-                        rectangleBulletMinimizedWidth, 
+                        this.Rectangle.X + this.Rectangle.Width,
+                        this.Rectangle.Y + (this.Rectangle.Height / 4),
+                        rectangleBulletMinimizedWidth,
                         rectangleBulletMinimizedHeight);
                     break;
                 default:

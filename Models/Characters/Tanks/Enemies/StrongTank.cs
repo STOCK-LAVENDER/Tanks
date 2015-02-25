@@ -3,7 +3,7 @@
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
 
-    class StrongTank : EnemyTank
+    public class StrongTank : EnemyTank
     {
         private const int DefaultPhysicalAttack = 125;
         private const int DefaultPhysicalDefense = 25;
