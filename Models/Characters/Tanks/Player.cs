@@ -141,7 +141,15 @@
                 this.PhysicalAttack -= item.DamageEffect;
                 this.HealthPoints -= item.HealthEffect;
                 this.PhysicalDefense -= item.DefenseEffect;
-                this.Speed -= item.SpeedEffect;
+                if (this.Speed < item.SpeedEffect)
+                {
+                    this.Speed = this.BaseSpeed;
+                }
+                else
+                {
+                    this.Speed -= item.SpeedEffect; 
+                }
+                
                 this.BaseSpeed -= item.SpeedEffect;
             }
 
