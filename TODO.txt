@@ -17,5 +17,6 @@
     - Sound effect when wall is destroyed                   //Done
     - Eventual improving of the gun shots sound
     - Optional : Implementing a mute, volume up and volume down option for the game music.
+- Pause functionality (Kris)
 - Create shop to purchase upgrades 
 - Add storyline (Filip)
