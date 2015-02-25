@@ -39,6 +39,7 @@
         public static Texture2D FastTankTexture;
         public static Texture2D BasicBushTexture;
         public static Texture2D SpeedPowerUpTexture;
+        public static Texture2D BunkerTeture;
         public static int Level;
 
         private GraphicsDeviceManager graphics;
@@ -95,6 +96,7 @@
             BasicBushTexture = this.Content.Load<Texture2D>("Graphics/Sprites/basicBush");
             SpeedPowerUpTexture = this.Content.Load<Texture2D>("Graphics/Sprites/SpeedPowerUpTexture");
             BulletTexture = this.Content.Load<Texture2D>("Graphics/Sprites/cannonBullet");
+            BunkerTeture = this.Content.Load<Texture2D>("Graphics/Sprites/turret");
 
             GameObjects = MapLoader.LoadMap(this.spriteBatch, Level);
         }

@@ -7,6 +7,7 @@
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
     using Models;
+    using Models.Characters.Bunkers;
     using Models.Characters.Tanks;
     using Models.Characters.Tanks.Enemies;
     using Models.CollectibleItems.PowerUpEffects;
@@ -60,7 +61,7 @@
                                     GameEngine.SoundTankShootingInstance));
                                 break;
                             case 'T':
-                                gameObjects.Add(new BasicTank(GameEngine.BasicTankTexture, new Rectangle(positionX - 25, positionY - 25, 50, 50)));
+                                gameObjects.Add(new BasicTank(GameEngine.BasicTankTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
                                 break;
                             case 'F': 
                                 gameObjects.Add(new FastTank(GameEngine.FastTankTexture, new Rectangle(positionX - 25, positionY - 25, 50, 50)));
@@ -70,6 +71,12 @@
                                 break;
                             case 'O':
                                 gameObjects.Add(new BossTank(GameEngine.FastTankTexture, new Rectangle(positionX - 25, positionY - 25, 50, 50)));
+                                break;
+                            case 'U':
+                                 gameObjects.Add(new BasicBunker(GameEngine.BunkerTeture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
+                                break;
+                            case 'R':
+                                gameObjects.Add(new FortifiedBunker(GameEngine.BunkerTeture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
                                 break;
                             case '\n':
                                 positionY += 70;

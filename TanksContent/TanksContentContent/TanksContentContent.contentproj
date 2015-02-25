@@ -60,7 +60,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Graphics\Backgrounds\" />
     <Folder Include="Sound\BackgroundMusic\" />
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +121,13 @@
   <ItemGroup>
     <Compile Include="Graphics\Sprites\fastTank.png">
       <Name>fastTank</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Graphics\Sprites\turret.png">
+      <Name>turret</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

@@ -74,6 +74,8 @@
       <DependentUpon>OptionsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\AmmunitionItems\Bullet.cs" />
+    <Compile Include="Models\Characters\Bunkers\BasicBunker.cs" />
+    <Compile Include="Models\Characters\Bunkers\FortifiedBunker.cs" />
     <Compile Include="Models\Characters\Tanks\Direction.cs" />
     <Compile Include="Models\Characters\Tanks\Enemies\BossTank.cs" />
     <Compile Include="Models\Characters\Tanks\Enemies\EnemyTank.cs" />

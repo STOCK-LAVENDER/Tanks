@@ -38,19 +38,11 @@ namespace UltimateTankClash.Models.Characters
 
         public override void RespondToCollision(GameObject hitObject)
         {
-            if (hitObject is Character || hitObject is Obstacle || hitObject is Ammunition)
-            {
-                this.Rectangle = new Rectangle(
-                    (int)this.PreviousPosition.X, 
-                    (int)this.PreviousPosition.Y, 
-                    this.Rectangle.Width, 
-                    this.Rectangle.Height);
-            }
-
             if (hitObject is Ammunition)
             {
                 Ammunition ammunition = (Ammunition)hitObject;
                 this.HealthPoints -= ammunition.PhysicalAttack - this.PhysicalDefense;
+                this.State = GameObjectState.Damaged;
             }
 
             if (this.HealthPoints <= 0)

@@ -1,8 +1,10 @@
 ﻿namespace UltimateTankClash.Models.Characters.Tanks
 {
     using System;
+    using AmmunitionItems;
     using Engine;
     using Exceptions;
+    using GameObstacles;
     using Interfaces;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
@@ -76,6 +78,20 @@
             }
 
             this.CheckBorderCollision();
+        }
+
+        public override void RespondToCollision(GameObject hitObject)
+        {
+            if (hitObject is Character || hitObject is Obstacle || hitObject is Ammunition)
+            {
+                this.Rectangle = new Rectangle(
+                    (int)this.PreviousPosition.X,
+                    (int)this.PreviousPosition.Y,
+                    this.Rectangle.Width,
+                    this.Rectangle.Height);
+            }
+
+            base.RespondToCollision(hitObject);
         }
 
         public void CheckBorderCollision()
