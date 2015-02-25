@@ -63,8 +63,7 @@
                             case 'P':
                                 gameObjects.Add(new Player(
                                     GameEngine.PlayerTankTexture,
-                                    new Rectangle(25, 25, GameEngine.PlayerTankTexture.Width, GameEngine.PlayerTankTexture.Height),
-                                    GameEngine.SoundTankShootingInstance));
+                                    new Rectangle(25, 25, GameEngine.PlayerTankTexture.Width, GameEngine.PlayerTankTexture.Height)));
                                 break;
                             case 'T':
                                 gameObjects.Add(new BasicTank(GameEngine.BasicTankTexture, new Rectangle(positionX - 25, positionY - 25, 50, 50)));

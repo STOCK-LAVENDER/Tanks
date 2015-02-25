@@ -11,6 +11,7 @@
     using Microsoft.Xna.Framework.Audio;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
+    using Resources.Sounds;
 
     public class Player : Tank, ICollect
     {
@@ -22,11 +23,11 @@
         private List<CollectibleItem> inventory = new List<CollectibleItem>();
 
         // private SoundEffectInstance soundEffectInstance;
-        public Player(Texture2D objTexture, Rectangle rectangle, SoundEffectInstance soundEffectInstance)
+        public Player(Texture2D objTexture, Rectangle rectangle)
             : base(objTexture, rectangle, DefaultPhysicalAttack, DefaultPhysicalDefense, DefaultHealthPoints, DefaultSpeed)
         {
             this.Direction = Direction.Down;
-            this.SoundEffectInstance = soundEffectInstance;
+            //this.SoundEffectInstance = soundEffectInstance;
             this.BaseSpeed = DefaultSpeed;
             this.IsVisible = true;
         }
@@ -88,7 +89,8 @@
             if (state.IsKeyDown(Keys.Space) && !this.HasShot)
             {
                 this.Shoot(this.Direction);
-                this.SoundEffectInstance.Play();
+                //this.SoundEffectInstance.Play();
+                SoundHandler.HandleGunShot();
                 this.HasShot = true;
             }
             else if (state.IsKeyUp(Keys.Space))

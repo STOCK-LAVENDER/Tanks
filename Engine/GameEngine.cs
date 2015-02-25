@@ -53,7 +53,7 @@
         private SpriteBatch spriteBatch;
 
         // Sound fields
-        private SoundEffect soundTankShootingEffect;
+        private SoundEffect backgroundInGameSoundEffect;
 
         private bool isGamePaused;
         private IController controller;
@@ -93,10 +93,9 @@
             this.gamePauseFont = this.Content.Load<SpriteFont>("Graphics/Fonts/GamePauseFont");
 
             // Sounds
-            SoundHandler.HandleBackgroundSoundEffect();
-            this.soundTankShootingEffect = this.Content.Load<SoundEffect>("Sound/SoundFX/Gun_Shot-Marvin-1140816320 1");
-            SoundTankShootingInstance = this.soundTankShootingEffect.CreateInstance();
-
+            this.backgroundInGameSoundEffect = this.Content.Load<SoundEffect>("Sound/SoundFX/Failing Defense");
+            SoundHandler.HandleBackgroundSoundEffect(this.backgroundInGameSoundEffect);
+            
             BasicTankTexture = this.Content.Load<Texture2D>("Graphics/Sprites/basicTank");
             PlayerTankTexture = this.Content.Load<Texture2D>("Graphics/Sprites/playerSprite");
             FastTankTexture = this.Content.Load<Texture2D>("Graphics/Sprites/fastTank");
