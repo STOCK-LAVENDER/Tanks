@@ -7,49 +7,69 @@
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
     using Models;
+    using Models.Characters.Tanks;
     using Models.CollectibleItems.PowerUpEffects;
     using Models.GameObstacles.Walls;
     using Models.Hideouts.Bushes;
 
     public static class MapLoader
     {
-        public static List<GameObject> LoadMap(SpriteBatch spriteBatch, params Texture2D[] textures)
+        public static List<GameObject> LoadMap(SpriteBatch spriteBatch, int level)
         {
+            string map;
+            switch (level)
+            {
+                case 0:
+                    map = @"../../../Resources/Maps/Map_TrainingFields.txt";
+                    break;
+                default:
+                    throw new MapNotFoundException("The specified map is not implemented.");
+            }
+
             List<GameObject> gameObjects = new List<GameObject>();
 
             try
             {
-                using (StreamReader sr = new StreamReader("Map.txt"))
+                using (StreamReader sr = new StreamReader(map))
                 {
-                    int positionY = 50;
-                    int positionX = 50;
+                    int positionY = 70;
+                    int positionX = 70;
+
                     string line = sr.ReadToEnd();
+
                     for (int i = 0; i < line.Length; i++)
                     {
-                        char ch = line[i];
+                        char currentSymbol = line[i];
 
-                        if (ch == 'W')
+                        switch (currentSymbol)
                         {
-                            gameObjects.Add(new BasicWall(textures[0], new Rectangle(positionX + 20, positionY - 25, 70, 70)));
+                            case 'W':
+                                gameObjects.Add(new BasicWall(GameEngine.BasicWallTexture, new Rectangle(positionX -25, positionY - 25, 70, 70)));
+                                break;
+                            case 'B':
+                                gameObjects.Add(new Bush(GameEngine.BasicBushTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
+                                break;
+                            case 'I':
+                                gameObjects.Add(new SpeedPowerUp(GameEngine.BasicBushTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
+                                break;
+                            case 'P':
+                                gameObjects.Add(new Player(
+                                    GameEngine.PlayerTankTexture, 
+                                    new Rectangle(25, 25, GameEngine.PlayerTankTexture.Width, GameEngine.PlayerTankTexture.Height), 
+                                    GameEngine.SoundTankShootingInstance));
+                                break;
+                            case 'T':
+                                gameObjects.Add(new BasicTank(GameEngine.BasicTankTexture, new Rectangle(positionX - 25, positionY - 25, 50, 50)));
+                                break;
+                            case 'F': gameObjects.Add(new FastTank(GameEngine.FastTankTexture, new Rectangle(positionX - 25, positionY - 25, 50, 50)));
+                                break;
+                            case '\n':
+                                positionY += 70;
+                                positionX = 70;
+                                break;
                         }
 
-                        if (ch == 'B')
-                        {
-                            gameObjects.Add(new Bush(textures[1], new Rectangle(positionX - 25, positionY - 25, 50, 50)));
-                        }
-
-                        if (ch == 'I')
-                        {
-                            gameObjects.Add(new SpeedPowerUp(textures[2], new Rectangle(positionX - 25, positionY - 25, 50, 50)));
-                        }
-
-                        if (ch.Equals('\n'))
-                        {
-                            positionY += 50;
-                            positionX = 0 - 50;
-                        }
-
-                        positionX += 50;
+                        positionX += 70;
                     }
                 }
 

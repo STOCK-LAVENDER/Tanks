@@ -75,6 +75,7 @@
     </Compile>
     <Compile Include="Models\AmmunitionItems\Bullet.cs" />
     <Compile Include="Models\Characters\Tanks\Direction.cs" />
+    <Compile Include="Models\Characters\Tanks\FastTank.cs" />
     <Compile Include="Models\Characters\Tanks\Player.cs" />
     <Compile Include="Models\CollectibleItems\CollectibleItem.cs" />
     <Compile Include="Models\CollectibleItems\CollectibleItemState.cs" />
@@ -129,6 +130,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
+    <Content Include="Resources\Maps\Map_TrainingFields.txt" />
     <None Include="Resources\Grenade Explosion-SoundBible.com-2100581469-1.wav" />
     <None Include="Resources\Depth Charge Shorter-SoundBible.com-1978501900.wav" />
     <None Include="Resources\Sounds\Volatile Reaction.wav" />

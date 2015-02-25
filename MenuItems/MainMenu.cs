@@ -11,6 +11,7 @@
     public partial class MainMenu : BackgroundForm
     {
         private SoundPlayer simpleSound;
+
         public MainMenu()
         {
             this.InitializeMenuBackgroundMusic();

@@ -71,20 +71,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Graphics\Sprites\cursor.jpg">
-      <Name>cursor</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Graphics\Sprites\button-pic.jpg">
-      <Name>button-pic</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Graphics\Sprites\basicBush.png">
       <Name>basicBush</Name>
       <Importer>TextureImporter</Importer>
@@ -92,29 +78,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Graphics\Sprites\icelake.png">
-      <Name>icelake</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Graphics\Sprites\speedUp.png">
-      <Name>speedUp</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Graphics\Sprites\speedy.png">
-      <Name>speedy</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Graphics\Sprites\bullet.png">
-      <Name>bullet</Name>
+    <Compile Include="Graphics\Sprites\speedPowerUpTexture.png">
+      <Name>speedPowerUpTexture</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -141,8 +106,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Graphics\Sprites\23vnh8n.png">
-      <Name>23vnh8n</Name>
+    <Compile Include="Graphics\Sprites\playerSprite.png">
+      <Name>playerSprite</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -155,8 +120,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Graphics\Sprites\tank.png">
-      <Name>tank</Name>
+    <Compile Include="Graphics\Sprites\fastTank.png">
+      <Name>fastTank</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
