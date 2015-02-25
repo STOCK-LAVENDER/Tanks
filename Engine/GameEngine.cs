@@ -5,6 +5,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Runtime.Remoting.Channels;
     using Interfaces;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Audio;
@@ -54,7 +55,7 @@
 
         // Sound fields
         private SoundEffect backgroundInGameSoundEffect;
-
+        
         private bool isGamePaused;
         private IController controller;
 
@@ -160,7 +161,7 @@
 
                 GameObjects.RemoveAll(x => x.State == GameObjectState.Destroyed);
             }
-
+            this.HandleGameMute();
             base.Update(gameTime);
             this.controller.ProcessUserInput();
         }
@@ -213,12 +214,20 @@
 
         private void AttachControllerEvents()
         {
-            this.controller.Pause += this.ControlGamePause;
+            this.controller.Pause += (sender, args) =>
+            {
+                this.isGamePaused = !this.isGamePaused;
+            };
+
+            this.controller.GameMute += (sender, args) =>
+            {
+                SoundHandler.isGameMuted = !SoundHandler.isGameMuted;
+            };
         }
 
-        private void ControlGamePause(object sender, EventArgs args)
+        private void HandleGameMute()
         {
-            this.isGamePaused = !this.isGamePaused;
+            SoundHandler.MuteBackgroundSounds();
         }
     }
 }

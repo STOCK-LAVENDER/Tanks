@@ -6,6 +6,8 @@
     {
         event EventHandler Pause;
 
+        event EventHandler GameMute;
+
         void ProcessUserInput();
     }
 }
