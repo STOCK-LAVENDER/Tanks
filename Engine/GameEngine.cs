@@ -2,11 +2,13 @@
 {
     #region Using Statements
 
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Runtime.InteropServices.ComTypes;
     using System.Runtime.Remoting.Activation;
     using System.Security.Permissions;
+    using Interfaces;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Audio;
     using Microsoft.Xna.Framework.Graphics;
@@ -45,6 +47,7 @@
         public static Texture2D SpeedUpEffectTexture;
         public static Texture2D BunkerTexture;
         public static int Level = 0;
+        private SpriteFont gamePauseFont;
 
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
@@ -54,11 +57,26 @@
         public static SoundEffectInstance SoundTankShootingInstance;
         private Song backgroundSong;
 
-        public GameEngine()
+        private bool isGamePaused;
+        private IController controller;
+
+        public GameEngine(IController controller)
             : base()
         {
             this.graphics = new GraphicsDeviceManager(this);
             this.Content.RootDirectory = "Content";
+            this.controller = controller;
+            this.AttachControllerEvents();
+        }
+
+        private void AttachControllerEvents()
+        {
+            this.controller.Pause += this.ControlGamePause;
+        }
+
+        private void ControlGamePause(object sender, EventArgs args)
+        {
+            this.isGamePaused = !this.isGamePaused;
         }
 
         /// <summary>
@@ -84,7 +102,7 @@
             this.graphics.PreferredBackBufferHeight = WindowHeight;
             this.graphics.ApplyChanges();
             Font = this.Content.Load<SpriteFont>("Graphics/Fonts/ArialFont");
-
+            this.gamePauseFont = this.Content.Load<SpriteFont>("Graphics/Fonts/GamePauseFont");
             //Sounds
             this.backgroundSong = this.Content.Load<Song>("Sound/SoundFX/Failing Defense-1");
             SoundHandler.HandleBackgroundSoundEffect(this.backgroundSong);
@@ -130,27 +148,31 @@
                 this.Exit();
             }
 
-            var walls = GameObjects.Where(x => !(x is Ammunition)).ToList();
-            var ammo = GameObjects.Where(x => x is Ammunition).ToList();
-
-            for (int i = 0; i < GameObjects.Count; i++)
+            if (!this.isGamePaused)
             {
-                GameObjects[i].Update();
-            }
+                var walls = GameObjects.Where(x => !(x is Ammunition)).ToList();
+                var ammo = GameObjects.Where(x => x is Ammunition).ToList();
 
-            for (int i = 0; i < walls.Count; i++)
-            {
-                walls[i].RespondToCollision(CollisionHandler.GetCollisionInfo(walls[i]));
-            }
+                for (int i = 0; i < GameObjects.Count; i++)
+                {
+                    GameObjects[i].Update();
+                }
 
-            for (int i = 0; i < ammo.Count; i++)
-            {
-                ammo[i].RespondToCollision(CollisionHandler.GetCollisionInfo(ammo[i]));
-            }
+                for (int i = 0; i < walls.Count; i++)
+                {
+                    walls[i].RespondToCollision(CollisionHandler.GetCollisionInfo(walls[i]));
+                }
 
-            GameObjects.RemoveAll(x => x.State == GameObjectState.Destroyed);
+                for (int i = 0; i < ammo.Count; i++)
+                {
+                    ammo[i].RespondToCollision(CollisionHandler.GetCollisionInfo(ammo[i]));
+                }
+
+                GameObjects.RemoveAll(x => x.State == GameObjectState.Destroyed);
+            }
             
             base.Update(gameTime);
+            this.controller.ProcessUserInput();
         }
 
         /// <summary>
@@ -162,6 +184,10 @@
             this.GraphicsDevice.Clear(Color.CornflowerBlue);
             this.spriteBatch.Begin();
 
+            if (this.isGamePaused)
+            {
+                this.spriteBatch.DrawString(this.gamePauseFont, "Paused", new Vector2(WindowWidth / 3, WindowHeight / 3), Color.BlanchedAlmond);
+            }
             var characters = GameObjects.Where(x => x is Character);
             var obstacles = GameObjects.Where(x => x is Obstacle || x is Hideout);
             var bullets = GameObjects.Where(x => x is Ammunition);
