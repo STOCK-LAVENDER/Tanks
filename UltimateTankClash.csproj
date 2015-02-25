@@ -75,7 +75,10 @@
     </Compile>
     <Compile Include="Models\AmmunitionItems\Bullet.cs" />
     <Compile Include="Models\Characters\Tanks\Direction.cs" />
-    <Compile Include="Models\Characters\Tanks\FastTank.cs" />
+    <Compile Include="Models\Characters\Tanks\Enemies\BossTank.cs" />
+    <Compile Include="Models\Characters\Tanks\Enemies\EnemyTank.cs" />
+    <Compile Include="Models\Characters\Tanks\Enemies\FastTank.cs" />
+    <Compile Include="Models\Characters\Tanks\Enemies\StrongTank.cs" />
     <Compile Include="Models\Characters\Tanks\Player.cs" />
     <Compile Include="Models\CollectibleItems\CollectibleItem.cs" />
     <Compile Include="Models\CollectibleItems\CollectibleItemState.cs" />
@@ -91,7 +94,7 @@
     <Compile Include="Models\Hideouts\Bushes\Bush.cs" />
     <Compile Include="Models\GameObstacles\Walls\BasicWall.cs" />
     <Compile Include="Models\GameObstacles\Walls\Wall.cs" />
-    <Compile Include="Models\Characters\Tanks\BasicTank.cs" />
+    <Compile Include="Models\Characters\Tanks\Enemies\BasicTank.cs" />
     <Compile Include="Engine\GameEngine.cs" />
     <Compile Include="Models\GameObject.cs" />
     <Compile Include="Interfaces\IAttack.cs" />

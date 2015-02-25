@@ -1,4 +1,4 @@
-﻿namespace UltimateTankClash.Models.Characters.Tanks
+﻿namespace UltimateTankClash.Models.Characters.Tanks.Enemies
 {
     using System;
     using System.Linq;
@@ -7,31 +7,35 @@
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
 
-    class FastTank : Tank
+    public abstract class EnemyTank : Tank
     {
-        private const int DefaultPhysicalAttack = 25;
-        private const int DefaultPhysicalDefense = 10;
-        private const int DefaultHealthPoints = 250;
-        private const int DefaultSpeed = 4;
-        private const int TimeBetweenDirectionSwitches = 50;
-        private const int TimeBetweenShots = 25;
-
         private static readonly string[] Directions = Enum.GetNames(typeof(Direction));
         private static Random rnd = new Random();
 
         private int ticks = 0;
-        private int shotTimeout = TimeBetweenShots;
+        private int shotTimeout;
         private Direction currentDirection = Direction.Up;
 
-        public FastTank(Texture2D objTexture, Rectangle rectangle)
-            : base(objTexture, rectangle, DefaultPhysicalAttack, DefaultPhysicalDefense, DefaultHealthPoints, DefaultSpeed)
+
+        protected EnemyTank(Texture2D objTexture, Rectangle rectangle, int physicalAttack, int physicalDefense, int healthPoints, int speed, int timebetweenDirectionChange, int shotTimeout)
+            : base(objTexture, rectangle, physicalAttack, physicalDefense, healthPoints, speed)
         {
+            this.shotTimeout = this.ShotTimeout;
+            this.InitialSpeed = speed;
+            this.TimeBetweenDirectionChange = timebetweenDirectionChange;
+            this.ShotTimeout = shotTimeout;
         }
+
+        protected int ShotTimeout { get; set; }
+
+        protected int TimeBetweenDirectionChange { get; set; }
+
+        protected int InitialSpeed { get; set; }
 
         public override void Move()
         {
             this.ticks++;
-            if (this.ticks % TimeBetweenDirectionSwitches == 0)
+            if (this.ticks % TimeBetweenDirectionChange == 0)
             {
                 this.ChangeDirection();
             }
@@ -96,12 +100,12 @@
                     this.Speed = 0;
                     this.Direction = direction;
                     this.Shoot(direction);
-                    this.shotTimeout = TimeBetweenShots;
+                    this.shotTimeout = ShotTimeout;
                 }
             }
             else
             {
-                this.Speed = DefaultSpeed;
+                this.Speed = InitialSpeed;
             }
         }
     }

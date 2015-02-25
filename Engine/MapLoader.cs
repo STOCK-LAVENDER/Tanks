@@ -8,6 +8,7 @@
     using Microsoft.Xna.Framework.Graphics;
     using Models;
     using Models.Characters.Tanks;
+    using Models.Characters.Tanks.Enemies;
     using Models.CollectibleItems.PowerUpEffects;
     using Models.GameObstacles.Walls;
     using Models.Hideouts.Bushes;
@@ -61,7 +62,14 @@
                             case 'T':
                                 gameObjects.Add(new BasicTank(GameEngine.BasicTankTexture, new Rectangle(positionX - 25, positionY - 25, 50, 50)));
                                 break;
-                            case 'F': gameObjects.Add(new FastTank(GameEngine.FastTankTexture, new Rectangle(positionX - 25, positionY - 25, 50, 50)));
+                            case 'F': 
+                                gameObjects.Add(new FastTank(GameEngine.FastTankTexture, new Rectangle(positionX - 25, positionY - 25, 50, 50)));
+                                break;
+                            case 'S':
+                                gameObjects.Add(new StrongTank(GameEngine.BasicTankTexture, new Rectangle(positionX - 25, positionY - 25, 50, 50)));
+                                break;
+                            case 'O':
+                                gameObjects.Add(new BossTank(GameEngine.FastTankTexture, new Rectangle(positionX - 25, positionY - 25, 50, 50)));
                                 break;
                             case '\n':
                                 positionY += 70;
