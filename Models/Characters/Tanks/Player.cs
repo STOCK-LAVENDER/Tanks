@@ -2,7 +2,9 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Text;
     using CollectibleItems;
+    using Engine;
     using Hideouts;
     using Interfaces;
     using Microsoft.Xna.Framework;
@@ -156,6 +158,12 @@
             {
                 this.HealthPoints = 1;
             }
+        }
+
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            base.Draw(spriteBatch);
+            spriteBatch.DrawString(GameEngine.Font, string.Format("HP: {0}", this.HealthPoints), new Vector2(10, GameEngine.WindowHeight - 50), Color.Black);
         }
     }
 }

@@ -40,7 +40,7 @@ namespace UltimateTankClash.Models.Characters
             if (hitObject is Ammunition)
             {
                 Ammunition ammunition = (Ammunition)hitObject;
-                this.HealthPoints -= ammunition.PhysicalAttack - this.PhysicalDefense;
+                this.HealthPoints -= Math.Max(0, ammunition.PhysicalAttack - this.PhysicalDefense);
                 this.State = GameObjectState.Damaged;
             }
 
