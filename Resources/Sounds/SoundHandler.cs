@@ -1,16 +1,15 @@
 ﻿namespace UltimateTankClash.Resources.Sounds
 {
     using System.Media;
+    using System.Windows.Forms;
     using Microsoft.Xna.Framework.Media;
 
     public static class SoundHandler
     {
-        public static void HandleBackgroundSoundEffect(Song song)
+        public static void HandleBackgroundSoundEffect()
         {
-            //MediaPlayer.Play(song);
-            
-            MediaPlayer.Volume = 0.2f;
-            MediaPlayer.IsRepeating = true;
+            SoundPlayer soundPlayer = new SoundPlayer(MenuBackgroundMusic.Failing_Defense);
+            soundPlayer.PlayLooping();
         }
 
         public static void HandleDestroyObjectSoundEffect()
