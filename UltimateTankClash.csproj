@@ -36,8 +36,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Engine\CollisionHandler.cs" />
+    <Compile Include="Engine\KeyboardController.cs" />
     <Compile Include="Exceptions\InvalidObjectParameterException.cs" />
     <Compile Include="Interfaces\ICollidable.cs" />
+    <Compile Include="Interfaces\IController.cs" />
     <Compile Include="MenuItems\AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>

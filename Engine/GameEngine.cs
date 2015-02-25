@@ -2,9 +2,12 @@
 {
     #region Using Statements
 
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Runtime.InteropServices.ComTypes;
+    using System.Runtime.Remoting.Channels;
+    using Interfaces;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Audio;
     using Microsoft.Xna.Framework.Graphics;
@@ -42,22 +45,41 @@
         private Texture2D orangeEnemyTankTexture;
 
         private GraphicsDeviceManager graphics;
+        private SpriteFont spriteFont;
         private SpriteBatch spriteBatch;
         private Texture2D basicBushTexture;
         private Texture2D basicIceLakeTexture;
         private Texture2D speedUpEffectTexture;
         private SpeedPowerUp speedPowerUp;
 
+        private bool isGamePaused;
+        private IController controller;
+
         //Sound fields
         private SoundEffect soundTankShootingEffect;
         private SoundEffectInstance soundTankShootingInstance;
         private Song backgroundSong;
-        public GameEngine()
+
+        public GameEngine(IController controller)
             : base()
         {
             this.graphics = new GraphicsDeviceManager(this);
             this.Content.RootDirectory = "Content";
+            this.controller = controller;
+            this.AttachControllerEvents();
         }
+
+        private void AttachControllerEvents()
+        {
+            this.controller.Pause += this.ControlGamePaused;
+        }
+
+        private void ControlGamePaused(object sender, EventArgs args)
+        {
+            this.isGamePaused = !this.isGamePaused;
+        }
+
+        
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -84,6 +106,7 @@
             this.graphics.ApplyChanges();
             Font = this.Content.Load<SpriteFont>("Graphics/Fonts/ArialFont");
 
+            this.spriteFont = this.Content.Load<SpriteFont>("Graphics/Fonts/GamePauseFont");
             //Sounds
             this.backgroundSong = this.Content.Load<Song>("Sound/SoundFX/Failing Defense-1");
             SoundHandler.HandleBackgroundSoundEffect(this.backgroundSong);
@@ -133,28 +156,34 @@
             {
                 this.Exit();
             }
-
-            var walls = GameObjects.Where(x => !(x is Ammunition)).ToList();
-            var ammo = GameObjects.Where(x => x is Ammunition).ToList();
-
-            for (int i = 0; i < GameObjects.Count; i++)
-            {
-                GameObjects[i].Update();
-            }
-
-            for (int i = 0; i < walls.Count; i++)
-            {
-                walls[i].RespondToCollision(CollisionHandler.GetCollisionInfo(walls[i]));
-            }
-
-            for (int i = 0; i < ammo.Count; i++)
-            {
-                ammo[i].RespondToCollision(CollisionHandler.GetCollisionInfo(ammo[i]));
-            }
-
-            GameObjects.RemoveAll(x => x.State == GameObjectState.Destroyed);
             
+            if (!this.isGamePaused)
+            {
+                var walls = GameObjects.Where(x => !(x is Ammunition)).ToList();
+                var ammo = GameObjects.Where(x => x is Ammunition).ToList();
+
+                for (int i = 0; i < GameObjects.Count; i++)
+                {
+                    GameObjects[i].Update();
+                }
+
+                for (int i = 0; i < walls.Count; i++)
+                {
+                    walls[i].RespondToCollision(CollisionHandler.GetCollisionInfo(walls[i]));
+                }
+
+                for (int i = 0; i < ammo.Count; i++)
+                {
+                    ammo[i].RespondToCollision(CollisionHandler.GetCollisionInfo(ammo[i]));
+                }
+
+                GameObjects.RemoveAll(x => x.State == GameObjectState.Destroyed);
+
+                
+            }
             base.Update(gameTime);
+
+            this.controller.ProcessInput();
         }
 
         /// <summary>
@@ -170,6 +199,13 @@
             var obstacles = GameObjects.Where(x => x is Obstacle || x is Hideout);
             var bullets = GameObjects.Where(x => x is Ammunition);
 
+            if (this.isGamePaused)
+            {
+                this.spriteBatch.DrawString(this.spriteFont,
+                                            "Game Paused",
+                                            new Vector2(WindowWidth / 3, WindowHeight / 3),
+                                            Color.DarkSeaGreen);
+            }
             foreach (var character in characters)
             {
                 character.Draw(this.spriteBatch);
