@@ -20,8 +20,7 @@
         public void StartGame()
         {
             this.simpleSound.Stop();
-            KeyboardController keyboardController = new KeyboardController();
-            GameEngine game = new GameEngine(keyboardController);
+            GameEngine game = new GameEngine();
             game.Run();
         }
 
