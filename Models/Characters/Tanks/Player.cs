@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using CollectibleItems;
+    using Hideouts;
     using Interfaces;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Audio;
@@ -26,6 +27,7 @@
             this.Direction = Direction.Down;
             this.SoundEffectInstance = soundEffectInstance;
             this.BaseSpeed = DefaultSpeed;
+            this.IsVisible = true;
         }
 
         public List<CollectibleItem> Inventory
@@ -44,6 +46,8 @@
         public SoundEffectInstance SoundEffectInstance { get; private set; }
 
         public double BaseSpeed { get; set; }
+
+        public bool IsVisible { get; set; }
 
         public override void Move()
         {
@@ -103,6 +107,15 @@
             if (hitObject is CollectibleItem)
             {
                 this.AddItemToInventory((CollectibleItem)hitObject);
+            }
+
+            if (hitObject is Hideout)
+            {
+                this.IsVisible = false;
+            }
+            else
+            {
+                this.IsVisible = true;
             }
         }
 

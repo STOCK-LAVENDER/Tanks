@@ -71,36 +71,47 @@
 
         private void CheckPlayerInSight()
         {
-            Rectangle leftView = new Rectangle(-25, this.Rectangle.Y, this.Rectangle.X, this.Rectangle.Height);
-            var inSight = GameEngine.GameObjects.FirstOrDefault(x => x is Player && x.Rectangle.Intersects(leftView));
-            OpenFiringSequence(inSight, Direction.Left);
+            var player = (Player)GameEngine.GameObjects.FirstOrDefault(x => x is Player);
 
-            Rectangle rightView = new Rectangle(this.Rectangle.X, this.Rectangle.Y, GameEngine.WindowWidth - this.Rectangle.X, this.Rectangle.Height);
-            inSight = GameEngine.GameObjects.FirstOrDefault(x => x is Player && x.Rectangle.Intersects(rightView));
-            OpenFiringSequence(inSight, Direction.Right);
+            if (player != null && player.IsVisible)
+            {
+                Rectangle leftView = new Rectangle(-25, this.Rectangle.Y, this.Rectangle.X, this.Rectangle.Height);
+                if (player.Rectangle.Intersects(leftView))
+                {
+                    OpenFiringSequence(player, Direction.Left);
+                }
 
-            Rectangle topView = new Rectangle(this.Rectangle.X, -25, this.Rectangle.Width, this.Rectangle.Y);
-            inSight = GameEngine.GameObjects.FirstOrDefault(x => x is Player && x.Rectangle.Intersects(topView));
-            OpenFiringSequence(inSight, Direction.Up);
+                Rectangle rightView = new Rectangle(this.Rectangle.X, this.Rectangle.Y, GameEngine.WindowWidth - this.Rectangle.X, this.Rectangle.Height);
+                if (player.Rectangle.Intersects(rightView))
+                {
+                    OpenFiringSequence(player, Direction.Right);
+                }
 
-            Rectangle bottomView = new Rectangle(this.Rectangle.X, this.Rectangle.Y, this.Rectangle.Width, GameEngine.WindowHeight - this.Rectangle.Height);
-            inSight = GameEngine.GameObjects.FirstOrDefault(x => x is Player && x.Rectangle.Intersects(bottomView));
-            OpenFiringSequence(inSight, Direction.Down);
+                Rectangle topView = new Rectangle(this.Rectangle.X, -25, this.Rectangle.Width, this.Rectangle.Y);
+                if (player.Rectangle.Intersects(topView))
+                {
+                    OpenFiringSequence(player, Direction.Up);
+                }
+
+                Rectangle bottomView = new Rectangle(this.Rectangle.X, this.Rectangle.Y, this.Rectangle.Width, GameEngine.WindowHeight - this.Rectangle.Height);
+                if (player.Rectangle.Intersects(bottomView))
+                {
+                    OpenFiringSequence(player, Direction.Down);
+                }
+            }
         }
 
         private void OpenFiringSequence(GameObject player, Direction direction)
         {
-            if (player != null)
-            {
-                this.shotTimeout--;
 
-                if (this.shotTimeout <= 0)
-                {
-                    this.Speed = 0;
-                    this.Direction = direction;
-                    this.Shoot(direction);
-                    this.shotTimeout = this.TimeBetweenShot;
-                }
+            this.shotTimeout--;
+
+            if (this.shotTimeout <= 0)
+            {
+                this.Speed = 0;
+                this.Direction = direction;
+                this.Shoot(direction);
+                this.shotTimeout = this.TimeBetweenShot;
             }
             else
             {
