@@ -40,7 +40,10 @@
             this.backButton = new System.Windows.Forms.Button();
             this.controlsImage = new System.Windows.Forms.PictureBox();
             this.controlsLabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ExtraPacksLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.controlsImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // backButton
@@ -81,22 +84,51 @@
             this.controlsLabel.TabIndex = 8;
             this.controlsLabel.Text = "Player Controls";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(300, 105);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(275, 285);
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
+            // ExtraPacksLbl
+            // 
+            this.ExtraPacksLbl.AutoSize = true;
+            this.ExtraPacksLbl.BackColor = System.Drawing.Color.Transparent;
+            this.ExtraPacksLbl.Font = new System.Drawing.Font("Impact", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExtraPacksLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(28)))), ((int)(((byte)(11)))));
+            this.ExtraPacksLbl.Location = new System.Drawing.Point(295, 65);
+            this.ExtraPacksLbl.Name = "ExtraPacksLbl";
+            this.ExtraPacksLbl.Size = new System.Drawing.Size(127, 29);
+            this.ExtraPacksLbl.TabIndex = 10;
+            this.ExtraPacksLbl.Text = "Extra Packs:";
+            // 
             // InstructionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 442);
+            this.Controls.Add(this.ExtraPacksLbl);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.controlsLabel);
             this.Controls.Add(this.controlsImage);
             this.Controls.Add(this.backButton);
             this.Name = "InstructionsForm";
             this.Text = "InstructionsForm";
             ((System.ComponentModel.ISupportInitialize)(this.controlsImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
+
+        private PictureBox pictureBox1;
+        private Label ExtraPacksLbl;
     }
 }
