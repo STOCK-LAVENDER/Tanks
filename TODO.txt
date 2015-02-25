@@ -6,17 +6,16 @@
 -- Volume adjustment
 -- Creators - info about the team
 -- Credits fo all used assets
--- How to play - basic controls         //done
+-- How to play - basic controls
 -- Help - info on units and power-ups
 - Create different obstacles that speed up or slow down tanks
 - Create enemy tanks and basic AI
 - Add button for sound off, visible during play
 - Find suitble sprites for items and enemies. (Kris)
 - Fix mixing of the Main menu sound and the main game sound     //Fixed
-    - Sound effect when the enemy tank is destroyed         //Done
-    - Sound effect when wall is destroyed                   //Done
+    - Sound effect when the enemy tank is destroyed
+    - Sound effect when wall is destroyed
     - Eventual improving of the gun shots sound
     - Optional : Implementing a mute, volume up and volume down option for the game music.
-- Pause functionality (Kris)
 - Create shop to purchase upgrades 
 - Add storyline (Filip)
