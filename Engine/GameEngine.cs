@@ -45,7 +45,7 @@
         public static Texture2D ShieldTexture;
         public static Texture2D SpeedPowerUpTexture;
 
-        public static int Level = 0;
+        public static GameLevel Level;
         public static SoundEffectInstance SoundTankShootingInstance;
 
         private SpriteFont gamePauseFont;

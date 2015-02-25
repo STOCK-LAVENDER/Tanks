@@ -16,12 +16,18 @@
 
     public static class MapLoader
     {
-        public static List<GameObject> LoadMap(SpriteBatch spriteBatch, int level)
+        public static List<GameObject> LoadMap(SpriteBatch spriteBatch, GameLevel level)
         {
             string map;
             switch (level)
             {
-                case 0:
+                case GameLevel.Easy:
+                    map = @"../../../Resources/Maps/Map_TrainingFields.txt";
+                    break;
+                case GameLevel.Medium:
+                    map = @"../../../Resources/Maps/Map_TrainingFields.txt";
+                    break;
+                case GameLevel.Hard:
                     map = @"../../../Resources/Maps/Map_TrainingFields.txt";
                     break;
                 default:

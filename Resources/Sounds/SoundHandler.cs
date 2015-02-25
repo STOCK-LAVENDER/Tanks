@@ -7,7 +7,7 @@
     {
         public static void HandleBackgroundSoundEffect(Song song)
         {
-            MediaPlayer.Play(song);
+            //MediaPlayer.Play(song);
             
             MediaPlayer.Volume = 0.2f;
             MediaPlayer.IsRepeating = true;

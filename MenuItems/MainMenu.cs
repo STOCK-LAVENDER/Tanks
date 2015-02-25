@@ -25,13 +25,6 @@
             game.Run();
         }
 
-        private void Options_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            OptionsForm optionsForm = new OptionsForm();
-            optionsForm.ShowDialog();
-        }
-
         private void InitializeMenuBackgroundMusic()
         {
             this.simpleSound = new SoundPlayer(MenuBackgroundMusic.Volatile_Reaction);
@@ -39,11 +32,17 @@
             this.simpleSound.Play();
         }
 
-        private void StartGameOnClick(object sender, EventArgs e)
+        private void SinglePlayerButton_Click(object sender, EventArgs e)
         {
-            Thread theThread = new Thread(this.StartGame);
-            this.Close();
-            theThread.Start();
+            SinglePlayerButton.Visible = false;
+            instructions.Visible = false;
+            about.Visible = false;
+            exitButton.Visible = false;
+            
+            backButton.Visible = true;
+            easyLevelButton.Visible = true;
+            mediumLevelButton.Visible = true;
+            hardLevelButton.Visible = true;
         }
 
         private void Instructions_Click(object sender, EventArgs e)
@@ -65,12 +64,47 @@
             Environment.Exit(1);
         }
 
-        private void GameName_Click(object sender, EventArgs e)
+        private void easyLevelButton_Click(object sender, EventArgs e)
         {
+            Thread theThread = new Thread(this.StartGame);
+            this.Close();
+            theThread.Start();
+            GameEngine.Level = GameLevel.Easy;
         }
 
-        private void MainMenu_Load(object sender, EventArgs e)
+       
+        private void mediumLevelButton_Click(object sender, EventArgs e)
         {
+            Thread theThread = new Thread(this.StartGame);
+            this.Close();
+            theThread.Start();
+            GameEngine.Level = GameLevel.Medium;
         }
+
+        private void hardLevelButton_Click(object sender, EventArgs e)
+        {
+            Thread theThread = new Thread(this.StartGame);
+            this.Close();
+            theThread.Start();
+            GameEngine.Level = GameLevel.Hard;
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            SinglePlayerButton.Visible = true;
+            instructions.Visible = true;
+            about.Visible = true;
+            exitButton.Visible = true;
+
+            easyLevelButton.Visible = false;
+            mediumLevelButton.Visible = false;
+            hardLevelButton.Visible = false;
+            backButton.Visible = false;
+        }
+
+       
+
+       
+
     }
 }

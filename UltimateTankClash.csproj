@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Engine\CollisionHandler.cs" />
+    <Compile Include="Engine\GameLevel.cs" />
     <Compile Include="Engine\KeyboardController.cs" />
     <Compile Include="Exceptions\InvalidObjectParameterException.cs" />
     <Compile Include="Interfaces\ICollidable.cs" />
@@ -69,12 +70,6 @@
     <Compile Include="Exceptions\MapNotFoundException.cs" />
     <Compile Include="Exceptions\ObjectOutOfBoundsException.cs" />
     <Compile Include="Interfaces\ICollect.cs" />
-    <Compile Include="MenuItems\OptionsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MenuItems\OptionsForm.Designer.cs">
-      <DependentUpon>OptionsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Models\AmmunitionItems\Bullet.cs" />
     <Compile Include="Models\Characters\Bunkers\BasicBunker.cs" />
     <Compile Include="Models\Characters\Bunkers\FortifiedBunker.cs" />
@@ -164,9 +159,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuItems\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MenuItems\OptionsForm.resx">
-      <DependentUpon>OptionsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
