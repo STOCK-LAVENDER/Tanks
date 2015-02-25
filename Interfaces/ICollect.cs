@@ -4,6 +4,6 @@
     {
         void AddItemToInventory(ICollectible item);
 
-        void ApplyItemEffects();
+        void ApplyItemEffects(ICollectible item);
     }
 }

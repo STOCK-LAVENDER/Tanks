@@ -5,9 +5,6 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Runtime.InteropServices.ComTypes;
-    using System.Runtime.Remoting.Activation;
-    using System.Security.Permissions;
     using Interfaces;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Audio;
@@ -17,11 +14,8 @@
     using Models;
     using Models.AmmunitionItems;
     using Models.Characters;
-    using Models.Characters.Tanks;
-    using Models.Characters.Tanks.Enemies;
-    using Models.CollectibleItems.PowerUpEffects;
+    using Models.CollectibleItems;
     using Models.GameObstacles;
-    using Models.GameObstacles.Walls;
     using Models.Hideouts;
     using Resources.Sounds;
 
@@ -46,6 +40,11 @@
         public static Texture2D BasicBushTexture;
         public static Texture2D SpeedUpEffectTexture;
         public static Texture2D BunkerTexture;
+        public static Texture2D ArmorTexture;
+        public static Texture2D HealthTexture;
+        public static Texture2D ShieldTexture;
+        public static Texture2D SpeedPowerUpTexture;
+
         public static int Level = 0;
         private SpriteFont gamePauseFont;
 
@@ -118,9 +117,12 @@
 
             BasicWallTexture = this.Content.Load<Texture2D>("Graphics/Sprites/Bricks");
             BasicBushTexture = this.Content.Load<Texture2D>("Graphics/Sprites/basicBush");
-            SpeedUpEffectTexture = this.Content.Load<Texture2D>("Graphics/Sprites/speedPowerUpTexture");
             BulletTexture = this.Content.Load<Texture2D>("Graphics/Sprites/cannonBullet");
             BunkerTexture = this.Content.Load<Texture2D>("Graphics/Sprites/turret");
+            ArmorTexture = this.Content.Load<Texture2D>("Graphics/Sprites/armorSprite");
+            HealthTexture = this.Content.Load<Texture2D>("Graphics/Sprites/healthConsumableSprite");
+            ShieldTexture = this.Content.Load<Texture2D>("Graphics/Sprites/shieldSprite");
+            SpeedPowerUpTexture = this.Content.Load<Texture2D>("Graphics/Sprites/speedPowerUpTexture");
 
             //speedPowerUp = new SpeedPowerUp(this.SpeedUpEffectTexture, new Rectangle(20, 160, 50, 50));
 
@@ -188,8 +190,9 @@
             {
                 this.spriteBatch.DrawString(this.gamePauseFont, "Paused", new Vector2(WindowWidth / 3, WindowHeight / 3), Color.BlanchedAlmond);
             }
+
             var characters = GameObjects.Where(x => x is Character);
-            var obstacles = GameObjects.Where(x => x is Obstacle || x is Hideout);
+            var obstacles = GameObjects.Where(x => x is Obstacle || x is Hideout || x is CollectibleItem);
             var bullets = GameObjects.Where(x => x is Ammunition);
 
             foreach (var character in characters)

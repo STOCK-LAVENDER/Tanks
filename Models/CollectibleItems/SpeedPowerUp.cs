@@ -7,9 +7,13 @@
     public class SpeedPowerUp : CollectibleItem, ITimeoutable
     {
         public const int DefaultTimeout = 10;
+        private const int DefaultDefenseEffect = 0;
+        private const int DefaultHealthEffect = 0;
+        private const int DefaultDamageEffect = 0;
+        private const int DefaultSpeedEffect = 2;
 
         public SpeedPowerUp(Texture2D objTexture, Rectangle rectangle)
-            : base(objTexture, rectangle)
+            : base(objTexture, rectangle, DefaultDamageEffect, DefaultDefenseEffect, DefaultHealthEffect, DefaultSpeedEffect)
         {
             this.Timeout = DefaultTimeout;
         }

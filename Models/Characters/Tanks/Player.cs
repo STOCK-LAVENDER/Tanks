@@ -1,6 +1,8 @@
 ﻿namespace UltimateTankClash.Models.Characters.Tanks
 {
     using System.Collections.Generic;
+    using System.Linq;
+    using CollectibleItems;
     using Interfaces;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Audio;
@@ -40,30 +42,18 @@
 
         public SoundEffectInstance SoundEffectInstance { get; private set; }
 
-        public virtual void ApplyItemEffects()
+        public virtual void ApplyItemEffects(ICollectible item)
         {
-            foreach (var item in this.Inventory)
-            {
-                this.PhysicalAttack += item.DamageEffect;
-                this.HealthPoints += item.HealthEffect;
-                this.PhysicalDefense += item.Defenseffect;
-            }
+            this.PhysicalAttack += item.DamageEffect;
+            this.HealthPoints += item.HealthEffect;
+            this.PhysicalDefense += item.Defenseffect;
+            this.Speed += item.SpeedEffect;
         }
 
         public void AddItemToInventory(ICollectible item)
         {
             this.Inventory.Add(item);
-            this.ApplyItemEffects();
-        }
-
-        public void RemoveFromInventory(ICollectible item)
-        {
-            if (this.Inventory.Contains(item))
-            {
-                this.Inventory.Remove(item);
-            }
-
-            this.RemoveItemEffects();
+            this.ApplyItemEffects(item);
         }
 
         public override void Move()
@@ -111,15 +101,30 @@
             {
                 this.HasShot = false;
             }
+
+            this.RemoveItemEffects();
+
+            this.inventory.RemoveAll(x => x.ItemState == CollectibleItemState.Expired);
+        }
+
+        public override void RespondToCollision(GameObject hitObject)
+        {
+            base.RespondToCollision(hitObject);
+
+            if (hitObject is ICollectible)
+            {
+                this.AddItemToInventory((ICollectible)hitObject);
+            }
         }
 
         protected virtual void RemoveItemEffects()
         {
-            foreach (var item in this.Inventory)
+            foreach (var item in this.Inventory.Where(x => x.ItemState == CollectibleItemState.Expired))
             {
                 this.PhysicalAttack -= item.DamageEffect;
                 this.HealthPoints -= item.HealthEffect;
                 this.PhysicalDefense -= item.Defenseffect;
+                this.Speed -= item.SpeedEffect;
             }
 
             if (this.HealthPoints < 0)

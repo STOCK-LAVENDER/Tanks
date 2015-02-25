@@ -1,6 +1,5 @@
 ﻿namespace UltimateTankClash.Models.CollectibleItems
 {
-    using System;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
 
@@ -12,12 +11,8 @@
         private const int DefaultSpeedEffect = 0;
 
         public ArmorConsumable(Texture2D objTexture, Rectangle rectangle)
-            : base(objTexture, rectangle)
+            : base(objTexture, rectangle, DefaultDamageEffect, DefaultDefenseEffect, DefaultHealthEffect, DefaultSpeedEffect)
         {
-            this.DamageEffect = DefaultDamageEffect;
-            this.DefenseEffect = DefaultDefenseEffect;
-            this.HealthEffect = DefaultHealthEffect;
-            this.SpeedEffect = DefaultSpeedEffect;
         }
     }
 }

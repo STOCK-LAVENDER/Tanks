@@ -13,6 +13,7 @@ namespace UltimateTankClash.Properties {
     using System.ComponentModel;
     using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
+    using System.Drawing;
     using System.Globalization;
     using System.Resources;
     using System.Runtime.CompilerServices;
@@ -68,20 +69,20 @@ namespace UltimateTankClash.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cover {
+        internal static Bitmap cover {
             get {
                 object obj = ResourceManager.GetObject("cover", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap img {
+        internal static Bitmap img {
             get {
                 object obj = ResourceManager.GetObject("img", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Bitmap)(obj));
             }
         }
     }

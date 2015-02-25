@@ -6,9 +6,13 @@
 
     public abstract class CollectibleItem : GameObject
     {
-        protected CollectibleItem(Texture2D objTexture, Rectangle rectangle)
+        protected CollectibleItem(Texture2D objTexture, Rectangle rectangle, int damageEffect, int defenseEffect, int healthEffect, int speedEffect)
             : base(objTexture, rectangle)
         {
+            this.DamageEffect = damageEffect;
+            this.DefenseEffect = defenseEffect;
+            this.HealthEffect = healthEffect;
+            this.SpeedEffect = speedEffect;
         }
 
         protected CollectibleItemState ItemState { get; set; }
@@ -34,6 +38,7 @@
             if (hitObject is ICollect)
             {
                 this.ItemState = CollectibleItemState.Collected;
+                this.State = GameObjectState.Destroyed;
             }
         }
     }

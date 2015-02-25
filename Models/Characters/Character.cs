@@ -3,7 +3,6 @@ namespace UltimateTankClash.Models.Characters
     using System;
     using AmmunitionItems;
     using Engine;
-    using GameObstacles;
     using Interfaces;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;

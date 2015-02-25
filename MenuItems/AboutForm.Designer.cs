@@ -1,16 +1,19 @@
 ﻿namespace UltimateTankClash.MenuItems
 {
+    using System.ComponentModel;
+    using System.Windows.Forms;
+
     public partial class AboutForm
     {
-        private System.Windows.Forms.Button backButton;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private Button backButton;
+        private PictureBox pictureBox1;
+        private TextBox textBox1;
+        private TextBox textBox2;
 
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.

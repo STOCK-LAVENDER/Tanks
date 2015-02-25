@@ -11,7 +11,6 @@
     using Models.Characters.Tanks;
     using Models.Characters.Tanks.Enemies;
     using Models.CollectibleItems;
-    using Models.CollectibleItems.PowerUpEffects;
     using Models.GameObstacles.Walls;
     using Models.Hideouts.Bushes;
 
@@ -53,7 +52,7 @@
                                 gameObjects.Add(new Bush(GameEngine.BasicBushTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
                                 break;
                             case 'I':
-                                gameObjects.Add(new SpeedPowerUp(GameEngine.BasicBushTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
+                                gameObjects.Add(new SpeedPowerUp(GameEngine.SpeedPowerUpTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
                                 break;
                             case 'P':
                                 gameObjects.Add(new Player(
@@ -62,7 +61,7 @@
                                     GameEngine.SoundTankShootingInstance));
                                 break;
                             case 'T':
-                                gameObjects.Add(new BasicTank(GameEngine.BasicTankTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
+                                gameObjects.Add(new BasicTank(GameEngine.BasicTankTexture, new Rectangle(positionX - 25, positionY - 25, 50, 50)));
                                 break;
                             case 'F': 
                                 gameObjects.Add(new FastTank(GameEngine.FastTankTexture, new Rectangle(positionX - 25, positionY - 25, 50, 50)));
@@ -80,13 +79,13 @@
                                 gameObjects.Add(new FortifiedBunker(GameEngine.BunkerTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
                                 break;
                             case 'H':
-                                gameObjects.Add(new ShieldPowerUp(GameEngine.BunkerTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70))); // change texture
+                                gameObjects.Add(new ShieldPowerUp(GameEngine.ShieldTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
                                 break;
                             case 'A':
-                                gameObjects.Add(new ArmorConsumable(GameEngine.BunkerTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70))); // change
+                                gameObjects.Add(new ArmorConsumable(GameEngine.ArmorTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
                                 break;
                             case 'E':
-                                gameObjects.Add(new HealthConsumable(GameEngine.BunkerTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70))); // change
+                                gameObjects.Add(new HealthConsumable(GameEngine.HealthTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
                                 break;
                             case '\n':
                                 positionY += 70;

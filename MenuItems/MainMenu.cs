@@ -1,7 +1,6 @@
 ﻿namespace UltimateTankClash.MenuItems
 {
     using System;
-    using System.IO;
     using System.Media;
     using System.Threading;
     using Engine;
