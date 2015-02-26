@@ -1,5 +1,4 @@
-﻿
-namespace UltimateTankClash.Engine
+﻿namespace UltimateTankClash.Engine
 {
     public enum GameLevel
     {

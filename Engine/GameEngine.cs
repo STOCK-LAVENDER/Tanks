@@ -16,6 +16,9 @@
     using Models;
     using Models.AmmunitionItems;
     using Models.Characters;
+    using Models.Characters.Bunkers;
+    using Models.Characters.Tanks;
+    using Models.Characters.Tanks.Enemies;
     using Models.CollectibleItems;
     using Models.GameObstacles;
     using Models.Hideouts;
@@ -58,6 +61,9 @@
         private SoundEffect backgroundInGameSoundEffect;
         
         private bool isGamePaused;
+        private bool isGameOver = false;
+        private bool isGameWon = false;
+
         private IController controller;
 
         public GameEngine(IController controller)
@@ -162,9 +168,35 @@
 
                 GameObjects.RemoveAll(x => x.State == GameObjectState.Destroyed);
             }
+            
             this.HandleGameMute();
+
+            CheckGameOver();
+
             base.Update(gameTime);
             this.controller.ProcessUserInput();
+        }
+
+        private void CheckGameOver()
+        {
+            bool enemiesLeft = GameObjects.Any(x => x is EnemyTank || x is Bunker);
+            bool playerAlive = GameObjects.Any(x => x is Player);
+
+            if (!enemiesLeft)
+            {
+                this.isGameOver = true;
+                this.isGameWon = true;
+            }
+            else if (!playerAlive)
+            {
+                this.isGameOver = true;
+                this.isGameWon = false;
+            }
+
+            if (this.isGameOver)
+            {
+                this.isGamePaused = true;
+            }
         }
 
         /// <summary>
@@ -205,7 +237,25 @@
 
             if (this.isGamePaused)
             {
-                this.spriteBatch.DrawString(this.gamePauseFont, "Paused", new Vector2(WindowWidth / 3, WindowHeight / 3), Color.BlanchedAlmond);
+                if (this.isGameOver)
+                {
+                    string gameLost = "You were killed! Press Enter to go back and try again.";
+                    string gameWon = "All enemies are destroyed! Press Enter to try another level.";
+
+                    this.spriteBatch.DrawString(
+                        Font, 
+                        this.isGameWon ? gameWon : gameLost,
+                        new Vector2(50, WindowHeight - 100), 
+                        Color.BlanchedAlmond);
+                }
+                else
+                {
+                    this.spriteBatch.DrawString(
+                        this.gamePauseFont, 
+                        "Paused", 
+                        new Vector2(WindowWidth / 3, WindowHeight / 3), 
+                        Color.BlanchedAlmond);
+                }
             }
 
             this.spriteBatch.End();

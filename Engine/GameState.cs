@@ -5,9 +5,8 @@
         Running,
         Paused,
         MainMenu,
-        Settings,
-        Help,
-        Credits,
-        Creators
+        About,
+        Instructions,
+        Over
     }
 }
