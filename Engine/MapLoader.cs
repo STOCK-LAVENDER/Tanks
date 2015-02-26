@@ -45,8 +45,8 @@
                     int positionY = 70;
                     int positionX = 70;
 
-                    const int largeTextureSize = 70;
-                    const int smallTextureSize = 50;
+                    const int LargeTextureSize = 70;
+                    const int SmallTextureSize = 50;
 
                     string line = sr.ReadToEnd();
 
@@ -61,8 +61,8 @@
                                 rect = new Rectangle(
                                     positionX - GameEngine.Offset,
                                     positionY - GameEngine.Offset,
-                                    largeTextureSize,
-                                    largeTextureSize);
+                                    LargeTextureSize,
+                                    LargeTextureSize);
 
                                 gameObjects.Add(new BasicWall(GameEngine.BasicWallTexture, rect));
                                 break;
@@ -70,8 +70,8 @@
                                 rect = new Rectangle(
                                     positionX - GameEngine.Offset,
                                     positionY - GameEngine.Offset,
-                                    largeTextureSize,
-                                    largeTextureSize);
+                                    LargeTextureSize,
+                                    LargeTextureSize);
 
                                 gameObjects.Add(new Bush(GameEngine.BasicBushTexture, rect));
                                 break;
@@ -79,8 +79,8 @@
                                 rect = new Rectangle(
                                     positionX - GameEngine.Offset,
                                     positionY - GameEngine.Offset,
-                                    largeTextureSize,
-                                    largeTextureSize);
+                                    LargeTextureSize,
+                                    LargeTextureSize);
 
                                 gameObjects.Add(new SpeedPowerUp(GameEngine.SpeedPowerUpTexture, rect));
                                 break;
@@ -97,8 +97,8 @@
                                 rect = new Rectangle(
                                     positionX - GameEngine.Offset,
                                     positionY - GameEngine.Offset,
-                                    smallTextureSize,
-                                    smallTextureSize);
+                                    SmallTextureSize,
+                                    SmallTextureSize);
 
                                 gameObjects.Add(new BasicTank(GameEngine.BasicTankTexture, rect));
                                 break;
@@ -106,8 +106,8 @@
                                 rect = new Rectangle(
                                     positionX - GameEngine.Offset,
                                     positionY - GameEngine.Offset,
-                                    smallTextureSize,
-                                    smallTextureSize);
+                                    SmallTextureSize,
+                                    SmallTextureSize);
 
                                 gameObjects.Add(new FastTank(GameEngine.FastTankTexture, rect));
                                 break;
@@ -115,8 +115,8 @@
                                 rect = new Rectangle(
                                     positionX - GameEngine.Offset,
                                     positionY - GameEngine.Offset,
-                                    largeTextureSize,
-                                    largeTextureSize);
+                                    LargeTextureSize,
+                                    LargeTextureSize);
 
                                 gameObjects.Add(new StrongTank(GameEngine.BasicTankTexture, rect));
                                 break;
@@ -124,8 +124,8 @@
                                 rect = new Rectangle(
                                     positionX - GameEngine.Offset,
                                     positionY - GameEngine.Offset,
-                                    smallTextureSize,
-                                    smallTextureSize);
+                                    SmallTextureSize,
+                                    SmallTextureSize);
 
                                 gameObjects.Add(new BossTank(GameEngine.PlayerTankTexture, rect));
                                 break;
@@ -133,8 +133,8 @@
                                 rect = new Rectangle(
                                     positionX - GameEngine.Offset,
                                     positionY - GameEngine.Offset,
-                                    largeTextureSize,
-                                    largeTextureSize);
+                                    LargeTextureSize,
+                                    LargeTextureSize);
 
                                 gameObjects.Add(new BasicBunker(GameEngine.BunkerTexture, rect));
                                 break;
@@ -142,8 +142,8 @@
                                 rect = new Rectangle(
                                     positionX - GameEngine.Offset,
                                     positionY - GameEngine.Offset,
-                                    largeTextureSize,
-                                    largeTextureSize);
+                                    LargeTextureSize,
+                                    LargeTextureSize);
 
                                 gameObjects.Add(new FortifiedBunker(GameEngine.BunkerTexture, rect));
                                 break;
@@ -151,8 +151,8 @@
                                 rect = new Rectangle(
                                     positionX - GameEngine.Offset,
                                     positionY - GameEngine.Offset,
-                                    largeTextureSize,
-                                    largeTextureSize);
+                                    LargeTextureSize,
+                                    LargeTextureSize);
 
                                 gameObjects.Add(new ShieldPowerUp(GameEngine.ShieldTexture, rect));
                                 break;
@@ -160,8 +160,8 @@
                                 rect = new Rectangle(
                                     positionX - GameEngine.Offset,
                                     positionY - GameEngine.Offset,
-                                    largeTextureSize,
-                                    largeTextureSize);
+                                    LargeTextureSize,
+                                    LargeTextureSize);
 
                                 gameObjects.Add(new ArmorConsumable(GameEngine.ArmorTexture, rect));
                                 break;
@@ -169,8 +169,8 @@
                                 rect = new Rectangle(
                                     positionX - GameEngine.Offset,
                                     positionY - GameEngine.Offset,
-                                    largeTextureSize,
-                                    largeTextureSize);
+                                    LargeTextureSize,
+                                    LargeTextureSize);
 
                                 gameObjects.Add(new HealthConsumable(GameEngine.HealthTexture, rect));
                                 break;
@@ -178,18 +178,18 @@
                                 rect = new Rectangle(
                                     positionX - GameEngine.Offset,
                                     positionY - GameEngine.Offset,
-                                    largeTextureSize,
-                                    largeTextureSize);
+                                    LargeTextureSize,
+                                    LargeTextureSize);
 
                                 gameObjects.Add(new SteelBarricade(GameEngine.SteelWallTexture, rect));
                                 break;
                             case '\n':
-                                positionY += largeTextureSize;
-                                positionX = largeTextureSize;
+                                positionY += LargeTextureSize;
+                                positionX = LargeTextureSize;
                                 break;
                         }
 
-                        positionX += largeTextureSize;
+                        positionX += LargeTextureSize;
                     }
                 }
 

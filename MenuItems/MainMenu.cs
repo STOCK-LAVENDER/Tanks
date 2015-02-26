@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace UltimateTankClash.MenuItems
+﻿namespace UltimateTankClash.MenuItems
 {
     using System;
     using System.Media;
@@ -12,7 +10,6 @@ namespace UltimateTankClash.MenuItems
     public partial class MainMenu : BackgroundForm
     {
         private SoundPlayer simpleSound;
-        private static bool isVisible = true;
 
         public MainMenu()
         {
@@ -26,7 +23,6 @@ namespace UltimateTankClash.MenuItems
             KeyboardController keyboardController = new KeyboardController();
             GameEngine game = new GameEngine(keyboardController);
             game.Run();
-            
         }
 
         private void InitializeMenuBackgroundMusic()
@@ -38,10 +34,10 @@ namespace UltimateTankClash.MenuItems
 
         private void SinglePlayerButton_Click(object sender, EventArgs e)
         {
-            singlePlayerButton.Visible = false;
-            instructions.Visible = false;
+            this.singlePlayerButton.Visible = false;
+            this.instructions.Visible = false;
             this.about.Visible = false;
-            exitButton.Visible = false;
+            this.exitButton.Visible = false;
             
             this.backButton.Visible = true;
             this.easyLevelButton.Visible = true;

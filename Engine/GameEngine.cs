@@ -1,14 +1,10 @@
-﻿using System;
-using System.Net.Mime;
-using System.Threading;
-using System.Windows.Forms;
-
-namespace UltimateTankClash.Engine
+﻿namespace UltimateTankClash.Engine
 {
     #region Using Statements
 
     using System.Collections.Generic;
     using System.Linq;
+    using System.Windows.Forms;
     using Interfaces;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Audio;
@@ -24,7 +20,8 @@ namespace UltimateTankClash.Engine
     using Models.GameObstacles;
     using Models.Hideouts;
     using Resources.Sounds;
-    using MenuItems;
+    using ButtonState = Microsoft.Xna.Framework.Input.ButtonState;
+    using Keys = Microsoft.Xna.Framework.Input.Keys;
 
     #endregion
 
@@ -94,8 +91,6 @@ namespace UltimateTankClash.Engine
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
         /// </summary>
-        /// 
-
         protected override void LoadContent()
         {
             this.spriteBatch = new SpriteBatch(this.GraphicsDevice);
@@ -223,13 +218,12 @@ namespace UltimateTankClash.Engine
             {
                 if (this.isGameOver)
                 {
-                    
-                    const string gameLostMessage = "You were killed! Press Enter to go back and try again.";
-                    const string gameWonMessage = "All enemies are destroyed! Press Enter to try another level.";
+                    const string GameLostMessage = "You were killed! Press Enter to go back and try again.";
+                    const string GameWonMessage = "All enemies are destroyed! Press Enter to try another level.";
                     
                     this.spriteBatch.DrawString(
                         Font, 
-                        this.isGameWon ? gameWonMessage : gameLostMessage,
+                        this.isGameWon ? GameWonMessage : GameLostMessage,
                         new Vector2(50, WindowHeight - 100), 
                         Color.BlanchedAlmond);
                 }

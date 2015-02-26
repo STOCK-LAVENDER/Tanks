@@ -26,7 +26,6 @@
             : base(objTexture, rectangle, DefaultPhysicalAttack, DefaultPhysicalDefense, DefaultHealthPoints, DefaultSpeed)
         {
             this.Direction = Direction.Down;
-            // this.SoundEffectInstance = soundEffectInstance;
             this.BaseSpeed = DefaultSpeed;
             this.IsVisible = true;
         }
@@ -88,7 +87,6 @@
             if (state.IsKeyDown(Keys.Space) && !this.HasShot)
             {
                 this.Shoot(this.Direction);
-                // this.SoundEffectInstance.Play();
                 SoundHandler.HandleGunShot();
                 this.HasShot = true;
             }
