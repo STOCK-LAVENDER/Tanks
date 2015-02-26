@@ -176,11 +176,6 @@
             this.GraphicsDevice.Clear(Color.CornflowerBlue);
             this.spriteBatch.Begin();
 
-            if (this.isGamePaused)
-            {
-                this.spriteBatch.DrawString(this.gamePauseFont, "Paused", new Vector2(WindowWidth / 3, WindowHeight / 3), Color.BlanchedAlmond);
-            }
-
             var characters = GameObjects.Where(x => x is Character);
             var obstacles = GameObjects.Where(x => x is Obstacle || x is Hideout);
             var collectibles =
@@ -206,6 +201,11 @@
             foreach (var character in bullets)
             {
                 character.Draw(this.spriteBatch);
+            }
+
+            if (this.isGamePaused)
+            {
+                this.spriteBatch.DrawString(this.gamePauseFont, "Paused", new Vector2(WindowWidth / 3, WindowHeight / 3), Color.BlanchedAlmond);
             }
 
             this.spriteBatch.End();
