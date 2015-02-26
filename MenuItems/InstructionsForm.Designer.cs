@@ -12,6 +12,10 @@
         private PictureBox pauseBtn;
         private PictureBox muteBtn;
 
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private Label enemiesLbl;
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -48,7 +52,7 @@
             this.muteBtn = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.EnemiesLbl = new System.Windows.Forms.Label();
+            this.enemiesLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.controlsImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pauseBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.muteBtn)).BeginInit();
@@ -147,24 +151,24 @@
             this.pictureBox2.TabIndex = 14;
             this.pictureBox2.TabStop = false;
             // 
-            // EnemiesLbl
+            // enemiesLbl
             // 
-            this.EnemiesLbl.AutoSize = true;
-            this.EnemiesLbl.BackColor = System.Drawing.Color.Transparent;
-            this.EnemiesLbl.Font = new System.Drawing.Font("Impact", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EnemiesLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(28)))), ((int)(((byte)(11)))));
-            this.EnemiesLbl.Location = new System.Drawing.Point(396, 65);
-            this.EnemiesLbl.Name = "EnemiesLbl";
-            this.EnemiesLbl.Size = new System.Drawing.Size(101, 29);
-            this.EnemiesLbl.TabIndex = 15;
-            this.EnemiesLbl.Text = "Enemies:";
+            this.enemiesLbl.AutoSize = true;
+            this.enemiesLbl.BackColor = System.Drawing.Color.Transparent;
+            this.enemiesLbl.Font = new System.Drawing.Font("Impact", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enemiesLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(28)))), ((int)(((byte)(11)))));
+            this.enemiesLbl.Location = new System.Drawing.Point(396, 65);
+            this.enemiesLbl.Name = "enemiesLbl";
+            this.enemiesLbl.Size = new System.Drawing.Size(101, 29);
+            this.enemiesLbl.TabIndex = 15;
+            this.enemiesLbl.Text = "Enemies:";
             // 
             // InstructionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 442);
-            this.Controls.Add(this.EnemiesLbl);
+            this.Controls.Add(this.enemiesLbl);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.muteBtn);
@@ -186,9 +190,5 @@
         }
 
         #endregion
-
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
-        private Label EnemiesLbl;
     }
 }

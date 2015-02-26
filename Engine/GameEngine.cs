@@ -36,7 +36,6 @@
 
         public static List<GameObject> GameObjects = new List<GameObject>();
         public static SpriteFont Font;
-
         public static Texture2D BulletTexture;
         public static Texture2D BasicTankTexture;
         public static Texture2D PlayerTankTexture;
@@ -50,7 +49,6 @@
         public static Texture2D ShieldTexture;
         public static Texture2D SpeedPowerUpTexture;
         public static Texture2D SteelWallTexture;
-
         public static GameLevel Level;
         public static SoundEffectInstance SoundTankShootingInstance;
 
@@ -185,7 +183,7 @@
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            this.GraphicsDevice.Clear(Color.CornflowerBlue);
+            this.GraphicsDevice.Clear(Color.DarkGoldenrod);
             this.spriteBatch.Begin();
 
             var characters = GameObjects.Where(gameObject => gameObject is Character);
@@ -256,7 +254,7 @@
 
             this.controller.GameRestart += (sender, args) =>
             {
-                if (isGameOver)
+                if (this.isGameOver)
                 {
                     Application.Restart();
                 }
