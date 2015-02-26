@@ -6,6 +6,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Runtime.Remoting.Channels;
+    using System.Threading;
     using Interfaces;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Audio;
@@ -217,11 +218,13 @@
             this.controller.Pause += (sender, args) =>
             {
                 this.isGamePaused = !this.isGamePaused;
+                Thread.Sleep(100);
             };
 
             this.controller.GameMute += (sender, args) =>
             {
                 SoundHandler.isGameMuted = !SoundHandler.isGameMuted;
+                Thread.Sleep(100);
             };
         }
 

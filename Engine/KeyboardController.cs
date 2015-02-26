@@ -22,7 +22,6 @@
                 if (this.Pause != null)
                 {
                     this.Pause(this, new EventArgs());
-                    Thread.Sleep(150);
                 }
             }
             else if (this.keyboard.IsKeyDown(Keys.M))
@@ -30,7 +29,6 @@
                 if (this.GameMute != null)
                 {
                     this.GameMute(this, new EventArgs());
-                    Thread.Sleep(150);
                 }
             }
         }
