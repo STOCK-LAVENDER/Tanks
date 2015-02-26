@@ -131,8 +131,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
+    <None Include="Resources\mute.png" />
+    <None Include="Resources\pause.png" />
+    <None Include="Resources\pauseBtn.png" />
     <None Include="Resources\Failing Defense.wav" />
     <None Include="Resources\Gun_Shot-Marvin-1140816320 1.wav" />
+    <None Include="Resources\keyboard.png" />
     <Content Include="Resources\Maps\Map_TrainingFields.txt" />
     <None Include="Resources\Grenade Explosion-SoundBible.com-2100581469-1.wav" />
     <None Include="Resources\Depth Charge Shorter-SoundBible.com-1978501900.wav" />

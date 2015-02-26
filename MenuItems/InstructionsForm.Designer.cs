@@ -42,8 +42,12 @@
             this.controlsLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ExtraPacksLbl = new System.Windows.Forms.Label();
+            this.pauseBtn = new System.Windows.Forms.PictureBox();
+            this.muteBtn = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.controlsImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pauseBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.muteBtn)).BeginInit();
             this.SuspendLayout();
             // 
             // backButton
@@ -107,11 +111,33 @@
             this.ExtraPacksLbl.TabIndex = 10;
             this.ExtraPacksLbl.Text = "Extra Packs:";
             // 
+            // pauseBtn
+            // 
+            this.pauseBtn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pauseBtn.Image = global::UltimateTankClash.Properties.Resources.pause;
+            this.pauseBtn.Location = new System.Drawing.Point(36, 300);
+            this.pauseBtn.Name = "pauseBtn";
+            this.pauseBtn.Size = new System.Drawing.Size(60, 60);
+            this.pauseBtn.TabIndex = 11;
+            this.pauseBtn.TabStop = false;
+            // 
+            // muteBtn
+            // 
+            this.muteBtn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.muteBtn.Image = global::UltimateTankClash.Properties.Resources.mute;
+            this.muteBtn.Location = new System.Drawing.Point(140, 300);
+            this.muteBtn.Name = "muteBtn";
+            this.muteBtn.Size = new System.Drawing.Size(60, 60);
+            this.muteBtn.TabIndex = 12;
+            this.muteBtn.TabStop = false;
+            // 
             // InstructionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 442);
+            this.Controls.Add(this.muteBtn);
+            this.Controls.Add(this.pauseBtn);
             this.Controls.Add(this.ExtraPacksLbl);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.controlsLabel);
@@ -121,6 +147,8 @@
             this.Text = "InstructionsForm";
             ((System.ComponentModel.ISupportInitialize)(this.controlsImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pauseBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.muteBtn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,5 +158,7 @@
 
         private PictureBox pictureBox1;
         private Label ExtraPacksLbl;
+        private PictureBox pauseBtn;
+        private PictureBox muteBtn;
     }
 }
