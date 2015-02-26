@@ -45,6 +45,7 @@
             this.Name = "BackgroundForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BackgroundForm";
+            this.Load += new System.EventHandler(this.BackgroundForm_Load);
             this.ResumeLayout(false);
 
         }

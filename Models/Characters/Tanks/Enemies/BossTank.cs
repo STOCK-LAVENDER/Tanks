@@ -9,11 +9,11 @@
 
     public class BossTank : EnemyTank, ICollect
     {
-        private const int DefaultPhysicalAttack = 25;
+        private const int DefaultPhysicalAttack = 100;
         private const int DefaultPhysicalDefense = 10;
-        private const int DefaultHealthPoints = 250;
-        private const int DefaultSpeed = 4;
-        private const int TimeBetweenDirectionSwitches = 50;
+        private const int DefaultHealthPoints = 1000;
+        private const int DefaultSpeed = 3;
+        private const int TimeBetweenDirectionSwitches = 150;
         private const int TimeBetweenShots = 25;
 
         private List<CollectibleItem> inventory = new List<CollectibleItem>();

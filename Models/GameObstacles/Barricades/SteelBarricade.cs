@@ -1,6 +1,5 @@
 ﻿namespace UltimateTankClash.Models.GameObstacles.Barricades
 {
-    using System;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
 
@@ -13,17 +12,10 @@
 
         public override void Update()
         {
-            throw new NotImplementedException();
-        }
-
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            throw new NotImplementedException();
         }
 
         public override void RespondToCollision(GameObject hitObject)
         {
-            return;
         }
     }
 }

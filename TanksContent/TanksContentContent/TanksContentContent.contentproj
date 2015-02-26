@@ -53,8 +53,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Graphics\Sprites\basicWall.jpg">
-      <Name>basicWall</Name>
+    <Compile Include="Graphics\Sprites\steelWall.jpg">
+      <Name>steelWall</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

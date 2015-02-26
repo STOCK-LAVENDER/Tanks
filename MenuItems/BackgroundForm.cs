@@ -8,5 +8,10 @@
         {
             this.InitializeComponent();
         }
+
+        private void BackgroundForm_Load(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

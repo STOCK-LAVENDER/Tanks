@@ -102,9 +102,8 @@
             backButton.Visible = false;
         }
 
-       
-
-       
-
+        private void gameName_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

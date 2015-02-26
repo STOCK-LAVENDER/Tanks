@@ -49,6 +49,7 @@
         public static Texture2D HealthTexture;
         public static Texture2D ShieldTexture;
         public static Texture2D SpeedPowerUpTexture;
+        public static Texture2D SteelWallTexture;
 
         public static GameLevel Level;
         public static SoundEffectInstance SoundTankShootingInstance;
@@ -115,6 +116,7 @@
             HealthTexture = this.Content.Load<Texture2D>("Graphics/Sprites/healthConsumableSprite");
             ShieldTexture = this.Content.Load<Texture2D>("Graphics/Sprites/shieldSprite");
             SpeedPowerUpTexture = this.Content.Load<Texture2D>("Graphics/Sprites/speedPowerUpTexture");
+            SteelWallTexture = this.Content.Load<Texture2D>("Graphics/Sprites/steelWall");
 
             GameObjects = MapLoader.LoadMap(this.spriteBatch, Level);
         }

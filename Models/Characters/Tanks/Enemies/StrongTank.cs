@@ -5,9 +5,9 @@
 
     public class StrongTank : EnemyTank
     {
-        private const int DefaultPhysicalAttack = 125;
+        private const int DefaultPhysicalAttack = 60;
         private const int DefaultPhysicalDefense = 25;
-        private const int DefaultHealthPoints = 1200;
+        private const int DefaultHealthPoints = 500;
         private const int DefaultSpeed = 1;
         private const int TimeBetweenDirectionSwitches = 100;
         private const int TimeBetweenShots = 50;

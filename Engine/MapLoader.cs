@@ -11,6 +11,7 @@
     using Models.Characters.Tanks;
     using Models.Characters.Tanks.Enemies;
     using Models.CollectibleItems;
+    using Models.GameObstacles.Barricades;
     using Models.GameObstacles.Walls;
     using Models.Hideouts.Bushes;
 
@@ -25,10 +26,10 @@
                     map = @"../../../Resources/Maps/Map_TrainingFields.txt";
                     break;
                 case GameLevel.Medium:
-                    map = @"../../../Resources/Maps/Map_TrainingFields.txt";
+                    map = @"../../../Resources/Maps/Map_OnEnemyTerritory.txt";
                     break;
                 case GameLevel.Hard:
-                    map = @"../../../Resources/Maps/Map_TrainingFields.txt";
+                    map = @"../../../Resources/Maps/Map_Glory.txt";
                     break;
                 default:
                     throw new MapNotFoundException("The specified map is not implemented.");
@@ -63,7 +64,7 @@
                             case 'P':
                                 gameObjects.Add(new Player(
                                     GameEngine.PlayerTankTexture,
-                                    new Rectangle(25, 25, GameEngine.PlayerTankTexture.Width, GameEngine.PlayerTankTexture.Height)));
+                                    new Rectangle(positionX - 25, positionY - 25, GameEngine.PlayerTankTexture.Width, GameEngine.PlayerTankTexture.Height)));
                                 break;
                             case 'T':
                                 gameObjects.Add(new BasicTank(GameEngine.BasicTankTexture, new Rectangle(positionX - 25, positionY - 25, 50, 50)));
@@ -75,7 +76,7 @@
                                 gameObjects.Add(new StrongTank(GameEngine.BasicTankTexture, new Rectangle(positionX - 25, positionY - 25, 50, 50)));
                                 break;
                             case 'O':
-                                gameObjects.Add(new BossTank(GameEngine.FastTankTexture, new Rectangle(positionX - 25, positionY - 25, 50, 50)));
+                                gameObjects.Add(new BossTank(GameEngine.PlayerTankTexture, new Rectangle(positionX - 25, positionY - 25, 50, 50)));
                                 break;
                             case 'U':
                                 gameObjects.Add(new BasicBunker(GameEngine.BunkerTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
@@ -91,6 +92,9 @@
                                 break;
                             case 'E':
                                 gameObjects.Add(new HealthConsumable(GameEngine.HealthTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
+                                break;
+                            case 'L':
+                                gameObjects.Add(new SteelBarricade(GameEngine.SteelWallTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
                                 break;
                             case '\n':
                                 positionY += 70;

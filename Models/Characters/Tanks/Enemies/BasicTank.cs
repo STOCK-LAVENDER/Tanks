@@ -9,7 +9,7 @@
         private const int DefaultPhysicalDefense = 10;
         private const int DefaultHealthPoints = 750;
         private const int DefaultSpeed = 2;
-        private const int TimeBetweenDirectionSwitches = 100;
+        private const int TimeBetweenDirectionSwitches = 200;
         private const int TimeBetweenShots = 50;
 
         public BasicTank(Texture2D objTexture, Rectangle rectangle)

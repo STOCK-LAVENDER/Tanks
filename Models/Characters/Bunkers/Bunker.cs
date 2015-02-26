@@ -35,15 +35,15 @@
 
             if (player != null && player.IsVisible)
             {
-                Rectangle leftView = new Rectangle(-25, this.Rectangle.Y, this.Rectangle.X, this.Rectangle.Height);
-                Rectangle left = new Rectangle(player.Rectangle.X, player.Rectangle.Y, leftView.Width - player.Rectangle.X, this.Rectangle.Height);
+                Rectangle leftView = new Rectangle(-25, this.Rectangle.Y, this.Rectangle.X + 25, player.Rectangle.Height);
+                Rectangle left = new Rectangle(player.Rectangle.X, player.Rectangle.Y, leftView.Width - player.Rectangle.X - 25, this.Rectangle.Height - 25);
                 if (player.Rectangle.Intersects(leftView) && !CollisionHandler.ObstaclesObstructingView(left))
                 {
                     this.OpenFiringSequence(Direction.Left);
                 }
 
-                Rectangle rightView = new Rectangle(this.Rectangle.X, this.Rectangle.Y, GameEngine.WindowWidth - this.Rectangle.X, this.Rectangle.Height);
-                Rectangle right = new Rectangle(this.Rectangle.X, this.Rectangle.Y, player.Rectangle.Width - this.Rectangle.X, this.Rectangle.Height);
+                Rectangle rightView = new Rectangle(this.Rectangle.X, this.Rectangle.Y, GameEngine.WindowWidth + 25 - this.Rectangle.X, player.Rectangle.Height);
+                Rectangle right = new Rectangle(this.Rectangle.X, this.Rectangle.Y, player.Rectangle.Width - this.Rectangle.X - 25, this.Rectangle.Height - 25);
                 if (player.Rectangle.Intersects(rightView) && !CollisionHandler.ObstaclesObstructingView(right))
                 {
                     this.OpenFiringSequence(Direction.Right);
