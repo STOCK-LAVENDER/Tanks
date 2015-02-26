@@ -23,12 +23,13 @@
     #endregion
 
     /// <summary>
-    /// This is the main type for your game
+    /// This is the main type for our game
     /// </summary>
     public class GameEngine : Game
     {
         public const int WindowWidth = 1024;
         public const int WindowHeight = 640;
+        public const int Offset = 25;
 
         public static List<GameObject> GameObjects = new List<GameObject>();
         public static SpriteFont Font;
@@ -140,9 +141,9 @@
 
             if (!this.isGamePaused)
             {
-                var walls = GameObjects.Where(x => !(x is Ammunition) && !(x is CollectibleItem)).ToList();
-                var collectibles = GameObjects.Where(x => x is CollectibleItem).ToList();
-                var ammo = GameObjects.Where(x => x is Ammunition).ToList();
+                var walls = GameObjects.Where(gameObject => !(gameObject is Ammunition) && !(gameObject is CollectibleItem)).ToList();
+                var collectibles = GameObjects.Where(gameObject => gameObject is CollectibleItem).ToList();
+                var ammo = GameObjects.Where(gameObject => gameObject is Ammunition).ToList();
 
                 for (int i = 0; i < GameObjects.Count; i++)
                 {
@@ -184,12 +185,11 @@
             this.GraphicsDevice.Clear(Color.CornflowerBlue);
             this.spriteBatch.Begin();
 
-            var characters = GameObjects.Where(x => x is Character);
-            var obstacles = GameObjects.Where(x => x is Obstacle || x is Hideout);
-            var collectibles =
-                GameObjects.Where(
-                    x => x is CollectibleItem && ((CollectibleItem)x).ItemState == CollectibleItemState.Available);
-            var bullets = GameObjects.Where(x => x is Ammunition);
+            var characters = GameObjects.Where(gameObject => gameObject is Character);
+            var obstacles = GameObjects.Where(gameObject => gameObject is Obstacle || gameObject is Hideout);
+            var collectibles = GameObjects
+                .Where(gameObject => gameObject is CollectibleItem && ((CollectibleItem)gameObject).ItemState == CollectibleItemState.Available);
+            var bullets = GameObjects.Where(gameObject => gameObject is Ammunition);
 
             foreach (var character in characters)
             {
@@ -215,12 +215,12 @@
             {
                 if (this.isGameOver)
                 {
-                    string gameLost = "You were killed! Press Enter to go back and try again.";
-                    string gameWon = "All enemies are destroyed! Press Enter to try another level.";
+                    const string gameLostMessage = "You were killed! Press Enter to go back and try again.";
+                    const string gameWonMessage = "All enemies are destroyed! Press Enter to try another level.";
 
                     this.spriteBatch.DrawString(
                         Font, 
-                        this.isGameWon ? gameWon : gameLost,
+                        this.isGameWon ? gameWonMessage : gameLostMessage,
                         new Vector2(50, WindowHeight - 100), 
                         Color.BlanchedAlmond);
                 }
@@ -259,8 +259,8 @@
 
         private void CheckGameOver()
         {
-            bool enemiesLeft = GameObjects.Any(x => x is EnemyTank || x is Bunker);
-            bool playerAlive = GameObjects.Any(x => x is Player);
+            bool enemiesLeft = GameObjects.Any(gameObject => gameObject is EnemyTank || gameObject is Bunker);
+            bool playerAlive = GameObjects.Any(gameObject => gameObject is Player);
 
             if (!enemiesLeft)
             {

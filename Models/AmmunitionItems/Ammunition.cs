@@ -13,7 +13,12 @@
     {
         private const int DefaultSpeed = 6;
 
-        protected Ammunition(Texture2D objTexture, Rectangle rectangle, int damage, Direction direction, double damageModifier)
+        protected Ammunition(
+            Texture2D objTexture, 
+            Rectangle rectangle, 
+            int damage, 
+            Direction direction, 
+            double damageModifier)
             : base(objTexture, rectangle)
         {
             this.DamageModifier = damageModifier;
@@ -86,10 +91,10 @@
 
         private void CheckOutOfBounds()
         {
-            if (this.Rectangle.X < -25 ||
-                this.Rectangle.X > GameEngine.WindowWidth + 25 ||
-                this.Rectangle.Y < -25 ||
-                this.Rectangle.Y > GameEngine.WindowHeight + 25)
+            if (this.Rectangle.X < -GameEngine.Offset ||
+                this.Rectangle.X > GameEngine.WindowWidth + GameEngine.Offset ||
+                this.Rectangle.Y < -GameEngine.Offset ||
+                this.Rectangle.Y > GameEngine.WindowHeight + GameEngine.Offset)
             {
                 this.State = GameObjectState.Destroyed;
             }

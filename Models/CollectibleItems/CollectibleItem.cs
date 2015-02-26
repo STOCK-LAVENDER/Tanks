@@ -6,7 +6,13 @@
 
     public abstract class CollectibleItem : GameObject
     {
-        protected CollectibleItem(Texture2D objTexture, Rectangle rectangle, int damageEffect, int defenseEffect, int healthEffect, int speedEffect)
+        protected CollectibleItem(
+            Texture2D objTexture, 
+            Rectangle rectangle, 
+            int damageEffect, 
+            int defenseEffect, 
+            int healthEffect, 
+            int speedEffect)
             : base(objTexture, rectangle)
         {
             this.DamageEffect = damageEffect;

@@ -11,9 +11,10 @@
     using Models.Characters.Tanks;
     using Models.Characters.Tanks.Enemies;
     using Models.CollectibleItems;
+    using Models.CollectibleItems.TemporaryPowerUps;
     using Models.GameObstacles.Barricades;
     using Models.GameObstacles.Walls;
-    using Models.Hideouts.Bushes;
+    using Models.Hideouts;
 
     public static class MapLoader
     {
@@ -44,65 +45,151 @@
                     int positionY = 70;
                     int positionX = 70;
 
+                    const int largeTextureSize = 70;
+                    const int smallTextureSize = 50;
+
                     string line = sr.ReadToEnd();
 
                     for (int i = 0; i < line.Length; i++)
                     {
                         char currentSymbol = line[i];
+                        Rectangle rect;
 
                         switch (currentSymbol)
                         {
                             case 'W':
-                                gameObjects.Add(new BasicWall(GameEngine.BasicWallTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
+                                rect = new Rectangle(
+                                    positionX - GameEngine.Offset,
+                                    positionY - GameEngine.Offset,
+                                    largeTextureSize,
+                                    largeTextureSize);
+
+                                gameObjects.Add(new BasicWall(GameEngine.BasicWallTexture, rect));
                                 break;
                             case 'B':
-                                gameObjects.Add(new Bush(GameEngine.BasicBushTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
+                                rect = new Rectangle(
+                                    positionX - GameEngine.Offset,
+                                    positionY - GameEngine.Offset,
+                                    largeTextureSize,
+                                    largeTextureSize);
+
+                                gameObjects.Add(new Bush(GameEngine.BasicBushTexture, rect));
                                 break;
                             case 'I':
-                                gameObjects.Add(new SpeedPowerUp(GameEngine.SpeedPowerUpTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
+                                rect = new Rectangle(
+                                    positionX - GameEngine.Offset,
+                                    positionY - GameEngine.Offset,
+                                    largeTextureSize,
+                                    largeTextureSize);
+
+                                gameObjects.Add(new SpeedPowerUp(GameEngine.SpeedPowerUpTexture, rect));
                                 break;
                             case 'P':
-                                gameObjects.Add(new Player(
-                                    GameEngine.PlayerTankTexture,
-                                    new Rectangle(positionX - 25, positionY - 25, GameEngine.PlayerTankTexture.Width, GameEngine.PlayerTankTexture.Height)));
+                                rect = new Rectangle(
+                                    positionX - GameEngine.Offset,
+                                    positionY - GameEngine.Offset,
+                                    GameEngine.PlayerTankTexture.Width,
+                                    GameEngine.PlayerTankTexture.Height);
+
+                                gameObjects.Add(new Player(GameEngine.PlayerTankTexture, rect));
                                 break;
                             case 'T':
-                                gameObjects.Add(new BasicTank(GameEngine.BasicTankTexture, new Rectangle(positionX - 25, positionY - 25, 50, 50)));
+                                rect = new Rectangle(
+                                    positionX - GameEngine.Offset,
+                                    positionY - GameEngine.Offset,
+                                    smallTextureSize,
+                                    smallTextureSize);
+
+                                gameObjects.Add(new BasicTank(GameEngine.BasicTankTexture, rect));
                                 break;
                             case 'F':
-                                gameObjects.Add(new FastTank(GameEngine.FastTankTexture, new Rectangle(positionX - 25, positionY - 25, 50, 50)));
+                                rect = new Rectangle(
+                                    positionX - GameEngine.Offset,
+                                    positionY - GameEngine.Offset,
+                                    smallTextureSize,
+                                    smallTextureSize);
+
+                                gameObjects.Add(new FastTank(GameEngine.FastTankTexture, rect));
                                 break;
                             case 'S':
-                                gameObjects.Add(new StrongTank(GameEngine.BasicTankTexture, new Rectangle(positionX - 25, positionY - 25, 50, 50)));
+                                rect = new Rectangle(
+                                    positionX - GameEngine.Offset,
+                                    positionY - GameEngine.Offset,
+                                    smallTextureSize,
+                                    smallTextureSize);
+
+                                gameObjects.Add(new StrongTank(GameEngine.BasicTankTexture, rect));
                                 break;
                             case 'O':
-                                gameObjects.Add(new BossTank(GameEngine.PlayerTankTexture, new Rectangle(positionX - 25, positionY - 25, 50, 50)));
+                                rect = new Rectangle(
+                                    positionX - GameEngine.Offset,
+                                    positionY - GameEngine.Offset,
+                                    smallTextureSize,
+                                    smallTextureSize);
+
+                                gameObjects.Add(new BossTank(GameEngine.PlayerTankTexture, rect));
                                 break;
                             case 'U':
-                                gameObjects.Add(new BasicBunker(GameEngine.BunkerTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
+                                rect = new Rectangle(
+                                    positionX - GameEngine.Offset,
+                                    positionY - GameEngine.Offset,
+                                    largeTextureSize,
+                                    largeTextureSize);
+
+                                gameObjects.Add(new BasicBunker(GameEngine.BunkerTexture, rect));
                                 break;
                             case 'R':
-                                gameObjects.Add(new FortifiedBunker(GameEngine.BunkerTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
+                                rect = new Rectangle(
+                                    positionX - GameEngine.Offset,
+                                    positionY - GameEngine.Offset,
+                                    largeTextureSize,
+                                    largeTextureSize);
+
+                                gameObjects.Add(new FortifiedBunker(GameEngine.BunkerTexture, rect));
                                 break;
                             case 'H':
-                                gameObjects.Add(new ShieldPowerUp(GameEngine.ShieldTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
+                                rect = new Rectangle(
+                                    positionX - GameEngine.Offset,
+                                    positionY - GameEngine.Offset,
+                                    largeTextureSize,
+                                    largeTextureSize);
+
+                                gameObjects.Add(new ShieldPowerUp(GameEngine.ShieldTexture, rect));
                                 break;
                             case 'A':
-                                gameObjects.Add(new ArmorConsumable(GameEngine.ArmorTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
+                                rect = new Rectangle(
+                                    positionX - GameEngine.Offset,
+                                    positionY - GameEngine.Offset,
+                                    largeTextureSize,
+                                    largeTextureSize);
+
+                                gameObjects.Add(new ArmorConsumable(GameEngine.ArmorTexture, rect));
                                 break;
                             case 'E':
-                                gameObjects.Add(new HealthConsumable(GameEngine.HealthTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
+                                rect = new Rectangle(
+                                    positionX - GameEngine.Offset,
+                                    positionY - GameEngine.Offset,
+                                    largeTextureSize,
+                                    largeTextureSize);
+
+                                gameObjects.Add(new HealthConsumable(GameEngine.HealthTexture, rect));
                                 break;
                             case 'L':
-                                gameObjects.Add(new SteelBarricade(GameEngine.SteelWallTexture, new Rectangle(positionX - 25, positionY - 25, 70, 70)));
+                                rect = new Rectangle(
+                                    positionX - GameEngine.Offset,
+                                    positionY - GameEngine.Offset,
+                                    largeTextureSize,
+                                    largeTextureSize);
+
+                                gameObjects.Add(new SteelBarricade(GameEngine.SteelWallTexture, rect));
                                 break;
                             case '\n':
-                                positionY += 70;
-                                positionX = 70;
+                                positionY += largeTextureSize;
+                                positionX = largeTextureSize;
                                 break;
                         }
 
-                        positionX += 70;
+                        positionX += largeTextureSize;
                     }
                 }
 

@@ -1,4 +1,4 @@
-﻿namespace UltimateTankClash.Models.Hideouts.Bushes
+﻿namespace UltimateTankClash.Models.Hideouts
 {
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;

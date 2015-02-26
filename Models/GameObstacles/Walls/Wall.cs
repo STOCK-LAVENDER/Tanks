@@ -26,11 +26,11 @@
 
         public override void RespondToCollision(GameObject hitObject)
         {
-            var o = hitObject as Ammunition;
+            var ammunition = hitObject as Ammunition;
 
-            if (o != null)
+            if (ammunition != null)
             {
-                this.HealthPoints -= o.PhysicalAttack;
+                this.HealthPoints -= ammunition.PhysicalAttack;
             }
         }
     }

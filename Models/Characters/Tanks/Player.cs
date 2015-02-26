@@ -139,7 +139,11 @@
         public override void Draw(SpriteBatch spriteBatch)
         {
             base.Draw(spriteBatch);
-            spriteBatch.DrawString(GameEngine.Font, string.Format("HP: {0}", this.HealthPoints), new Vector2(10, GameEngine.WindowHeight - 50), Color.Black);
+            spriteBatch.DrawString(
+                GameEngine.Font, 
+                string.Format("HP: {0}", this.HealthPoints), 
+                new Vector2(10, GameEngine.WindowHeight - 50), 
+                Color.Black);
         }
 
         protected virtual void RemoveItemEffects()

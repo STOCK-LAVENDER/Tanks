@@ -18,7 +18,7 @@
 
             if (obj is Wall)
             {
-                collidingObject = GameEngine.GameObjects.FirstOrDefault(x => (x is Ammunition) && x.Rectangle.Intersects(obj.Rectangle));
+                collidingObject = GameEngine.GameObjects.FirstOrDefault(gameObject => (gameObject is Ammunition) && gameObject.Rectangle.Intersects(obj.Rectangle));
             }
 
             return collidingObject;
@@ -27,7 +27,7 @@
         public static bool ObstaclesObstructingView(Rectangle rect)
         {
             var obstacles = GameEngine.GameObjects.Where(
-                    x => (x is Obstacle || x is EnemyTank || x is Bunker) && x.Rectangle.Intersects(rect));
+                    gameObject => (gameObject is Obstacle || gameObject is EnemyTank || gameObject is Bunker) && gameObject.Rectangle.Intersects(rect));
 
             return obstacles.Any();
         } 

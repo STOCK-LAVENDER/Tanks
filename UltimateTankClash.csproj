@@ -82,8 +82,8 @@
     <Compile Include="Models\Characters\Tanks\Player.cs" />
     <Compile Include="Models\CollectibleItems\CollectibleItem.cs" />
     <Compile Include="Models\CollectibleItems\CollectibleItemState.cs" />
-    <Compile Include="Models\CollectibleItems\ShieldPowerUp.cs" />
-    <Compile Include="Models\CollectibleItems\TemporaryPowerUp.cs" />
+    <Compile Include="Models\CollectibleItems\TemporaryPowerUps\ShieldPowerUp.cs" />
+    <Compile Include="Models\CollectibleItems\TemporaryPowerUps\TemporaryPowerUp.cs" />
     <Compile Include="Models\GameObstacles\Barricades\Barricade.cs" />
     <Compile Include="Models\GameObjectState.cs" />
     <Compile Include="Models\CollectibleItems\HealthConsumable.cs" />
@@ -92,7 +92,7 @@
     <Compile Include="Models\CollectibleItems\ArmorConsumable.cs" />
     <Compile Include="Models\AmmunitionItems\Ammunition.cs" />
     <Compile Include="Interfaces\ICollectible.cs" />
-    <Compile Include="Models\Hideouts\Bushes\Bush.cs" />
+    <Compile Include="Models\Hideouts\Bush.cs" />
     <Compile Include="Models\GameObstacles\Walls\BasicWall.cs" />
     <Compile Include="Models\GameObstacles\Walls\Wall.cs" />
     <Compile Include="Engine\GameEngine.cs" />
@@ -103,7 +103,7 @@
     <Compile Include="Interfaces\ITimeoutable.cs" />
     <Compile Include="Models\GameObstacles\Obstacle.cs" />
     <Compile Include="Models\GameObstacles\Barricades\SteelBarricade.cs" />
-    <Compile Include="Models\CollectibleItems\SpeedPowerUp.cs" />
+    <Compile Include="Models\CollectibleItems\TemporaryPowerUps\SpeedPowerUp.cs" />
     <Compile Include="Models\Hideouts\Hideout.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

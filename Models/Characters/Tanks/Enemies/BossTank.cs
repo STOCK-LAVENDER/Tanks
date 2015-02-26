@@ -16,10 +16,18 @@
         private const int TimeBetweenDirectionSwitches = 150;
         private const int TimeBetweenShots = 25;
 
-        private List<CollectibleItem> inventory = new List<CollectibleItem>();
+        private readonly List<CollectibleItem> inventory = new List<CollectibleItem>();
 
         public BossTank(Texture2D objTexture, Rectangle rectangle)
-            : base(objTexture, rectangle, DefaultPhysicalAttack, DefaultPhysicalDefense, DefaultHealthPoints, DefaultSpeed, TimeBetweenDirectionSwitches, TimeBetweenShots)
+            : base(
+                objTexture, 
+                rectangle, 
+                DefaultPhysicalAttack, 
+                DefaultPhysicalDefense, 
+                DefaultHealthPoints, 
+                DefaultSpeed, 
+                TimeBetweenDirectionSwitches, 
+                TimeBetweenShots)
         {
             this.BaseSpeed = DefaultSpeed;
         }

@@ -11,7 +11,13 @@
         private const int TimeBetweenShots = 50;
 
         public BasicBunker(Texture2D objTexture, Rectangle rectangle)
-            : base(objTexture, rectangle, DefaultPhysicalAttack, DefaultPhysicalDefense, DefaultHealthPoints, TimeBetweenShots)
+            : base(
+                objTexture, 
+                rectangle, 
+                DefaultPhysicalAttack, 
+                DefaultPhysicalDefense, 
+                DefaultHealthPoints, 
+                TimeBetweenShots)
         {
         }
     }

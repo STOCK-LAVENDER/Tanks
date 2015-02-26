@@ -1,4 +1,4 @@
-﻿namespace UltimateTankClash.Models.CollectibleItems
+﻿namespace UltimateTankClash.Models.CollectibleItems.TemporaryPowerUps
 {
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;

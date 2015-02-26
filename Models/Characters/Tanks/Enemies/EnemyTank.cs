@@ -10,7 +10,7 @@
     public abstract class EnemyTank : Tank
     {
         private static readonly string[] Directions = Enum.GetNames(typeof(Direction));
-        private static Random rnd = new Random();
+        private static readonly Random Rnd = new Random();
 
         private int ticks = 0;
         private int shotTimeout;
@@ -61,7 +61,7 @@
 
             while (newDirection == this.currentDirection.ToString())
             {
-                newDirection = Directions[rnd.Next(0, Directions.Length)];
+                newDirection = Directions[Rnd.Next(0, Directions.Length)];
             }
 
             this.currentDirection = (Direction)Enum.Parse(typeof(Direction), newDirection);
@@ -76,16 +76,16 @@
             if (player != null && player.IsVisible)
             {
                 Rectangle leftView = new Rectangle(
-                    -25, 
-                    this.Rectangle.Y, 
-                    this.Rectangle.X + 25, 
+                    -GameEngine.Offset, 
+                    this.Rectangle.Y,
+                    this.Rectangle.X + GameEngine.Offset, 
                     player.Rectangle.Height);
 
                 Rectangle left = new Rectangle(
                     player.Rectangle.X, 
                     player.Rectangle.Y,
-                    leftView.Width - player.Rectangle.X - 25,
-                    this.Rectangle.Height - 25);
+                    leftView.Width - player.Rectangle.X - GameEngine.Offset,
+                    this.Rectangle.Height - GameEngine.Offset);
 
                 if (player.Rectangle.Intersects(leftView) && !CollisionHandler.ObstaclesObstructingView(left))
                 {
@@ -95,14 +95,14 @@
                 Rectangle rightView = new Rectangle(
                     this.Rectangle.X, 
                     this.Rectangle.Y,
-                    GameEngine.WindowWidth + 25 - this.Rectangle.X, 
+                    GameEngine.WindowWidth + GameEngine.Offset - this.Rectangle.X, 
                     player.Rectangle.Height);
 
                 Rectangle right = new Rectangle(
                     this.Rectangle.X, 
                     this.Rectangle.Y,
-                    player.Rectangle.Width - this.Rectangle.X - 25, 
-                    this.Rectangle.Height - 25);
+                    player.Rectangle.Width - this.Rectangle.X - GameEngine.Offset,
+                    this.Rectangle.Height - GameEngine.Offset);
 
                 if (player.Rectangle.Intersects(rightView) && !CollisionHandler.ObstaclesObstructingView(right))
                 {
@@ -110,8 +110,8 @@
                 }
 
                 Rectangle topView = new Rectangle(
-                    this.Rectangle.X, 
-                    -25, 
+                    this.Rectangle.X,
+                    -GameEngine.Offset, 
                     this.Rectangle.Width, 
                     this.Rectangle.Y);
 

@@ -13,7 +13,15 @@
         private const int TimeBetweenShots = 25;
 
         public FastTank(Texture2D objTexture, Rectangle rectangle)
-            : base(objTexture, rectangle, DefaultPhysicalAttack, DefaultPhysicalDefense, DefaultHealthPoints, DefaultSpeed, TimeBetweenDirectionSwitches, TimeBetweenShots)
+            : base(
+                objTexture, 
+                rectangle, 
+                DefaultPhysicalAttack, 
+                DefaultPhysicalDefense, 
+                DefaultHealthPoints, 
+                DefaultSpeed, 
+                TimeBetweenDirectionSwitches, 
+                TimeBetweenShots)
         {
         }
     }

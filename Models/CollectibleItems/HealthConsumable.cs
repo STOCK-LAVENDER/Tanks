@@ -11,7 +11,13 @@
         private const int DefaultSpeedEffect = 0;
 
         public HealthConsumable(Texture2D objTexture, Rectangle rectangle)
-            : base(objTexture, rectangle, DefaultDamageEffect, DefaultDefenseEffect, DefaultHealthEffect, DefaultSpeedEffect)
+            : base(
+                objTexture, 
+                rectangle, 
+                DefaultDamageEffect, 
+                DefaultDefenseEffect, 
+                DefaultHealthEffect, 
+                DefaultSpeedEffect)
         {
         }
     }

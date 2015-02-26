@@ -1,5 +1,6 @@
 ﻿namespace UltimateTankClash.Models
 {
+    using Engine;
     using Exceptions;
     using Interfaces;
     using Microsoft.Xna.Framework;
@@ -45,9 +46,15 @@
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
+            Rectangle rect = new Rectangle(
+                this.Rectangle.X - GameEngine.Offset,
+                this.Rectangle.Y - GameEngine.Offset,
+                this.Rectangle.Width,
+                this.Rectangle.Height);
+
             spriteBatch.Draw(
                 this.objTexture,
-                new Rectangle(this.Rectangle.X - 25, this.Rectangle.Y - 25, this.Rectangle.Width, this.Rectangle.Height),
+                rect,
                 Color.White);
         }
 
