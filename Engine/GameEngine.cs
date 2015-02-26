@@ -1,4 +1,9 @@
-﻿namespace UltimateTankClash.Engine
+﻿using System;
+using System.Net.Mime;
+using System.Threading;
+using System.Windows.Forms;
+
+namespace UltimateTankClash.Engine
 {
     #region Using Statements
 
@@ -19,6 +24,7 @@
     using Models.GameObstacles;
     using Models.Hideouts;
     using Resources.Sounds;
+    using MenuItems;
 
     #endregion
 
@@ -88,6 +94,8 @@
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
         /// </summary>
+        /// 
+
         protected override void LoadContent()
         {
             this.spriteBatch = new SpriteBatch(this.GraphicsDevice);
@@ -215,9 +223,10 @@
             {
                 if (this.isGameOver)
                 {
+                    
                     const string gameLostMessage = "You were killed! Press Enter to go back and try again.";
                     const string gameWonMessage = "All enemies are destroyed! Press Enter to try another level.";
-
+                    
                     this.spriteBatch.DrawString(
                         Font, 
                         this.isGameWon ? gameWonMessage : gameLostMessage,
@@ -235,7 +244,7 @@
             }
 
             this.spriteBatch.End();
-
+           
             base.Draw(gameTime);
         }
 
@@ -249,6 +258,14 @@
             this.controller.GameMute += (sender, args) =>
             {
                 SoundHandler.IsGameMuted = !SoundHandler.IsGameMuted;
+            };
+
+            this.controller.GameRestart += (sender, args) =>
+            {
+                if (isGameOver)
+                {
+                    Application.Restart();
+                }
             };
         }
 

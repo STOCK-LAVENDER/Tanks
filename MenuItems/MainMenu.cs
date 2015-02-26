@@ -1,4 +1,6 @@
-﻿namespace UltimateTankClash.MenuItems
+﻿using System.Runtime.CompilerServices;
+
+namespace UltimateTankClash.MenuItems
 {
     using System;
     using System.Media;
@@ -10,6 +12,7 @@
     public partial class MainMenu : BackgroundForm
     {
         private SoundPlayer simpleSound;
+        private static bool isVisible = true;
 
         public MainMenu()
         {
@@ -23,6 +26,7 @@
             KeyboardController keyboardController = new KeyboardController();
             GameEngine game = new GameEngine(keyboardController);
             game.Run();
+            
         }
 
         private void InitializeMenuBackgroundMusic()

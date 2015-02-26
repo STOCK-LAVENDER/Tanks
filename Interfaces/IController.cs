@@ -8,6 +8,8 @@
 
         event EventHandler GameMute;
 
+        event EventHandler GameRestart;
+
         void ProcessUserInput();
     }
 }

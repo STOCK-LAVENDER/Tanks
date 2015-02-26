@@ -15,6 +15,8 @@
 
         public event EventHandler GameMute;
 
+        public event EventHandler GameRestart;
+
         public void ProcessUserInput()
         {
             this.keyboard = Keyboard.GetState();
@@ -35,6 +37,13 @@
                     {
                         this.GameMute(this, new EventArgs());
                         this.elapsed++;
+                    }
+                }
+                else if (this.keyboard.IsKeyDown(Keys.Enter))
+                {
+                    if (this.GameRestart != null)
+                    {
+                        this.GameRestart(this, new EventArgs());
                     }
                 }
             }
