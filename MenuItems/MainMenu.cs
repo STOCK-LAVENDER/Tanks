@@ -34,15 +34,15 @@
 
         private void SinglePlayerButton_Click(object sender, EventArgs e)
         {
-            SinglePlayerButton.Visible = false;
+            singlePlayerButton.Visible = false;
             instructions.Visible = false;
-            about.Visible = false;
+            this.about.Visible = false;
             exitButton.Visible = false;
             
-            backButton.Visible = true;
-            easyLevelButton.Visible = true;
-            mediumLevelButton.Visible = true;
-            hardLevelButton.Visible = true;
+            this.backButton.Visible = true;
+            this.easyLevelButton.Visible = true;
+            this.mediumLevelButton.Visible = true;
+            this.hardLevelButton.Visible = true;
         }
 
         private void Instructions_Click(object sender, EventArgs e)
@@ -64,16 +64,15 @@
             Environment.Exit(1);
         }
 
-        private void easyLevelButton_Click(object sender, EventArgs e)
+        private void EasyLevelButton_Click(object sender, EventArgs e)
         {
             Thread theThread = new Thread(this.StartGame);
             this.Close();
             theThread.Start();
             GameEngine.Level = GameLevel.Easy;
         }
-
        
-        private void mediumLevelButton_Click(object sender, EventArgs e)
+        private void MediumLevelButton_Click(object sender, EventArgs e)
         {
             Thread theThread = new Thread(this.StartGame);
             this.Close();
@@ -81,7 +80,7 @@
             GameEngine.Level = GameLevel.Medium;
         }
 
-        private void hardLevelButton_Click(object sender, EventArgs e)
+        private void HardLevelButton_Click(object sender, EventArgs e)
         {
             Thread theThread = new Thread(this.StartGame);
             this.Close();
@@ -89,20 +88,20 @@
             GameEngine.Level = GameLevel.Hard;
         }
 
-        private void backButton_Click(object sender, EventArgs e)
+        private void BackButton_Click(object sender, EventArgs e)
         {
-            SinglePlayerButton.Visible = true;
-            instructions.Visible = true;
-            about.Visible = true;
-            exitButton.Visible = true;
+            this.singlePlayerButton.Visible = true;
+            this.instructions.Visible = true;
+            this.about.Visible = true;
+            this.exitButton.Visible = true;
 
-            easyLevelButton.Visible = false;
-            mediumLevelButton.Visible = false;
-            hardLevelButton.Visible = false;
-            backButton.Visible = false;
+            this.easyLevelButton.Visible = false;
+            this.mediumLevelButton.Visible = false;
+            this.hardLevelButton.Visible = false;
+            this.backButton.Visible = false;
         }
 
-        private void gameName_Click(object sender, EventArgs e)
+        private void GameName_Click(object sender, EventArgs e)
         {
         }
     }

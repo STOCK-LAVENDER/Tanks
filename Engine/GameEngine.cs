@@ -2,17 +2,13 @@
 {
     #region Using Statements
 
-    using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Runtime.Remoting.Channels;
-    using System.Threading;
     using Interfaces;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Audio;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
-    using Microsoft.Xna.Framework.Media;
     using Models;
     using Models.AmmunitionItems;
     using Models.Characters;
@@ -173,32 +169,10 @@
             
             this.HandleGameMute();
 
-            CheckGameOver();
+            this.CheckGameOver();
 
             base.Update(gameTime);
             this.controller.ProcessUserInput();
-        }
-
-        private void CheckGameOver()
-        {
-            bool enemiesLeft = GameObjects.Any(x => x is EnemyTank || x is Bunker);
-            bool playerAlive = GameObjects.Any(x => x is Player);
-
-            if (!enemiesLeft)
-            {
-                this.isGameOver = true;
-                this.isGameWon = true;
-            }
-            else if (!playerAlive)
-            {
-                this.isGameOver = true;
-                this.isGameWon = false;
-            }
-
-            if (this.isGameOver)
-            {
-                this.isGamePaused = true;
-            }
         }
 
         /// <summary>
@@ -274,13 +248,35 @@
 
             this.controller.GameMute += (sender, args) =>
             {
-                SoundHandler.isGameMuted = !SoundHandler.isGameMuted;
+                SoundHandler.IsGameMuted = !SoundHandler.IsGameMuted;
             };
         }
 
         private void HandleGameMute()
         {
             SoundHandler.MuteBackgroundSounds();
+        }
+
+        private void CheckGameOver()
+        {
+            bool enemiesLeft = GameObjects.Any(x => x is EnemyTank || x is Bunker);
+            bool playerAlive = GameObjects.Any(x => x is Player);
+
+            if (!enemiesLeft)
+            {
+                this.isGameOver = true;
+                this.isGameWon = true;
+            }
+            else if (!playerAlive)
+            {
+                this.isGameOver = true;
+                this.isGameWon = false;
+            }
+
+            if (this.isGameOver)
+            {
+                this.isGamePaused = true;
+            }
         }
     }
 }

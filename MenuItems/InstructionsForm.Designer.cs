@@ -8,6 +8,10 @@
         private Button backButton;
         private PictureBox controlsImage;
         private Label controlsLabel;
+        private PictureBox pictureBox1;
+        private Label extraPacksLbl;
+        private PictureBox pauseBtn;
+        private PictureBox muteBtn;
 
         /// <summary>
         /// Required designer variable.
@@ -41,7 +45,7 @@
             this.controlsImage = new System.Windows.Forms.PictureBox();
             this.controlsLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.ExtraPacksLbl = new System.Windows.Forms.Label();
+            this.extraPacksLbl = new System.Windows.Forms.Label();
             this.pauseBtn = new System.Windows.Forms.PictureBox();
             this.muteBtn = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.controlsImage)).BeginInit();
@@ -99,17 +103,17 @@
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
-            // ExtraPacksLbl
+            // extraPacksLbl
             // 
-            this.ExtraPacksLbl.AutoSize = true;
-            this.ExtraPacksLbl.BackColor = System.Drawing.Color.Transparent;
-            this.ExtraPacksLbl.Font = new System.Drawing.Font("Impact", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExtraPacksLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(28)))), ((int)(((byte)(11)))));
-            this.ExtraPacksLbl.Location = new System.Drawing.Point(295, 65);
-            this.ExtraPacksLbl.Name = "ExtraPacksLbl";
-            this.ExtraPacksLbl.Size = new System.Drawing.Size(127, 29);
-            this.ExtraPacksLbl.TabIndex = 10;
-            this.ExtraPacksLbl.Text = "Extra Packs:";
+            this.extraPacksLbl.AutoSize = true;
+            this.extraPacksLbl.BackColor = System.Drawing.Color.Transparent;
+            this.extraPacksLbl.Font = new System.Drawing.Font("Impact", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.extraPacksLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(28)))), ((int)(((byte)(11)))));
+            this.extraPacksLbl.Location = new System.Drawing.Point(295, 65);
+            this.extraPacksLbl.Name = "extraPacksLbl";
+            this.extraPacksLbl.Size = new System.Drawing.Size(127, 29);
+            this.extraPacksLbl.TabIndex = 10;
+            this.extraPacksLbl.Text = "Extra Packs:";
             // 
             // pauseBtn
             // 
@@ -138,7 +142,7 @@
             this.ClientSize = new System.Drawing.Size(624, 442);
             this.Controls.Add(this.muteBtn);
             this.Controls.Add(this.pauseBtn);
-            this.Controls.Add(this.ExtraPacksLbl);
+            this.Controls.Add(this.extraPacksLbl);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.controlsLabel);
             this.Controls.Add(this.controlsImage);
@@ -155,10 +159,5 @@
         }
 
         #endregion
-
-        private PictureBox pictureBox1;
-        private Label ExtraPacksLbl;
-        private PictureBox pauseBtn;
-        private PictureBox muteBtn;
     }
 }

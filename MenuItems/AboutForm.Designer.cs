@@ -95,7 +95,7 @@
             this.textBox2.TabIndex = 11;
             this.textBox2.Text = resources.GetString("textBox2.Text");
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.textBox2.TextChanged += new System.EventHandler(this.TextBox2_TextChanged);
             // 
             // AboutForm
             // 

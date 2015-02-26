@@ -5,11 +5,15 @@
 
     public partial class MainMenu
     {
-        private Button SinglePlayerButton;
+        private Button singlePlayerButton;
         private Label gameName;
         private Button instructions;
         private Button about;
         private Button exitButton;
+        private Button easyLevelButton;
+        private Button mediumLevelButton;
+        private Button hardLevelButton;
+        private Button backButton;
 
         /// <summary>
         /// Required designer variable.
@@ -38,7 +42,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SinglePlayerButton = new System.Windows.Forms.Button();
+            this.singlePlayerButton = new System.Windows.Forms.Button();
             this.gameName = new System.Windows.Forms.Label();
             this.instructions = new System.Windows.Forms.Button();
             this.about = new System.Windows.Forms.Button();
@@ -49,19 +53,19 @@
             this.backButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // SinglePlayerButton
+            // singlePlayerButton
             // 
-            this.SinglePlayerButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.SinglePlayerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SinglePlayerButton.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SinglePlayerButton.ForeColor = System.Drawing.Color.LightGray;
-            this.SinglePlayerButton.Location = new System.Drawing.Point(265, 131);
-            this.SinglePlayerButton.Name = "SinglePlayerButton";
-            this.SinglePlayerButton.Size = new System.Drawing.Size(107, 32);
-            this.SinglePlayerButton.TabIndex = 1;
-            this.SinglePlayerButton.Text = "Single Player";
-            this.SinglePlayerButton.UseVisualStyleBackColor = false;
-            this.SinglePlayerButton.Click += new System.EventHandler(this.SinglePlayerButton_Click);
+            this.singlePlayerButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.singlePlayerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.singlePlayerButton.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.singlePlayerButton.ForeColor = System.Drawing.Color.LightGray;
+            this.singlePlayerButton.Location = new System.Drawing.Point(265, 131);
+            this.singlePlayerButton.Name = "singlePlayerButton";
+            this.singlePlayerButton.Size = new System.Drawing.Size(107, 32);
+            this.singlePlayerButton.TabIndex = 1;
+            this.singlePlayerButton.Text = "Single Player";
+            this.singlePlayerButton.UseVisualStyleBackColor = false;
+            this.singlePlayerButton.Click += new System.EventHandler(this.SinglePlayerButton_Click);
             // 
             // gameName
             // 
@@ -74,7 +78,7 @@
             this.gameName.Size = new System.Drawing.Size(550, 80);
             this.gameName.TabIndex = 0;
             this.gameName.Text = "Ultimate Tank Clash";
-            this.gameName.Click += new System.EventHandler(this.gameName_Click);
+            this.gameName.Click += new System.EventHandler(this.GameName_Click);
             // 
             // instructions
             // 
@@ -131,7 +135,7 @@
             this.easyLevelButton.Text = "Easy";
             this.easyLevelButton.UseVisualStyleBackColor = false;
             this.easyLevelButton.Visible = false;
-            this.easyLevelButton.Click += new System.EventHandler(this.easyLevelButton_Click);
+            this.easyLevelButton.Click += new System.EventHandler(this.EasyLevelButton_Click);
             // 
             // mediumLevelButton
             // 
@@ -146,7 +150,7 @@
             this.mediumLevelButton.Text = "Medium";
             this.mediumLevelButton.UseVisualStyleBackColor = false;
             this.mediumLevelButton.Visible = false;
-            this.mediumLevelButton.Click += new System.EventHandler(this.mediumLevelButton_Click);
+            this.mediumLevelButton.Click += new System.EventHandler(this.MediumLevelButton_Click);
             // 
             // hardLevelButton
             // 
@@ -161,7 +165,7 @@
             this.hardLevelButton.Text = "Hard";
             this.hardLevelButton.UseVisualStyleBackColor = false;
             this.hardLevelButton.Visible = false;
-            this.hardLevelButton.Click += new System.EventHandler(this.hardLevelButton_Click);
+            this.hardLevelButton.Click += new System.EventHandler(this.HardLevelButton_Click);
             // 
             // backButton
             // 
@@ -176,7 +180,7 @@
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = false;
             this.backButton.Visible = false;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            this.backButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // MainMenu
             // 
@@ -191,7 +195,7 @@
             this.Controls.Add(this.about);
             this.Controls.Add(this.instructions);
             this.Controls.Add(this.gameName);
-            this.Controls.Add(this.SinglePlayerButton);
+            this.Controls.Add(this.singlePlayerButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "MainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -202,10 +206,5 @@
         }
 
         #endregion
-
-        private Button easyLevelButton;
-        private Button mediumLevelButton;
-        private Button hardLevelButton;
-        private Button backButton;
     }
 }

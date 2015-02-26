@@ -2,7 +2,6 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
     using CollectibleItems;
     using Engine;
     using Hideouts;
@@ -27,7 +26,7 @@
             : base(objTexture, rectangle, DefaultPhysicalAttack, DefaultPhysicalDefense, DefaultHealthPoints, DefaultSpeed)
         {
             this.Direction = Direction.Down;
-            //this.SoundEffectInstance = soundEffectInstance;
+            // this.SoundEffectInstance = soundEffectInstance;
             this.BaseSpeed = DefaultSpeed;
             this.IsVisible = true;
         }
@@ -89,7 +88,7 @@
             if (state.IsKeyDown(Keys.Space) && !this.HasShot)
             {
                 this.Shoot(this.Direction);
-                //this.SoundEffectInstance.Play();
+                // this.SoundEffectInstance.Play();
                 SoundHandler.HandleGunShot();
                 this.HasShot = true;
             }
@@ -137,6 +136,12 @@
             this.BaseSpeed += item.SpeedEffect;
         }
 
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            base.Draw(spriteBatch);
+            spriteBatch.DrawString(GameEngine.Font, string.Format("HP: {0}", this.HealthPoints), new Vector2(10, GameEngine.WindowHeight - 50), Color.Black);
+        }
+
         protected virtual void RemoveItemEffects()
         {
             foreach (var item in this.Inventory.Where(x => x.ItemState == CollectibleItemState.Expired))
@@ -160,12 +165,6 @@
             {
                 this.HealthPoints = 1;
             }
-        }
-
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            base.Draw(spriteBatch);
-            spriteBatch.DrawString(GameEngine.Font, string.Format("HP: {0}", this.HealthPoints), new Vector2(10, GameEngine.WindowHeight - 50), Color.Black);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿namespace UltimateTankClash.MenuItems
 {
+    using System;
     using System.Windows.Forms;
 
     public partial class BackgroundForm : Form
@@ -9,9 +10,8 @@
             this.InitializeComponent();
         }
 
-        private void BackgroundForm_Load(object sender, System.EventArgs e)
+        private void BackgroundForm_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

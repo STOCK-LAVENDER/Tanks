@@ -83,6 +83,7 @@
     <Compile Include="Models\CollectibleItems\CollectibleItem.cs" />
     <Compile Include="Models\CollectibleItems\CollectibleItemState.cs" />
     <Compile Include="Models\CollectibleItems\ShieldPowerUp.cs" />
+    <Compile Include="Models\CollectibleItems\TemporaryPowerUp.cs" />
     <Compile Include="Models\GameObstacles\Barricades\Barricade.cs" />
     <Compile Include="Models\GameObjectState.cs" />
     <Compile Include="Models\CollectibleItems\HealthConsumable.cs" />
