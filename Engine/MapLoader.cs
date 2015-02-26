@@ -115,8 +115,8 @@
                                 rect = new Rectangle(
                                     positionX - GameEngine.Offset,
                                     positionY - GameEngine.Offset,
-                                    smallTextureSize,
-                                    smallTextureSize);
+                                    largeTextureSize,
+                                    largeTextureSize);
 
                                 gameObjects.Add(new StrongTank(GameEngine.BasicTankTexture, rect));
                                 break;

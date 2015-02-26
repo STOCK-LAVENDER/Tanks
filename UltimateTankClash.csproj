@@ -133,6 +133,7 @@
   <ItemGroup>
     <Content Include="Icon.ico" />
     <Content Include="Resources\Maps\Map_Glory.txt" />
+    <None Include="ClassDiagram.cd" />
     <None Include="Resources\mute.png" />
     <None Include="Resources\pause.png" />
     <None Include="Resources\pauseBtn.png" />
