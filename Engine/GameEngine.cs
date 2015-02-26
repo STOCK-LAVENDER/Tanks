@@ -218,13 +218,11 @@
             this.controller.Pause += (sender, args) =>
             {
                 this.isGamePaused = !this.isGamePaused;
-                Thread.Sleep(100);
             };
 
             this.controller.GameMute += (sender, args) =>
             {
                 SoundHandler.isGameMuted = !SoundHandler.isGameMuted;
-                Thread.Sleep(100);
             };
         }
 

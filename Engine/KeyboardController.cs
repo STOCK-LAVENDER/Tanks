@@ -1,13 +1,14 @@
 ﻿namespace UltimateTankClash.Engine
 {
     using System;
-    using System.Threading;
-    using System.Windows.Forms.VisualStyles;
     using Interfaces;
     using Microsoft.Xna.Framework.Input;
 
     public class KeyboardController : IController
     {
+        private const int Timeout = 10;
+        private int elapsed = 0;
+
         private KeyboardState keyboard;
 
         public event EventHandler Pause;
@@ -17,18 +18,34 @@
         public void ProcessUserInput()
         {
             this.keyboard = Keyboard.GetState();
-            if (this.keyboard.IsKeyDown(Keys.P))
+
+            if (this.elapsed == 0)
             {
-                if (this.Pause != null)
+                if (this.keyboard.IsKeyDown(Keys.P))
                 {
-                    this.Pause(this, new EventArgs());
+                    if (this.Pause != null)
+                    {
+                        this.Pause(this, new EventArgs());
+                        this.elapsed++;
+                    }
+                }
+                else if (this.keyboard.IsKeyDown(Keys.M))
+                {
+                    if (this.GameMute != null)
+                    {
+                        this.GameMute(this, new EventArgs());
+                        this.elapsed++;
+                    }
                 }
             }
-            else if (this.keyboard.IsKeyDown(Keys.M))
+
+            if (0 < this.elapsed)
             {
-                if (this.GameMute != null)
+                this.elapsed++;
+
+                if (this.elapsed == Timeout)
                 {
-                    this.GameMute(this, new EventArgs());
+                    this.elapsed = 0;
                 }
             }
         }
