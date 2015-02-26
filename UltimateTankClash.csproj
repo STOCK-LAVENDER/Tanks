@@ -132,8 +132,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
+    <Content Include="Resources\consumables.png" />
     <Content Include="Resources\Maps\Map_Glory.txt" />
-    <None Include="ClassDiagram.cd" />
+    <Content Include="Resources\tanks.png" />
     <None Include="Resources\mute.png" />
     <None Include="Resources\pause.png" />
     <None Include="Resources\pauseBtn.png" />
