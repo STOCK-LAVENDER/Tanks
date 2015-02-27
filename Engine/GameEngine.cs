@@ -174,6 +174,7 @@
             this.CheckGameOver();
 
             base.Update(gameTime);
+
             this.controller.ProcessUserInput();
         }
 
@@ -216,8 +217,8 @@
             {
                 if (this.isGameOver)
                 {
-                    const string GameLostMessage = "You were killed! Press Enter to go back and try again.";
-                    const string GameWonMessage = "All enemies are destroyed! Press Enter to try another level.";
+                    const string GameLostMessage = "You were killed! Press Enter to restart the game.";
+                    const string GameWonMessage = "All enemies are destroyed! Press Enter to restart the game.";
                     
                     this.spriteBatch.DrawString(
                         Font, 

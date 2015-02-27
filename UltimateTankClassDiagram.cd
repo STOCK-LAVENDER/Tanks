@@ -74,7 +74,7 @@
   <Class Name="UltimateTankClash.MenuItems.MainMenu" Collapsed="true">
     <Position X="5" Y="9" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACAAAAAACAAAAgAIESBABBiAQAAACAADAIXBCAAIAA=</HashCode>
+      <HashCode>AACAAAAAACAAAAgAIESBABBiAQAAACAADAIXBCIAIAA=</HashCode>
       <FileName>MenuItems\MainMenu.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -278,7 +278,7 @@
   <Class Name="UltimateTankClash.Properties.Resources" Collapsed="true">
     <Position X="35.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAIACAIEgAAAAABEAAAAQAAAAgAIAAAAAAAIIA=</HashCode>
+      <HashCode>AAAAAAAJACAIEgAAAAABEAAAAQAAAAgAIAAAAAAAIIA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="UltimateTankClash.Resources.Sounds.MenuBackgroundMusic" Collapsed="true">
