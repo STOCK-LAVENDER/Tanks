@@ -31,7 +31,7 @@
     public class GameEngine : Game
     {
         public const int WindowWidth = 1024;
-        public const int WindowHeight = 640;
+        public const int WindowHeight = 600;
         public const int Offset = 25;
 
         public static List<GameObject> GameObjects = new List<GameObject>();

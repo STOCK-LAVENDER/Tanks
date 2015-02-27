@@ -21,7 +21,6 @@
 
         private List<CollectibleItem> inventory = new List<CollectibleItem>();
 
-        // private SoundEffectInstance soundEffectInstance;
         public Player(Texture2D objTexture, Rectangle rectangle)
             : base(objTexture, rectangle, DefaultPhysicalAttack, DefaultPhysicalDefense, DefaultHealthPoints, DefaultSpeed)
         {
@@ -141,7 +140,7 @@
                 GameEngine.Font, 
                 string.Format("HP: {0}", this.HealthPoints), 
                 new Vector2(10, GameEngine.WindowHeight - 50), 
-                Color.Black);
+                Color.Red);
         }
 
         protected virtual void RemoveItemEffects()
