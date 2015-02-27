@@ -104,5 +104,10 @@
         private void GameName_Click(object sender, EventArgs e)
         {
         }
+
+        private void MainMenu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

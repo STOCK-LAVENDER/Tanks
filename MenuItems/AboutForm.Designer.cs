@@ -61,7 +61,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::UltimateTankClash.Properties.Resources.img;
+            this.pictureBox1.Image = global::UltimateTankClash.Properties.Resources.teamFrontPic;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(150, 245);
@@ -80,7 +80,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(292, 70);
             this.textBox1.TabIndex = 10;
-            this.textBox1.Text = "Welcome to Ultimate Clash of Tanks!";
+            this.textBox1.Text = "Welcome to Ultimate Tank Clash!";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox2
@@ -107,7 +107,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.backButton);
             this.Name = "AboutForm";
-            this.Text = "AboutForm";
+            this.Text = "About Form";
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

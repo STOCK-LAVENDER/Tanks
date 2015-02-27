@@ -178,7 +178,7 @@
             this.Controls.Add(this.controlsImage);
             this.Controls.Add(this.backButton);
             this.Name = "InstructionsForm";
-            this.Text = "InstructionsForm";
+            this.Text = "Instructions Form";
             ((System.ComponentModel.ISupportInitialize)(this.controlsImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pauseBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.muteBtn)).EndInit();

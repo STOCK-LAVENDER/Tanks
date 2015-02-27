@@ -75,7 +75,7 @@
             this.gameName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(28)))), ((int)(((byte)(11)))));
             this.gameName.Location = new System.Drawing.Point(40, 9);
             this.gameName.Name = "gameName";
-            this.gameName.Size = new System.Drawing.Size(553, 80);
+            this.gameName.Size = new System.Drawing.Size(550, 80);
             this.gameName.TabIndex = 0;
             this.gameName.Text = "Ultimate Tank Clash";
             this.gameName.Click += new System.EventHandler(this.GameName_Click);
@@ -199,8 +199,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "MainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "MainMenu";
+            this.Text = "Main Menu";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.MainMenu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

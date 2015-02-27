@@ -135,6 +135,7 @@
     <Content Include="Resources\consumables.png" />
     <Content Include="Resources\Maps\Map_Glory.txt" />
     <Content Include="Resources\tanks.png" />
+    <None Include="Resources\teamFrontPic.png" />
     <None Include="UltimateTankClassDiagram.cd" />
     <None Include="Resources\mute.png" />
     <None Include="Resources\pause.png" />
