@@ -197,7 +197,7 @@
             }
             catch (Exception)
             {
-                throw new MapNotFoundException("Missing Map File!");
+                throw;
             }
         }
     }
